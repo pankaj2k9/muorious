@@ -4,22 +4,25 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
+import Button from '../atoms/Button'
 
 
 class RootIndex extends React.Component {
   render() {
-    console.log("Data : ", this.props.data);
+    // console.log("Data : ", this.props.data);
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    console.log("Site metadata", siteTitle)
+    // console.log("Site metadata", siteTitle)
     // const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     // const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     return (
       <LayoutWithThemeProvider>
+      <React.Fragment>
         <Helmet>
           <title>{siteTitle}</title>
         </Helmet>
-          Home
+          <Button primary>Home</Button>
+          </React.Fragment>
       </LayoutWithThemeProvider>
     )
   }

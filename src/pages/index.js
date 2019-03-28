@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 
+import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
+
 
 class RootIndex extends React.Component {
   render() {
@@ -13,9 +15,12 @@ class RootIndex extends React.Component {
     // const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     return (
-      <div>
-        Home
-      </div>
+      <LayoutWithThemeProvider>
+        <Helmet>
+          <title>{siteTitle}</title>
+        </Helmet>
+          Home
+      </LayoutWithThemeProvider>
     )
   }
 }

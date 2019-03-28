@@ -32,6 +32,12 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
-    }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+       displayName: true //When true useful for debug
+      },
+    },
   ],
 }

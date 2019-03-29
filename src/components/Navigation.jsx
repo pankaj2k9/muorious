@@ -11,4 +11,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default Template
+export default Navigation

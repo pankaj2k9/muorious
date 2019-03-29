@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '../utils/styling';
+
+import { Fonts, defaultTheme } from '../utils/styling';
 
 
 
 const LayoutWithThemeProvider = ({ children, theme }) => {
   return (
     <ThemeProvider theme={theme}>
-      { children }
+      <React.Fragment>
+        <Fonts/>
+        { children }
+      </React.Fragment>
     </ThemeProvider>
   )
 };

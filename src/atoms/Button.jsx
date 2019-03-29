@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { darken } from 'polished';
 
-import {getColors} from "../utils/styling";
+import { getColors } from "../utils/styling";
 
 
 const cssForPrimary = ({ theme, primary }) => {
@@ -41,6 +41,7 @@ const Button = styled("button")`
   width: 100%;
   border: none;
   outline: none;
+  font-family: Modern Era;
 
   ${props => cssForPrimary(props)}
   ${props => cssForSecondary(props)}

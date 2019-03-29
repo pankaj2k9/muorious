@@ -1,7 +1,8 @@
 import defaultTheme from './defaultTheme';
 import getColors from './colors';
+import Fonts from './fonts';
 
 
 
 
-export {defaultTheme, getColors}
+export {Fonts, defaultTheme, getColors}

@@ -21,7 +21,9 @@ class RootIndex extends React.Component {
         <Helmet>
           <title>{siteTitle}</title>
         </Helmet>
-          <Button primary>Home</Button>
+          <Button primary>Primary</Button>
+          <Button secondary>Secondary</Button>
+          <Button>Home</Button>
           </React.Fragment>
       </LayoutWithThemeProvider>
     )

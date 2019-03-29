@@ -35,6 +35,13 @@ const cssForSecondary = ({ theme, primary, secondary }) => {
 
 
 const Button = styled("button")`
+  cursor: pointer;
+  padding: 12px;
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  outline: none;
+
   ${props => cssForPrimary(props)}
   ${props => cssForSecondary(props)}
 `

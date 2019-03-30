@@ -4,8 +4,14 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
+import Nav from '../components/Navigation'
 import Button from '../atoms/Button'
-
+import Section from '../atoms/Section/Section'
+import { H1, H4 } from '../atoms/Texts'
+import Row from '../atoms/Row'
+import Col from '../atoms/Col'
+import Container from '../atoms/Container'
+import { HeroImg } from'../atoms/Images/Images.jsx'
 
 class RootIndex extends React.Component {
   render() {
@@ -15,15 +21,33 @@ class RootIndex extends React.Component {
     // const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     // const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
+    const content = this.props.data.allContentfulHomepage.edges[0].node
     return (
       <LayoutWithThemeProvider>
-      <React.Fragment>
+        <React.Fragment>
         <Helmet>
           <title>{siteTitle}</title>
         </Helmet>
-          <Button primary>Primary</Button>
-          <Button secondary>Secondary</Button>
-          <Button>Home</Button>
+        <main> 
+            <Nav />
+            <Section hero>
+                <Container>
+                    <Row>
+                        <Col equal>
+                            <H1 color="white">
+                                { content.tagline }
+                            </H1>
+                            <H4 color="white">
+                                { content.description }
+                            </H4>
+                            <Button secondary>Request demo</Button>
+                        </Col>
+                        <Col equal />
+                    </Row>
+                </Container>
+                <HeroImg src={this.props.data.allContentfulHomepage.edges[0].node.heroImage.file.url}/>
+            </Section>
+        </main>
           </React.Fragment>
       </LayoutWithThemeProvider>
     )
@@ -34,13 +58,24 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulTest {
-      edges {
-        node {
-          testContent
+    allContentfulHomepage {
+        edges {
+          node {
+            id
+            title
+            tagline
+            description
+            heroImage {
+              id
+              file {
+                url
+                fileName
+                contentType
+              }
+            }
+          }
         }
-      }
-    }
+      }      
     site {
       siteMetadata {
         title

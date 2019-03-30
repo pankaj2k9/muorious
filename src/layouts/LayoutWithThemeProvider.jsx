@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 
-import { Fonts, defaultTheme } from '../utils/styling';
+import { Fonts, defaultTheme, Reset } from '../utils/styling';
 
 
 
@@ -10,6 +10,7 @@ const LayoutWithThemeProvider = ({ children, theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
+        <Reset />
         <Fonts/>
         { children }
       </React.Fragment>

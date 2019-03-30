@@ -1,8 +1,15 @@
 import styled from "styled-components";
+import css from "styled-components"
+import { getColors } from "../utils/styling";
 
+const rightColor = ({ theme, color }) => {
+    return getColors(theme)[color]
+}
 
 const H1 = styled("h2")`
   font-size: 48px;
+  font-weight: 400;
+  color: ${props => rightColor(props)};
 `
 
 const H2 = styled("h3")`
@@ -15,6 +22,8 @@ const H3 = styled("h4")`
 
 const H4 = styled("h5")`
   font-size: 24px;
+  font-weight: 400;
+  color: ${props => rightColor(props)};
 `
 
 const H5 = styled("h6")`
@@ -41,4 +50,4 @@ const TextXSmall= styled("p")`
   font-size: 18px;
 `
 
-export default { H1, H2, H3, H4, H5, H6, TextBig, Text, TextSmall, TextXSmall };
+export { H1, H2, H3, H4, H5, H6, TextBig, Text, TextSmall, TextXSmall };

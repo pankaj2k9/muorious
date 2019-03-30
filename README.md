@@ -1,5 +1,5 @@
 # Miuros
-Miuros's Website
+Miuros.com - Marketing Website
 
 ## Packages
 Install Packages

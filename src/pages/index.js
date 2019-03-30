@@ -11,7 +11,7 @@ import { H1, H4 } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import Container from '../atoms/Container'
-import { HeroImg } from'../atoms/Images/Images.jsx'
+import { HeroImg, CustomerLogo } from'../atoms/Images/Images.jsx'
 
 class RootIndex extends React.Component {
   render() {
@@ -30,7 +30,7 @@ class RootIndex extends React.Component {
         </Helmet>
         <main> 
             <Nav />
-            <Section hero>
+            <Section hero="true">
                 <Container>
                     <Row>
                         <Col equal>
@@ -45,7 +45,19 @@ class RootIndex extends React.Component {
                         <Col equal />
                     </Row>
                 </Container>
-                <HeroImg src={this.props.data.allContentfulHomepage.edges[0].node.heroImage.file.url}/>
+                <HeroImg src={content.heroImage.file.url}/>
+            </Section>
+            <Section customerLogos>
+                <Container>
+                    <Row customerLogos>
+                        {content.customerLogos.map((logo) => (
+                            logo.customerLogo && 
+                            <a href={logo.customerUrl} >
+                                <CustomerLogo src={logo.customerLogo.file.url} />
+                            </a>
+                        ))}
+                    </Row>   
+                </Container>
             </Section>
         </main>
           </React.Fragment>
@@ -66,16 +78,24 @@ export const pageQuery = graphql`
             tagline
             description
             heroImage {
-              id
-              file {
-                url
-                fileName
-                contentType
-              }
+                file {
+                    url
+                }
             }
-          }
+            customerLogos {
+                customerUrl
+                customerLogo {
+                    id
+                    file {
+                        url
+                        fileName
+                        contentType
+                    }
+                }
+            }
         }
-      }      
+    }
+      }  
     site {
       siteMetadata {
         title

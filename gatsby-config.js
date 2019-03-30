@@ -2,7 +2,7 @@ let contentfulConfig
 
 try {
   // Load the Contentful config from the .contentful.json
-  contentfulConfig = require('./.contentful')
+  contentfulConfig = require('./.contentful.json')
 } catch (_) {}
 
 // Overwrite the Contentful config with environment variables if they exist

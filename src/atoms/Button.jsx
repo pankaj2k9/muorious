@@ -42,6 +42,7 @@ const Button = styled("button")`
   border: none;
   outline: none;
   font-family: Modern Era;
+  font-weight: 500;
 
   ${props => cssForPrimary(props)}
   ${props => cssForSecondary(props)}

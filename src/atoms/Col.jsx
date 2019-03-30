@@ -39,12 +39,15 @@ const styleForEqualCols = ({ theme, equal }) => {
 const Col = styled("div")`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
 
     ${props => styleForNavLeft(props)}
     ${props => styleForNavRight(props)}
     ${props => styleForEqualCols(props)}
+    ${props => props.center 
+    ? "justify-content: center;"
+    : "justify-content: space-between;"
+    }
 `
 
 export default Col

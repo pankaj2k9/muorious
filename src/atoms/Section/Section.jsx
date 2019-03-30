@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import IndexHeroBg from './IndexHeroBg.png'
-import IndexTestimonialsBg from './IndexTestimonialsBg.png'
+import IndexTestimonials from './IndexTestimonials.png'
 import { getColors } from "../../utils/styling";
 
 const Section = styled("section")`
@@ -10,9 +10,18 @@ const Section = styled("section")`
         `height: 696px; background-image: url(${IndexHeroBg}); background-size: cover;`
     }
     ${ props => props.customerLogos && `padding: 40px 0; background-color: ${getColors(props.theme).grey3}`}
-    ${ props => props.intro && "height: 512px; p { margin-top: 20px; }"}
+    ${ props => props.intro && "height: 512px; p { margin-top: 20px; } button { margin-top: 20px; }"}
     ${ props => props.testimonials && 
-        `height: 472px; background-image: url(${IndexTestimonialsBg}); background-size:cover`
+        `height: 472px; background-image: url(${IndexTestimonials}); background-size:cover`
+    }
+    ${ props => props.features &&
+        "height: 275px; div { width: 84%; margin: auto; }; h2 { margin: auto; display: block; }"
+    }
+    ${ props => props.grey &&
+        `background-color: ${getColors(props.theme).grey3};`
+    }
+    ${ props => props.cta &&
+        `background-image: url(${props.src}); background-size: cover; height: 558px; button {width: 200px; margin: 20px auto;}`
     }
 `
 

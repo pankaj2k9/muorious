@@ -10,6 +10,9 @@ const H1 = styled("h2")`
   font-size: 48px;
   font-weight: 400;
   color: ${props => rightColor(props)};
+  ${props => props.center && 
+    "text-align: center;"
+  }
 `
 
 const H2 = styled("h3")`

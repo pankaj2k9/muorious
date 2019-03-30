@@ -24,5 +24,6 @@ const SideImg = styled("img").attrs(props => ({
 }))`
     display: block;
     max-width: 75%;
+    margin: auto;
 `
 export { HeroImg, CustomerLogo, SideImg }

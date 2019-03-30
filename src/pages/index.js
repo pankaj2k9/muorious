@@ -72,6 +72,12 @@ class RootIndex extends React.Component {
                     </Row>
                 </Container>
             </Section>
+            <Section testimonials>
+                <Container>
+                    <Row>
+                    </Row>
+                </Container>
+            </Section>
         </main>
           </React.Fragment>
       </LayoutWithThemeProvider>

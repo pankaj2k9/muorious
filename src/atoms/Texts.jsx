@@ -36,6 +36,12 @@ const H6 = styled("h1")`
 
 const TextBig = styled("p")`
   font-size: 18px;
+  line-height: 32px;
+  color: ${props => rightColor(props)}
+`
+const TextHighlighter = styled("span")`
+    font-weight: 700;
+    color: ${props => rightColor(props)}
 `
 
 const Text = styled("p")`
@@ -50,4 +56,4 @@ const TextXSmall= styled("p")`
   font-size: 18px;
 `
 
-export { H1, H2, H3, H4, H5, H6, TextBig, Text, TextSmall, TextXSmall };
+export { H1, H2, H3, H4, H5, H6, TextBig, TextHighlighter, Text, TextSmall, TextXSmall };

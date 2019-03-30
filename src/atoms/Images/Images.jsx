@@ -19,5 +19,10 @@ const CustomerLogo = styled("img").attrs(props => ({
     opacity: 0.4;
     max-width: 100%;
 `
-
-export { HeroImg, CustomerLogo }
+const SideImg = styled("img").attrs(props => ({
+    src: props.src
+}))`
+    display: block;
+    max-width: 75%;
+`
+export { HeroImg, CustomerLogo, SideImg }

@@ -9,6 +9,7 @@ const Section = styled("section")`
         `height: 696px; background-image: url(${IndexHeroBg}); background-size: cover;`
     }
     ${ props => props.customerLogos && `padding: 40px 0; background-color: ${getColors(props.theme).grey3}`}
+    ${ props => props.intro && "height: 512px; p { margin-top: 20px; }"}
 `
 
 export default Section

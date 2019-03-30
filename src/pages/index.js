@@ -7,11 +7,11 @@ import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Button from '../atoms/Button'
 import Section from '../atoms/Section/Section'
-import { H1, H4 } from '../atoms/Texts'
+import { H1, H4, TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import Container from '../atoms/Container'
-import { HeroImg, CustomerLogo } from'../atoms/Images/Images.jsx'
+import { HeroImg, CustomerLogo, SideImg } from'../atoms/Images/Images.jsx'
 
 class RootIndex extends React.Component {
   render() {
@@ -50,13 +50,26 @@ class RootIndex extends React.Component {
             <Section customerLogos>
                 <Container>
                     <Row customerLogos>
-                        {content.customerLogos.map((logo) => (
+                        {content.customerLogos.map((logo, index) => (
                             logo.customerLogo && 
-                            <a href={logo.customerUrl} >
+                            <a key={index} href={logo.customerUrl} >
                                 <CustomerLogo src={logo.customerLogo.file.url} />
                             </a>
                         ))}
                     </Row>   
+                </Container>
+            </Section>
+            <Section intro>
+                <Container>
+                    <Row>
+                        <Col equal>
+                            <SideImg src={content.valueImage.file.url} />
+                        </Col>
+                        <Col equal>
+                            <H1>{ content.valueTitle }</H1>
+                            <TextBig color="grey4">{ content.valueDescription.valueDescription }</TextBig>
+                        </Col>
+                    </Row>
                 </Container>
             </Section>
         </main>
@@ -93,6 +106,16 @@ export const pageQuery = graphql`
                     }
                 }
             }
+            valueImage {
+                file {
+                  url
+                }
+              }
+              valueTitle
+              valueDescription {
+                id
+                valueDescription
+              }
         }
     }
       }  

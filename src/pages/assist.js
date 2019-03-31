@@ -12,6 +12,7 @@ import { H1, H3DIFF, TextXSmall , TextBig, TextHighlighter } from '../atoms/Text
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import Container from '../atoms/Container'
+import WideContainer from '../atoms/Container'
 import { AssistHeroImg, AssistSideImg } from'../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
 import Testimonials from '../components/Testimonials'
@@ -40,11 +41,10 @@ class Assist extends React.Component {
                             </Container>
                         </Section>
                         <Section benefits>
-                            <AssistSideImg src={content.benefitsImage.file.url} />
-                            <Container>
+                            <WideContainer>
                                 <Row>
                                     <Col equal>
-                                    b
+                                    <AssistSideImg src={content.benefitsImage.file.url} />
                                     </Col>
                                     <Col equal benefit>
                                         <div>
@@ -61,7 +61,7 @@ class Assist extends React.Component {
                                         </div>
                                     </Col>
                                 </Row>
-                            </Container>
+                            </WideContainer>
                         </Section>
                         <Testimonials />
                         <Section src={this.props.data.allContentfulHomepage.edges[0].node.bottomCtaImage.file.url} cta>

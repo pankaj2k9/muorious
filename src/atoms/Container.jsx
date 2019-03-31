@@ -11,4 +11,8 @@ const Container = styled("div")`
     height: 100%;
 `
 
-export default Container
+const WideContainer = styled("div")`
+    display: flex;
+    width: 100%:
+`
+export default { Container, WideContainer }

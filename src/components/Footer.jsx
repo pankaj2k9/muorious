@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "gatsby"
+
 import styled from 'styled-components'
 import Logo from '../atoms/Logo/Logo'
 import LinkedinLogo from '../atoms/Logo/Linkedin-Logo.png'
@@ -45,6 +47,11 @@ const FooterFeaturesTitle = styled.div `
 
 const FooterFeaturesDetails = styled.div `
     padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    a {
+        color: white;
+    }
 `
 
 const FooterIntegrationsTitle = styled.div `
@@ -58,6 +65,11 @@ const FooterInformationsTitle = styled.div `
 const FooterCompany = styled.div `
     margin-right: 120px;
     line-height: 32px;
+    display: flex;
+    flex-direction: column;
+    a {
+        color: white;
+    }
 `
 
 const FooterContactInfo = styled.div `
@@ -89,26 +101,26 @@ class Footer extends React.Component {
             <FooterSection>
                 <FooterContent>
                     <FooterMiurosAsset>
-                        <Logo />
+                        <Link to="/"><Logo /></Link>
                         <FooterMiurosSocialMedia>
-                            <FooterTwitterLogo src={TwitterLogo}></FooterTwitterLogo>
-                            <img src={LinkedinLogo}></img>
+                        <Link to="https://twitter.com/miuros_software"><FooterTwitterLogo src={TwitterLogo}></FooterTwitterLogo></Link>
+                        <Link to="https://www.linkedin.com/company/miuros/"><img src={LinkedinLogo}></img></Link>
                         </FooterMiurosSocialMedia>
                     </FooterMiurosAsset>
                     <FooterFeatures>
                         <FooterFeaturesTitle>Features</FooterFeaturesTitle>
                         <FooterFeaturesDetails>
-                            <p>Assist</p>
-                            <p>Insights</p>
-                            <p>Experience</p>
+                            <Link to="/assist">Assist</Link>
+                            <Link to="/insights">Insights</Link>
+                            <Link to="/#experience">Experience</Link>
                         </FooterFeaturesDetails>
                         <FooterIntegrationsTitle>Integrations</FooterIntegrationsTitle>
                     </FooterFeatures>
                     <FooterCompany>
                         <FooterInformationsTitle>Informations</FooterInformationsTitle>
-                        <p>About</p>
-                        <p>Career</p>
-                        <p>Privacy</p>
+                        <Link to="/about">About</Link>
+                        <Link href="https://angel.co/miuros/jobs">Careers</Link>
+                        <Link href="/privacy">Privacy</Link>
                     </FooterCompany>
                     <FooterContactInfo>
                         <FooterContactTitle>Miuros SAS</FooterContactTitle>

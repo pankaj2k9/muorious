@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "gatsby"
 
 import Nav from '../atoms/Nav'
 import Logo from '../atoms/Logo/Logo'
@@ -14,15 +15,15 @@ const Navigation = ( props ) => (
         <Container>
             <Row>
                 <Col NavLeft>
-                    <Logo />
+                    <Link to="/"><Logo /></Link>
                     <List flex>
-                        <ListItem nav><a href="">Features</a></ListItem>
-                        <ListItem nav><a href="">Integrations</a></ListItem>
-                        <ListItem nav><a href="">About</a></ListItem>
+                        <ListItem nav><a>Features</a></ListItem>
+                        <ListItem nav><Link to="/#integrations">Integrations</Link></ListItem>
+                        <ListItem nav><Link to="/about">About</Link></ListItem>
                     </List>
                 </Col>
                 <Col NavRight>
-                    <StyledLink as="a" href="/">Login</StyledLink>
+                    <StyledLink as="a" href="/login">Login</StyledLink>
                     <Button secondary>Request demo</Button>
                 </Col>
             </Row>

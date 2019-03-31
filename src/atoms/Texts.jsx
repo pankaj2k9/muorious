@@ -6,7 +6,7 @@ const rightColor = ({ theme, color }) => {
     return getColors(theme)[color]
 }
 
-const H1 = styled("h2")`
+const H1 = styled("h1")`
   font-size: 48px;
   font-weight: 400;
   color: ${props => rightColor(props)};
@@ -15,25 +15,25 @@ const H1 = styled("h2")`
   }
 `
 
-const H2 = styled("h3")`
+const H2 = styled("h2")`
   font-size: 40px;
 `
 
-const H3 = styled("h4")`
+const H3 = styled("h3")`
   font-size: 32px;
 `
 
-const H4 = styled("h5")`
+const H4 = styled("h4")`
   font-size: 24px;
   font-weight: 400;
   color: ${props => rightColor(props)};
 `
 
-const H5 = styled("h6")`
+const H5 = styled("h5")`
   font-size: 16px;
 `
 
-const H6 = styled("h1")`
+const H6 = styled("h6")`
   font-size: 14px;
 `
 

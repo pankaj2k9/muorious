@@ -26,11 +26,11 @@ const styleForNavRight = ({ theme, NavRight }) => {
 
 const styleForEqualCols = ({ theme, equal }) => {
     if (equal) {
-        return css `
+        return css`
             flex:1;
             height: 50%;
             button {
-                width: 36%;
+                width: 200px;
             }
         `
     }
@@ -44,16 +44,14 @@ const Col = styled("div")`
     ${props => styleForNavLeft(props)}
     ${props => styleForNavRight(props)}
     ${props => styleForEqualCols(props)}
-    ${props => props.center 
-    ? "justify-content: center;"
-    : "justify-content: space-between;"
-    }
+    justify-content: ${({ center, justifyContent }) => justifyContent ? justifyContent : (center ? 'center' : 'space-between')};
     ${props => props.benefit &&
         "width: 50%; div { margin: auto; width: 58%; padding: 30px 0;}"
     }
-    ${props => props.bgi && 
+    ${props => props.bgi &&
         `background-image: url(${props.bgi}); background-size: cover; background-repeat: no-repeat;`
     }
+
 `
 
 export default Col

@@ -43,47 +43,47 @@ class RootIndex extends React.Component {
               <Container>
                 <Row>
                   <Col equal>
-                    <Breakpoint large up>
+                    <Breakpoint medium up>
                       <H1 color="white">
                         {content.tagline}
                       </H1>
                     </Breakpoint>
-                    <Breakpoint large down>
+                    <Breakpoint medium down>
                       <H1 color="white" center>
                         {content.tagline}
                       </H1>
                     </Breakpoint>
-                    <Breakpoint large up>
+                    <Breakpoint medium up>
                       <H4 color="white">
                         {content.description}
                       </H4>
                     </Breakpoint>
-                    <Breakpoint large up><Button secondary>Request demo</Button></Breakpoint>
-                    <Breakpoint large down><FlexWrapper><Button secondary>Request demo</Button></FlexWrapper></Breakpoint>
+                    <Breakpoint medium up><Button secondary>Request demo</Button></Breakpoint>
+                    <Breakpoint medium down><FlexWrapper><Button secondary>Request demo</Button></FlexWrapper></Breakpoint>
                   </Col>
-                  <Breakpoint large up>
+                  <Breakpoint medium up>
                     <Col equal />
                   </Breakpoint>
                 </Row>
               </Container>
-              <Breakpoint large up>
+              <Breakpoint medium up>
                 <IndexHeroImg src={content.heroImage.file.url} />
               </Breakpoint>
             </Section>
-            <Breakpoint large down>
+            <Breakpoint medium down>
               <Img src={content.heroImage.file.url} />
             </Breakpoint>
             <Section customerLogos>
               <Container>
                 <Row customerLogos>
-                  <Breakpoint large up>{content.customerLogos.map((logo, index) => (
+                  <Breakpoint medium up>{content.customerLogos.map((logo, index) => (
                     logo.customerLogo &&
                     <a key={index} href={logo.customerUrl} >
                       <IndexCustomerLogo src={logo.customerLogo.file.url} />
                     </a>
                   ))}
                   </Breakpoint>
-                  <Breakpoint large down>{content.customerLogos.slice(0, 3).map((logo, index) => (
+                  <Breakpoint medium down>{content.customerLogos.slice(0, 3).map((logo, index) => (
                     logo.customerLogo &&
                     <a key={index} href={logo.customerUrl} >
                       <IndexCustomerLogo src={logo.customerLogo.file.url} />
@@ -96,7 +96,7 @@ class RootIndex extends React.Component {
             <Section intro>
               <Container>
                 <Row>
-                  <Breakpoint large up>
+                  <Breakpoint medium up>
                     <>
                       <Col equal>
                         <IndexSideImg src={content.valueImage.file.url} />
@@ -107,7 +107,7 @@ class RootIndex extends React.Component {
                       </Col>
                     </>
                   </Breakpoint>
-                  <Breakpoint large down>
+                  <Breakpoint medium down>
                     <>
                       <Col>
                         <IndexSideImg src={content.valueImage.file.url} />
@@ -119,17 +119,17 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            <Breakpoint large up>
+            <Breakpoint medium up>
                 <Testimonials />
             </Breakpoint>
             <Section features>
               <Container>
                 <Row>
                   <Col>
-                    <Breakpoint large up>
+                    <Breakpoint medium up>
                       <H1 center>{content.featuresTitle}</H1>
                     </Breakpoint>
-                    <Breakpoint large down>
+                    <Breakpoint medium down>
                       <H1 small>{content.featuresTitle}</H1>
                     </Breakpoint>
                   </Col>
@@ -139,7 +139,7 @@ class RootIndex extends React.Component {
             <Section intro>
               <Container>
                 <Row>
-                  <Breakpoint large up>
+                  <Breakpoint medium up>
                     <>
                       <Col equal center>
                         <H1>{content.feature1Title}</H1>
@@ -151,7 +151,7 @@ class RootIndex extends React.Component {
                       </Col>
                     </>
                   </Breakpoint>
-                  <Breakpoint large down>
+                  <Breakpoint medium down>
                     <>
                       <Col>
                         <Img src={content.feature1Image.file.url} />
@@ -167,7 +167,7 @@ class RootIndex extends React.Component {
             <Section intro>
               <Container>
                 <Row autoHeight>
-                  <Breakpoint large up>
+                  <Breakpoint medium up>
                     <>
                       <Col equal center>
                         <IndexSideImg src={content.feature2Image.file.url} />
@@ -179,7 +179,7 @@ class RootIndex extends React.Component {
                       </Col>
                     </>
                   </Breakpoint>
-                  <Breakpoint large down>
+                  <Breakpoint medium down>
                     <>
                       <Col >
                         <Img src={content.feature2Image.file.url} />
@@ -194,7 +194,7 @@ class RootIndex extends React.Component {
             </Section>
             <Section intro>
               <Container>
-                <Breakpoint large up>
+                <Breakpoint medium up>
                   <Row>
                     <Col equal center>
                       <H1>{content.feature3Title}<Note>Coming soon</Note></H1>
@@ -207,7 +207,7 @@ class RootIndex extends React.Component {
                     </Col>
                   </Row>
                 </Breakpoint>
-                <Breakpoint large down>
+                <Breakpoint medium down>
                   <Row autoHeight>
                     <Col>
                       <Img src={content.feature3Image.file.url} />
@@ -222,7 +222,7 @@ class RootIndex extends React.Component {
             </Section>
             <Section intro grey>
               <Container>
-                <Breakpoint large up>
+                <Breakpoint medium up>
                   <Row>
                     <Col equal center>
                       <IndexSideImg src={content.integrationImage.file.url} />
@@ -235,7 +235,7 @@ class RootIndex extends React.Component {
                     </Col>
                   </Row>
                 </Breakpoint>
-                <Breakpoint large down>
+                <Breakpoint medium down>
                   <Row>
                     <Col>
                       <Img src={content.integrationImage.file.url} />
@@ -258,7 +258,7 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            <Breakpoint large up><Footer /></Breakpoint>
+            <Footer />
           </main>
         </React.Fragment>
       </LayoutWithThemeProvider >

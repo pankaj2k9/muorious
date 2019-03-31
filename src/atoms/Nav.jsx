@@ -1,13 +1,12 @@
 import styled from 'styled-components'
-import { getColors } from "../utils/styling";
 
 const Nav = styled("nav")`
-    position: absolute;
+    position: ${({ position }) => position ? position : 'absolute'};
     width: 100%;
     z-index: 10;
-    background-color: #174F49;
-    div {
-        height: 96px;
+    background-color: ${({ dark, light }) => dark ? '#174F49' : (light ? '#fff' : 'transparent')};
+    & > div {
+        height: ${({ small }) => small ? '72px' : '96px'};
     }
 `
 

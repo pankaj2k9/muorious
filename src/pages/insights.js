@@ -6,13 +6,13 @@ import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
 
-import InsightsHeroImg from '../atoms/Images/InsightsHeroImg.png'
+import InsightsHeroImg from '../atoms/Images/InsightsHeroImg.svg'
 import InsightsBenefitsImg from '../atoms/Images/InsightsBenefitsImg.png'
 
-import QualityAssuranceIllu from '../atoms/Images/QualityAssuranceIllu.png'
-import CommunicationAnalysisIllu from '../atoms/Images/CommunicationAnalysisIllu.png'
-import TemplateAnalysisIllu from '../atoms/Images/TemplateAnalysisIllu.png'
-import AgentPerformanceIllu from '../atoms/Images/AgentPerformanceIllu.png'
+import QualityAssuranceIllu from '../atoms/Images/QualityAssuranceImg.svg'
+import CommunicationAnalysisIllu from '../atoms/Images/CommunicationAnalysisImg.svg'
+import TemplateAnalysisIllu from '../atoms/Images/TemplateAnalysisImg.svg'
+import AgentPerformanceIllu from '../atoms/Images/AgentPerformanceImg.svg'
 
 const InsightsHeroSection = styled.section `
     padding-top: 96px;

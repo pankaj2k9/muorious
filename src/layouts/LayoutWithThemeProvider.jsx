@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-
+import BreakpointProvider from '../components/layout/BreakpointProvider'
 import { Fonts, defaultTheme, Reset } from '../utils/styling';
 
 
@@ -9,11 +9,13 @@ import { Fonts, defaultTheme, Reset } from '../utils/styling';
 const LayoutWithThemeProvider = ({ children, theme }) => {
   return (
     <ThemeProvider theme={theme}>
-      <React.Fragment>
-        <Reset />
-        <Fonts/>
-        { children }
-      </React.Fragment>
+      <BreakpointProvider>
+        <React.Fragment>
+          <Reset />
+          <Fonts />
+          {children}
+        </React.Fragment>
+      </BreakpointProvider>
     </ThemeProvider>
   )
 };

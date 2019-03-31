@@ -39,7 +39,7 @@ const styleForEqualCols = ({ theme, equal }) => {
 const Col = styled("div")`
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
 
     ${props => styleForNavLeft(props)}
     ${props => styleForNavRight(props)}

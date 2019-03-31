@@ -1,8 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-
+import Breakpoint from '../components/layout/Breakpoint'
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
@@ -12,9 +13,13 @@ import { H1, H4, TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import Container from '../atoms/Container'
-import { IndexHeroImg, IndexCustomerLogo, IndexSideImg } from'../atoms/Images/Images.jsx'
+import { IndexHeroImg, IndexCustomerLogo, IndexSideImg } from '../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
+import FlexWrapper from '../components/shared/FlexWrapper'
 
+const Img = styled.img`
+width: 100%;
+`
 class RootIndex extends React.Component {
   render() {
     // console.log("Data : ", this.props.data);
@@ -25,156 +30,229 @@ class RootIndex extends React.Component {
 
     const content = this.props.data.allContentfulHomepage.edges[0].node
     return (
+
       <LayoutWithThemeProvider>
         <React.Fragment>
-        <Helmet>
-          <title>{siteTitle}</title>
-        </Helmet>
-        <main> 
+          <Helmet>
+            <title>{siteTitle}</title>
+          </Helmet>
+          <main>
             <Nav />
             <Section indexHero>
-                <Container>
-                    <Row>
-                        <Col equal>
-                            <H1 color="white">
-                                { content.tagline }
-                            </H1>
-                            <H4 color="white">
-                                { content.description }
-                            </H4>
-                            <Button secondary>Request demo</Button>
-                        </Col>
-                        <Col equal />
-                    </Row>
-                </Container>
-                <IndexHeroImg src={content.heroImage.file.url}/>
+              <Container>
+                <Row>
+                  <Col equal>
+                    <Breakpoint large up>
+                      <H1 color="white">
+                        {content.tagline}
+                      </H1>
+                    </Breakpoint>
+                    <Breakpoint large down>
+                      <H1 color="white" center>
+                        {content.tagline}
+                      </H1>
+                    </Breakpoint>
+                    <Breakpoint large up>
+                      <H4 color="white">
+                        {content.description}
+                      </H4>
+                    </Breakpoint>
+                    <Breakpoint large up><Button secondary>Request demo</Button></Breakpoint>
+                    <Breakpoint large down><FlexWrapper><Button secondary>Request demo</Button></FlexWrapper></Breakpoint>
+                  </Col>
+                  <Breakpoint large up>
+                    <Col equal />
+                  </Breakpoint>
+                </Row>
+              </Container>
+              <Breakpoint large up>
+                <IndexHeroImg src={content.heroImage.file.url} />
+              </Breakpoint>
             </Section>
+            <Breakpoint large down>
+              <Img src={content.heroImage.file.url} />
+            </Breakpoint>
             <Section customerLogos>
-                <Container>
-                    <Row customerLogos>
-                        {content.customerLogos.map((logo, index) => (
-                            logo.customerLogo && 
-                            <a key={index} href={logo.customerUrl} >
-                                <IndexCustomerLogo src={logo.customerLogo.file.url} />
-                            </a>
-                        ))}
-                    </Row>   
-                </Container>
+              <Container>
+                <Row customerLogos>
+                  <Breakpoint large up>{content.customerLogos.map((logo, index) => (
+                    logo.customerLogo &&
+                    <a key={index} href={logo.customerUrl} >
+                      <IndexCustomerLogo src={logo.customerLogo.file.url} />
+                    </a>
+                  ))}
+                  </Breakpoint>
+                  <Breakpoint large down>{content.customerLogos.slice(0, 3).map((logo, index) => (
+                    logo.customerLogo &&
+                    <a key={index} href={logo.customerUrl} >
+                      <IndexCustomerLogo src={logo.customerLogo.file.url} />
+                    </a>
+                  ))}
+                  </Breakpoint>
+                </Row>
+              </Container>
             </Section>
             <Section intro>
-                <Container>
-                    <Row>
-                        <Col equal>
-                            <IndexSideImg src={content.valueImage.file.url} />
-                        </Col>
-                        <Col equal>
-                            <H1>{ content.valueTitle }</H1>
-                            <TextBig color="grey4">{ content.valueDescription.valueDescription }</TextBig>
-                        </Col>
-                    </Row>
-                </Container>
+              <Container>
+                <Row>
+                  <Breakpoint large up>
+                    <>
+                      <Col equal>
+                        <IndexSideImg src={content.valueImage.file.url} />
+                      </Col>
+                      <Col equal>
+                        <H1>{content.valueTitle}</H1>
+                        <TextBig color="grey4">{content.valueDescription.valueDescription}</TextBig>
+                      </Col>
+                    </>
+                  </Breakpoint>
+                  <Breakpoint large down>
+                    <>
+                      <Col>
+                        <IndexSideImg src={content.valueImage.file.url} />
+                        <H1 small>{content.valueTitle}</H1>
+                        <TextBig color="grey4">{content.valueDescription.valueDescription}</TextBig>
+                      </Col>
+                    </>
+                  </Breakpoint>
+                </Row>
+              </Container>
             </Section>
-            <Section testimonials>
+            <Breakpoint large up>
+              <Section testimonials>
                 <Container>
-                    <Row>
-                    </Row>
+                  <Row />
                 </Container>
-            </Section>
+              </Section>
+            </Breakpoint>
             <Section features>
-                <Container>
-                    <Row>
-                        <Col>
-                            <H1 center>{ content.featuresTitle }</H1>
-                        </Col>
-                    </Row>
-                </Container>
+              <Container>
+                <Row>
+                  <Col>
+                    <Breakpoint large up>
+                      <H1 center>{content.featuresTitle}</H1>
+                    </Breakpoint>
+                    <Breakpoint large down>
+                      <H1 small>{content.featuresTitle}</H1>
+                    </Breakpoint>
+                  </Col>
+                </Row>
+              </Container>
             </Section>
             <Section intro>
-                <Container>
-                    <Row>
-                        <Col equal center>
-                            <H1>{ content.feature1Title }</H1>
-                            <TextBig color="grey4">{ content.feature1Description.feature1Description }</TextBig>
-                            <Button primary>Learn about Assist</Button>
-                        </Col>
-                        <Col equal center>
-                            <IndexSideImg src={content.feature1Image.file.url} />
-                        </Col>
-                    </Row>
-                </Container>
+              <Container>
+                <Row>
+                  <Breakpoint large up>
+                    <>
+                      <Col equal center>
+                        <H1>{content.feature1Title}</H1>
+                        <TextBig color="grey4">{content.feature1Description.feature1Description}</TextBig>
+                        <Button primary>Learn about Assist</Button>
+                      </Col>
+                      <Col equal center>
+                        <IndexSideImg src={content.feature1Image.file.url} />
+                      </Col>
+                    </>
+                  </Breakpoint>
+                  <Breakpoint large down>
+                    <>
+                      <Col>
+                        <Img src={content.feature1Image.file.url} />
+                        <H1 small>{content.feature1Title}</H1>
+                        <TextBig color="grey4">{content.feature1Description.feature1Description}</TextBig>
+                        <FlexWrapper><Button primary>Learn about Assist</Button></FlexWrapper>
+                      </Col>
+                    </>
+                  </Breakpoint>
+                </Row>
+              </Container>
             </Section>
             <Section intro>
-                <Container>
-                    <Row>
-                        <Col equal center>
-                            <IndexSideImg src={content.feature2Image.file.url} />
-                        </Col>
-                        <Col equal center>
-                            <H1>{ content.feature2Title }</H1>
-                            <TextBig color="grey4">{ content.feature2Description.feature2Description }</TextBig>
-                            <Button primary>Learn about Insights</Button>
-                        </Col>
-                    </Row>
-                </Container>
+              <Container>
+                <Row autoHeight>
+                  <Breakpoint large up>
+                    <>
+                      <Col equal center>
+                        <IndexSideImg src={content.feature2Image.file.url} />
+                      </Col>
+                      <Col equal center>
+                        <H1>{content.feature2Title}</H1>
+                        <TextBig color="grey4">{content.feature2Description.feature2Description}</TextBig>
+                        <Button primary>Learn about Insights</Button>
+                      </Col>
+                    </>
+                  </Breakpoint>
+                  <Breakpoint large down>
+                    <>
+                      <Col >
+                        <Img src={content.feature2Image.file.url} />
+                        <H1 small>{content.feature2Title}</H1>
+                        <TextBig color="grey4">{content.feature2Description.feature2Description}</TextBig>
+                        <FlexWrapper><Button primary>Learn about Insights</Button></FlexWrapper>
+                      </Col>
+                    </>
+                  </Breakpoint>
+                </Row>
+              </Container>
             </Section>
             <Section intro>
-                <Container>
-                    <Row>
-                        <Col equal center>
-                            <H1>{ content.feature3Title }<Note>Coming soon</Note></H1>
-                            <TextBig color="grey4">
-                                { content.feature3Description.feature3Description }
-                            </TextBig>
-                        </Col>
-                        <Col equal center>
-                            <IndexSideImg src={content.feature3Image.file.url} />
-                        </Col>
-                    </Row>
-                </Container>
+              <Container>
+                <Row>
+                  <Col equal center>
+                    <H1>{content.feature3Title}<Note>Coming soon</Note></H1>
+                    <TextBig color="grey4">
+                      {content.feature3Description.feature3Description}
+                    </TextBig>
+                  </Col>
+                  <Col equal center>
+                    <IndexSideImg src={content.feature3Image.file.url} />
+                  </Col>
+                </Row>
+              </Container>
             </Section>
             <Section intro grey>
-                <Container>
-                    <Row>
-                        <Col equal center>
-                            <IndexSideImg src={content.integrationImage.file.url} />
-                        </Col>
-                        <Col equal center>
-                            <H1>{ content.integrationTitle }</H1>
-                            <TextBig color="grey4">
-                                { content.integrationDescription.integrationDescription }
-                            </TextBig>
-                        </Col>
-                    </Row>
-                </Container>
+              <Container>
+                <Row>
+                  <Col equal center>
+                    <IndexSideImg src={content.integrationImage.file.url} />
+                  </Col>
+                  <Col equal center>
+                    <H1>{content.integrationTitle}</H1>
+                    <TextBig color="grey4">
+                      {content.integrationDescription.integrationDescription}
+                    </TextBig>
+                  </Col>
+                </Row>
+              </Container>
             </Section>
             <Section intro grey>
-                <Container>
-                    <Row>
-                        <Col equal center>
-                            <H1>{ content.integrationTitle }</H1>
-                            <TextBig color="grey4">
-                                { content.integrationDescription.integrationDescription }
-                            </TextBig>
-                        </Col>
-                        <Col equal center>
-                            <IndexSideImg src={content.integrationImage.file.url} />
-                        </Col>
-                    </Row>
-                </Container>
+              <Container>
+                <Row>
+                  <Col equal center>
+                    <H1>{content.integrationTitle}</H1>
+                    <TextBig color="grey4">
+                      {content.integrationDescription.integrationDescription}
+                    </TextBig>
+                  </Col>
+                  <Col equal center>
+                    <IndexSideImg src={content.integrationImage.file.url} />
+                  </Col>
+                </Row>
+              </Container>
             </Section>
             <Section src={content.bottomCtaImage.file.url} cta>
-                <Container>
-                    <Row>
-                        <Col center>
-                            <H1 color="white" center>{content.bottomCtaTitle}</H1>
-                            <Button secondary>Request demo</Button>
-                        </Col>
-                    </Row>
-                </Container>
+              <Container>
+                <Row>
+                  <Col center>
+                    <H1 color="white" center>{content.bottomCtaTitle}</H1>
+                    <Button secondary>Request demo</Button>
+                  </Col>
+                </Row>
+              </Container>
             </Section>
-            <Footer />
-        </main>
-          </React.Fragment>
+            {/* <Footer /> */}
+          </main>
+        </React.Fragment>
       </LayoutWithThemeProvider>
     )
   }

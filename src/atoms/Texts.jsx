@@ -3,16 +3,20 @@ import css from "styled-components"
 import { getColors } from "../utils/styling";
 
 const rightColor = ({ theme, color }) => {
-    return getColors(theme)[color]
+  return getColors(theme)[color]
 }
 
 const H1 = styled("h2")`
   font-size: 48px;
   font-weight: 400;
   color: ${props => rightColor(props)};
-  ${props => props.center && 
+  ${props => props.center &&
     "text-align: center;"
   }
+  ${({ small }) => small ? `
+    font-size: 24px;
+    line-height: 32px;
+  ` : ''}
 `
 
 const H2 = styled("h3")`
@@ -41,7 +45,7 @@ const TextBig = styled("p")`
   font-size: 18px;
   line-height: 32px;
   color: ${props => rightColor(props)}
-  ${props => props.center && 
+  ${props => props.center &&
     "text-align: center;"
   }
 `
@@ -58,7 +62,7 @@ const TextSmall = styled("p")`
   font-size: 14px;
 `
 
-const TextXSmall= styled("p")`
+const TextXSmall = styled("p")`
   font-size: 18px;
 `
 

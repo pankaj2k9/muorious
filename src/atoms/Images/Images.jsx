@@ -24,6 +24,8 @@ const IndexCustomerLogo = styled("img").attrs(props => ({
     src: props.src
 }))`
     margin: 0;
+    height: 21px;
+    width: auto;    
     opacity: 0.4;
     max-width: 100%;
 `

@@ -14,6 +14,7 @@ export default class BreakpointProvider extends Component {
     state = { value: { currentBreakpoint: 'xsmall', currentWidth: 0 } }
 
     componentDidMount() {
+        this.onResize()
         window.addEventListener('resize', this.onResize)
     }
 

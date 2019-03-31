@@ -5,6 +5,7 @@ try {
   contentfulConfig = require('./.contentful.json')
 } catch (_) {}
 
+
 // Overwrite the Contentful config with environment variables if they exist
 contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID || contentfulConfig.spaceId,

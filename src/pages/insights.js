@@ -9,6 +9,11 @@ import Footer from '../components/Footer'
 import InsightsHeroImg from '../atoms/Images/InsightsHeroImg.png'
 import InsightsBenefitsImg from '../atoms/Images/InsightsBenefitsImg.png'
 
+import QualityAssuranceIllu from '../atoms/Images/QualityAssuranceIllu.png'
+import CommunicationAnalysisIllu from '../atoms/Images/CommunicationAnalysisIllu.png'
+import TemplateAnalysisIllu from '../atoms/Images/TemplateAnalysisIllu.png'
+import AgentPerformanceIllu from '../atoms/Images/AgentPerformanceIllu.png'
+
 const InsightsHeroSection = styled.section `
     padding-top: 96px;
     height: 1100px;
@@ -86,23 +91,46 @@ const InsightsDasboardsSection = styled.section `
 `
 
 const InsightsFeaturesSection = styled.section `
-    height: 1200px;
+    height: 2000px;
+    max-width: 1440px;
+    margin: 0 auto;
 `
 
 const InsightsQualityAssurance = styled.div `
     display: flex;
 `
 
+const InsightsFeaturesTitle = styled.h3 `
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 48px;
+    color: #000000;
+    margin-right: 100px;
+    margin-left: 100px;
+`
+
+const InsightsFeaturesDescription = styled.p `
+    width: 470px;
+    font-size: 18px;
+    line-height: 32px;
+    color: #000000;
+    margin-right: 100px;
+    margin-left: 100px;
+`
+
 const InsightCommunicationAnalysis = styled.div `
     display: flex;
+    margin-top: 120px;
 `
 
 const InsightsTemplateAnalysis = styled.div `
     display: flex;
+    margin-top: 120px;
 `
 
 const InsightsAgentPerformance = styled.div `
     display: flex;
+    margin-top: 120px;
 `
 
 class Insights extends React.Component {
@@ -146,31 +174,31 @@ class Insights extends React.Component {
                 <InsightsFeaturesSection>
                     <InsightsQualityAssurance>
                         <div>
-                            <div>Quality Assurance</div>
-                            <div>Explore, navigate, slice and dice your data to validate assumptions, measure performance with a few clicks or compare each element with the average.</div>
+                            <InsightsFeaturesTitle>Quality Assurance</InsightsFeaturesTitle>
+                            <InsightsFeaturesDescription>Explore, navigate, slice and dice your data to validate assumptions, measure performance with a few clicks or compare each element with the average.</InsightsFeaturesDescription>
                         </div>
-                        <div>IMG</div>
+                        <img src={QualityAssuranceIllu}></img>
                     </InsightsQualityAssurance>
                     <InsightCommunicationAnalysis>
-                        <div>IMG</div>
+                    <img src={CommunicationAnalysisIllu}></img>
                         <div>
-                            <div>Communication Analysis</div>
-                            <div>Break down each of your key metrics depending on the usage of canned responses. Understand how they are used and how they impact your Customer Satisfaction and productivity. Monitor adherence to communication guidelines and identify optimization to be made.</div>
+                            <InsightsFeaturesTitle>Communication Analysis</InsightsFeaturesTitle>
+                            <InsightsFeaturesDescription>Break down each of your key metrics depending on the usage of canned responses. Understand how they are used and how they impact your Customer Satisfaction and productivity. Monitor adherence to communication guidelines and identify optimization to be made.</InsightsFeaturesDescription>
                         </div>
                     </InsightCommunicationAnalysis>
                     <InsightsTemplateAnalysis>
                         <div>
-                            <div>Template Analysis</div>
-                            <div>Build a healthy library of canned responses, figure out which ones have high re-opening rates, negative impact on your Customer Satisfaction, assess how often they’re being customized or even completely changed. 
-We also gives you visibility and metrics over private and non-official canned responses that your agents created for themselves.</div>
+                            <InsightsFeaturesTitle>Template Analysis</InsightsFeaturesTitle>
+                            <InsightsFeaturesDescription>Build a healthy library of canned responses, figure out which ones have high re-opening rates, negative impact on your Customer Satisfaction, assess how often they’re being customized or even completely changed. 
+We also gives you visibility and metrics over private and non-official canned responses that your agents created for themselves.</InsightsFeaturesDescription>
                         </div>
-                        <div>IMG</div>
+                        <img src={TemplateAnalysisIllu}></img>
                     </InsightsTemplateAnalysis>
                     <InsightsAgentPerformance>
-                        <div>IMG</div>
+                        <img src={AgentPerformanceIllu}></img>
                         <div>
-                            <div>Agent Performance</div>
-                            <div>Empower your staff to self-assess their performance, in a fair way, while saving the management team lots of analytical time. The Agent Performance dashboard will help your agents interpret their results and how their trends compare to others, giving them access with one click to the comments customers left about their work.</div>
+                            <InsightsFeaturesTitle>Agent Performance</InsightsFeaturesTitle>
+                            <InsightsFeaturesDescription>Empower your staff to self-assess their performance, in a fair way, while saving the management team lots of analytical time. The Agent Performance dashboard will help your agents interpret their results and how their trends compare to others, giving them access with one click to the comments customers left about their work.</InsightsFeaturesDescription>
                         </div>
                     </InsightsAgentPerformance>
                 </InsightsFeaturesSection>

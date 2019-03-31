@@ -49,7 +49,10 @@ const Col = styled("div")`
     : "justify-content: space-between;"
     }
     ${props => props.benefit &&
-        "height: 64%;"
+        "width: 50%; div { margin: auto; width: 58%; padding: 30px 0;}"
+    }
+    ${props => props.bgi && 
+        `background-image: url(${props.bgi}); background-size: cover; background-repeat: no-repeat;`
     }
 `
 

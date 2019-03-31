@@ -38,7 +38,16 @@ const Section = styled("section")`
     `}
     ${ props => props.testimonials && 
         `height: 472px; 
-        background-size:cover;`
+        background-size:cover;
+        .box {
+            padding: 6% 14%;
+            margin: auto;
+            width: 79%;
+            font-style: italic;
+            line-height: 40px;
+            background-color: ${getColors(props.theme).white}
+        }
+        `
     }
     ${ props => props.pink && 
     `background-image: url(${TestimonialsPink});` 
@@ -63,6 +72,9 @@ const Section = styled("section")`
     }
     ${ props => props.cta &&
         `background-image: url(${props.src}); background-size: cover; height: 558px; button {width: 200px; margin: 20px auto;}`
+    }
+    ${ props => props.benefits &&
+        `p { line-height: 32px; padding: 15px 0; } h4 {font-weight: 400; padding: 15px 0;} `
     }
 `
 

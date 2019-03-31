@@ -41,11 +41,8 @@ class Assist extends React.Component {
                         </Section>
                         <Section benefits>
                             <WideContainer>
-                                <Row>
-                                    <Col equal>
-                                    <AssistSideImg src={content.benefitsImage.file.url} />
-                                    </Col>
-                                    <Col equal benefit>
+                                    <Col benefit bgi={content.benefitsImage.file.url}/>
+                                    <Col benefit>
                                         <div>
                                             <H3DIFF color="green">{content.benefit1Title}</H3DIFF>
                                             <TextXSmall color="gray1">{content.benefit1Description.benefit1Description}</TextXSmall>
@@ -59,7 +56,6 @@ class Assist extends React.Component {
                                             <TextXSmall color="gray1">{content.benefit3Description.benefit3Description}</TextXSmall>
                                         </div>
                                     </Col>
-                                </Row>
                             </WideContainer>
                         </Section>
                         <Testimonials />

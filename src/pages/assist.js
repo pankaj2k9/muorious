@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import { Link } from "gatsby"
 
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
@@ -72,12 +73,59 @@ const AssistFeature2Description = styled.div `
     line-height: 32px;
     text-align: center;
     color: #4D4D4D;
+    margin-bottom: 40px;
 `
 
 const AssistFeature2Details = styled.div `
     display: flex;
 `
+const AssistFeature2DetailsTitle = styled.h3 `
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 48px;
+    color: #000000;
+`
 
+const AssistFeature2DetailsDescription = styled.p `
+    font-size: 16px;
+    line-height: 32px;
+    color: #606060;
+`
+
+const AssistFeature2DetailsCard = styled.div `
+    margin-left: 50px;
+    margin-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 126px;
+    width: 539px;
+    border-left: solid 8px #FFC509;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+`
+
+const AssistFeature2Img = styled.div `
+    padding-top: 70px;
+`
+
+const AssistFeature2Button = styled.button `
+    margin-left: 180px;
+    margin-top: 20px;
+    height: 48px;
+    width: 200px;
+    background-color: #FFC509;
+    border: solid 0px;
+`
+
+const AssistFeature2ButtonText = styled.p `
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: white;
+
+`
+
+AssistFeature2Img
 class Assist extends React.Component {
     render() {
         const content = this.props.data.allContentfulFeaturePageTemplate1.edges[0].node
@@ -133,23 +181,23 @@ class Assist extends React.Component {
                                 <AssistFeature2Title>Template Recommandation</AssistFeature2Title>
                                 <AssistFeature2Description>You have spent hours building a library of templates tailored to specific requests and problems you have identified. You know they perform well. Miuros helps your agents take better advantage of it.</AssistFeature2Description>
                                 <AssistFeature2Details>
+                                    <AssistFeature2Img>
+                                        <img src={TemplateRecommandationImg}></img>
+                                        <Link to="/categorization-whitepaper"><AssistFeature2Button><AssistFeature2ButtonText>Read our whitepaper</AssistFeature2ButtonText></AssistFeature2Button></Link>
+                                    </AssistFeature2Img>
                                     <div>
-                                    <img src={TemplateRecommandationImg}></img>
-                                        <div>Read our whitepaper</div>
-                                    </div>
-                                    <div>
-                                        <div>
-                                            <div>Tailored Engine</div>
-                                            <div>We are building dedicated models for each of our customers so it’s tailored and optimized for your data.</div>
-                                        </div>
-                                        <div>
-                                            <div>Advanced Search</div>
-                                            <div>Save precious seconds on each ticket by letting your agents search for canned responses by content and not just by title. </div>
-                                        </div>
-                                        <div>
-                                            <div>Warnings</div>
-                                            <div>Avoid template repetition by warning agents when a specific canned response was already used on a ticket.</div>
-                                        </div>
+                                        <AssistFeature2DetailsCard>
+                                            <AssistFeature2DetailsTitle>Tailored Engine</AssistFeature2DetailsTitle>
+                                            <AssistFeature2DetailsDescription>We are building dedicated models for each of our customers so it’s tailored and optimized for your data.</AssistFeature2DetailsDescription>
+                                        </AssistFeature2DetailsCard>
+                                        <AssistFeature2DetailsCard>
+                                            <AssistFeature2DetailsTitle>Advanced Search</AssistFeature2DetailsTitle>
+                                            <AssistFeature2DetailsDescription>Save precious seconds on each ticket by letting your agents search for canned responses by content and not just by title. </AssistFeature2DetailsDescription>
+                                        </AssistFeature2DetailsCard>
+                                        <AssistFeature2DetailsCard>
+                                            <AssistFeature2DetailsTitle>Warnings</AssistFeature2DetailsTitle>
+                                            <AssistFeature2DetailsDescription>Avoid template repetition by warning agents when a specific canned response was already used on a ticket.</AssistFeature2DetailsDescription>
+                                        </AssistFeature2DetailsCard>
                                     </div>
                                 </AssistFeature2Details>
                             </AssistFeature2>

@@ -41,6 +41,9 @@ const TextBig = styled("p")`
   font-size: 18px;
   line-height: 32px;
   color: ${props => rightColor(props)}
+  ${props => props.center && 
+    "text-align: center;"
+  }
 `
 const TextHighlighter = styled("span")`
     font-weight: 700;

@@ -9,29 +9,25 @@ import { List, ListItem } from '../atoms/List'
 import Button from '../atoms/Button'
 import StyledLink from '../atoms/Link'
 
-class Navigation extends React.Component {
-    render() {
-        return (
-            <Nav>
-                <Container>
-                    <Row>
-                        <Col NavLeft>
-                            <Logo />
-                            <List flex>
-                                <ListItem nav><a href="">Features</a></ListItem>
-                                <ListItem nav><a href="">Integrations</a></ListItem>
-                                <ListItem nav><a href="">About</a></ListItem>
-                            </List>
-                        </Col>
-                        <Col NavRight>
-                            <StyledLink as="a" href="/">Login</StyledLink>
-                            <Button secondary>Request demo</Button>
-                        </Col>
-                    </Row>
-                </Container>
-            </Nav>
-        )
-    }
-}
+const Navigation = ( props ) => (
+    <Nav props={props}>
+        <Container>
+            <Row>
+                <Col NavLeft>
+                    <Logo />
+                    <List flex>
+                        <ListItem nav><a href="">Features</a></ListItem>
+                        <ListItem nav><a href="">Integrations</a></ListItem>
+                        <ListItem nav><a href="">About</a></ListItem>
+                    </List>
+                </Col>
+                <Col NavRight>
+                    <StyledLink as="a" href="/">Login</StyledLink>
+                    <Button secondary>Request demo</Button>
+                </Col>
+            </Row>
+        </Container>
+    </Nav>
+)
 
 export default Navigation

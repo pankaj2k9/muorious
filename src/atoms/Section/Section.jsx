@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import IndexHeroBg from './IndexHeroBg.png'
-import IndexTestimonials from './IndexTestimonials.png'
+import TestimonialsPink from './Testimonials/TestimonialsPink.png'
+import TestimonialsYellow from './Testimonials/TestimonialsYellow.png'
 import AssistHeroBg from './AssistHeroBg.png'
 import { getColors } from "../../utils/styling";
 
@@ -11,7 +12,18 @@ const Section = styled("section")`
         `height: 696px; background-image: url(${IndexHeroBg}); background-size: cover;`
     }
     ${ props => props.assistHero &&
-        `height: 1005px; background-image: url(${AssistHeroBg}); background-size: cover;`
+        `height: 1081px; 
+        background-image: url(${AssistHeroBg}); 
+        background-size: cover;
+        p {
+            width: 80%;
+            margin: 20px auto 0;
+        }
+        h2 {
+            width: 80%;
+            margin: 0 auto;
+        }
+        `
     }
     ${ props => props.customerLogos && `padding: 40px 0; background-color: ${getColors(props.theme).grey3}`}
     ${ props => props.intro && css`
@@ -24,8 +36,15 @@ const Section = styled("section")`
             padding: 30px 0;
         }
     `}
-    ${ props => props.testimonials &&
-        `height: 472px; background-image: url(${IndexTestimonials}); background-size:cover`
+    ${ props => props.testimonials && 
+        `height: 472px; 
+        background-size:cover;`
+    }
+    ${ props => props.pink && 
+    `background-image: url(${TestimonialsPink});` 
+    }
+    ${ props => props.yellow && 
+    `background-image: url(${TestimonialsYellow});` 
     }
     ${ props => props.features && css`
         height: 275px; 
@@ -38,9 +57,7 @@ const Section = styled("section")`
                 width: 100%;
             }
         }
-    `
-
-    }
+    `}
     ${ props => props.grey &&
         `background-color: ${getColors(props.theme).grey3};`
     }

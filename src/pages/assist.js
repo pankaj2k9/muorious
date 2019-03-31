@@ -8,12 +8,13 @@ import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
 import Button from '../atoms/Button'
 import Section from '../atoms/Section/Section'
-import { H1, H4, TextBig, TextHighlighter } from '../atoms/Texts'
+import { H1, H3DIFF, TextXSmall , TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import Container from '../atoms/Container'
-import { AssistHeroImg } from'../atoms/Images/Images.jsx'
+import { AssistHeroImg, AssistSideImg } from'../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
+import Testimonials from '../components/Testimonials'
 
 class Assist extends React.Component {
     render() {
@@ -38,6 +39,31 @@ class Assist extends React.Component {
                                 </Row>
                             </Container>
                         </Section>
+                        <Section benefits>
+                            <AssistSideImg src={content.benefitsImage.file.url} />
+                            <Container>
+                                <Row>
+                                    <Col equal>
+                                    b
+                                    </Col>
+                                    <Col equal benefit>
+                                        <div>
+                                            <H3DIFF color="green">{content.benefit1Title}</H3DIFF>
+                                            <TextXSmall color="gray1">{content.benefit1Description.benefit1Description}</TextXSmall>
+                                        </div>
+                                        <div>
+                                            <H3DIFF color="green">{content.benefit2Title}</H3DIFF>
+                                            <TextXSmall color="gray1">{content.benefit2Description.benefit2Description}</TextXSmall>
+                                        </div>
+                                        <div>
+                                            <H3DIFF color="green">{content.benefit3Title}</H3DIFF>
+                                            <TextXSmall color="gray1">{content.benefit3Description.benefit3Description}</TextXSmall>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Section>
+                        <Testimonials />
                         <Section src={this.props.data.allContentfulHomepage.edges[0].node.bottomCtaImage.file.url} cta>
                             <Container>
                                 <Row>
@@ -81,6 +107,23 @@ export const pageQuery = graphql`
             description {
                 description
             }
+            benefitsImage {
+                file {
+                  url
+                }
+              }
+              benefit1Title
+              benefit2Title
+              benefit3Title
+              benefit1Description {
+                benefit1Description
+              }
+              benefit2Description {
+                benefit2Description
+              }
+              benefit3Description {
+                benefit3Description
+              }
           }
         }
       }  

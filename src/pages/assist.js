@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
+import Footer from '../components/Footer'
 import Button from '../atoms/Button'
 import Section from '../atoms/Section/Section'
 import { H1, H4, TextBig, TextHighlighter } from '../atoms/Texts'
@@ -37,6 +38,17 @@ class Assist extends React.Component {
                                 </Row>
                             </Container>
                         </Section>
+                        <Section src={this.props.data.allContentfulHomepage.edges[0].node.bottomCtaImage.file.url} cta>
+                            <Container>
+                                <Row>
+                                    <Col center>
+                                        <H1 color="white" center>{this.props.data.allContentfulHomepage.edges[0].node.bottomCtaTitle}</H1>
+                                        <Button secondary>Request demo</Button>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Section>
+                        <Footer />
                     </main>
                 </React.Fragment>
             </LayoutWithThemeProvider>
@@ -48,6 +60,18 @@ export default Assist
 
 export const pageQuery = graphql`
   query AssistQuery {
+    allContentfulHomepage {
+        edges {
+          node {
+            bottomCtaTitle
+            bottomCtaImage {
+                file {
+                  url
+                }
+              }
+          }
+        }
+    }
     allContentfulFeaturePageTemplate1 {
         edges {
           node {

@@ -98,7 +98,7 @@ class RootIndex extends React.Component {
                             <Button primary>Learn about Assist</Button>
                         </Col>
                         <Col equal center>
-                            <SideImg src={content.feature1Image.file.url} />
+                            <IndexSideImg src={content.feature1Image.file.url} />
                         </Col>
                     </Row>
                 </Container>
@@ -107,7 +107,7 @@ class RootIndex extends React.Component {
                 <Container>
                     <Row>
                         <Col equal center>
-                            <SideImg src={content.feature2Image.file.url} />
+                            <IndexSideImg src={content.feature2Image.file.url} />
                         </Col>
                         <Col equal center>
                             <H1>{ content.feature2Title }</H1>
@@ -127,7 +127,7 @@ class RootIndex extends React.Component {
                             </TextBig>
                         </Col>
                         <Col equal center>
-                            <SideImg src={content.feature3Image.file.url} />
+                            <IndexSideImg src={content.feature3Image.file.url} />
                         </Col>
                     </Row>
                 </Container>
@@ -136,7 +136,7 @@ class RootIndex extends React.Component {
                 <Container>
                     <Row>
                         <Col equal center>
-                            <SideImg src={content.integrationImage.file.url} />
+                            <IndexSideImg src={content.integrationImage.file.url} />
                         </Col>
                         <Col equal center>
                             <H1>{ content.integrationTitle }</H1>
@@ -157,7 +157,7 @@ class RootIndex extends React.Component {
                             </TextBig>
                         </Col>
                         <Col equal center>
-                            <SideImg src={content.integrationImage.file.url} />
+                            <IndexSideImg src={content.integrationImage.file.url} />
                         </Col>
                     </Row>
                 </Container>

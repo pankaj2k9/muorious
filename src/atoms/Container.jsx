@@ -15,4 +15,4 @@ const WideContainer = styled("div")`
     display: flex;
     width: 100%:
 `
-export default { Container, WideContainer }
+export { Container, WideContainer }

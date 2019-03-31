@@ -2,7 +2,7 @@ import React from 'react'
 
 import Nav from '../atoms/Nav'
 import Logo from '../atoms/Logo/Logo'
-import Container from '../atoms/Container'
+import { Container } from '../atoms/Container'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import { List, ListItem } from '../atoms/List'

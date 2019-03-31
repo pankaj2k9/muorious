@@ -3,7 +3,7 @@ import Section from '../atoms/Section/Section'
 import { H1, H4, TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
-import Container from '../atoms/Container'
+import { Container } from '../atoms/Container'
 
 class Testimonials extends React.Component {
     constructor(props) {

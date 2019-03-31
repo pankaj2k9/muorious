@@ -5,7 +5,15 @@ const AssistHeroImg = styled("img").attrs(props => ({
     src: AssistHeroImage
 }))`
     display: block;
-    margin: auto;
+    margin: 40px auto 0;
+    max-width: 74%;
+`
+
+const AssistSideImg = styled("img").attrs(props => ({
+    src: props.src
+}))`
+    position: absolute;
+    left: 0;
 `
 
 const IndexHeroImg = styled("img").attrs(props => ({
@@ -34,4 +42,4 @@ const IndexSideImg = styled("img").attrs(props => ({
     max-width: 75%;
     margin: auto;
 `
-export { IndexHeroImg, IndexCustomerLogo, IndexSideImg, AssistHeroImg }
+export { IndexHeroImg, IndexCustomerLogo, IndexSideImg, AssistHeroImg, AssistSideImg }

@@ -23,6 +23,11 @@ const H3 = styled("h4")`
   font-size: 32px;
 `
 
+const H3DIFF = styled("h4")`
+  font-size: 36px;
+  color: ${props => rightColor(props)};
+`
+
 const H4 = styled("h5")`
   font-size: 24px;
   font-weight: 400;
@@ -60,6 +65,7 @@ const TextSmall = styled("p")`
 
 const TextXSmall= styled("p")`
   font-size: 18px;
+  color: ${props => rightColor(props)};
 `
 
-export { H1, H2, H3, H4, H5, H6, TextBig, TextHighlighter, Text, TextSmall, TextXSmall };
+export { H1, H2, H3, H3DIFF, H4, H5, H6, TextBig, TextHighlighter, Text, TextSmall, TextXSmall };

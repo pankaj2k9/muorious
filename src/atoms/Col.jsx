@@ -48,6 +48,9 @@ const Col = styled("div")`
     ? "justify-content: center;"
     : "justify-content: space-between;"
     }
+    ${props => props.benefit &&
+        "height: 64%;"
+    }
 `
 
 export default Col

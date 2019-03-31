@@ -28,11 +28,16 @@ const Section = styled("section")`
     ${ props => props.benefits && 
         "height: 1003px; p {margin-top: 10px; line-height: 32px;} h4 {font-weight: 400;} "
     }
-    ${ props => props.customerLogos && `padding: 40px 0; background-color: ${getColors(props.theme).grey3}`}
+    ${ props => props.customerLogos && `padding: 40px 0; background-color: ${getColors(props.theme).grey3};`}
     ${ props => props.intro && "height: 512px; p { margin-top: 20px; } button { margin-top: 20px; }"}
     ${ props => props.testimonials && 
-        `height: 472px; background-image: url(${TestimonialsPink}); background-size:cover`
+        `height: 472px; 
+        background-size:cover;`
     }
+    ${ props => props.pink && 
+    `background-image: url(${TestimonialsPink});` }
+    ${ props => props.yellow && 
+    `background-image: url(${TestimonialsYellow});` }
     ${ props => props.features &&
         "height: 275px; div { width: 84%; margin: auto; }; h2 { margin: auto; display: block; }"
     }

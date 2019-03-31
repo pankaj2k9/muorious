@@ -14,6 +14,7 @@ import Col from '../atoms/Col'
 import Container from '../atoms/Container'
 import { AssistHeroImg, AssistSideImg } from'../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
+import Testimonials from '../components/Testimonials'
 
 class Assist extends React.Component {
     render() {
@@ -62,6 +63,7 @@ class Assist extends React.Component {
                                 </Row>
                             </Container>
                         </Section>
+                        <Testimonials />
                         <Section src={this.props.data.allContentfulHomepage.edges[0].node.bottomCtaImage.file.url} cta>
                             <Container>
                                 <Row>

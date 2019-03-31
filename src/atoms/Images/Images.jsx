@@ -6,7 +6,7 @@ const AssistHeroImg = styled("img").attrs(props => ({
 }))`
     display: block;
     margin: 40px auto 0;
-    max-width: 74%;
+    max-width: 100%;
 `
 
 const AssistSideImg = styled("img").attrs(props => ({

@@ -74,7 +74,7 @@ const Section = styled("section")`
         `background-image: url(${props.src}); background-size: cover; height: 558px; button {width: 200px; margin: 20px auto;}`
     }
     ${ props => props.benefits &&
-        `p { line-height: 32px; padding: 15px 0; } h4 {font-weight: 400; padding: 15px 0;} `
+        `p { width: 430px; line-height: 32px; padding: 15px 0; } h4 {font-weight: 400; padding: 15px 0;} `
     }
 `
 

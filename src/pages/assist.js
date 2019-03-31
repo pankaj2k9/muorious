@@ -122,10 +122,57 @@ const AssistFeature2ButtonText = styled.p `
     line-height: 24px;
     text-align: center;
     color: white;
-
 `
 
-AssistFeature2Img
+// MORE ABOUT ASSIST
+
+const AssistFeaturesMoreSection = styled.section `
+    width: 1110px;
+    margin: 0 auto;
+    padding-top: 80px;
+    margin-bottom: 100px;
+`
+
+const AssistFeaturesMoreTitle = styled.h3 `
+    margin: 0 auto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+    color: #000000;
+    padding-bottom: 20px;
+`
+
+const AssistFeaturesMoreCards = styled.div `
+    display: flex;
+    margin: auto 0;
+`
+
+const AssistFeaturesMoreCard = styled.div `
+    width: 347px;
+    height: 203px;
+    margin: 16px 15px;
+    border-top: solid #FFC509 11px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+`
+
+const AssistFeaturesMoreCardTitle = styled.h4 `
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+    font-family: 'Muli';
+    padding: 20px 20px;
+`
+
+const AssistFeaturesMoreCardDescription = styled.p `
+    font-family: 'Muli';
+    font-size: 18px;
+    line-height: 32px;
+    color: #828282;
+    padding: 0 20px;
+`
+
 class Assist extends React.Component {
     render() {
         const content = this.props.data.allContentfulFeaturePageTemplate1.edges[0].node
@@ -202,6 +249,23 @@ class Assist extends React.Component {
                                 </AssistFeature2Details>
                             </AssistFeature2>
                         </AssistFeaturesSection>
+                        <AssistFeaturesMoreSection>
+                            <AssistFeaturesMoreTitle>More from Assist</AssistFeaturesMoreTitle>
+                            <AssistFeaturesMoreCards>
+                                <AssistFeaturesMoreCard>
+                                    <AssistFeaturesMoreCardTitle>Multi-lingual</AssistFeaturesMoreCardTitle>
+                                    <AssistFeaturesMoreCardDescription>Miuros is multi-lingual, making it the perfect AI-solution for your international Customer Support team.</AssistFeaturesMoreCardDescription>
+                                </AssistFeaturesMoreCard>
+                                <AssistFeaturesMoreCard>
+                                    <AssistFeaturesMoreCardTitle>Automate Replies</AssistFeaturesMoreCardTitle>
+                                    <AssistFeaturesMoreCardDescription>Let Assist automatically send replies for you based on your best-performing canned responses.</AssistFeaturesMoreCardDescription>
+                                </AssistFeaturesMoreCard>
+                                <AssistFeaturesMoreCard>
+                                    <AssistFeaturesMoreCardTitle>Agents Administration</AssistFeaturesMoreCardTitle>
+                                    <AssistFeaturesMoreCardDescription>Easy and configurable agents management settings built with medium and large customer service teams in mind.</AssistFeaturesMoreCardDescription>
+                                </AssistFeaturesMoreCard>
+                            </AssistFeaturesMoreCards>
+                        </AssistFeaturesMoreSection>
                         <Footer />
                     </main>
                 </React.Fragment>

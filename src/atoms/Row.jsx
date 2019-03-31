@@ -5,9 +5,9 @@ const Row = styled("div")`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    ${props => props.customerLogos 
-    ? "height: 50px; width: 61%; margin: auto; "
-    : "height: 100%;"
+    ${props => props.customerLogos
+        ? "height: 50px; width: 100%; max-width: 1070px; margin: auto; padding: 0 15px;"
+        : `height: ${({ autoHeight }) => autoHeight ? 'auto' : '100%'};`
     }
 `
 

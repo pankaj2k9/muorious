@@ -10,6 +10,11 @@ Install Packages
 Install Gatsby
 `npm i -g gatsby-cli`
 
+## Contentful
+
+Add 'contentful.json'
+{"spaceId":"...", "accessToken":"..." }
+
 To run dev environment
 `yarn run dev` 
 

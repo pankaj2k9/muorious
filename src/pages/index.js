@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
+import Footer from '../components/Footer'
 import Button from '../atoms/Button'
 import Section from '../atoms/Section/Section'
 import { H1, H4, TextBig, TextHighlighter } from '../atoms/Texts'
@@ -171,6 +172,7 @@ class RootIndex extends React.Component {
                     </Row>
                 </Container>
             </Section>
+            <Footer />
         </main>
           </React.Fragment>
       </LayoutWithThemeProvider>

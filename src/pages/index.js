@@ -197,47 +197,58 @@ class RootIndex extends React.Component {
             </Section>
             <Section intro>
               <Container>
-                <Row>
-                  <Col equal center>
-                    <H1>{content.feature3Title}<Note>Coming soon</Note></H1>
-                    <TextBig color="grey4">
-                      {content.feature3Description.feature3Description}
-                    </TextBig>
-                  </Col>
-                  <Col equal center>
-                    <IndexSideImg src={content.feature3Image.file.url} />
-                  </Col>
-                </Row>
+                <Breakpoint large up>
+                  <Row>
+                    <Col equal center>
+                      <H1>{content.feature3Title}<Note>Coming soon</Note></H1>
+                      <TextBig color="grey4">
+                        {content.feature3Description.feature3Description}
+                      </TextBig>
+                    </Col>
+                    <Col equal center>
+                      <IndexSideImg src={content.feature3Image.file.url} />
+                    </Col>
+                  </Row>
+                </Breakpoint>
+                <Breakpoint large down>
+                  <Row autoHeight>
+                    <Col>
+                      <Img src={content.feature3Image.file.url} />
+                      <H1 small>{content.feature3Title}<Note>Coming soon</Note></H1>
+                      <TextBig color="grey4">
+                        {content.feature3Description.feature3Description}
+                      </TextBig>
+                    </Col>
+                  </Row>
+                </Breakpoint>
               </Container>
             </Section>
             <Section intro grey>
               <Container>
-                <Row>
-                  <Col equal center>
-                    <IndexSideImg src={content.integrationImage.file.url} />
-                  </Col>
-                  <Col equal center>
-                    <H1>{content.integrationTitle}</H1>
-                    <TextBig color="grey4">
-                      {content.integrationDescription.integrationDescription}
-                    </TextBig>
-                  </Col>
-                </Row>
-              </Container>
-            </Section>
-            <Section intro grey>
-              <Container>
-                <Row>
-                  <Col equal center>
-                    <H1>{content.integrationTitle}</H1>
-                    <TextBig color="grey4">
-                      {content.integrationDescription.integrationDescription}
-                    </TextBig>
-                  </Col>
-                  <Col equal center>
-                    <IndexSideImg src={content.integrationImage.file.url} />
-                  </Col>
-                </Row>
+                <Breakpoint large up>
+                  <Row>
+                    <Col equal center>
+                      <IndexSideImg src={content.integrationImage.file.url} />
+                    </Col>
+                    <Col equal center>
+                      <H1>{content.integrationTitle}</H1>
+                      <TextBig color="grey4">
+                        {content.integrationDescription.integrationDescription}
+                      </TextBig>
+                    </Col>
+                  </Row>
+                </Breakpoint>
+                <Breakpoint large down>
+                  <Row>
+                    <Col>
+                      <Img src={content.integrationImage.file.url} />
+                      <H1 small>{content.integrationTitle}</H1>
+                      <TextBig color="grey4">
+                        {content.integrationDescription.integrationDescription}
+                      </TextBig>
+                    </Col>
+                  </Row>
+                </Breakpoint>
               </Container>
             </Section>
             <Section src={content.bottomCtaImage.file.url} cta>
@@ -250,10 +261,10 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            {/* <Footer /> */}
+            <Breakpoint large up><Footer /></Breakpoint>
           </main>
         </React.Fragment>
-      </LayoutWithThemeProvider>
+      </LayoutWithThemeProvider >
     )
   }
 }

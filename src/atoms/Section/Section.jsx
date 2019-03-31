@@ -14,7 +14,16 @@ const Section = styled("section")`
         `height: 1005px; background-image: url(${AssistHeroBg}); background-size: cover;`
     }
     ${ props => props.customerLogos && `padding: 40px 0; background-color: ${getColors(props.theme).grey3}`}
-    ${ props => props.intro && "padding: 30px 0; height: 512px; p { margin-top: 20px; } button { margin-top: 20px; }"}
+    ${ props => props.intro && css`
+        padding: 30px 0;
+        height: 512px; 
+        p { margin-top: 20px; }
+        button { margin-top: 20px; }
+        @media (max-width: 992px) {
+            height: auto;
+            padding: 30px 0;
+        }
+    `}
     ${ props => props.testimonials &&
         `height: 472px; background-image: url(${IndexTestimonials}); background-size:cover`
     }

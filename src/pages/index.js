@@ -12,7 +12,7 @@ import { H1, H4, TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import Container from '../atoms/Container'
-import { HeroImg, CustomerLogo, SideImg } from'../atoms/Images/Images.jsx'
+import { IndexHeroImg, IndexCustomerLogo, IndexSideImg } from'../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
 
 class RootIndex extends React.Component {
@@ -32,7 +32,7 @@ class RootIndex extends React.Component {
         </Helmet>
         <main> 
             <Nav />
-            <Section hero="true">
+            <Section indexHero>
                 <Container>
                     <Row>
                         <Col equal>
@@ -47,7 +47,7 @@ class RootIndex extends React.Component {
                         <Col equal />
                     </Row>
                 </Container>
-                <HeroImg src={content.heroImage.file.url}/>
+                <IndexHeroImg src={content.heroImage.file.url}/>
             </Section>
             <Section customerLogos>
                 <Container>
@@ -55,7 +55,7 @@ class RootIndex extends React.Component {
                         {content.customerLogos.map((logo, index) => (
                             logo.customerLogo && 
                             <a key={index} href={logo.customerUrl} >
-                                <CustomerLogo src={logo.customerLogo.file.url} />
+                                <IndexCustomerLogo src={logo.customerLogo.file.url} />
                             </a>
                         ))}
                     </Row>   
@@ -65,7 +65,7 @@ class RootIndex extends React.Component {
                 <Container>
                     <Row>
                         <Col equal>
-                            <SideImg src={content.valueImage.file.url} />
+                            <IndexSideImg src={content.valueImage.file.url} />
                         </Col>
                         <Col equal>
                             <H1>{ content.valueTitle }</H1>

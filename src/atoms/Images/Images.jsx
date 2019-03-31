@@ -1,6 +1,14 @@
 import styled from 'styled-components'
+import AssistHeroImage from './AssistHeroImg.png'
 
-const HeroImg = styled("img").attrs(props => ({
+const AssistHeroImg = styled("img").attrs(props => ({
+    src: AssistHeroImage
+}))`
+    display: block;
+    margin: auto;
+`
+
+const IndexHeroImg = styled("img").attrs(props => ({
     src: props.src
 }))`
     display: block;
@@ -12,18 +20,18 @@ const HeroImg = styled("img").attrs(props => ({
     z-index: 1;
 `
 
-const CustomerLogo = styled("img").attrs(props => ({
+const IndexCustomerLogo = styled("img").attrs(props => ({
     src: props.src
 }))`
     margin: 0;
     opacity: 0.4;
     max-width: 100%;
 `
-const SideImg = styled("img").attrs(props => ({
+const IndexSideImg = styled("img").attrs(props => ({
     src: props.src
 }))`
     display: block;
     max-width: 75%;
     margin: auto;
 `
-export { HeroImg, CustomerLogo, SideImg }
+export { IndexHeroImg, IndexCustomerLogo, IndexSideImg, AssistHeroImg }

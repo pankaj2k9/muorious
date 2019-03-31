@@ -6,7 +6,8 @@ const allColors = ({ theme }) => {
 }
 
 const Link = styled("button")`
-    color: ${props => allColors(props).white}
+    color: ${props => allColors(props).white};
+    font-size: 18px;
 `
 
 export default Link

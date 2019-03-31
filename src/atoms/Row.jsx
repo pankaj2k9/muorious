@@ -5,7 +5,10 @@ const Row = styled("div")`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    ${props => props.customerLogos 
+    ? "height: 50px; width: 61%; margin: auto; "
+    : "height: 100%;"
+    }
 `
 
 export default Row

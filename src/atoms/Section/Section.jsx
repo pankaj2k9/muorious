@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import IndexHeroBg from './IndexHeroBg.png'
+import MobileHeroBg from '../../components/layout/MenuBackground.png'
 import TestimonialsPink from './Testimonials/TestimonialsPink.png'
 import TestimonialsYellow from './Testimonials/TestimonialsYellow.png'
 import AssistHeroBg from './AssistHeroBg.png'
@@ -8,8 +9,15 @@ import { getColors } from "../../utils/styling";
 const Section = styled("section")`
     width: 100%;
     position: relative;
-    ${ props => props.indexHero &&
-        `height: 696px; background-image: url(${IndexHeroBg}); background-size: cover;`
+    ${ ({ indexHero }) => indexHero &&
+        css`
+            height: 696px; 
+            background-image: url(${IndexHeroBg});
+            background-size: cover;
+            @media(max-width: 992px){ 
+                background-image: url(${MobileHeroBg});
+            }
+        `
     }
     ${ props => props.assistHero &&
         `height: 1081px; 
@@ -36,7 +44,7 @@ const Section = styled("section")`
             padding: 30px 0;
         }
     `}
-    ${ props => props.testimonials && 
+    ${ props => props.testimonials &&
         `height: 472px; 
         background-size:cover;
         .box {
@@ -49,11 +57,11 @@ const Section = styled("section")`
         }
         `
     }
-    ${ props => props.pink && 
-    `background-image: url(${TestimonialsPink});` 
+    ${ props => props.pink &&
+        `background-image: url(${TestimonialsPink});`
     }
-    ${ props => props.yellow && 
-    `background-image: url(${TestimonialsYellow});` 
+    ${ props => props.yellow &&
+        `background-image: url(${TestimonialsYellow});`
     }
     ${ props => props.features && css`
         height: 275px; 
@@ -71,7 +79,7 @@ const Section = styled("section")`
         `background-color: ${getColors(props.theme).grey3};`
     }
     ${ props => props.cta &&
-        `background-image: url(${props.src}); background-size: cover; height: 558px; button {width: 200px; margin: 20px auto;}`
+        css`background-image: url(${props.src}); background-size: cover; background-position: center; height: 558px; button {width: 200px; margin: 20px auto;}`
     }
     ${ props => props.benefits &&
         `p { line-height: 32px; padding: 15px 0; } h4 {font-weight: 400; padding: 15px 0;} `

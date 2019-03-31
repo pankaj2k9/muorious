@@ -157,7 +157,7 @@ class RootIndex extends React.Component {
                         <Img src={content.feature1Image.file.url} />
                         <H1 small>{content.feature1Title}</H1>
                         <TextBig color="grey4">{content.feature1Description.feature1Description}</TextBig>
-                        <FlexWrapper><Button primary>Learn about Assist</Button></FlexWrapper>
+                        <FlexWrapper><Button light>Learn about Assist</Button></FlexWrapper>
                       </Col>
                     </>
                   </Breakpoint>
@@ -185,7 +185,7 @@ class RootIndex extends React.Component {
                         <Img src={content.feature2Image.file.url} />
                         <H1 small>{content.feature2Title}</H1>
                         <TextBig color="grey4">{content.feature2Description.feature2Description}</TextBig>
-                        <FlexWrapper><Button primary>Learn about Insights</Button></FlexWrapper>
+                        <FlexWrapper><Button light>Learn about Insights</Button></FlexWrapper>
                       </Col>
                     </>
                   </Breakpoint>

@@ -19,7 +19,7 @@ const cssForPrimary = ({ theme, primary }) => {
 
 const cssForSecondary = ({ theme, primary, secondary }) => {
   //If primary is set to true it will override secondary prop
-  if(primary || !secondary){
+  if (primary || !secondary) {
     return;
   }
   const backgroundColor = getColors(theme).yellow;
@@ -27,6 +27,21 @@ const cssForSecondary = ({ theme, primary, secondary }) => {
   return css`
     background-color: ${backgroundColor};
     color: ${getColors(theme).black};
+    &:hover {
+      background-color: ${hoverBackgroundColor};
+    }
+  `
+}
+const cssForLight = ({ theme, primary, secondary, light }) => {
+  //If primary is set to true it will override secondary prop
+  if (primary || secondary) {
+    return;
+  }
+  const backgroundColor = '#E8EDED';
+  const hoverBackgroundColor = darken(0.05, backgroundColor);
+  return css`
+    background-color: ${backgroundColor};
+    color: #174F49;
     &:hover {
       background-color: ${hoverBackgroundColor};
     }
@@ -46,6 +61,7 @@ const Button = styled("button")`
 
   ${props => cssForPrimary(props)}
   ${props => cssForSecondary(props)}
+  ${props => cssForLight(props)}
 `
 
 

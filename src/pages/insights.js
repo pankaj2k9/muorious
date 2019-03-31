@@ -86,13 +86,10 @@ const InsightsQuotesSection = styled.section `
     background-color: #174F49;
 `
 
-const InsightsDasboardsSection = styled.section `
-    height: 1200px;
-`
-
 const InsightsFeaturesSection = styled.section `
     height: 2000px;
     max-width: 1440px;
+    padding-top: 120px;
     margin: 0 auto;
 `
 
@@ -133,6 +130,57 @@ const InsightsAgentPerformance = styled.div `
     margin-top: 120px;
 `
 
+const InsightsFeaturesMore = styled.section `
+    width: 1110px;
+    margin: 0 auto;
+    padding-top: 80px;
+`
+
+const InsightsFeaturesMoreTitle = styled.h3 `
+    margin: 0 auto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+    color: #000000;
+    padding-bottom: 20px;
+`
+
+const InsightsFeaturesMoreCards1 = styled.div `
+    display: flex;
+    margin: auto 0;
+`
+
+const InsightsFeaturesMoreCards2 = styled.div `
+    display: flex;
+    padding-bottom: 70px;
+`
+
+const InsightsFeaturesMoreCard = styled.div `
+    width: 347px;
+    height: 203px;
+    margin: 16px 15px;
+    border-top: solid #1B5E57 11px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+`
+
+const InsightsFeaturesMoreCardTitle = styled.h4 `
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+    font-family: 'Muli';
+    padding: 20px 20px;
+`
+
+const InsightsFeaturesMoreCardDescription = styled.p `
+    font-family: 'Muli';
+    font-size: 18px;
+    line-height: 32px;
+    color: #828282;
+    padding: 0 20px;
+`
+
 class Insights extends React.Component {
   render() {
     return (
@@ -170,7 +218,6 @@ class Insights extends React.Component {
                     </InsightsBenefitsImgSection>
                 </InsightsBenefitsSection>
                 <InsightsQuotesSection />
-                <InsightsDasboardsSection />
                 <InsightsFeaturesSection>
                     <InsightsQualityAssurance>
                         <div>
@@ -202,6 +249,37 @@ We also gives you visibility and metrics over private and non-official canned re
                         </div>
                     </InsightsAgentPerformance>
                 </InsightsFeaturesSection>
+                <InsightsFeaturesMore>
+                    <InsightsFeaturesMoreTitle>More from Insights</InsightsFeaturesMoreTitle>
+                    <InsightsFeaturesMoreCards1>
+                        <InsightsFeaturesMoreCard>
+                            <InsightsFeaturesMoreCardTitle>Artificial Intelligence</InsightsFeaturesMoreCardTitle>
+                            <InsightsFeaturesMoreCardDescription>Our unique canned responses analysis relies on Artificial Intelligence to derive new insights.</InsightsFeaturesMoreCardDescription>
+                        </InsightsFeaturesMoreCard>
+                        <InsightsFeaturesMoreCard>
+                            <InsightsFeaturesMoreCardTitle>Alerts</InsightsFeaturesMoreCardTitle>
+                            <InsightsFeaturesMoreCardDescription>Let Insights send you an alert whenever a specific metric deviates from your expectations.</InsightsFeaturesMoreCardDescription>
+                        </InsightsFeaturesMoreCard>
+                        <InsightsFeaturesMoreCard>
+                            <InsightsFeaturesMoreCardTitle>Period over period analysis</InsightsFeaturesMoreCardTitle>
+                            <InsightsFeaturesMoreCardDescription>Insights automatically compares results period over period to understand trends.</InsightsFeaturesMoreCardDescription>
+                        </InsightsFeaturesMoreCard>
+                    </InsightsFeaturesMoreCards1>
+                    <InsightsFeaturesMoreCards2>
+                        <InsightsFeaturesMoreCard>
+                            <InsightsFeaturesMoreCardTitle>Unlimited access</InsightsFeaturesMoreCardTitle>
+                            <InsightsFeaturesMoreCardDescription>Grant access to anyone in your company to Insights, no limit.</InsightsFeaturesMoreCardDescription>
+                        </InsightsFeaturesMoreCard>
+                        <InsightsFeaturesMoreCard>
+                            <InsightsFeaturesMoreCardTitle>Sharing</InsightsFeaturesMoreCardTitle>
+                            <InsightsFeaturesMoreCardDescription>Found an interesting insight from your data exploration with Miuros? Share your findings with an URL</InsightsFeaturesMoreCardDescription>
+                        </InsightsFeaturesMoreCard>
+                        <InsightsFeaturesMoreCard>
+                            <InsightsFeaturesMoreCardTitle>Automated Insights</InsightsFeaturesMoreCardTitle>
+                            <InsightsFeaturesMoreCardDescription>Automated data exploration bringing to your attention unprecedented valuable insights.</InsightsFeaturesMoreCardDescription>
+                        </InsightsFeaturesMoreCard>
+                    </InsightsFeaturesMoreCards2>
+                </InsightsFeaturesMore>
                 <Footer />
             </main>
         </React.Fragment>

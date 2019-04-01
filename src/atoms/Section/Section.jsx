@@ -45,17 +45,16 @@ const Section = styled("section")`
             padding: 30px 0;
         }
     `}
-    ${ props => props.testimonials &&
-        `height: 472px; 
-        background-size:cover;
-        .box {
-            padding: 6% 14%;
-            margin: auto;
-            width: 79%;
-            font-style: italic;
-            line-height: 40px;
-            background-color: ${getColors(props.theme).white}
-        }
+    ${ ({ testimonials }) => testimonials &&
+        css`
+            min-height: 472px; 
+            display: flex;
+            background-size:cover;
+            justify-content: center;
+            align-items: center;
+            @media (max-width: 992px){
+                padding: 80px 0;
+            }
         `
     }
     ${ props => props.pink &&

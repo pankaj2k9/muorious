@@ -16,6 +16,7 @@ import { Container } from '../atoms/Container'
 import { IndexHeroImg, IndexCustomerLogo, IndexSideImg } from '../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
 import FlexWrapper from '../components/shared/FlexWrapper'
+import Space from '../components/shared/Space'
 import Testimonials from '../components/Testimonials'
 
 const Img = styled.img`
@@ -49,9 +50,12 @@ class RootIndex extends React.Component {
                       </H1>
                     </Breakpoint>
                     <Breakpoint medium down>
-                      <H1 color="white" center>
-                        {content.tagline}
-                      </H1>
+                      <>
+                        <H1 color="white" center>
+                          {content.tagline}
+                        </H1>
+                        <Space height="20px" />
+                      </>
                     </Breakpoint>
                     <Breakpoint medium up>
                       <H4 color="white">
@@ -119,9 +123,7 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            <Breakpoint medium up>
-                <Testimonials />
-            </Breakpoint>
+            <Testimonials />
             <Section features>
               <Container>
                 <Row>

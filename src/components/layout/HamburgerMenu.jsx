@@ -18,7 +18,7 @@ const ToggleBtn = styled.span`
     height: 18px;
     background-size: cover;
     background-position: center;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB6SURBVHgB7dWxGUAwGITh+0mhVOoYgQ2USivaQKFIaQQmkDIjKPIIFkib8Nxb3AJXfAB9jLxTjn2pXNEiIqVg7KyNVOPQeC8HEnCJ6zIHNEhE7vLnKRRb5s9JRGrE5LHbRa8gIoqMLQthy4LYMiJKBFsWwpYFsWX0Vzex30aN7YVl0AAAAABJRU5ErkJggg==');
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAcCAYAAAAJKR1YAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACLSURBVHgB7dbBDYMwDAXQ76oDZISM0E5QRugIsBmbABuwAbABG4QfpJw52of/DrFyi2LJ30AwVo9SSs/yg6/FzEbjYzpeJsTwffE4EUdqLfuzfOBrZstmiIg4a4OxY8nwtdfBqCx7kN78ppW/NMB//TiUZSISQcuyBP8lv2bZXrMs87IhhjvLMuJIF+OPKN1Wet8cAAAAAElFTkSuQmCC');
 `
 const CloseBtn = styled.span`
     display: inline-block;
@@ -130,10 +130,22 @@ MobileMenuItem.Dropdown = class extends Component {
     }
 }
 
+const ComingSoon = styled.span`
+ display: inline-block;
+ font-size: 14px;
+ line-height: 24px;
+ color: #FF3A66;
+ padding: 0 6px;
+ background-color: #2E4D4C;
+ &:after {
+     content: 'Coming soon'
+ }
+`
+
 const dropdownItems = [
     { content: <><Link to="/assist">Assist</Link></> },
     { content: <><Link to="/insights">Insights</Link></> },
-    { content: <><p>Insights [Comping soon]</p></> },
+    { content: <><p>Insights <ComingSoon/></p></> },
 ]
 
 class HamburgerMenu extends Component {

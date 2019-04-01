@@ -68,18 +68,16 @@ const ListItemDropdownItem = styled.div`
     margin: 10px 0;
 `
 
-const Overlay = styled('div')`
-    position: fixed;
-    width: 100%; 
-    height: 100%; 
-    top: 0; 
-    left: 0;
-    right: 0;
-    bottom: 0;
-`
-
 ListItem.Dropdown = class extends Component {
     state = { open: false }
+    constructor(props){
+        super(props)
+        this.openDropdown = this.openDropdown.bind(this)
+        this.closeDropdown = this.closeDropdown.bind(this)
+        this.onMouseLeave = this.onMouseLeave.bind(this)
+        this.onMouseEnter = this.onMouseEnter.bind(this)
+        this.timeout = null
+    }
 
     toggle = () => this.setState({ open: !this.state.open })
 
@@ -87,19 +85,36 @@ ListItem.Dropdown = class extends Component {
         return this.state.open
     }
 
+    openDropdown() {
+        this.setState(() => {return {open: true}})
+    }
+
+    closeDropdown() {
+        this.setState(() => {return {open: false}})
+    }
+
+    onMouseEnter(){
+        clearTimeout(this.timeout);
+        this.openDropdown()
+    }
+
+    onMouseLeave = () => {
+        clearTimeout(this.timeout)
+        this.timeout = setTimeout(this.closeDropdown,250)
+    }
+
     render() {
         const { open } = this.state
         const { children, items, ...rest } = this.props
         return (
             <>
-                <ListItem {...rest} onClick={this.toggle}>
+                <ListItem {...rest} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                     {children}
                     {this.state.open && (
-                        <ListItemDropdownItems>
+                        <ListItemDropdownItems onMouseLeave={this.onMouseLeave}>
                             {items.map((i, idx) => <ListItemDropdownItem onClick={() => { document.body.style.overflowY = '' }} key={idx}>{i.content}</ListItemDropdownItem>)}
                         </ListItemDropdownItems>
                     )}
-                    {open ? <Overlay onClick={this.toogle}/> : null }
                 </ListItem>
                 
             </>

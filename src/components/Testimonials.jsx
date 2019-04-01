@@ -61,6 +61,12 @@ const TestimonialText = styled.p`
     }
 `
 
+const colors = {
+    pink: '#174F49',
+    yellow: '#174F49',
+    green: '#FFC509',
+}
+
 const TestimonialContent = styled.div`
     margin: 0 auto;
     min-height: 260px;
@@ -82,7 +88,7 @@ const TestimonialContent = styled.div`
         position: absolute;
         top: -30px;
         left: -70px;
-        background-color: #174F49;
+        background-color: ${({ color }) => colors[color]};
         background-image: url('data:image/png;base64,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');
         background-position: center;
         background-size: 59px 48px;
@@ -103,7 +109,7 @@ const TestimonialAutor = styled.div`
     position: absolute;
     bottom: -40px;
     right: -160px;
-    background-color: #174F49;
+    background-color: ${({ color }) => colors[color]};
     color: #fff;
     height: 230px;
     width: 230px;
@@ -143,12 +149,12 @@ const AuthorJob = styled.p`
     font-weight: 300;
 `
 
-const Testimonial = ({ node: { content, authorFirstName, authorLastName, authorJobTitle, authorCompany }, circles }) => (
+const Testimonial = ({ node: { content, authorFirstName, authorLastName, authorJobTitle, authorCompany }, circles, color = 'green' }) => (
     <TestimonialOuter>
-        <TestimonialContent>
+        <TestimonialContent color={color}>
             <TestimonialText>{content}</TestimonialText>
             <CirclesNode>{circles}</CirclesNode>
-            <TestimonialAutor>
+            <TestimonialAutor color={color}>
                 <AuthorName>{authorFirstName} {authorLastName}</AuthorName>
                 {authorCompany ? <AuthorJob>{authorJobTitle} at {authorCompany.customerName}</AuthorJob> : null}
             </TestimonialAutor>
@@ -165,7 +171,10 @@ class Testimonials extends React.Component {
     }
 
     componentDidMount() {
-        const data = this.props.data.allContentfulQuote.edges
+        const { withData } = this.props
+        // TODO: Normalize this on parent level rather than here
+        const data = withData ? this.props.data.map(i => ({ node: i })) : this.props.data.allContentfulQuote.edges
+        console.warn(data)
         const count = data.length
         const order = Object.keys(data).reduce((obj, value) => ({ ...obj, [value]: ((Number(value) + 1) < count) ? Number(value) + 1 : 0 }), {})
         this.setState({ data, count, order })
@@ -187,10 +196,11 @@ class Testimonials extends React.Component {
 
     render() {
         const { active, order, data } = this.state
+        const { color } = this.props
         if (data && data[active]) {
             return (
-                <Section testimonials pink>
-                    <Testimonial {...data[active]} circles={<Circles onClick={this.selectSlide} iterable={Object.keys(order)} active={active} />} />
+                <Section testimonials color={color}>
+                    <Testimonial color={color} {...data[active]} circles={<Circles onClick={this.selectSlide} iterable={Object.keys(order)} active={active} />} />
                 </Section>
             )
         } else {
@@ -218,6 +228,6 @@ export const query = graphql`
     }
 `
 
-export default () => (
-    <StaticQuery query={query} render={data => <Testimonials data={data} />} />
+export default ({ withData, data, ...props }) => (
+    withData ? <Testimonials withData data={data} {...props} /> : <StaticQuery query={query} render={data => <Testimonials {...props} data={data} />} />
 )

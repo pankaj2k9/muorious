@@ -149,13 +149,14 @@ const AssistFeature2ButtonText = styled.p `
     color: white;
 `
 
-// MORE ABOUT ASSIST
+// TODO: MORE ABOUT ASSIST
 
 const AssistFeaturesMoreSection = styled.section `
     width: 1110px;
     margin: 0 auto;
     padding-top: 80px;
     margin-bottom: 100px;
+    font-family: Modern Era, sans-serif;
     @media (max-width: 992px) {
         padding-top: 900px;
     }
@@ -170,6 +171,7 @@ const AssistFeaturesMoreTitle = styled.h3 `
     text-align: center;
     color: #000000;
     padding-bottom: 20px;
+    font-family: Modern Era, sans-serif;
     @media (max-width: 992px) {
         margin: 0;
         width: 100vw;
@@ -196,12 +198,12 @@ const AssistFeaturesMoreCardTitle = styled.h4 `
     font-size: 24px;
     line-height: 32px;
     color: #000000;
-    font-family: 'Muli';
+    font-family: Modern Era, sans-serif;
     padding: 20px 20px;
 `
 
 const AssistFeaturesMoreCardDescription = styled.p `
-    font-family: 'Muli';
+    font-family: Modern Era, sans-serif;
     font-size: 18px;
     line-height: 32px;
     color: #828282;

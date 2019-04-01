@@ -2,9 +2,16 @@ import styled, { css } from 'styled-components'
 import IndexHeroBg from './IndexHeroBg.png'
 import MobileHeroBg from '../../components/layout/MenuBackground.png'
 import TestimonialsPink from './Testimonials/TestimonialsPink.png'
+import TestimonialsGreen from './Testimonials/TestimonialsGreen.png'
 import TestimonialsYellow from './Testimonials/TestimonialsYellow.png'
 import AssistHeroBg from './AssistHeroBg.png'
 import { getColors } from "../../utils/styling";
+
+const bgs = {
+    pink: TestimonialsPink,
+    green: TestimonialsGreen,
+    yellow: TestimonialsYellow
+}
 
 const Section = styled("section")`
     width: 100%;
@@ -71,20 +78,19 @@ const Section = styled("section")`
         css`
             min-height: 472px; 
             display: flex;
-            background-size:cover;
+            background-size: cover;
             justify-content: center;
             align-items: center;
+            background-size: 100%;
+            background-position: center;
             @media (max-width: 992px){
                 padding: 80px 0;
             }
         `
     }
-    ${ props => props.pink &&
-        `background-image: url(${TestimonialsPink});`
-    }
-    ${ props => props.yellow &&
-        `background-image: url(${TestimonialsYellow});`
-    }
+
+    ${({ color }) => `background-image: url(${bgs[color]});`}
+   
     ${ props => props.features && css`
         height: 275px; 
         div { width: 84%; margin: auto; }

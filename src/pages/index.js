@@ -145,7 +145,7 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            <Testimonials />
+            <Testimonials color="pink" />
             <Section features>
               <Container>
                 <Row>

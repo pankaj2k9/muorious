@@ -19,6 +19,7 @@ import Note from '../atoms/Note'
 import FlexWrapper from '../components/shared/FlexWrapper'
 import Space from '../components/shared/Space'
 import Testimonials from '../components/Testimonials'
+import Scrollchor from 'react-scrollchor';
 
 const Img = styled.img`
 width: 100%;
@@ -29,6 +30,20 @@ const RequestDemoButtonFooterWrapper = styled('a')`
 `
 
 class RootIndex extends React.Component {
+  constructor(props){
+    super(props);
+    this.scrollAnchorRef = React.createRef();
+  }
+
+  componentDidMount(){
+    const { location } = this.props;
+    const self = this;
+    setTimeout(() => {
+      if(location.hash.length > 0) {
+        self.scrollAnchorRef.current.simulateClick()
+      }
+    },20)
+  }
   render() {
     // console.log("Data : ", this.props.data);
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -44,6 +59,7 @@ class RootIndex extends React.Component {
           <Helmet>
             <title>{siteTitle}</title>
           </Helmet>
+          <Scrollchor ref={this.scrollAnchorRef} style={{display: "none"}} animate={{offset: -80}} to={this.props.location.hash} />
           <main>
             <Nav location={this.props.location}/>
             <Section indexHero>

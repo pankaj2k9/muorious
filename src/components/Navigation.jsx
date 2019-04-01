@@ -47,7 +47,6 @@ const Navigation = (props) => (
             <Nav dark props={props}>
                 <Container>
                     <Row>
-                    {console.log(props)}
                         <Col NavLeft>
                             <Link to="/"><Logo /></Link>
                             <List flex>

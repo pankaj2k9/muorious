@@ -16,6 +16,12 @@ const Container = styled("div")`
 
 const WideContainer = styled("div")`
     display: flex;
-    width: 100%:
+    width: 100%;
+    ${ props => props.benefit && css`
+    @media (max-width: 800px) {
+            display: none;
+        }
+        `
+    }
 `
 export { Container, WideContainer }

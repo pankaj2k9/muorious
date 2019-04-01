@@ -15,7 +15,6 @@ import TemplateAnalysisIllu from '../atoms/Images/TemplateAnalysisImg.svg'
 import AgentPerformanceIllu from '../atoms/Images/AgentPerformanceImg.svg'
 
 const InsightsHeroSection = styled.section `
-    padding-top: 96px;
     height: 1100px;
     width: 1000px;
     margin: 0 auto;
@@ -23,7 +22,7 @@ const InsightsHeroSection = styled.section `
 
 const InsightsHeroTitle = styled.h1 `
     width: 723px;
-    padding-top: 93px;
+    padding-top: 50px;
     text-align: center;
     color: #0D0D0D;
     font-style: normal;

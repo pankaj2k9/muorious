@@ -187,9 +187,10 @@ class Testimonials extends React.Component {
 
     render() {
         const { active, order, data } = this.state
+        const { color } = this.props
         if (data && data[active]) {
             return (
-                <Section testimonials pink>
+                <Section testimonials color={color}>
                     <Testimonial {...data[active]} circles={<Circles onClick={this.selectSlide} iterable={Object.keys(order)} active={active} />} />
                 </Section>
             )
@@ -218,6 +219,6 @@ export const query = graphql`
     }
 `
 
-export default () => (
-    <StaticQuery query={query} render={data => <Testimonials data={data} />} />
+export default (props) => (
+    <StaticQuery query={query} render={data => <Testimonials {...props} data={data} />} />
 )

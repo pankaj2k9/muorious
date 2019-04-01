@@ -11,6 +11,18 @@ class Testimonials extends React.Component {
         this.state = {active: 1};
     }
 
+    componentDidMount() {
+        this._interval = setInterval(() => {
+            this.setState({
+                active: this.state.active < 2 ? this.state.active+1 : 1
+            });
+        }, 2000);
+      }
+    
+    componentWillUnmount() {
+        clearInterval(this._interval);
+    }
+
     render() {
         return (
             <div>
@@ -50,18 +62,6 @@ class Testimonials extends React.Component {
             })()}
             </div>
         )
-    }
-
-    componentDidMount() {
-        this._interval = setInterval(() => {
-            this.setState({
-                active: this.state.active < 2 ? this.state.active+1 : 1
-            });
-        }, 2000);
-      }
-    
-    componentWillUnmount() {
-        clearInterval(this._interval);
     }
 }
 

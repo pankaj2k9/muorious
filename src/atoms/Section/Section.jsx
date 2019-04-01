@@ -11,7 +11,8 @@ const Section = styled("section")`
     position: relative;
     ${ ({ indexHero }) => indexHero &&
         css`
-            height: 696px; 
+            max-height: 696px;
+            height: 100vh;
             background-image: url(${IndexHeroBg});
             background-size: cover;
             @media(max-width: 992px){ 

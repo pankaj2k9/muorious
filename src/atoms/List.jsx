@@ -99,7 +99,7 @@ ListItem.Dropdown = class extends Component {
                             {items.map((i, idx) => <ListItemDropdownItem onClick={() => { document.body.style.overflowY = '' }} key={idx}>{i.content}</ListItemDropdownItem>)}
                         </ListItemDropdownItems>
                     )}
-                    {this.isOpen() ? <Overlay onClick={this.toogle}/> : null }
+                    {open ? <Overlay onClick={this.toogle}/> : null }
                 </ListItem>
                 
             </>

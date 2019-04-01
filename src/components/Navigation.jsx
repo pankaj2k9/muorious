@@ -29,7 +29,7 @@ const Navigation = (props) => (
                         </Col>
                         <Col NavRight>
                             <StyledLink as="a" href="/dashboard">Login</StyledLink>
-                            <Button secondary>Request demo</Button>
+                            <Button secondary><a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">Request demo</a></Button>
                         </Col>
                     </Row>
                 </Container>

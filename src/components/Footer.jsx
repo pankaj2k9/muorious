@@ -55,6 +55,9 @@ const FooterTwitterLogo = styled.img`
 const FooterFeatures = styled.div`
     margin-right: 120px;
     line-height: 32px;
+    a {
+        color: white;
+    }
 `
 const FooterFeaturesTitle = styled.div`
     font-weight: 600;

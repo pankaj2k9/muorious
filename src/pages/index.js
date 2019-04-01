@@ -59,8 +59,8 @@ class RootIndex extends React.Component {
                         {content.description}
                       </H4>
                     </Breakpoint>
-                    <Breakpoint medium up><Button secondary>Request demo</Button></Breakpoint>
-                    <Breakpoint medium down><FlexWrapper><Button secondary>Request demo</Button></FlexWrapper></Breakpoint>
+                    <Breakpoint medium up><a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0"><Button secondary>Request demo</Button></a></Breakpoint>
+                    <Breakpoint medium down><FlexWrapper><a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0"><Button secondary>Request demo</Button></a></FlexWrapper></Breakpoint>
                   </Col>
                   <Breakpoint medium up>
                     <Col equal />
@@ -254,7 +254,7 @@ class RootIndex extends React.Component {
                 <Row>
                   <Col center>
                     <H1 color="white" center>{content.bottomCtaTitle}</H1>
-                    <Button secondary>Request demo</Button>
+                    <a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0"><Button secondary>Request demo</Button></a>
                   </Col>
                 </Row>
               </Container>

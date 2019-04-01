@@ -137,8 +137,8 @@ class Footer extends React.Component {
                             <FooterMiurosAsset>
                                 <Link to="/"><Logo /></Link>
                                 <FooterMiurosSocialMedia>
-                                    <Link to="https://twitter.com/miuros_software"><FooterTwitterLogo src={TwitterLogo}></FooterTwitterLogo></Link>
-                                    <Link to="https://www.linkedin.com/company/miuros/"><img src={LinkedinLogo}></img></Link>
+                                    <a href="https://twitter.com/miuros_software"><FooterTwitterLogo src={TwitterLogo}></FooterTwitterLogo></a>
+                                    <a href="https://www.linkedin.com/company/miuros/"><img src={LinkedinLogo}></img></a>
                                 </FooterMiurosSocialMedia>
                             </FooterMiurosAsset>
                             <FooterFeatures>
@@ -153,8 +153,8 @@ class Footer extends React.Component {
                             <FooterCompany>
                                 <FooterInformationsTitle>Informations</FooterInformationsTitle>
                                 <Link to="/about">About</Link>
-                                <Link href="https://angel.co/miuros/jobs">Careers</Link>
-                                <Link href="/privacy">Privacy</Link>
+                                <a href="https://angel.co/miuros/jobs">Careers</a>
+                                <Link to="/privacy">Privacy</Link>
                             </FooterCompany>
                             <FooterContactInfo>
                                 <FooterContactTitle>Miuros SAS</FooterContactTitle>
@@ -180,8 +180,8 @@ class Footer extends React.Component {
                                 <FooterMiurosAsset>
                                     <Link to="/"><Logo /></Link>
                                     <FooterMiurosSocialMedia>
-                                        <Link to="https://twitter.com/miuros_software"><FooterTwitterLogo src={TwitterLogo}></FooterTwitterLogo></Link>
-                                        <Link to="https://www.linkedin.com/company/miuros/"><img src={LinkedinLogo}></img></Link>
+                                        <a to="https://twitter.com/miuros_software"><FooterTwitterLogo src={TwitterLogo}></FooterTwitterLogo></a>
+                                        <a to="https://www.linkedin.com/company/miuros/"><img src={LinkedinLogo}></img></a>
                                     </FooterMiurosSocialMedia>
                                 </FooterMiurosAsset>
                             </FooterColumn>
@@ -198,8 +198,8 @@ class Footer extends React.Component {
                                 <FooterCompany>
                                     <FooterInformationsTitle>Informations</FooterInformationsTitle>
                                     <Link to="/about">About</Link>
-                                    <Link href="https://angel.co/miuros/jobs">Careers</Link>
-                                    <Link href="/privacy">Privacy</Link>
+                                    <a href="https://angel.co/miuros/jobs">Careers</a>
+                                    <Link to="/privacy">Privacy</Link>
                                 </FooterCompany>
 
                             </FooterColumn>

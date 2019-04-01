@@ -36,7 +36,7 @@ class RootIndex extends React.Component {
     // const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     // const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
-    const content = this.props.data.allContentfulHomepage.edges[0].node
+    const content = this.props.data.allContentfulHomepage.edges[0].node 
     return (
 
       <LayoutWithThemeProvider>
@@ -45,7 +45,7 @@ class RootIndex extends React.Component {
             <title>{siteTitle}</title>
           </Helmet>
           <main>
-            <Nav />
+            <Nav location={this.props.location}/>
             <Section indexHero>
               <Container>
                 <Row>
@@ -200,7 +200,8 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            <Section intro id="experience">
+            
+            <Section intro>
               <Container>
                 <Breakpoint medium up>
                   <Row>
@@ -228,8 +229,9 @@ class RootIndex extends React.Component {
                 </Breakpoint>
               </Container>
             </Section>
-            <Section intro grey>
-              <Container id="integrations">
+            
+            <Section intro grey id="integrations">
+              <Container>
                 <Breakpoint medium up>
                   <Row>
                     <Col equal center>
@@ -257,7 +259,7 @@ class RootIndex extends React.Component {
               </Container>
             </Section>
             <Section intro grey>
-              <Container id="integrations">
+              <Container>
                 <Breakpoint medium up>
                   <Row>
                     <Col equal center>

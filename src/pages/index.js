@@ -23,6 +23,11 @@ import Testimonials from '../components/Testimonials'
 const Img = styled.img`
 width: 100%;
 `
+
+const RequestDemoButtonFooterWrapper = styled('a')`
+  text-align: center;
+`
+
 class RootIndex extends React.Component {
   render() {
     // console.log("Data : ", this.props.data);
@@ -256,7 +261,9 @@ class RootIndex extends React.Component {
                 <Row>
                   <Col center>
                     <H1 color="white" center>{content.bottomCtaTitle}</H1>
-                    <a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0"><Button secondary>Request demo</Button></a>
+                    <RequestDemoButtonFooterWrapper href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">
+                      <Button secondary>Request demo</Button>
+                    </RequestDemoButtonFooterWrapper>
                   </Col>
                 </Row>
               </Container>

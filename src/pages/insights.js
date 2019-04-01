@@ -188,6 +188,13 @@ const InsightsFeaturesMoreCardDescription = styled.p`
 class Insights extends React.Component {
     render() {
         console.warn(this.props)
+        let quotesData = []
+        try {
+            quotesData = this.props.data.allContentfulFeaturePageTemplate2.edges[0].node.quotes
+        } catch (e) {
+            console.warn(e)
+        }
+
         return (
             <LayoutWithThemeProvider>
                 <React.Fragment>
@@ -222,7 +229,7 @@ class Insights extends React.Component {
                                 <img src={InsightsBenefitsImg}></img>
                             </InsightsBenefitsImgSection>
                         </InsightsBenefitsSection>
-                        <Testimonials color="green" />
+                        <Testimonials color="green" withData data={quotesData} />
                         <InsightsFeaturesSection>
                             <InsightsQualityAssurance>
                                 <div>
@@ -296,10 +303,19 @@ We also gives you visibility and metrics over private and non-official canned re
 export default Insights
 
 export const pageQuery = graphql`
-  query AssistQuery {
+  query InsightsQuery {
     allContentfulFeaturePageTemplate2 {
         edges {
-          node {}
+          node {
+            quotes {
+                ...  on ContentfulQuote {
+                content
+                authorFirstName
+                authorLastName
+                authorJobTitle
+              }
+            }
+          }
         }
     }
     

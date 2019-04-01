@@ -256,6 +256,34 @@ class RootIndex extends React.Component {
                 </Breakpoint>
               </Container>
             </Section>
+            <Section intro grey>
+              <Container id="integrations">
+                <Breakpoint medium up>
+                  <Row>
+                    <Col equal center>
+                      <H1>{content.integrationFastTitle}</H1>
+                      <TextBig color="grey4">
+                        {content.integrationDescription.integrationFastDescription}
+                      </TextBig>
+                    </Col>
+                    <Col equal center>
+                      <IndexSideImg src={content.integrationFastImage.file.url} />
+                    </Col>
+                  </Row>
+                </Breakpoint>
+                <Breakpoint medium down>
+                  <Row>
+                    <Col>
+                      <Img src={content.integrationImage.file.url} />
+                      <H1 small>{content.integrationTitle}</H1>
+                      <TextBig color="grey4">
+                        {content.integrationDescription.integrationDescription}
+                      </TextBig>
+                    </Col>
+                  </Row>
+                </Breakpoint>
+              </Container>
+            </Section>
             <Section src={content.bottomCtaImage.file.url} cta>
               <Container>
                 <Row>
@@ -349,6 +377,15 @@ export const pageQuery = graphql`
             }
             integrationDescription {
               integrationDescription
+            }
+            integrationFastTitle
+            integrationFastImage {
+              file {
+                url
+              }
+            }
+            integrationFastDescription {
+              integrationFastDescription
             }
             bottomCtaTitle
             bottomCtaImage {

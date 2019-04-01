@@ -17,9 +17,6 @@ const styleForNavRight = ({ theme, NavRight }) => {
             width: 25%;
             flex-direction: row;
             align-items: center;
-            button {
-                width: 72%;
-            }
         `
     }
 }

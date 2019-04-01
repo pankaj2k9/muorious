@@ -23,6 +23,11 @@ import Testimonials from '../components/Testimonials'
 const Img = styled.img`
 width: 100%;
 `
+
+const RequestDemoButtonFooterWrapper = styled('a')`
+  text-align: center;
+`
+
 class RootIndex extends React.Component {
   render() {
     // console.log("Data : ", this.props.data);
@@ -251,12 +256,42 @@ class RootIndex extends React.Component {
                 </Breakpoint>
               </Container>
             </Section>
+            <Section intro grey>
+              <Container id="integrations">
+                <Breakpoint medium up>
+                  <Row>
+                    <Col equal center>
+                      <H1>{content.integrationFastTitle}</H1>
+                      <TextBig color="grey4">
+                        {content.integrationDescription.integrationFastDescription}
+                      </TextBig>
+                    </Col>
+                    <Col equal center>
+                      <IndexSideImg src={content.integrationFastImage.file.url} />
+                    </Col>
+                  </Row>
+                </Breakpoint>
+                <Breakpoint medium down>
+                  <Row>
+                    <Col>
+                      <Img src={content.integrationImage.file.url} />
+                      <H1 small>{content.integrationTitle}</H1>
+                      <TextBig color="grey4">
+                        {content.integrationDescription.integrationDescription}
+                      </TextBig>
+                    </Col>
+                  </Row>
+                </Breakpoint>
+              </Container>
+            </Section>
             <Section src={content.bottomCtaImage.file.url} cta>
               <Container>
                 <Row>
                   <Col center>
                     <H1 color="white" center>{content.bottomCtaTitle}</H1>
-                    <a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0"><Button secondary>Request demo</Button></a>
+                    <RequestDemoButtonFooterWrapper href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">
+                      <Button secondary>Request demo</Button>
+                    </RequestDemoButtonFooterWrapper>
                   </Col>
                 </Row>
               </Container>
@@ -342,6 +377,15 @@ export const pageQuery = graphql`
             }
             integrationDescription {
               integrationDescription
+            }
+            integrationFastTitle
+            integrationFastImage {
+              file {
+                url
+              }
+            }
+            integrationFastDescription {
+              integrationFastDescription
             }
             bottomCtaTitle
             bottomCtaImage {

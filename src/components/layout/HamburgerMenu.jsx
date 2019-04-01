@@ -38,7 +38,7 @@ const MobileMenu = styled.div`
     background-image: url(${MenuBackground});
     background-size: cover;
     background-position: center;
-    padding-bottom: 60px;   
+    padding: 0 30px 60px 30px;   
 `
 const MobileMenuBottom = styled.div`
     position: absolute;
@@ -46,10 +46,11 @@ const MobileMenuBottom = styled.div`
     left: 0;
     width: 100%;
     height: 60px;
+    padding: 0 30px;
 `
 
 const MobileMenuItems = styled.div`
-    margin: 20px;
+    
 `
 
 const MobileMenuItemElement = styled.div`
@@ -142,6 +143,10 @@ const ComingSoon = styled.span`
  }
 `
 
+const NavContainer = styled(Container)`
+    padding: 0 !important;
+`
+
 const dropdownItems = [
     { content: <><Link to="/assist">Assist</Link></> },
     { content: <><Link to="/insights">Insights</Link></> },
@@ -168,7 +173,7 @@ class HamburgerMenu extends Component {
                 {this.state.menuOpen && (
                     <MobileMenu >
                         <Nav position="static" dark small>
-                            <Container>
+                            <NavContainer>
                                 <Row>
                                     <Col NavLeft>
                                         <Link to="/"><Logo /></Link>
@@ -177,13 +182,13 @@ class HamburgerMenu extends Component {
                                         <CloseBtn onClick={this.toggleMenu} />
                                     </Col>
                                 </Row>
-                            </Container>
+                            </NavContainer>
                         </Nav>
                         <MobileMenuItems>
                             <MobileMenuItem.Dropdown items={dropdownItems}>
                                 <p>Features</p>
                             </MobileMenuItem.Dropdown>
-                            <MobileMenuItem>
+                            <MobileMenuItem onClick={this.toggleMenu}>
                                 <Link to="/#integrations">Integrations</Link>
                             </MobileMenuItem>
                             <MobileMenuItem>
@@ -201,7 +206,7 @@ class HamburgerMenu extends Component {
                     </MobileMenu>
                 )}
             </>
-        )
+        )   
     }
 }
 

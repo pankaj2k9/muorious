@@ -36,6 +36,7 @@ const cssForNavLink = ({ theme, nav }) => {
 const ListItem = styled("li")`
     ${props => cssForNavLink(props)};
     position: relative;
+    cursor: pointer;
 `
 
 export { List, ListItem }
@@ -49,6 +50,7 @@ const ListItemDropdownItems = styled.div`
     max-width: 100vw;
     background-color: #fff;
     padding: 0 15px;
+    z-index: 2;
     &:before {
         content: '';
         position: absolute;
@@ -60,11 +62,20 @@ left: 50%;
 transform: translateX(-50%);
 border-width: 0 5px 7px 5px;
 border-color: transparent transparent #ffffff transparent;
-
     }
 `
 const ListItemDropdownItem = styled.div`
     margin: 10px 0;
+`
+
+const Overlay = styled('div')`
+    position: fixed;
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
 `
 
 ListItem.Dropdown = class extends Component {
@@ -72,18 +83,26 @@ ListItem.Dropdown = class extends Component {
 
     toggle = () => this.setState({ open: !this.state.open })
 
+    isOpen(){
+        return this.state.open
+    }
+
     render() {
         const { open } = this.state
         const { children, items, ...rest } = this.props
         return (
-            <ListItem {...rest} onClick={this.toggle}>
-                {children}
-                {this.state.open && (
-                    <ListItemDropdownItems>
-                        {items.map((i, idx) => <ListItemDropdownItem onClick={() => { document.body.style.overflowY = '' }} key={idx}>{i.content}</ListItemDropdownItem>)}
-                    </ListItemDropdownItems>
-                )}
-            </ListItem>
+            <>
+                <ListItem {...rest} onClick={this.toggle}>
+                    {children}
+                    {this.state.open && (
+                        <ListItemDropdownItems>
+                            {items.map((i, idx) => <ListItemDropdownItem onClick={() => { document.body.style.overflowY = '' }} key={idx}>{i.content}</ListItemDropdownItem>)}
+                        </ListItemDropdownItems>
+                    )}
+                    {open ? <Overlay onClick={this.toogle}/> : null }
+                </ListItem>
+                
+            </>
         )
     }
 }

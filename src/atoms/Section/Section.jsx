@@ -15,8 +15,19 @@ const Section = styled("section")`
             height: 70vh;
             background-image: url(${IndexHeroBg});
             background-size: cover;
+            h1 {
+                padding-bottom: 20px;
+            }
+            h4 {
+                padding-bottom: 20px;
+            }
             @media(max-width: 992px){ 
                 background-image: url(${MobileHeroBg});
+                height: 40vh;
+                h1 {
+                    font-size: 20px;
+                    line-height: 30px;
+                }
             }
         `
     }

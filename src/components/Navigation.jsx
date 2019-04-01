@@ -28,7 +28,7 @@ const Navigation = (props) => (
                             </List>
                         </Col>
                         <Col NavRight>
-                            <StyledLink as="a" href="/login">Login</StyledLink>
+                            <StyledLink as="a" href="/dashboard">Login</StyledLink>
                             <Button secondary>Request demo</Button>
                         </Col>
                     </Row>

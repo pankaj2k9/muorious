@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "gatsby"
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
@@ -144,7 +145,7 @@ class RootIndex extends React.Component {
                       <Col equal center>
                         <H1>{content.feature1Title}</H1>
                         <TextBig color="grey4">{content.feature1Description.feature1Description}</TextBig>
-                        <Button primary>Learn about Assist</Button>
+                        <Link to="/assist"><Button primary>Learn about Assist</Button></Link>
                       </Col>
                       <Col equal center>
                         <IndexSideImg src={content.feature1Image.file.url} />
@@ -157,7 +158,7 @@ class RootIndex extends React.Component {
                         <Img src={content.feature1Image.file.url} />
                         <H1 small>{content.feature1Title}</H1>
                         <TextBig color="grey4">{content.feature1Description.feature1Description}</TextBig>
-                        <FlexWrapper><Button light>Learn about Assist</Button></FlexWrapper>
+                        <FlexWrapper><Link to="/assist"><Button light>Learn about Assist</Button></Link></FlexWrapper>
                       </Col>
                     </>
                   </Breakpoint>
@@ -175,7 +176,7 @@ class RootIndex extends React.Component {
                       <Col equal center>
                         <H1>{content.feature2Title}</H1>
                         <TextBig color="grey4">{content.feature2Description.feature2Description}</TextBig>
-                        <Button primary>Learn about Insights</Button>
+                        <Link to="/insights"><Button primary>Learn about Insights</Button></Link>
                       </Col>
                     </>
                   </Breakpoint>
@@ -221,7 +222,7 @@ class RootIndex extends React.Component {
               </Container>
             </Section>
             <Section intro grey>
-              <Container>
+              <Container id="integrations">
                 <Breakpoint medium up>
                   <Row>
                     <Col equal center>

@@ -190,7 +190,7 @@ class Footer extends React.Component {
                                         <Link to="/insights">Insights</Link>
                                         <Link to="/#experience">Experience</Link>
                                     </FooterFeaturesDetails>
-                                    <FooterIntegrationsTitle>Integrations</FooterIntegrationsTitle>
+                                    <FooterIntegrationsTitle><Link to="/#integrations">Integrations</Link></FooterIntegrationsTitle>
                                 </FooterFeatures>
                                 <FooterCompany>
                                     <FooterInformationsTitle>Informations</FooterInformationsTitle>

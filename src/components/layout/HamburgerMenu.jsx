@@ -188,7 +188,7 @@ class HamburgerMenu extends Component {
                             <MobileMenuItem.Dropdown items={dropdownItems}>
                                 <p>Features</p>
                             </MobileMenuItem.Dropdown>
-                            <MobileMenuItem>
+                            <MobileMenuItem onClick={this.toggleMenu}>
                                 <Link to="/#integrations">Integrations</Link>
                             </MobileMenuItem>
                             <MobileMenuItem>
@@ -206,7 +206,7 @@ class HamburgerMenu extends Component {
                     </MobileMenu>
                 )}
             </>
-        )
+        )   
     }
 }
 

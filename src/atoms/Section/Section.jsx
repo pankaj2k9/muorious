@@ -89,7 +89,7 @@ const Section = styled("section")`
         `
     }
 
-    ${({ color }) => `background-image: url(${bgs[color]});`}
+    ${({ color }) => color && css`background-image: url(${bgs[color]});`}
    
     ${ props => props.features && css`
         height: 275px; 

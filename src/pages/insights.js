@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
+import Breakpoint from '../components/layout/Breakpoint'
 
 import InsightsHeroImg from '../atoms/Images/InsightsHeroImg.svg'
 import InsightsBenefitsImg from '../atoms/Images/InsightsBenefitsImg.png'
@@ -20,6 +21,7 @@ const InsightsHeroSection = styled.section`
     min-height: 1100px;
     height: auto;
     margin: 0 auto;
+    width: 100%;
     background-image: url(${InsightsHeroShape});
     background-size: 50%;
     background-position: top left;
@@ -27,23 +29,31 @@ const InsightsHeroSection = styled.section`
     display: flex;
     align-items: center;
     flex-direction: column;
+    @media(max-width: 992px){
+        min-height: 0;
+    }
 `
 
 const InsightsHeroTitle = styled.h1`
-    width: 723px;
+    max-width: 723px;
+    width: 100%;
     padding-top: 50px;
     text-align: center;
     color: #0D0D0D;
     font-style: normal;
     font-weight: 600;
     font-size: 48px;
-    line-height: 72px;
+    line-height: 1.6;
     text-align: center;
     margin: 0 auto;
+    @media(max-width: 992px){
+        font-size: 24px;
+    }
 `
 
 const InsightsHeroDescription = styled.p`
-    width: 877px;
+    max-width: 877px;
+    width: 100%;
     font-family: Modern Era;
     font-style: normal;
     font-weight: normal;
@@ -56,10 +66,13 @@ const InsightsHeroDescription = styled.p`
 
 const InsightsHeroImgSection = styled.div`
     padding-top: 50px;
+    max-width: 100vw;
+    img {
+        max-width: 100vw;
+    }
 `
 
 const InsightsBenefitsSection = styled.section`
-    height: 1003px;
     max-width: 1440px;
     display: flex;
     justify-content: center;
@@ -67,9 +80,15 @@ const InsightsBenefitsSection = styled.section`
 `
 
 const InsightsBenefitsContent = styled.div`
-    width: 484px;
+    max-width: 484px;
+    width: 100%;
     padding-top: 100px;
     margin-right: 130px;
+    @media(max-width: 992px){
+        margin-right: 0;
+        padding-top: 20px;
+        padding: 20px;
+    }
 `
 
 const InsightsBenefitsContentTitle = styled.h3`
@@ -91,10 +110,15 @@ const InsightsBenefitsImgSection = styled.div`
 `
 
 const InsightsFeaturesSection = styled.section`
-    height: 2000px;
     max-width: 1440px;
+    width: 100%;    
     padding-top: 120px;
     margin: 0 auto;
+    img {
+        width: 90vw;
+        display: block;
+        margin: 10px auto;
+    }
 `
 
 const InsightsQualityAssurance = styled.div`
@@ -108,15 +132,26 @@ const InsightsFeaturesTitle = styled.h3`
     color: #000000;
     margin-right: 100px;
     margin-left: 100px;
+    @media(max-width: 992px){
+        margin-right: 0;
+        margin-left: 0;
+        padding: 15px;
+    }
 `
 
 const InsightsFeaturesDescription = styled.p`
-    width: 470px;
+    max-width: 470px;
+    width: 100%;
     font-size: 18px;
     line-height: 32px;
     color: #000000;
     margin-right: 100px;
     margin-left: 100px;
+    @media(max-width: 992px){
+        margin-right: 0;
+        margin-left: 0;
+        padding: 15px;
+    }
 `
 
 const InsightCommunicationAnalysis = styled.div`
@@ -135,7 +170,7 @@ const InsightsAgentPerformance = styled.div`
 `
 
 const InsightsFeaturesMore = styled.section`
-    width: 1110px;
+    width: 100%;
     margin: 0 auto;
     padding-top: 80px;
 `
@@ -153,11 +188,17 @@ const InsightsFeaturesMoreTitle = styled.h3`
 
 const InsightsFeaturesMoreCards1 = styled.div`
     display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    align-items: center;
     margin: auto 0;
 `
 
 const InsightsFeaturesMoreCards2 = styled.div`
     display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
     padding-bottom: 70px;
 `
 
@@ -225,42 +266,74 @@ class Insights extends React.Component {
                                     <InsightsBenefitsContentDescription>Let your agents self-assess their performance with the Miuros Smart Benchmark, a new and fair way to measure performance.</InsightsBenefitsContentDescription>
                                 </div>
                             </InsightsBenefitsContent>
-                            <InsightsBenefitsImgSection>
-                                <img src={InsightsBenefitsImg}></img>
-                            </InsightsBenefitsImgSection>
+                            <Breakpoint medium up>
+                                <InsightsBenefitsImgSection>
+                                    <img src={InsightsBenefitsImg}></img>
+                                </InsightsBenefitsImgSection>
+                            </Breakpoint>
                         </InsightsBenefitsSection>
                         <Testimonials color="green" withData data={quotesData} />
-                        <InsightsFeaturesSection>
-                            <InsightsQualityAssurance>
+                        <Breakpoint medium up>
+                            <InsightsFeaturesSection>
+                                <InsightsQualityAssurance>
+                                    <div>
+                                        <InsightsFeaturesTitle>Quality Assurance</InsightsFeaturesTitle>
+                                        <InsightsFeaturesDescription>Explore, navigate, slice and dice your data to validate assumptions, measure performance with a few clicks or compare each element with the average.</InsightsFeaturesDescription>
+                                    </div>
+                                    <img src={QualityAssuranceIllu}></img>
+                                </InsightsQualityAssurance>
+                                <InsightCommunicationAnalysis>
+                                    <img src={CommunicationAnalysisIllu}></img>
+                                    <div>
+                                        <InsightsFeaturesTitle>Communication Analysis</InsightsFeaturesTitle>
+                                        <InsightsFeaturesDescription>Break down each of your key metrics depending on the usage of canned responses. Understand how they are used and how they impact your Customer Satisfaction and productivity. Monitor adherence to communication guidelines and identify optimization to be made.</InsightsFeaturesDescription>
+                                    </div>
+                                </InsightCommunicationAnalysis>
+                                <InsightsTemplateAnalysis>
+                                    <div>
+                                        <InsightsFeaturesTitle>Template Analysis</InsightsFeaturesTitle>
+                                        <InsightsFeaturesDescription>Build a healthy library of canned responses, figure out which ones have high re-opening rates, negative impact on your Customer Satisfaction, assess how often they’re being customized or even completely changed.
+We also gives you visibility and metrics over private and non-official canned responses that your agents created for themselves.</InsightsFeaturesDescription>
+                                    </div>
+                                    <img src={TemplateAnalysisIllu}></img>
+                                </InsightsTemplateAnalysis>
+                                <InsightsAgentPerformance>
+                                    <img src={AgentPerformanceIllu}></img>
+                                    <div>
+                                        <InsightsFeaturesTitle>Agent Performance</InsightsFeaturesTitle>
+                                        <InsightsFeaturesDescription>Empower your staff to self-assess their performance, in a fair way, while saving the management team lots of analytical time. The Agent Performance dashboard will help your agents interpret their results and how their trends compare to others, giving them access with one click to the comments customers left about their work.</InsightsFeaturesDescription>
+                                    </div>
+                                </InsightsAgentPerformance>
+                            </InsightsFeaturesSection>
+                        </Breakpoint>
+                        <Breakpoint medium down>
+                            <InsightsFeaturesSection>
+                                <img src={QualityAssuranceIllu}></img>
+
                                 <div>
                                     <InsightsFeaturesTitle>Quality Assurance</InsightsFeaturesTitle>
                                     <InsightsFeaturesDescription>Explore, navigate, slice and dice your data to validate assumptions, measure performance with a few clicks or compare each element with the average.</InsightsFeaturesDescription>
                                 </div>
-                                <img src={QualityAssuranceIllu}></img>
-                            </InsightsQualityAssurance>
-                            <InsightCommunicationAnalysis>
                                 <img src={CommunicationAnalysisIllu}></img>
+
                                 <div>
                                     <InsightsFeaturesTitle>Communication Analysis</InsightsFeaturesTitle>
                                     <InsightsFeaturesDescription>Break down each of your key metrics depending on the usage of canned responses. Understand how they are used and how they impact your Customer Satisfaction and productivity. Monitor adherence to communication guidelines and identify optimization to be made.</InsightsFeaturesDescription>
                                 </div>
-                            </InsightCommunicationAnalysis>
-                            <InsightsTemplateAnalysis>
+                                <img src={TemplateAnalysisIllu}></img>
+
                                 <div>
                                     <InsightsFeaturesTitle>Template Analysis</InsightsFeaturesTitle>
                                     <InsightsFeaturesDescription>Build a healthy library of canned responses, figure out which ones have high re-opening rates, negative impact on your Customer Satisfaction, assess how often they’re being customized or even completely changed.
 We also gives you visibility and metrics over private and non-official canned responses that your agents created for themselves.</InsightsFeaturesDescription>
                                 </div>
-                                <img src={TemplateAnalysisIllu}></img>
-                            </InsightsTemplateAnalysis>
-                            <InsightsAgentPerformance>
                                 <img src={AgentPerformanceIllu}></img>
                                 <div>
                                     <InsightsFeaturesTitle>Agent Performance</InsightsFeaturesTitle>
                                     <InsightsFeaturesDescription>Empower your staff to self-assess their performance, in a fair way, while saving the management team lots of analytical time. The Agent Performance dashboard will help your agents interpret their results and how their trends compare to others, giving them access with one click to the comments customers left about their work.</InsightsFeaturesDescription>
                                 </div>
-                            </InsightsAgentPerformance>
-                        </InsightsFeaturesSection>
+                            </InsightsFeaturesSection>
+                        </Breakpoint>
                         <InsightsFeaturesMore>
                             <InsightsFeaturesMoreTitle>More from Insights</InsightsFeaturesMoreTitle>
                             <InsightsFeaturesMoreCards1>
@@ -295,7 +368,7 @@ We also gives you visibility and metrics over private and non-official canned re
                         <Footer />
                     </main>
                 </React.Fragment>
-            </LayoutWithThemeProvider>
+            </LayoutWithThemeProvider >
         )
     }
 }

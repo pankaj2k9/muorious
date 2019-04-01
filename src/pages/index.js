@@ -53,7 +53,6 @@ class RootIndex extends React.Component {
 
     const content = this.props.data.allContentfulHomepage.edges[0].node 
     return (
-
       <LayoutWithThemeProvider>
         <React.Fragment>
           <Helmet>

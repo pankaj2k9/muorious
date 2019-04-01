@@ -30,11 +30,18 @@ const AssistFeaturesSection = styled.section `
 const AssistFeature1 = styled.div `
     display: flex;
     margin-top: 100px;
+    @media (max-width: 992px) {
+        flex-direction: column;
+    }
 `
 
 const AssistFeature1Content = styled.div `
     width: 483px;
     margin-right: 75px;
+    @media (max-width: 992px) {
+        margin-right: 0px;
+        max-width: 100vw;
+    }
 `
 
 const AssistFeature1Title = styled.div `
@@ -66,6 +73,9 @@ const AssistFeature2Title = styled.div `
     font-size: 38px;
     line-height: 48px;
     color: #000000;
+    @media (max-width: 992px) {
+        max-width: 100vw;
+    }
 `
 
 const AssistFeature2Description = styled.div `
@@ -74,10 +84,17 @@ const AssistFeature2Description = styled.div `
     text-align: center;
     color: #4D4D4D;
     margin-bottom: 40px;
+    @media (max-width: 992px) {
+        max-width: 100vw;
+    }
 `
 
 const AssistFeature2Details = styled.div `
     display: flex;
+    @media (max-width: 992px) {
+        flex-direction: column;
+        width: 100vw;
+    }
 `
 const AssistFeature2DetailsTitle = styled.h3 `
     font-weight: 600;
@@ -90,6 +107,9 @@ const AssistFeature2DetailsDescription = styled.p `
     font-size: 16px;
     line-height: 32px;
     color: #606060;
+    @media (max-width: 992px) {
+        line-height: 20px;
+    }
 `
 
 const AssistFeature2DetailsCard = styled.div `
@@ -101,6 +121,11 @@ const AssistFeature2DetailsCard = styled.div `
     width: 539px;
     border-left: solid 8px #FFC509;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    @media (max-width: 992px) {
+        width: 100vw;
+        margin: 10px 0px;
+        padding: 5px;
+    }
 `
 
 const AssistFeature2Img = styled.div `
@@ -131,6 +156,9 @@ const AssistFeaturesMoreSection = styled.section `
     margin: 0 auto;
     padding-top: 80px;
     margin-bottom: 100px;
+    @media (max-width: 992px) {
+        padding-top: 900px;
+    }
 `
 
 const AssistFeaturesMoreTitle = styled.h3 `
@@ -142,11 +170,18 @@ const AssistFeaturesMoreTitle = styled.h3 `
     text-align: center;
     color: #000000;
     padding-bottom: 20px;
+    @media (max-width: 992px) {
+        margin: 0;
+        width: 100vw;
+    }
 `
 
 const AssistFeaturesMoreCards = styled.div `
     display: flex;
     margin: auto 0;
+    @media (max-width: 992px) {
+        flex-direction: column;
+    }
 `
 
 const AssistFeaturesMoreCard = styled.div `
@@ -198,7 +233,7 @@ class Assist extends React.Component {
                         </Section>
                         <Section benefits>
                             <WideContainer>
-                                    <Col benefit bgi={content.benefitsImage.file.url}/>
+                                    <Col benefitImg benefit bgi={content.benefitsImage.file.url}/>
                                     <Col benefit>
                                         <div>
                                             <H3DIFF color="green">{content.benefit1Title}</H3DIFF>

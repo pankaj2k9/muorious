@@ -20,8 +20,8 @@ const Section = styled("section")`
             }
         `
     }
-    ${ props => props.assistHero &&
-        `padding-top: 100px;
+    ${ props => props.assistHero && css`
+        padding-top: 100px;
         height: 100vh; 
         background-image: url(${AssistHeroBg}); 
         background-size: cover;
@@ -32,6 +32,16 @@ const Section = styled("section")`
         h2 {
             width: 80%;
             margin: 0 auto;
+        }
+        @media (max-width: 800px) {
+            padding-top: 0px;
+            h1 {
+                font-size: 26px;
+            }
+            p {
+                font-size: 14px;
+                line-height: 23px;
+            }
         }
         `
     }
@@ -81,10 +91,17 @@ const Section = styled("section")`
         `background-color: ${getColors(props.theme).grey3};`
     }
     ${ props => props.cta &&
-        css`background-image: url(${props.src}); background-size: cover; background-position: center; height: 558px; button {width: 200px; margin: 20px auto;}`
+        css`background-image: url(${props.src}); background-size: cover; background-position: center; height: 558px; button {width: 200px; margin: 20px auto;}
+        `
     }
-    ${ props => props.benefits &&
-        `p { width: 430px; line-height: 32px; padding: 15px 0; } h4 {font-weight: 400; padding: 15px 0;} `
+    ${ props => props.benefits && css`
+        padding-top: 100px;
+        p { width: 430px;
+        line-height: 32px;
+        padding: 15px 0; }
+        h4 { font-weight: 400;
+        padding: 15px 0; }
+        `
     }
 `
 

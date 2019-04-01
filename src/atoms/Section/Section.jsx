@@ -12,7 +12,7 @@ const Section = styled("section")`
     ${ ({ indexHero }) => indexHero &&
         css`
             max-height: 696px;
-            height: 100vh;
+            height: 70vh;
             background-image: url(${IndexHeroBg});
             background-size: cover;
             @media(max-width: 992px){ 
@@ -21,7 +21,8 @@ const Section = styled("section")`
         `
     }
     ${ props => props.assistHero &&
-        `height: 1081px; 
+        `padding-top: 100px;
+        height: 100vh; 
         background-image: url(${AssistHeroBg}); 
         background-size: cover;
         p {

@@ -195,7 +195,7 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            <Section intro>
+            <Section intro id="experience">
               <Container>
                 <Breakpoint medium up>
                   <Row>

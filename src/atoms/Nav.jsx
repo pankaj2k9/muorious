@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mediaQueries } from '../utils/styling';
 
 const Nav = styled("nav")`
     position: ${({ position }) => position ? position : 'fixed'};
@@ -6,8 +7,13 @@ const Nav = styled("nav")`
     z-index: 10;
     background-color: ${({ dark, light }) => dark ? '#174F49' : (light ? '#fff' : 'transparent')};
     & > div {
-        height: ${({ small }) => small ? '72px' : '96px'};
+        height: 72px;
+        ${mediaQueries.sm`
+            height: 96px;
+        `}
     }
+
+
 `
 
 export default Nav

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import css from "styled-components"
-import { getColors } from "../utils/styling";
+import { getColors, mediaQueries} from "../utils/styling";
+
 
 const rightColor = ({ theme, color }) => {
   return getColors(theme)[color]
@@ -23,6 +24,10 @@ const H1 = styled("h1")`
 const H2 = styled("h2")`
   font-size: 40px;
   color: ${props => rightColor(props)};
+  font-weight: 400;
+  ${mediaQueries.sm`
+    font-weight: 600;
+  `}
   ${props => props.center &&
     "text-align: center;"
   }

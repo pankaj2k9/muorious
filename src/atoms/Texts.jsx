@@ -10,6 +10,7 @@ const H1 = styled("h1")`
   font-size: 48px;
   font-weight: 400;
   color: ${props => rightColor(props)};
+  line-height: 64px;
   ${props => props.center &&
     "text-align: center;"
   }
@@ -34,6 +35,7 @@ const H3DIFF = styled("h4")`
 
 const H4 = styled("h4")`
   font-size: 24px;
+  line-height: 32px;
   font-weight: 400;
   color: ${props => rightColor(props)};
 `

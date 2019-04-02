@@ -96,7 +96,7 @@ const MobileMenuItemElement = styled.div`
     }
 `
 
-const MobileMenuItem = ({ onClick, children }) => <MobileMenuItemElement onClick={onClick || (() => { document.body.style.overflowY = '' })}>{children}</MobileMenuItemElement>
+const MobileMenuItem = ({ onClick, children, ...otherProps }) => <MobileMenuItemElement {...otherProps} onClick={onClick || (() => { document.body.style.overflowY = '' })}>{children}</MobileMenuItemElement>
 
 const MobileMenuDropdownItems = styled.div``
 
@@ -172,7 +172,7 @@ class HamburgerMenu extends Component {
                 <ToggleBtn onClick={this.toggleMenu} />
                 {this.state.menuOpen && (
                     <MobileMenu >
-                        <Nav position="static" dark small>
+                        <Nav position="static" transparent small>
                             <NavContainer>
                                 <Row>
                                     <Col NavLeft>

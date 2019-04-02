@@ -42,6 +42,12 @@ const NavContainerGrid = styled(Grid)`
     display: none;
     ${mediaQueries.sm`
         display: block;
+        width:95%;
+    `}
+    ${mediaQueries.lg`
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
     `}
 `
 
@@ -91,10 +97,10 @@ class Navigation extends React.Component {
             <Nav transparent={!state.scrolled && props.transparency} props={props} middle="xs">
                 <Row middle="xs" between="xs">
                     <NavContainerGrid>
-                    <Row>
-                        <Col xs={false} sm>
+                    
+                        
                             <Row middle="xs" between="xs">
-                                <Col sm={7}>
+                                <Col sm={8}>
                                     <Row between="xs" middle="xs">
                                         <Col xs={1}>
                                             <Link to="/"><Logo /></Link>
@@ -108,7 +114,7 @@ class Navigation extends React.Component {
                                         </Col>
                                     </Row>
                                 </Col>
-                                <Col sm={5} md={5} lg={4}>
+                                <Col sm={4} lg={4}>
                                     <Row middle="xs" end="xs">
                                         <Col xs={2}>
                                             <StyledLink as="a" href="/dashboard">Login</StyledLink>
@@ -121,8 +127,8 @@ class Navigation extends React.Component {
                                     </Row>
                                 </Col>
                             </Row>
-                        </Col>
-                    </Row>
+                        
+                    
                     </NavContainerGrid>
                     <NavContainerGridMobile>
                         <Col xs={12} sm={false} md={false} lg={false}>
@@ -131,7 +137,9 @@ class Navigation extends React.Component {
                                     <Link to="/"><Logo /></Link>
                                 </Col>
                                 <Col xs={1}>
-                                    <HamburgerMenu />
+                                    <Row end="xs">
+                                        <HamburgerMenu />
+                                    </Row>
                                 </Col>
                             </Row>
                         </Col>

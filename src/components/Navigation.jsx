@@ -48,6 +48,7 @@ const NavContainerGrid = styled(Grid)`
         display: block;
         margin-right: auto;
         margin-left: auto;
+        width:${({theme}) => theme.flexboxgrid.container.lg}em;
     `}
 `
 

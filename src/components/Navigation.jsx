@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Nav from '../atoms/Nav'
 import Logo from '../atoms/Logo/Logo'
 import { List, ListItem } from '../atoms/List'
-import Button from '../atoms/Button'
+import RequestDemoButton from '../components/shared/RequestDemoBtn'
 import StyledLink from '../atoms/Link'
 import Scrollchor from 'react-scrollchor';
 import { Grid, Row, Col } from 'react-styled-flexboxgrid';
@@ -114,9 +114,7 @@ class Navigation extends React.Component {
                                             <StyledLink as="a" href="/dashboard">Login</StyledLink>
                                         </Col>
                                         <Col xs={7}>
-                                            <RequestDemoButtonWrapper href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">
-                                                <Button secondary>Request demo</Button>
-                                            </RequestDemoButtonWrapper>
+                                            <RequestDemoButton />
                                         </Col>
                                     </Row>
                                 </Col>

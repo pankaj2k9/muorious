@@ -18,24 +18,26 @@ const Section = styled("section")`
     position: relative;
     ${ ({ indexHero }) => indexHero &&
         css`
-            max-height: 696px;
-            height: 70vh;
+            padding-top: 96px;
+            padding-bottom: 96px;
+            ${'' /* max-height: 696px; */}
+            ${'' /* height: 70vh; */}
             background-image: url(${IndexHeroBg});
             background-size: cover;
-            h1 {
+            h1,h2 {
                 padding-bottom: 20px;
             }
             h4 {
                 padding-bottom: 20px;
             }
-            @media(max-width: 992px){ 
+            ${'' /* @media(max-width: 992px){ 
                 background-image: url(${MobileHeroBg});
                 height: 40vh;
                 h1 {
                     font-size: 20px;
                     line-height: 30px;
                 }
-            }
+            } */}
         `
     }
     ${ props => props.assistHero && css`

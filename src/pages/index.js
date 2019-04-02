@@ -10,7 +10,7 @@ import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
 import Button from '../atoms/Button'
 import Section from '../atoms/Section/Section'
-import { H1, H4, TextBig, TextHighlighter } from '../atoms/Texts'
+import { H1, H2, H3, H4, TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import { Container } from '../atoms/Container'
@@ -20,6 +20,7 @@ import FlexWrapper from '../components/shared/FlexWrapper'
 import Space from '../components/shared/Space'
 import Testimonials from '../components/Testimonials'
 import Scrollchor from 'react-scrollchor';
+import HomeHero from '../components/HomeHero';
 
 const Img = styled.img`
 width: 100%;
@@ -45,11 +46,7 @@ class RootIndex extends React.Component {
     },20)
   }
   render() {
-    // console.log("Data : ", this.props.data);
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    // console.log("Site metadata", siteTitle)
-    // const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    // const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     const content = this.props.data.allContentfulHomepage.edges[0].node 
     return (
@@ -61,43 +58,7 @@ class RootIndex extends React.Component {
           <Scrollchor ref={this.scrollAnchorRef} style={{display: "none"}} animate={{offset: -80}} to={this.props.location.hash} />
           <main>
             <Nav transparency location={this.props.location}/>
-            <Section indexHero>
-              <Container>
-                <Row>
-                  <Col equal>
-                    <Breakpoint medium up>
-                      <H1 color="white">
-                        {content.tagline}
-                      </H1>
-                    </Breakpoint>
-                    <Breakpoint medium down>
-                      <>
-                        <H1 color="white" center>
-                          {content.tagline}
-                        </H1>
-                        <Space height="20px" />
-                      </>
-                    </Breakpoint>
-                    <Breakpoint medium up>
-                      <H4 color="white">
-                        {content.description}
-                      </H4>
-                    </Breakpoint>
-                    <Breakpoint medium up><a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0"><Button secondary>Request demo</Button></a></Breakpoint>
-                    <Breakpoint medium down><FlexWrapper><a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0"><Button secondary>Request demo</Button></a></FlexWrapper></Breakpoint>
-                  </Col>
-                  <Breakpoint medium up>
-                    <Col equal />
-                  </Breakpoint>
-                </Row>
-              </Container>
-              <Breakpoint medium up>
-                <IndexHeroImg src={content.heroImage.file.url} />
-              </Breakpoint>
-            </Section>
-            <Breakpoint medium down>
-              <Img src={content.heroImage.file.url} />
-            </Breakpoint>
+            <HomeHero content={content}/>
             <Section customerLogos>
               <Container>
                 <Row customerLogos>

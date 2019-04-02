@@ -1,4 +1,21 @@
-
+const flexboxgrid =  {
+    // Defaults
+    gridSize: 12, // columns
+    gutterWidth: 1, // rem
+    outerMargin: 2, // rem
+    mediaQuery: 'only screen',
+    container: {
+      sm: 46, // rem
+      md: 61, // rem
+      lg: 76  // rem
+    },
+    breakpoints: {
+      xs: 0,  // em
+      sm: 48, // em
+      md: 64, // em
+      lg: 75  // em
+    }
+};
 
 const theme = {
   colors: {
@@ -13,7 +30,8 @@ const theme = {
     grey4: "#606060",
     red: "#EB1212",
     white: "#FFFFFF",
-  }
+  },
+  flexboxgrid: flexboxgrid
 };
 
 export default theme;

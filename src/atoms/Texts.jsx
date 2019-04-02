@@ -22,15 +22,26 @@ const H1 = styled("h1")`
 
 const H2 = styled("h2")`
   font-size: 40px;
+  color: ${props => rightColor(props)};
+  ${props => props.center &&
+    "text-align: center;"
+  }
 `
 
 const H3 = styled("h3")`
   font-size: 32px;
+  color: ${props => rightColor(props)};
+  ${props => props.center &&
+    "text-align: center;"
+  }
 `
 
 const H3DIFF = styled("h4")`
   font-size: 36px;
   color: ${props => rightColor(props)};
+  ${props => props.center &&
+    "text-align: center;"
+  }
 `
 
 const H4 = styled("h4")`
@@ -38,14 +49,23 @@ const H4 = styled("h4")`
   line-height: 32px;
   font-weight: 400;
   color: ${props => rightColor(props)};
+  ${props => props.center &&
+    "text-align: center;"
+  }
 `
 
 const H5 = styled("h5")`
   font-size: 16px;
+  ${props => props.center &&
+    "text-align: center;"
+  }
 `
 
 const H6 = styled("h6")`
   font-size: 14px;
+  ${props => props.center &&
+    "text-align: center;"
+  }
 `
 
 const TextBig = styled("p")`

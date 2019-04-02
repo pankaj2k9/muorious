@@ -53,7 +53,9 @@ const Button = styled("button")`
   cursor: pointer;
   padding: 12px;
   font-size: 14px;
-  width: 100%;
+  width: 200px;
+  height: 50px;
+  ${({ fluid }) => fluid ? css`width: 100%;` : null}
   border: none;
   outline: none;
   font-family: Modern Era;

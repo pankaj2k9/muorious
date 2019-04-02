@@ -60,7 +60,7 @@ class RootIndex extends React.Component {
           </Helmet>
           <Scrollchor ref={this.scrollAnchorRef} style={{display: "none"}} animate={{offset: -80}} to={this.props.location.hash} />
           <main>
-            <Nav location={this.props.location}/>
+            <Nav transparency location={this.props.location}/>
             <Section indexHero>
               <Container>
                 <Row>

@@ -56,60 +56,148 @@ const NavContainerGridMobile = styled(Grid)`
     padding-left: 30px;
 `
 
-const Navigation = (props) => (
-    <>
-        <Nav dark props={props} middle="xs">
-            <Row middle="xs" between="xs">
-                <NavContainerGrid>
-                <Row>
-                    <Col xs={false} sm>
-                        <Row middle="xs" between="xs">
-                            <Col sm={7}>
-                                <Row between="xs" middle="xs">
-                                    <Col xs={1}>
-                                        <Link to="/"><Logo /></Link>
-                                    </Col>
-                                    <Col xs={10}>
-                                        <List flex>
-                                            <ListItem.Dropdown nav items={dropdownItems}><a>Features</a></ListItem.Dropdown>
-                                            <ListItem nav>{renderIntegrationLink(props.location)}</ListItem>
-                                            <ListItem nav><Link to="/about">About</Link></ListItem>
-                                        </List>
-                                    </Col>
-                                </Row>
-                            </Col>
-                            <Col sm={5} md={5} lg={4}>
-                                <Row middle="xs" end="xs">
-                                    <Col xs={2}>
-                                        <StyledLink as="a" href="/dashboard">Login</StyledLink>
-                                    </Col>
-                                    <Col xs={7}>
-                                        <RequestDemoButtonWrapper href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">
-                                            <Button secondary>Request demo</Button>
-                                        </RequestDemoButtonWrapper>
-                                    </Col>
-                                </Row>
-                            </Col>
-                        </Row>
-                    </Col>
+class Navigation extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            scrolled : false
+        }
+        this.handleScroll = (event) => {
+            let scrollTop = window.scrollY;
+            const {state} = this;
+            if (scrollTop > 0 && state.scrolled === false){
+                this.setState(() => { return { scrolled: true}})
+            } else if(scrollTop <= 0 && state.scrolled === true) {
+                this.setState(() => { return { scrolled: false}})
+            }
+        };
+    }
+    componentDidMount(){
+        const {transparency} = this.props;
+        if(transparency){
+            this.handleScroll();
+            window.addEventListener('scroll', this.handleScroll)
+        }
+    }
+
+    componentWillUnMount(){
+        window.removeEventListener('scroll', this.handleScroll)
+    }
+
+    render(){
+        const {props, state} = this;
+        return (
+            <>
+            <Nav transparent={!state.scrolled && props.transparency} props={props} middle="xs">
+                <Row middle="xs" between="xs">
+                    <NavContainerGrid>
+                    <Row>
+                        <Col xs={false} sm>
+                            <Row middle="xs" between="xs">
+                                <Col sm={7}>
+                                    <Row between="xs" middle="xs">
+                                        <Col xs={1}>
+                                            <Link to="/"><Logo /></Link>
+                                        </Col>
+                                        <Col xs={10}>
+                                            <List flex>
+                                                <ListItem.Dropdown nav items={dropdownItems}><a>Features</a></ListItem.Dropdown>
+                                                <ListItem nav>{renderIntegrationLink(props.location)}</ListItem>
+                                                <ListItem nav><Link to="/about">About</Link></ListItem>
+                                            </List>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col sm={5} md={5} lg={4}>
+                                    <Row middle="xs" end="xs">
+                                        <Col xs={2}>
+                                            <StyledLink as="a" href="/dashboard">Login</StyledLink>
+                                        </Col>
+                                        <Col xs={7}>
+                                            <RequestDemoButtonWrapper href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">
+                                                <Button secondary>Request demo</Button>
+                                            </RequestDemoButtonWrapper>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                    </NavContainerGrid>
+                    <NavContainerGridMobile>
+                        <Col xs={12} sm={false} md={false} lg={false}>
+                            <Row middle="xs" between="xs">
+                                <Col xs={2}>
+                                    <Link to="/"><Logo /></Link>
+                                </Col>
+                                <Col xs={1}>
+                                    <HamburgerMenu />
+                                </Col>
+                            </Row>
+                        </Col>
+                    </NavContainerGridMobile>
                 </Row>
-                </NavContainerGrid>
-                <NavContainerGridMobile>
-                    <Col xs={12} sm={false} md={false} lg={false}>
-                        <Row middle="xs" between="xs">
-                            <Col xs={2}>
-                                <Link to="/"><Logo /></Link>
-                            </Col>
-                            <Col xs={1}>
-                                <HamburgerMenu />
-                            </Col>
-                        </Row>
-                    </Col>
-                </NavContainerGridMobile>
-            </Row>
-        </Nav>
-        <NavPlaceholder />
-    </>
-)
+            </Nav>
+            {/* <NavPlaceholder /> */}
+        </>
+        )
+    }
+}
+
+// const Navigation = (props) => (
+//     <>
+//         <Nav props={props} middle="xs">
+//             <Row middle="xs" between="xs">
+//                 <NavContainerGrid>
+//                 <Row>
+//                     <Col xs={false} sm>
+//                         <Row middle="xs" between="xs">
+//                             <Col sm={7}>
+//                                 <Row between="xs" middle="xs">
+//                                     <Col xs={1}>
+//                                         <Link to="/"><Logo /></Link>
+//                                     </Col>
+//                                     <Col xs={10}>
+//                                         <List flex>
+//                                             <ListItem.Dropdown nav items={dropdownItems}><a>Features</a></ListItem.Dropdown>
+//                                             <ListItem nav>{renderIntegrationLink(props.location)}</ListItem>
+//                                             <ListItem nav><Link to="/about">About</Link></ListItem>
+//                                         </List>
+//                                     </Col>
+//                                 </Row>
+//                             </Col>
+//                             <Col sm={5} md={5} lg={4}>
+//                                 <Row middle="xs" end="xs">
+//                                     <Col xs={2}>
+//                                         <StyledLink as="a" href="/dashboard">Login</StyledLink>
+//                                     </Col>
+//                                     <Col xs={7}>
+//                                         <RequestDemoButtonWrapper href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">
+//                                             <Button secondary>Request demo</Button>
+//                                         </RequestDemoButtonWrapper>
+//                                     </Col>
+//                                 </Row>
+//                             </Col>
+//                         </Row>
+//                     </Col>
+//                 </Row>
+//                 </NavContainerGrid>
+//                 <NavContainerGridMobile>
+//                     <Col xs={12} sm={false} md={false} lg={false}>
+//                         <Row middle="xs" between="xs">
+//                             <Col xs={2}>
+//                                 <Link to="/"><Logo /></Link>
+//                             </Col>
+//                             <Col xs={1}>
+//                                 <HamburgerMenu />
+//                             </Col>
+//                         </Row>
+//                     </Col>
+//                 </NavContainerGridMobile>
+//             </Row>
+//         </Nav>
+//         {/* <NavPlaceholder /> */}
+//     </>
+// )
 
 export default Navigation

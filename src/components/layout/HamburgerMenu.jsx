@@ -96,7 +96,7 @@ const MobileMenuItemElement = styled.div`
     }
 `
 
-const MobileMenuItem = ({ onClick, children }) => <MobileMenuItemElement onClick={onClick || (() => { document.body.style.overflowY = '' })}>{children}</MobileMenuItemElement>
+const MobileMenuItem = ({ onClick, children, ...otherProps }) => <MobileMenuItemElement {...otherProps} onClick={onClick || (() => { document.body.style.overflowY = '' })}>{children}</MobileMenuItemElement>
 
 const MobileMenuDropdownItems = styled.div``
 

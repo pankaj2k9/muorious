@@ -172,7 +172,7 @@ class HamburgerMenu extends Component {
                 <ToggleBtn onClick={this.toggleMenu} />
                 {this.state.menuOpen && (
                     <MobileMenu >
-                        <Nav position="static" dark small>
+                        <Nav position="static" transparent small>
                             <NavContainer>
                                 <Row>
                                     <Col NavLeft>

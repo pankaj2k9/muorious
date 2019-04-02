@@ -15,7 +15,7 @@ const Nav = styled("nav")`
     position: ${({ position }) => position ? position : 'fixed'};
     width: 100%;
     z-index: 10;
-    background-color: ${handleBackgroundColor};
+    background-color: ${handleBackgroundColor}; 
     & > div {
         height: 72px;
         ${mediaQueries.sm`

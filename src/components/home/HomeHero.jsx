@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { mediaQueries } from '../utils/styling';
-import Section from '../atoms/Section/Section'
-import { H1, H2, H3, H4, TextBig, TextHighlighter } from '../atoms/Texts'
-import { IndexHeroImg, IndexCustomerLogo, IndexSideImg } from '../atoms/Images/Images.jsx';
+import { mediaQueries } from '../../utils/styling';
+import Section from '../../atoms/Section/Section'
+import { H1, H2, H3, H4, TextBig, TextHighlighter } from '../../atoms/Texts'
+import { IndexHeroImg, IndexCustomerLogo, IndexSideImg } from '../../atoms/Images/Images.jsx';
 import { Col, Row, Grid } from 'react-styled-flexboxgrid';
-import Button from '../atoms/Button'
+import Button from '../../atoms/Button'
 
 const Img = styled.img`
   width: 100%;

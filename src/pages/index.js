@@ -20,8 +20,8 @@ import FlexWrapper from '../components/shared/FlexWrapper'
 import Space from '../components/shared/Space'
 import Testimonials from '../components/Testimonials'
 import Scrollchor from 'react-scrollchor';
-import HomeHero from '../components/HomeHero';
-
+import HomeHero from '../components/home/HomeHero';
+import HomeFeatureIntro from '../components/home/HomeFeatureIntro';
 const Img = styled.img`
 width: 100%;
 `
@@ -120,6 +120,13 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
+            {/* TODO: Not ready yet */}
+            {/* <HomeFeatureIntro 
+              description={content.feature1Description.feature1Description}
+              title={content.feature1Title}
+              imgUrl={content.feature1Image.file.url}
+              button={{link: "/assist", title: 'Learn about Assist'}}
+            /> */}
             <Section intro>
               <Container>
                 <Row>

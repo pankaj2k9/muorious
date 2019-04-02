@@ -112,11 +112,20 @@ const Section = styled("section")`
     }
     ${ props => props.benefits && css`
         padding-top: 100px;
-        p { width: 430px;
-        line-height: 32px;
-        padding: 15px 0; }
-        h4 { font-weight: 400;
-        padding: 15px 0; }
+        p { 
+            width: 430px;
+            line-height: 32px;
+            padding: 15px 0; 
+        }
+        h4 { 
+            font-weight: 400;
+            padding: 15px 0; 
+        }
+        @media(max-width: 992px){
+            p {
+                width: 100%;
+            }
+        }
         `
     }
 `

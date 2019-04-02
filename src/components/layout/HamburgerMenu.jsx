@@ -11,6 +11,7 @@ import Row from '../../atoms/Row'
 import Col from '../../atoms/Col'
 import Button from '../../atoms/Button'
 import FlexWrapper from '../../components/shared/FlexWrapper'
+import RequestDemoButton from '../../components/shared/RequestDemoButton'
 
 const ToggleBtn = styled.span`
     display: inline-block;
@@ -150,7 +151,7 @@ const NavContainer = styled(Container)`
 const dropdownItems = [
     { content: <><Link to="/assist">Assist</Link></> },
     { content: <><Link to="/insights">Insights</Link></> },
-    { content: <><p>Insights <ComingSoon/></p></> },
+    { content: <><p>Experiences <ComingSoon/></p></> },
 ]
 
 class HamburgerMenu extends Component {
@@ -200,7 +201,7 @@ class HamburgerMenu extends Component {
                         </MobileMenuItems>
                         <MobileMenuBottom>
                             <FlexWrapper>
-                                <Button secondary>Request demo</Button>
+                                <RequestDemoButton />
                             </FlexWrapper>
                         </MobileMenuBottom>
                     </MobileMenu>

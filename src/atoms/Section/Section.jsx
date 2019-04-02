@@ -50,11 +50,13 @@ const Section = styled("section")`
         h2 {
             width: 80%;
             margin: 0 auto;
+
         }
         @media (max-width: 800px) {
-            padding-top: 0px;
+            padding-top: 140px;
             h1 {
                 font-size: 26px;
+                line-height: 1.4;
             }
             p {
                 font-size: 14px;

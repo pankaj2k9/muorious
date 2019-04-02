@@ -79,7 +79,7 @@ const Navigation = (props) => (
                                 </Row>
                             </Col>
                             <Col sm={5} md={5} lg={4}>
-                                <Row middle="xs" center="xs">
+                                <Row middle="xs" end="xs">
                                     <Col xs={2}>
                                         <StyledLink as="a" href="/dashboard">Login</StyledLink>
                                     </Col>

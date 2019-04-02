@@ -8,6 +8,7 @@ import { Link } from "gatsby"
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
+import Breakpoint from '../components/layout/Breakpoint'
 import Button from '../atoms/Button'
 import Section from '../atoms/Section/Section'
 import { H1, H3DIFF, TextXSmall , TextBig, TextHighlighter } from '../atoms/Texts'
@@ -23,7 +24,8 @@ import TemplateRecommandationImg from '../atoms/Images/TemplateRecommandationImg
 
 const AssistFeaturesSection = styled.section `
     height: 1100px;
-    width: 1100px;
+    max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
 `
 
@@ -152,7 +154,8 @@ const AssistFeature2ButtonText = styled.p `
 // TODO: MORE ABOUT ASSIST
 
 const AssistFeaturesMoreSection = styled.section `
-    width: 1110px;
+    max-width: 1110px;
+    width: 100%;
     margin: 0 auto;
     padding-top: 80px;
     margin-bottom: 100px;
@@ -180,18 +183,24 @@ const AssistFeaturesMoreTitle = styled.h3 `
 
 const AssistFeaturesMoreCards = styled.div `
     display: flex;
+    justify-content: center;
     margin: auto 0;
+    width: 100%;
     @media (max-width: 992px) {
         flex-direction: column;
+        align-items: center;
     }
 `
 
 const AssistFeaturesMoreCard = styled.div `
-    width: 347px;
-    height: 203px;
+    width: calc(33% - 30px);
+    padding-bottom: 15px;
     margin: 16px 15px;
     border-top: solid #FFC509 11px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+    @media (max-width: 992px) {
+        width: calc(100% - 30px);
+    }
 `
 
 const AssistFeaturesMoreCardTitle = styled.h4 `
@@ -214,6 +223,15 @@ class Assist extends React.Component {
     render() {
         const content = this.props.data.allContentfulFeaturePageTemplate1.edges[0].node
         const siteTitle = `${content.title} - ${get(this, 'props.data.site.siteMetadata.title')}`
+
+        let quotesData = []
+        try {
+            quotesData = this.props.data.allContentfulFeaturePageTemplate1.edges[0].node.quotes
+        } catch (e) {
+            console.warn(e)
+        }
+
+
         return (
             <LayoutWithThemeProvider>
                 <React.Fragment>
@@ -235,7 +253,7 @@ class Assist extends React.Component {
                         </Section>
                         <Section benefits>
                             <WideContainer>
-                                    <Col benefitImg benefit bgi={content.benefitsImage.file.url}/>
+                                    <Breakpoint medium up><Col benefitImg benefit bgi={content.benefitsImage.file.url}/></Breakpoint>
                                     <Col benefit>
                                         <div>
                                             <H3DIFF color="green">{content.benefit1Title}</H3DIFF>
@@ -252,7 +270,7 @@ class Assist extends React.Component {
                                     </Col>
                             </WideContainer>
                         </Section>
-                        <Testimonials />
+                        <Testimonials color="yellow" withData data={quotesData} />
                         <AssistFeaturesSection>
                             <AssistFeature1>
                                 <AssistFeature1Content>
@@ -333,6 +351,14 @@ export const pageQuery = graphql`
             id
             title
             tagline
+            quotes {
+                ...  on ContentfulQuote {
+                content
+                authorFirstName
+                authorLastName
+                authorJobTitle
+              }
+            }
             description {
                 description
             }

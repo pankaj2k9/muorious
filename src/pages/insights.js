@@ -228,7 +228,6 @@ const InsightsFeaturesMoreCardDescription = styled.p`
 
 class Insights extends React.Component {
     render() {
-        console.warn(this.props)
         let quotesData = []
         try {
             quotesData = this.props.data.allContentfulFeaturePageTemplate2.edges[0].node.quotes

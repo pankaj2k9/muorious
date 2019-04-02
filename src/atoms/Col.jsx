@@ -43,7 +43,17 @@ const Col = styled("div")`
     ${props => styleForEqualCols(props)}
     justify-content: ${({ center, justifyContent }) => justifyContent ? justifyContent : (center ? 'center' : 'space-between')};
     ${props => props.benefit &&
-        "width: 50%; div { margin: auto; width: 58%; padding: 30px 0;}"
+        css`
+            width: 50%; 
+            div { margin: auto; width: 58%; padding: 30px 0;}
+            @media(max-width: 992px){
+                width: 100%;
+                div {
+                    width: 100%;
+                    padding: 20px;
+                }
+            }
+        `
     }
     ${props => props.bgi &&
         `background-image: url(${props.bgi}); background-size: cover; background-repeat: no-repeat;`

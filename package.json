@@ -7,6 +7,7 @@
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby-image": "^2.0.13",
     "gatsby-plugin-react-helmet": "^3.0.0",
@@ -51,12 +52,12 @@
     "url": "git+https://github.com/contentful-userland/gatsby-contentful-starter.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "rm -rf .cache && gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",
-    "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "build": "rm -rf .cache && gatsby build",
+    "deploy": "rm -rf .cache && gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "postinstall": "node ./bin/hello.js",
     "setup": "node ./bin/setup.js",

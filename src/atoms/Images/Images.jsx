@@ -36,6 +36,13 @@ const IndexCustomerLogo = styled("img").attrs(props => ({
     width: auto;    
     opacity: 0.4;
     max-width: 100%;
+    transition: transform .3s;
+    filter: grayscale(100%);
+    &:hover {
+        transform: scale(1.2);
+        opacity: 1;
+        filter: grayscale(0%);
+    }
 `
 const IndexSideImg = styled("img").attrs(props => ({
     src: props.src

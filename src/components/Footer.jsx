@@ -153,7 +153,7 @@ class Footer extends React.Component {
                                 <FooterIntegrationsTitle>Integrations</FooterIntegrationsTitle>
                             </FooterFeatures>
                             <FooterCompany>
-                                <FooterInformationsTitle>Informations</FooterInformationsTitle>
+                                <FooterInformationsTitle>Company</FooterInformationsTitle>
                                 <Link to="/about">About</Link>
                                 <a href="https://angel.co/miuros/jobs">Careers</a>
                                 <Link to="/privacy">Privacy</Link>

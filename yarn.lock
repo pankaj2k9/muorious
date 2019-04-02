@@ -9184,6 +9184,10 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-awesome-styled-grid@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-awesome-styled-grid/-/react-awesome-styled-grid-2.2.2.tgz#38168e52b29dd294248aa2c3769b01f87c4621f4"
+
 react-dev-utils@^4.2.1:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.2.tgz#e8f2ffdbf27bfb13ee88ac18e20c83163aac0659"

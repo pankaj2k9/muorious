@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "gatsby"
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
@@ -14,18 +14,22 @@ import { H1, H2, H3, H4, TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import { Container } from '../atoms/Container'
-import { IndexHeroImg, IndexCustomerLogo, IndexSideImg } from '../atoms/Images/Images.jsx'
+import {
+  IndexHeroImg,
+  IndexCustomerLogo,
+  IndexSideImg,
+} from '../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
 import Space from '../components/shared/Space'
 import Testimonials from '../components/Testimonials'
 import FlexWrapper from '../components/shared/FlexWrapper'
 import RequestDemoButton from '../components/shared/RequestDemoButton'
-import Scrollchor from 'react-scrollchor';
-import HomeHero from '../components/home/HomeHero';
-import HomeFeatureIntro from '../components/home/HomeFeatureIntro';
-import HomeCustomerLogos from '../components/home/HomeCustomerLogos';
+import Scrollchor from 'react-scrollchor'
+import HomeHero from '../components/home/HomeHero'
+import HomeFeatureIntro from '../components/home/HomeFeatureIntro'
+import HomeCustomerLogos from '../components/home/HomeCustomerLogos'
 const Img = styled.img`
-width: 100%;
+  width: 100%;
 `
 
 const RequestDemoButtonFooterWrapper = styled('a')`
@@ -34,13 +38,13 @@ const RequestDemoButtonFooterWrapper = styled('a')`
 
 class RootIndex extends React.Component {
   constructor(props) {
-    super(props);
-    this.scrollAnchorRef = React.createRef();
+    super(props)
+    this.scrollAnchorRef = React.createRef()
   }
 
   componentDidMount() {
-    const { location } = this.props;
-    const self = this;
+    const { location } = this.props
+    const self = this
     setTimeout(() => {
       if (location.hash.length > 0) {
         self.scrollAnchorRef.current.simulateClick()
@@ -50,22 +54,27 @@ class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
 
-    const content = this.props.data.allContentfulHomepage.edges[0].node 
+    const content = this.props.data.allContentfulHomepage.edges[0].node
     const quotesData = this.props.data.allContentfulQuote.edges.map(
-      element => ({...element.node})
-    );
+      element => ({ ...element.node })
+    )
     return (
       <LayoutWithThemeProvider>
         <React.Fragment>
           <Helmet>
             <title>{siteTitle}</title>
           </Helmet>
-          <Scrollchor ref={this.scrollAnchorRef} style={{ display: "none" }} animate={{ offset: -80 }} to={this.props.location.hash} />
+          <Scrollchor
+            ref={this.scrollAnchorRef}
+            style={{ display: 'none' }}
+            animate={{ offset: -80 }}
+            to={this.props.location.hash}
+          />
           <main>
-            <Nav transparency location={this.props.location}/>
-            <HomeHero content={content}/>
+            <Nav transparency location={this.props.location} />
+            <HomeHero content={content} />
             <Section customerLogos>
-              <HomeCustomerLogos customerLogos={content.customerLogos}/>
+              <HomeCustomerLogos customerLogos={content.customerLogos} />
             </Section>
             <Section intro>
               <Container>
@@ -77,7 +86,9 @@ class RootIndex extends React.Component {
                       </Col>
                       <Col equal>
                         <H2>{content.valueTitle}</H2>
-                        <TextBig color="grey4">{content.valueDescription.valueDescription}</TextBig>
+                        <TextBig color="grey4">
+                          {content.valueDescription.valueDescription}
+                        </TextBig>
                       </Col>
                     </>
                   </Breakpoint>
@@ -86,14 +97,16 @@ class RootIndex extends React.Component {
                       <Col>
                         <IndexSideImg src={content.valueImage.file.url} />
                         <H4>{content.valueTitle}</H4>
-                        <TextBig color="grey4">{content.valueDescription.valueDescription}</TextBig>
+                        <TextBig color="grey4">
+                          {content.valueDescription.valueDescription}
+                        </TextBig>
                       </Col>
                     </>
                   </Breakpoint>
                 </Row>
               </Container>
             </Section>
-            <Testimonials color="pink" data={quotesData}/>
+            <Testimonials color="pink" data={quotesData} />
             <Section features>
               <Container>
                 <Row>
@@ -122,8 +135,12 @@ class RootIndex extends React.Component {
                     <>
                       <Col equal center>
                         <H2>{content.feature1Title}</H2>
-                        <TextBig color="grey4">{content.feature1Description.feature1Description}</TextBig>
-                        <Link to="/assist"><Button primary>Learn about Assist</Button></Link>
+                        <TextBig color="grey4">
+                          {content.feature1Description.feature1Description}
+                        </TextBig>
+                        <Link to="/assist">
+                          <Button primary>Learn about Assist</Button>
+                        </Link>
                       </Col>
                       <Col equal center>
                         <IndexSideImg src={content.feature1Image.file.url} />
@@ -135,8 +152,14 @@ class RootIndex extends React.Component {
                       <Col>
                         <Img src={content.feature1Image.file.url} />
                         <H4>{content.feature1Title}</H4>
-                        <TextBig color="grey4">{content.feature1Description.feature1Description}</TextBig>
-                        <FlexWrapper><Link to="/assist"><Button light>Learn about Assist</Button></Link></FlexWrapper>
+                        <TextBig color="grey4">
+                          {content.feature1Description.feature1Description}
+                        </TextBig>
+                        <FlexWrapper>
+                          <Link to="/assist">
+                            <Button light>Learn about Assist</Button>
+                          </Link>
+                        </FlexWrapper>
                       </Col>
                     </>
                   </Breakpoint>
@@ -153,18 +176,26 @@ class RootIndex extends React.Component {
                       </Col>
                       <Col equal center>
                         <H2>{content.feature2Title}</H2>
-                        <TextBig color="grey4">{content.feature2Description.feature2Description}</TextBig>
-                        <Link to="/insights"><Button primary>Learn about Insights</Button></Link>
+                        <TextBig color="grey4">
+                          {content.feature2Description.feature2Description}
+                        </TextBig>
+                        <Link to="/insights">
+                          <Button primary>Learn about Insights</Button>
+                        </Link>
                       </Col>
                     </>
                   </Breakpoint>
                   <Breakpoint medium down>
                     <>
-                      <Col >
+                      <Col>
                         <Img src={content.feature2Image.file.url} />
                         <H4>{content.feature2Title}</H4>
-                        <TextBig color="grey4">{content.feature2Description.feature2Description}</TextBig>
-                        <FlexWrapper><Button light>Learn about Insights</Button></FlexWrapper>
+                        <TextBig color="grey4">
+                          {content.feature2Description.feature2Description}
+                        </TextBig>
+                        <FlexWrapper>
+                          <Button light>Learn about Insights</Button>
+                        </FlexWrapper>
                       </Col>
                     </>
                   </Breakpoint>
@@ -177,7 +208,10 @@ class RootIndex extends React.Component {
                 <Breakpoint medium up>
                   <Row>
                     <Col equal center>
-                      <H2>{content.feature3Title}<Note>Coming soon</Note></H2>
+                      <H2>
+                        {content.feature3Title}
+                        <Note>Coming soon</Note>
+                      </H2>
                       <TextBig color="grey4">
                         {content.feature3Description.feature3Description}
                       </TextBig>
@@ -191,7 +225,10 @@ class RootIndex extends React.Component {
                   <Row autoHeight>
                     <Col>
                       <Img src={content.feature3Image.file.url} />
-                      <H4>{content.feature3Title}<Note>Coming soon</Note></H4>
+                      <H4>
+                        {content.feature3Title}
+                        <Note>Coming soon</Note>
+                      </H4>
                       <TextBig color="grey4">
                         {content.feature3Description.feature3Description}
                       </TextBig>
@@ -236,11 +273,16 @@ class RootIndex extends React.Component {
                     <Col equal center>
                       <H2>{content.integrationFastTitle}</H2>
                       <TextBig color="grey4">
-                        {content.integrationDescription.integrationFastDescription}
+                        {
+                          content.integrationDescription
+                            .integrationFastDescription
+                        }
                       </TextBig>
                     </Col>
                     <Col equal center>
-                      <IndexSideImg src={content.integrationFastImage.file.url} />
+                      <IndexSideImg
+                        src={content.integrationFastImage.file.url}
+                      />
                     </Col>
                   </Row>
                 </Breakpoint>
@@ -261,7 +303,9 @@ class RootIndex extends React.Component {
               <Container>
                 <Row>
                   <Col center>
-                    <H1 color="white" center>{content.bottomCtaTitle}</H1>
+                    <H1 color="white" center>
+                      {content.bottomCtaTitle}
+                    </H1>
                     <FlexWrapper>
                       <RequestDemoButton />
                     </FlexWrapper>
@@ -269,10 +313,10 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            <Footer location={this.props.location}/>
+            <Footer location={this.props.location} />
           </main>
         </React.Fragment>
-      </LayoutWithThemeProvider >
+      </LayoutWithThemeProvider>
     )
   }
 }
@@ -282,106 +326,106 @@ export default RootIndex
 export const pageQuery = graphql`
   query HomeQuery {
     allContentfulHomepage {
-        edges {
-          node {
+      edges {
+        node {
+          id
+          title
+          tagline
+          description
+          heroImage {
+            file {
+              url
+            }
+          }
+          customerLogos {
+            customerUrl
+            customerLogo {
+              id
+              file {
+                url
+                fileName
+                contentType
+              }
+            }
+          }
+          valueImage {
+            file {
+              url
+            }
+          }
+          valueTitle
+          valueDescription {
             id
-            title
-            tagline
-            description
-            heroImage {
-                file {
-                    url
-                }
+            valueDescription
+          }
+          featuresTitle
+          feature1Title
+          feature1Image {
+            file {
+              url
             }
-            customerLogos {
-                customerUrl
-                customerLogo {
-                    id
-                    file {
-                        url
-                        fileName
-                        contentType
-                    }
-                }
+          }
+          feature1Description {
+            feature1Description
+          }
+          feature2Title
+          feature2Image {
+            file {
+              url
             }
-            valueImage {
-                file {
-                  url
-                }
-              }
-            valueTitle
-            valueDescription {
-                id
-                valueDescription
+          }
+          feature2Description {
+            feature2Description
+          }
+          feature3Title
+          feature3Image {
+            file {
+              url
             }
-            featuresTitle
-            feature1Title
-            feature1Image {
-              file {
-                url
-              }
+          }
+          feature3Description {
+            feature3Description
+          }
+          integrationTitle
+          integrationImage {
+            file {
+              url
             }
-            feature1Description {
-              feature1Description
+          }
+          integrationDescription {
+            integrationDescription
+          }
+          integrationFastTitle
+          integrationFastImage {
+            file {
+              url
             }
-            feature2Title
-            feature2Image {
-              file {
-                url
-              }
+          }
+          integrationFastDescription {
+            integrationFastDescription
+          }
+          bottomCtaTitle
+          bottomCtaImage {
+            file {
+              url
             }
-            feature2Description {
-              feature2Description
-            }
-            feature3Title
-            feature3Image {
-              file {
-                url
-              }
-            }
-            feature3Description {
-                feature3Description
-              }
-            integrationTitle
-            integrationImage {
-              file {
-                url
-              }
-            }
-            integrationDescription {
-              integrationDescription
-            }
-            integrationFastTitle
-            integrationFastImage {
-              file {
-                url
-              }
-            }
-            integrationFastDescription {
-              integrationFastDescription
-            }
-            bottomCtaTitle
-            bottomCtaImage {
-                file {
-                  url
-                }
-              }
+          }
         }
-    }
+      }
     }
     allContentfulQuote {
       edges {
-          node {
-              content,
-              authorFirstName,
-              authorLastName,
-              authorJobTitle,
-              authorCompany {
-                  customerName
-              }
+        node {
+          content
+          authorFirstName
+          authorLastName
+          authorJobTitle
+          authorCompany {
+            customerName
           }
+        }
       }
-  }  
+    }
     site {
       siteMetadata {
         title

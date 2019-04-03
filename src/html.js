@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class HTML extends React.Component {
   render() {
@@ -13,8 +13,11 @@ export default class HTML extends React.Component {
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
           {this.props.headComponents}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77360862-1"></script>
-          <script async src="/gtag.js"></script>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-77360862-1"
+          />
+          <script async src="/gtag.js" />
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}

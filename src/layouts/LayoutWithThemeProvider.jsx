@@ -1,10 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { ThemeProvider } from 'styled-components'
 import BreakpointProvider from '../components/layout/BreakpointProvider'
-import { Fonts, defaultTheme, Reset } from '../utils/styling';
-
-
+import { Fonts, defaultTheme, Reset } from '../utils/styling'
 
 const LayoutWithThemeProvider = ({ children, theme }) => {
   return (
@@ -18,14 +16,14 @@ const LayoutWithThemeProvider = ({ children, theme }) => {
       </BreakpointProvider>
     </ThemeProvider>
   )
-};
+}
 
 LayoutWithThemeProvider.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 LayoutWithThemeProvider.propTypes = {
-  theme: PropTypes.object
-};
+  theme: PropTypes.object,
+}
 
-export default LayoutWithThemeProvider;
+export default LayoutWithThemeProvider

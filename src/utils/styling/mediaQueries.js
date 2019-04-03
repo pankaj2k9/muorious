@@ -1,8 +1,7 @@
-import theme from './defaultTheme';
-import { css } from 'styled-components';
+import theme from './defaultTheme'
+import { css } from 'styled-components'
 
-
-const breakpoints = theme.flexboxgrid.breakpoints;
+const breakpoints = theme.flexboxgrid.breakpoints
 // Iterate through the sizes and create a media template
 const media = Object.keys(breakpoints).reduce((acc, label) => {
   acc[label] = (...args) => css`
@@ -23,5 +22,5 @@ const maxMediaQueries = Object.keys(breakpoints).reduce((acc, label) => {
   return acc
 }, {})
 
-export default media;
-export { maxMediaQueries };
+export default media
+export { maxMediaQueries }

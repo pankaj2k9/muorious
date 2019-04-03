@@ -10,7 +10,7 @@ import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
 import Button from '../atoms/Button'
 import Section from '../atoms/Section/Section'
-import { H1, H4, TextBig, TextHighlighter } from '../atoms/Texts'
+import { H1, H2, H3, H4, TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import { Container } from '../atoms/Container'
@@ -21,7 +21,9 @@ import Testimonials from '../components/Testimonials'
 import FlexWrapper from '../components/shared/FlexWrapper'
 import RequestDemoButton from '../components/shared/RequestDemoButton'
 import Scrollchor from 'react-scrollchor';
-
+import HomeHero from '../components/home/HomeHero';
+import HomeFeatureIntro from '../components/home/HomeFeatureIntro';
+import HomeCustomerLogos from '../components/home/HomeCustomerLogos';
 const Img = styled.img`
 width: 100%;
 `
@@ -46,11 +48,7 @@ class RootIndex extends React.Component {
     }, 20)
   }
   render() {
-    // console.log("Data : ", this.props.data);
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    // console.log("Site metadata", siteTitle)
-    // const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    // const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     const content = this.props.data.allContentfulHomepage.edges[0].node
     return (
@@ -61,63 +59,10 @@ class RootIndex extends React.Component {
           </Helmet>
           <Scrollchor ref={this.scrollAnchorRef} style={{ display: "none" }} animate={{ offset: -80 }} to={this.props.location.hash} />
           <main>
-            <Nav transparency location={this.props.location} />
-            <Section indexHero>
-              <Container>
-                <Row>
-                  <Col equal>
-                    <Breakpoint medium up>
-                      <H1 color="white">
-                        {content.tagline}
-                      </H1>
-                    </Breakpoint>
-                    <Breakpoint medium down>
-                      <>
-                        <H1 color="white" center>
-                          {content.tagline}
-                        </H1>
-                        <Space height="20px" />
-                      </>
-                    </Breakpoint>
-                    <Breakpoint medium up>
-                      <H4 color="white">
-                        {content.description}
-                      </H4>
-                    </Breakpoint>
-                    <Breakpoint medium up><RequestDemoButton /></Breakpoint>
-                    <Breakpoint medium down><FlexWrapper><RequestDemoButton /></FlexWrapper></Breakpoint>
-                  </Col>
-                  <Breakpoint medium up>
-                    <Col equal />
-                  </Breakpoint>
-                </Row>
-              </Container>
-              <Breakpoint medium up>
-                <IndexHeroImg src={content.heroImage.file.url} />
-              </Breakpoint>
-            </Section>
-            <Breakpoint medium down>
-              <Img src={content.heroImage.file.url} />
-            </Breakpoint>
+            <Nav transparency location={this.props.location}/>
+            <HomeHero content={content}/>
             <Section customerLogos>
-              <Container>
-                <Row customerLogos>
-                  <Breakpoint medium up>{content.customerLogos.map((logo, index) => (
-                    logo.customerLogo &&
-                    <a key={index} href={logo.customerUrl} >
-                      <IndexCustomerLogo src={logo.customerLogo.file.url} />
-                    </a>
-                  ))}
-                  </Breakpoint>
-                  <Breakpoint medium down>{content.customerLogos.slice(0, 3).map((logo, index) => (
-                    logo.customerLogo &&
-                    <a key={index} href={logo.customerUrl} >
-                      <IndexCustomerLogo src={logo.customerLogo.file.url} />
-                    </a>
-                  ))}
-                  </Breakpoint>
-                </Row>
-              </Container>
+              <HomeCustomerLogos customerLogos={content.customerLogos}/>
             </Section>
             <Section intro>
               <Container>
@@ -128,7 +73,7 @@ class RootIndex extends React.Component {
                         <IndexSideImg src={content.valueImage.file.url} />
                       </Col>
                       <Col equal>
-                        <H1>{content.valueTitle}</H1>
+                        <H2>{content.valueTitle}</H2>
                         <TextBig color="grey4">{content.valueDescription.valueDescription}</TextBig>
                       </Col>
                     </>
@@ -137,7 +82,7 @@ class RootIndex extends React.Component {
                     <>
                       <Col>
                         <IndexSideImg src={content.valueImage.file.url} />
-                        <H1 small>{content.valueTitle}</H1>
+                        <H4>{content.valueTitle}</H4>
                         <TextBig color="grey4">{content.valueDescription.valueDescription}</TextBig>
                       </Col>
                     </>
@@ -160,13 +105,20 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
+            {/* TODO: Not ready yet */}
+            {/* <HomeFeatureIntro 
+              description={content.feature1Description.feature1Description}
+              title={content.feature1Title}
+              imgUrl={content.feature1Image.file.url}
+              button={{link: "/assist", title: 'Learn about Assist'}}
+            /> */}
             <Section intro>
               <Container>
                 <Row>
                   <Breakpoint medium up>
                     <>
                       <Col equal center>
-                        <H1>{content.feature1Title}</H1>
+                        <H2>{content.feature1Title}</H2>
                         <TextBig color="grey4">{content.feature1Description.feature1Description}</TextBig>
                         <Link to="/assist"><Button primary>Learn about Assist</Button></Link>
                       </Col>
@@ -179,7 +131,7 @@ class RootIndex extends React.Component {
                     <>
                       <Col>
                         <Img src={content.feature1Image.file.url} />
-                        <H1 small>{content.feature1Title}</H1>
+                        <H4>{content.feature1Title}</H4>
                         <TextBig color="grey4">{content.feature1Description.feature1Description}</TextBig>
                         <FlexWrapper><Link to="/assist"><Button light>Learn about Assist</Button></Link></FlexWrapper>
                       </Col>
@@ -197,7 +149,7 @@ class RootIndex extends React.Component {
                         <IndexSideImg src={content.feature2Image.file.url} />
                       </Col>
                       <Col equal center>
-                        <H1>{content.feature2Title}</H1>
+                        <H2>{content.feature2Title}</H2>
                         <TextBig color="grey4">{content.feature2Description.feature2Description}</TextBig>
                         <Link to="/insights"><Button primary>Learn about Insights</Button></Link>
                       </Col>
@@ -207,7 +159,7 @@ class RootIndex extends React.Component {
                     <>
                       <Col >
                         <Img src={content.feature2Image.file.url} />
-                        <H1 small>{content.feature2Title}</H1>
+                        <H4>{content.feature2Title}</H4>
                         <TextBig color="grey4">{content.feature2Description.feature2Description}</TextBig>
                         <FlexWrapper><Button light>Learn about Insights</Button></FlexWrapper>
                       </Col>
@@ -222,7 +174,7 @@ class RootIndex extends React.Component {
                 <Breakpoint medium up>
                   <Row>
                     <Col equal center>
-                      <H1>{content.feature3Title}<Note>Coming soon</Note></H1>
+                      <H2>{content.feature3Title}<Note>Coming soon</Note></H2>
                       <TextBig color="grey4">
                         {content.feature3Description.feature3Description}
                       </TextBig>
@@ -236,7 +188,7 @@ class RootIndex extends React.Component {
                   <Row autoHeight>
                     <Col>
                       <Img src={content.feature3Image.file.url} />
-                      <H1 small>{content.feature3Title}<Note>Coming soon</Note></H1>
+                      <H4>{content.feature3Title}<Note>Coming soon</Note></H4>
                       <TextBig color="grey4">
                         {content.feature3Description.feature3Description}
                       </TextBig>
@@ -254,7 +206,7 @@ class RootIndex extends React.Component {
                       <IndexSideImg src={content.integrationImage.file.url} />
                     </Col>
                     <Col equal center>
-                      <H1>{content.integrationTitle}</H1>
+                      <H2>{content.integrationTitle}</H2>
                       <TextBig color="grey4">
                         {content.integrationDescription.integrationDescription}
                       </TextBig>
@@ -265,7 +217,7 @@ class RootIndex extends React.Component {
                   <Row>
                     <Col>
                       <Img src={content.integrationImage.file.url} />
-                      <H1 small>{content.integrationTitle}</H1>
+                      <H4>{content.integrationTitle}</H4>
                       <TextBig color="grey4">
                         {content.integrationDescription.integrationDescription}
                       </TextBig>
@@ -279,7 +231,7 @@ class RootIndex extends React.Component {
                 <Breakpoint medium up>
                   <Row>
                     <Col equal center>
-                      <H1>{content.integrationFastTitle}</H1>
+                      <H2>{content.integrationFastTitle}</H2>
                       <TextBig color="grey4">
                         {content.integrationDescription.integrationFastDescription}
                       </TextBig>
@@ -293,7 +245,7 @@ class RootIndex extends React.Component {
                   <Row>
                     <Col>
                       <Img src={content.integrationImage.file.url} />
-                      <H1 small>{content.integrationTitle}</H1>
+                      <H4>{content.integrationTitle}</H4>
                       <TextBig color="grey4">
                         {content.integrationDescription.integrationDescription}
                       </TextBig>
@@ -314,7 +266,7 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            <Footer />
+            <Footer location={this.props.location}/>
           </main>
         </React.Fragment>
       </LayoutWithThemeProvider >

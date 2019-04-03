@@ -9,6 +9,9 @@ import ZendeskLogo from '../atoms/Logo/Zendesk-Logo.png'
 import TechstarsLogo from '../atoms/Logo/Techstars-Logo.png'
 import TheFamilyLogo from '../atoms/Logo/TheFamily-Logo.png'
 import Breakpoint from '../components/layout/Breakpoint'
+import Visible from '../atoms/Visible';
+import Hidden from '../atoms/Hidden';
+import Scrollchor from 'react-scrollchor';
 
 const FooterSection = styled.section`
     background-color: #174F49;
@@ -127,11 +130,20 @@ const FooterColumn = styled.div`
     flex-basis: 100%;    
 `
 
+const renderIntegrationLink = (location) => {
+    if(location && location.pathname === "/"){
+        return (
+            <Scrollchor to="#integrations" animate={{offset: -80}}>Integrations</Scrollchor>
+        )
+    }
+    return (<Link to="/#integrations">Integrations</Link>)
+}
+
 class Footer extends React.Component {
     render() {
         return (
             <>
-                <Breakpoint medium up>
+                <Visible md>
                     <FooterSection>
                         <FooterContent>
                             <FooterMiurosAsset>
@@ -148,10 +160,10 @@ class Footer extends React.Component {
                                     <Link to="/insights">Insights</Link>
                                     <Link to="/#experience">Experience</Link>
                                 </FooterFeaturesDetails>
-                                <FooterIntegrationsTitle>Integrations</FooterIntegrationsTitle>
+                                <FooterIntegrationsTitle>{renderIntegrationLink(this.props.location)}</FooterIntegrationsTitle>
                             </FooterFeatures>
                             <FooterCompany>
-                                <FooterInformationsTitle>Informations</FooterInformationsTitle>
+                                <FooterInformationsTitle>Company</FooterInformationsTitle>
                                 <Link to="/about">About</Link>
                                 <a href="https://angel.co/miuros/jobs">Careers</a>
                                 <Link to="/privacy">Privacy</Link>
@@ -172,8 +184,8 @@ class Footer extends React.Component {
                             </SupportedBy>
                         </FooterContent>
                     </FooterSection>
-                </Breakpoint>
-                <Breakpoint medium down>
+                </Visible>
+                <Hidden md>
                     <FooterSection>
                         <FooterContent>
                             <FooterColumn>
@@ -187,19 +199,15 @@ class Footer extends React.Component {
                             </FooterColumn>
                             <FooterColumn>
                                 <FooterFeatures>
-                                    <FooterFeaturesTitle>Features</FooterFeaturesTitle>
-                                    <FooterFeaturesDetails>
-                                        <Link to="/assist">Assist</Link>
-                                        <Link to="/insights">Insights</Link>
-                                        <Link to="/#experience">Experience</Link>
-                                    </FooterFeaturesDetails>
+                                    <FooterFeaturesTitle><Link to="/assist">Assist</Link></FooterFeaturesTitle>
+                                    <FooterFeaturesTitle><Link to="/insights">Insights</Link></FooterFeaturesTitle>
+                                    <FooterFeaturesTitle><Link to="/#experience">Experience</Link></FooterFeaturesTitle>
                                     <FooterIntegrationsTitle><Link to="/#integrations">Integrations</Link></FooterIntegrationsTitle>
                                 </FooterFeatures>
                                 <FooterCompany>
-                                    <FooterInformationsTitle>Informations</FooterInformationsTitle>
-                                    <Link to="/about">About</Link>
-                                    <a href="https://angel.co/miuros/jobs">Careers</a>
-                                    <Link to="/privacy">Privacy</Link>
+                                    <FooterInformationsTitle><Link to="/about">About</Link></FooterInformationsTitle>
+                                    <FooterInformationsTitle><a href="https://angel.co/miuros/jobs">Careers</a></FooterInformationsTitle>
+                                    <FooterInformationsTitle><Link to="/privacy">Privacy</Link></FooterInformationsTitle>
                                 </FooterCompany>
 
                             </FooterColumn>
@@ -223,7 +231,7 @@ class Footer extends React.Component {
                             </FooterColumn>
                         </FooterContent>
                     </FooterSection>
-                </Breakpoint>
+                </Hidden>
             </>
         )
     }

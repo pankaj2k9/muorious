@@ -19,7 +19,7 @@ const Nav = styled("nav")`
     & > div {
         height: 72px;
         ${mediaQueries.sm`
-            height: 96px;
+            height: 76px;
         `}
     }
 

@@ -1,10 +1,10 @@
-import { fontFace } from 'polished';
+import { fontFace } from 'polished'
 import { createGlobalStyle } from 'styled-components'
 
-import modernEraBold from './Modern Era/Modern Era Bold.ttf';
-import modernEraRegular from './Modern Era/Modern Era Regular.ttf';
-import modernEraMedium from './Modern Era/Modern Era Medium.ttf';
-import modernEraLight from './Modern Era/Modern Era Light.ttf';
+import modernEraBold from './Modern Era/Modern Era Bold.ttf'
+import modernEraRegular from './Modern Era/Modern Era Regular.ttf'
+import modernEraMedium from './Modern Era/Modern Era Medium.ttf'
+import modernEraLight from './Modern Era/Modern Era Light.ttf'
 
 const injectFontsStyle = createGlobalStyle`
   @font-face {
@@ -33,4 +33,4 @@ const injectFontsStyle = createGlobalStyle`
   }
 `
 
-export default injectFontsStyle;
+export default injectFontsStyle

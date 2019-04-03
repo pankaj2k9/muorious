@@ -6,19 +6,20 @@ import TestimonialsPink from './Testimonials/TestimonialsPink.png'
 import TestimonialsGreen from './Testimonials/TestimonialsGreen.png'
 import TestimonialsYellow from './Testimonials/TestimonialsYellow.png'
 import AssistHeroBg from './AssistHeroBg.png'
-import { getColors } from "../../utils/styling";
+import { getColors } from '../../utils/styling'
 
 const bgs = {
-    pink: TestimonialsPink,
-    green: TestimonialsGreen,
-    yellow: TestimonialsYellow
+  pink: TestimonialsPink,
+  green: TestimonialsGreen,
+  yellow: TestimonialsYellow,
 }
 
-const Section = styled("section")`
+const Section = styled('section')`
     width: 100%;
     position: relative;
-    ${ ({ indexHero }) => indexHero &&
-        css`
+    ${({ indexHero }) =>
+      indexHero &&
+      css`
             padding-top: 96px;
             padding-bottom: 96px;
             ${'' /* max-height: 696px; */}
@@ -31,24 +32,28 @@ const Section = styled("section")`
             h4 {
                 padding-bottom: 20px;
             }
-            ${'' /* @media(max-width: 992px){ 
+            ${
+              '' /* @media(max-width: 992px){ 
                 background-image: url(${MobileHeroBg});
                 height: 40vh;
                 h1 {
                     font-size: 20px;
                     line-height: 30px;
                 }
-            } */}
-        `
-    }
+            } */
+            }
+        `}
 
     /* TODO: Move these hero-specific styles */
-    ${ ({ assistHero }) => assistHero && css`
-        background-image: url(${AssistHeroBg}); 
+    ${({ assistHero }) =>
+      assistHero &&
+      css`
+        background-image: url(${AssistHeroBg});
         background-size: cover;
-        `
-    }
-    ${({ insightsHero }) => insightsHero && css`
+      `}
+    ${({ insightsHero }) =>
+      insightsHero &&
+      css`
         background-image: url(${InsightsHeroShape});
         background-size: 50%;
         background-position: top left;
@@ -57,77 +62,105 @@ const Section = styled("section")`
         align-items: center;
         flex-direction: column;
         margin-bottom: 100px; /* removes bottom overlapping with next section */
-        @media(max-width: 992px){
-            min-height: 0;
-            margin-bottom: 0;
+        @media (max-width: 992px) {
+          min-height: 0;
+          margin-bottom: 0;
         }
-    `}
+      `}
 
-    ${ props => props.customerLogos && `padding: 40px 0; background-color: ${getColors(props.theme).grey3}`}
-    ${ props => props.intro && css`
+    ${props =>
+      props.customerLogos &&
+      `padding: 40px 0; background-color: ${getColors(props.theme).grey3}`}
+    ${props =>
+      props.intro &&
+      css`
         padding: 30px 0;
-        height: 512px; 
-        p { margin-top: 20px; }
-        button { margin-top: 20px; }
-        @media (max-width: 992px) {
-            height: auto;
-            padding: 30px 0;
+        height: 512px;
+        p {
+          margin-top: 20px;
         }
-    `}
-    ${ ({ testimonials }) => testimonials &&
-        css`
-            min-height: 472px; 
-            display: flex;
-            background-size: cover;
-            justify-content: center;
-            align-items: center;
-            background-size: 100%;
-            background-position: center;
-            @media (max-width: 992px){
-                padding: 80px 0;
-            }
-        `
-    }
+        button {
+          margin-top: 20px;
+        }
+        @media (max-width: 992px) {
+          height: auto;
+          padding: 30px 0;
+        }
+      `}
+    ${({ testimonials }) =>
+      testimonials &&
+      css`
+        min-height: 472px;
+        display: flex;
+        background-size: cover;
+        justify-content: center;
+        align-items: center;
+        background-size: 100%;
+        background-position: center;
+        @media (max-width: 992px) {
+          padding: 80px 0;
+        }
+      `}
 
-    ${({ color }) => color && css`background-image: url(${bgs[color]});`}
+    ${({ color }) =>
+      color &&
+      css`
+        background-image: url(${bgs[color]});
+      `}
    
-    ${ props => props.features && css`
-        height: 275px; 
-        div { width: 84%; margin: auto; }
-        h2 { margin: auto; display: block; }
+    ${props =>
+      props.features &&
+      css`
+        height: 275px;
+        div {
+          width: 84%;
+          margin: auto;
+        }
+        h2 {
+          margin: auto;
+          display: block;
+        }
         @media (max-width: 992px) {
-            height: auto;
-            padding: 30px 0;
-            div {
-                width: 100%;
-            }
+          height: auto;
+          padding: 30px 0;
+          div {
+            width: 100%;
+          }
         }
-    `}
-    ${ props => props.grey &&
-        `background-color: ${getColors(props.theme).grey3};`
-    }
-    ${ props => props.cta &&
-        css`background-image: url(${props.src}); background-size: cover; background-position: center; height: 558px; button {width: 200px; margin: 20px auto;}
-        `
-    }
-    ${ props => props.benefits && css`
+      `}
+    ${props =>
+      props.grey && `background-color: ${getColors(props.theme).grey3};`}
+    ${props =>
+      props.cta &&
+      css`
+        background-image: url(${props.src});
+        background-size: cover;
+        background-position: center;
+        height: 558px;
+        button {
+          width: 200px;
+          margin: 20px auto;
+        }
+      `}
+    ${props =>
+      props.benefits &&
+      css`
         padding-top: 100px;
-        p { 
-            width: 430px;
-            line-height: 32px;
-            padding: 15px 0; 
+        p {
+          width: 430px;
+          line-height: 32px;
+          padding: 15px 0;
         }
-        h4 { 
-            font-weight: 400;
-            padding: 15px 0; 
+        h4 {
+          font-weight: 400;
+          padding: 15px 0;
         }
-        @media(max-width: 992px){
-            p {
-                width: 100%;
-            }
+        @media (max-width: 992px) {
+          p {
+            width: 100%;
+          }
         }
-        `
-    }
+      `}
 `
 
 export default Section

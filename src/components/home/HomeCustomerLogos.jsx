@@ -27,8 +27,8 @@ const HomeCustomerLogos = ({customerLogos}) => {
     <Slider {...settings}>
       {customerLogos.map((logo, index) => (
            logo.customerLogo &&
-           <CustomerLogoContainer>
-           <a key={index} href={logo.customerUrl} >
+           <CustomerLogoContainer key={index}>
+           <a href={logo.customerUrl} >
               <IndexCustomerLogo src={logo.customerLogo.file.url} />
             </a></CustomerLogoContainer>
            ))}

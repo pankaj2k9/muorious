@@ -149,7 +149,7 @@ const AuthorJob = styled.p`
     font-weight: 300;
 `
 
-const Testimonial = ({ node: { content, authorFirstName, authorLastName, authorJobTitle, authorCompany }, circles, color = 'green' }) => (
+const Testimonial = ({ content, authorFirstName, authorLastName, authorJobTitle, authorCompany, circles, color = 'green'}) => (
     <TestimonialOuter>
         <TestimonialContent color={color}>
             <TestimonialText>{content}</TestimonialText>
@@ -171,11 +171,8 @@ class Testimonials extends React.Component {
     }
 
     componentDidMount() {
-        const { withData } = this.props
-        // TODO: Normalize this on parent level rather than here
-        const data = withData ? this.props.data.map(i => ({ node: i })) : this.props.data.allContentfulQuote.edges
-        console.warn(data)
-        const count = data.length
+        const { data } = this.props
+        const count = data.length;
         const order = Object.keys(data).reduce((obj, value) => ({ ...obj, [value]: ((Number(value) + 1) < count) ? Number(value) + 1 : 0 }), {})
         this.setState({ data, count, order })
         this._interval = setInterval(this.switch, __INTERVAL_MS__);
@@ -197,10 +194,11 @@ class Testimonials extends React.Component {
     render() {
         const { active, order, data } = this.state
         const { color } = this.props
+        const circles = (<Circles onClick={this.selectSlide} iterable={Object.keys(order)} active={active} />)
         if (data && data[active]) {
             return (
                 <Section testimonials color={color}>
-                    <Testimonial color={color} {...data[active]} circles={<Circles onClick={this.selectSlide} iterable={Object.keys(order)} active={active} />} />
+                    <Testimonial color={color} {...data[active]} circles={circles} />
                 </Section>
             )
         } else {
@@ -210,24 +208,4 @@ class Testimonials extends React.Component {
     }
 }
 
-export const query = graphql`
-    query Testimonials {
-        allContentfulQuote {
-            edges {
-                node {
-                    content,
-                    authorFirstName,
-                    authorLastName,
-                    authorJobTitle,
-                    authorCompany {
-                        customerName
-                    }
-                }
-            }
-        }
-    }
-`
-
-export default ({ withData, data, ...props }) => (
-    withData ? <Testimonials withData data={data} {...props} /> : <StaticQuery query={query} render={data => <Testimonials {...props} data={data} />} />
-)
+export default Testimonials;

@@ -270,7 +270,7 @@ class Assist extends React.Component {
                                     </Col>
                             </WideContainer>
                         </Section>
-                        <Testimonials color="yellow" withData data={quotesData} />
+                        <Testimonials color="yellow" data={quotesData} />
                         <AssistFeaturesSection>
                             <AssistFeature1>
                                 <AssistFeature1Content>

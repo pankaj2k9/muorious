@@ -231,6 +231,7 @@ class Insights extends React.Component {
         let quotesData = []
         try {
             quotesData = this.props.data.allContentfulFeaturePageTemplate2.edges[0].node.quotes
+            console.log('insight', quotesData)
         } catch (e) {
             console.warn(e)
         }
@@ -271,7 +272,7 @@ class Insights extends React.Component {
                                 </InsightsBenefitsImgSection>
                             </Breakpoint>
                         </InsightsBenefitsSection>
-                        <Testimonials color="green" withData data={quotesData} />
+                        <Testimonials color="green" data={quotesData} />
                         <Breakpoint medium up>
                             <InsightsFeaturesSection>
                                 <InsightsQualityAssurance>

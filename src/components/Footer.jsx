@@ -11,6 +11,7 @@ import TheFamilyLogo from '../atoms/Logo/TheFamily-Logo.png'
 import Breakpoint from '../components/layout/Breakpoint'
 import Visible from '../atoms/Visible';
 import Hidden from '../atoms/Hidden';
+import Scrollchor from 'react-scrollchor';
 
 const FooterSection = styled.section`
     background-color: #174F49;
@@ -129,6 +130,15 @@ const FooterColumn = styled.div`
     flex-basis: 100%;    
 `
 
+const renderIntegrationLink = (location) => {
+    if(location && location.pathname === "/"){
+        return (
+            <Scrollchor to="#integrations" animate={{offset: -80}}>Integrations</Scrollchor>
+        )
+    }
+    return (<Link to="/#integrations">Integrations</Link>)
+}
+
 class Footer extends React.Component {
     render() {
         return (
@@ -150,7 +160,7 @@ class Footer extends React.Component {
                                     <Link to="/insights">Insights</Link>
                                     <Link to="/#experience">Experience</Link>
                                 </FooterFeaturesDetails>
-                                <FooterIntegrationsTitle>Integrations</FooterIntegrationsTitle>
+                                <FooterIntegrationsTitle>{renderIntegrationLink(this.props.location)}</FooterIntegrationsTitle>
                             </FooterFeatures>
                             <FooterCompany>
                                 <FooterInformationsTitle>Company</FooterInformationsTitle>

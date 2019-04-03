@@ -239,7 +239,7 @@ class Assist extends React.Component {
                     <title>{siteTitle}</title>
                     </Helmet>
                     <main> 
-                        <Nav isGreen />
+                        <Nav isGreen location={this.props.location}/>
                         <Section assistHero>
                             <Container>
                                 <Row>
@@ -321,7 +321,7 @@ class Assist extends React.Component {
                                 </AssistFeaturesMoreCard>
                             </AssistFeaturesMoreCards>
                         </AssistFeaturesMoreSection>
-                        <Footer />
+                        <Footer location={this.props.location}/>
                     </main>
                 </React.Fragment>
             </LayoutWithThemeProvider>

@@ -281,7 +281,7 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            <Footer />
+            <Footer location={this.props.location}/>
           </main>
         </React.Fragment>
       </LayoutWithThemeProvider >

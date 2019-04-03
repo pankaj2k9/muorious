@@ -242,7 +242,7 @@ class Insights extends React.Component {
                         <title>Miuros Insights</title>
                     </Helmet>
                     <main>
-                        <Nav />
+                        <Nav location={this.props.location}/>
                         <InsightsHeroSection>
                             <InsightsHeroTitle>Deliver better customer service from new actionable <span>Insights</span></InsightsHeroTitle>
                             <InsightsHeroDescription>Insights is an analytical solution for international customer service teams that helps managers identify areas for improvement, and empower agents to self-assess their performance.</InsightsHeroDescription>
@@ -364,7 +364,7 @@ We also gives you visibility and metrics over private and non-official canned re
                                 </InsightsFeaturesMoreCard>
                             </InsightsFeaturesMoreCards2>
                         </InsightsFeaturesMore>
-                        <Footer />
+                        <Footer location={this.props.location}/>
                     </main>
                 </React.Fragment>
             </LayoutWithThemeProvider >

@@ -13,5 +13,15 @@ const media = Object.keys(breakpoints).reduce((acc, label) => {
 
   return acc
 }, {})
+const maxMediaQueries = Object.keys(breakpoints).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${breakpoints[label]}em) {
+      ${css(...args)}
+    }
+  `
+
+  return acc
+}, {})
 
 export default media;
+export { maxMediaQueries };

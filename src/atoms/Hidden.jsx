@@ -9,7 +9,6 @@ const Visible = styled("div")`
     const sizesProps = Object.keys(otherProps).filter(k => sizes.indexOf(k) >= 0);
 
     return css`
-      display: block;
       ${
         sizesProps.map(s => {
           return mediaQueries[s]`display: none;`

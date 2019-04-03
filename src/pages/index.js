@@ -22,6 +22,7 @@ import Testimonials from '../components/Testimonials'
 import Scrollchor from 'react-scrollchor';
 import HomeHero from '../components/home/HomeHero';
 import HomeFeatureIntro from '../components/home/HomeFeatureIntro';
+import HomeCustomerLogos from '../components/home/HomeCustomerLogos';
 const Img = styled.img`
 width: 100%;
 `
@@ -60,24 +61,7 @@ class RootIndex extends React.Component {
             <Nav transparency location={this.props.location}/>
             <HomeHero content={content}/>
             <Section customerLogos>
-              <Container>
-                <Row customerLogos>
-                  <Breakpoint medium up>{content.customerLogos.map((logo, index) => (
-                    logo.customerLogo &&
-                    <a key={index} href={logo.customerUrl} >
-                      <IndexCustomerLogo src={logo.customerLogo.file.url} />
-                    </a>
-                  ))}
-                  </Breakpoint>
-                  <Breakpoint medium down>{content.customerLogos.slice(0, 3).map((logo, index) => (
-                    logo.customerLogo &&
-                    <a key={index} href={logo.customerUrl} >
-                      <IndexCustomerLogo src={logo.customerLogo.file.url} />
-                    </a>
-                  ))}
-                  </Breakpoint>
-                </Row>
-              </Container>
+              <HomeCustomerLogos customerLogos={content.customerLogos}/>
             </Section>
             <Section intro>
               <Container>

@@ -25,9 +25,6 @@ const H2 = styled("h2")`
   font-size: 40px;
   color: ${props => rightColor(props)};
   font-weight: 400;
-  ${mediaQueries.sm`
-    font-weight: 600;
-  `}
   ${props => props.center &&
     "text-align: center;"
   }
@@ -39,6 +36,7 @@ const H3 = styled("h3")`
   ${props => props.center &&
     "text-align: center;"
   }
+  font-weight: 400;
 `
 
 const H3DIFF = styled("h4")`

@@ -11,11 +11,13 @@ import Footer from '../components/Footer'
 import Breakpoint from '../components/layout/Breakpoint'
 import RequestDemoButton from '../components/shared/RequestDemoButton'
 import Section from '../atoms/Section/Section'
+import HeroSection from '../components/shared/HeroSection'
 import { H1, H3DIFF, TextXSmall, TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
 import Col from '../atoms/Col'
 import { Container, WideContainer } from '../atoms/Container'
-import { AssistHeroImg, AssistSideImg } from '../atoms/Images/Images.jsx'
+import AssistHeroImage from '../atoms/Images/AssistHeroImg.png'
+import { AssistSideImg } from '../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
 import Testimonials from '../components/Testimonials'
 
@@ -148,9 +150,7 @@ const AssistFeature2DetailsDescription = styled.p`
 const AssistFeature2DetailsCard = styled.div`
     margin-left: 50px;
     margin-top: 40px;
-    padding-left: 40px;
-    padding-right: 40px;
-    height: 126px;
+    padding: 12px 40px;
     max-width: 539px;
     width: 100vw;
     border-left: solid 8px #FFC509;
@@ -279,19 +279,19 @@ class Assist extends React.Component {
             <title>{siteTitle}</title>
           </Helmet>
           <main>
-            <Nav isGreen location={this.props.location}/>
-            <Section assistHero>
+            <Nav isGreen location={this.props.location} />
+            <HeroSection assistHero>
               <Container>
                 <Row>
                   <Col center>
-                    <H1 center>{content.tagline}</H1>
+                    <H1 bold center>{content.tagline}</H1>
                     <TextBig color="grey4" center>{content.description.description}</TextBig>
                     <Breakpoint medium down><RequestDemoButton /></Breakpoint>
-                    <AssistHeroImg />
+                    <HeroSection.Img src={AssistHeroImage} />
                   </Col>
                 </Row>
               </Container>
-            </Section>
+            </HeroSection>
             <Section benefits>
               <WideContainer>
                 <Breakpoint medium up><Col benefitImg benefit bgi={content.benefitsImage.file.url} /></Breakpoint>
@@ -317,30 +317,30 @@ class Assist extends React.Component {
                 <>
                   <AssistFeature1>
                     <AssistFeature1Content>
-                      <AssistFeature1Title>Automatic Categorization</AssistFeature1Title>
-                      <AssistFeature1Description>Your customer service data can be a gold mine when agents properly tag and categorize their tickets. When they are not, it can be pretty difficult to extract meaningful insights. Miuros uses AI to automatically identify the ticket category and apply the proper one to it.</AssistFeature1Description>
+                      <AssistFeature1Title>{content.feature1Title}</AssistFeature1Title>
+                      <AssistFeature1Description>{content.feature1Description.feature1Description}</AssistFeature1Description>
                     </AssistFeature1Content>
                     <AssistFeature1Img><img src={AutomaticCategorizationImg}></img></AssistFeature1Img>
                   </AssistFeature1>
                   <AssistFeature2>
-                    <AssistFeature2Title>Template Recommandation</AssistFeature2Title>
-                    <AssistFeature2Description>You have spent hours building a library of templates tailored to specific requests and problems you have identified. You know they perform well. Miuros helps your agents take better advantage of it.</AssistFeature2Description>
+                    <AssistFeature2Title>{content.feature2Title}</AssistFeature2Title>
+                    <AssistFeature2Description>{content.feature2Description.feature2Description}</AssistFeature2Description>
                     <AssistFeature2Details>
                       <AssistFeature2Img>
                         <img src={TemplateRecommandationImg}></img>
                       </AssistFeature2Img>
                       <div>
                         <AssistFeature2DetailsCard>
-                          <AssistFeature2DetailsTitle>Tailored Engine</AssistFeature2DetailsTitle>
-                          <AssistFeature2DetailsDescription>We are building dedicated models for each of our customers so it’s tailored and optimized for your data.</AssistFeature2DetailsDescription>
+                          <AssistFeature2DetailsTitle>{content.feature2SubTitle1}</AssistFeature2DetailsTitle>
+                          <AssistFeature2DetailsDescription>{content.feature2SubDescription1.feature2SubDescription1}</AssistFeature2DetailsDescription>
                         </AssistFeature2DetailsCard>
                         <AssistFeature2DetailsCard>
-                          <AssistFeature2DetailsTitle>Advanced Search</AssistFeature2DetailsTitle>
-                          <AssistFeature2DetailsDescription>Save precious seconds on each ticket by letting your agents search for canned responses by content and not just by title. </AssistFeature2DetailsDescription>
+                          <AssistFeature2DetailsTitle>{content.feature2SubTitle2}</AssistFeature2DetailsTitle>
+                          <AssistFeature2DetailsDescription>{content.feature2SubDescription2.feature2SubDescription2}</AssistFeature2DetailsDescription>
                         </AssistFeature2DetailsCard>
                         <AssistFeature2DetailsCard>
-                          <AssistFeature2DetailsTitle>Warnings</AssistFeature2DetailsTitle>
-                          <AssistFeature2DetailsDescription>Avoid template repetition by warning agents when a specific canned response was already used on a ticket.</AssistFeature2DetailsDescription>
+                          <AssistFeature2DetailsTitle>{content.feature2SubTitle3}</AssistFeature2DetailsTitle>
+                          <AssistFeature2DetailsDescription>{content.feature2SubDescription3.feature2SubDescription3}</AssistFeature2DetailsDescription>
                         </AssistFeature2DetailsCard>
                       </div>
                     </AssistFeature2Details>
@@ -362,17 +362,17 @@ class Assist extends React.Component {
                         <img src={TemplateRecommandationImg}></img>
                       </AssistFeature2Img>
                       <div style={{ width: 'calc(100% - 30px)' }}>
-                        <AssistFeature2DetailsCard>
-                          <AssistFeature2DetailsTitle>Tailored Engine</AssistFeature2DetailsTitle>
-                          <AssistFeature2DetailsDescription>We are building dedicated models for each of our customers so it’s tailored and optimized for your data.</AssistFeature2DetailsDescription>
+                      <AssistFeature2DetailsCard>
+                          <AssistFeature2DetailsTitle>{content.feature2SubTitle1}</AssistFeature2DetailsTitle>
+                          <AssistFeature2DetailsDescription>{content.feature2SubDescription1.feature2SubDescription1}</AssistFeature2DetailsDescription>
                         </AssistFeature2DetailsCard>
                         <AssistFeature2DetailsCard>
-                          <AssistFeature2DetailsTitle>Advanced Search</AssistFeature2DetailsTitle>
-                          <AssistFeature2DetailsDescription>Save precious seconds on each ticket by letting your agents search for canned responses by content and not just by title. </AssistFeature2DetailsDescription>
+                          <AssistFeature2DetailsTitle>{content.feature2SubTitle2}</AssistFeature2DetailsTitle>
+                          <AssistFeature2DetailsDescription>{content.feature2SubDescription2.feature2SubDescription2}</AssistFeature2DetailsDescription>
                         </AssistFeature2DetailsCard>
                         <AssistFeature2DetailsCard>
-                          <AssistFeature2DetailsTitle>Warnings</AssistFeature2DetailsTitle>
-                          <AssistFeature2DetailsDescription>Avoid template repetition by warning agents when a specific canned response was already used on a ticket.</AssistFeature2DetailsDescription>
+                          <AssistFeature2DetailsTitle>{content.feature2SubTitle3}</AssistFeature2DetailsTitle>
+                          <AssistFeature2DetailsDescription>{content.feature2SubDescription3.feature2SubDescription3}</AssistFeature2DetailsDescription>
                         </AssistFeature2DetailsCard>
                       </div>
                     </AssistFeature2Details>
@@ -381,23 +381,23 @@ class Assist extends React.Component {
               </Breakpoint>
             </AssistFeaturesSection>
             <AssistFeaturesMoreSection>
-              <AssistFeaturesMoreTitle>More from Assist</AssistFeaturesMoreTitle>
+              <AssistFeaturesMoreTitle>{content.moreTitle}</AssistFeaturesMoreTitle>
               <AssistFeaturesMoreCards>
                 <AssistFeaturesMoreCard>
-                  <AssistFeaturesMoreCardTitle>Multi-lingual</AssistFeaturesMoreCardTitle>
-                  <AssistFeaturesMoreCardDescription>Miuros is multi-lingual, making it the perfect AI-solution for your international Customer Support team.</AssistFeaturesMoreCardDescription>
+                  <AssistFeaturesMoreCardTitle>{content.moreFeature1Title}</AssistFeaturesMoreCardTitle>
+                  <AssistFeaturesMoreCardDescription>{content.moreFeature1Description.moreFeature1Description}</AssistFeaturesMoreCardDescription>
                 </AssistFeaturesMoreCard>
                 <AssistFeaturesMoreCard>
-                  <AssistFeaturesMoreCardTitle>Automate Replies</AssistFeaturesMoreCardTitle>
-                  <AssistFeaturesMoreCardDescription>Let Assist automatically send replies for you based on your best-performing canned responses.</AssistFeaturesMoreCardDescription>
+                  <AssistFeaturesMoreCardTitle>{content.moreFeature2Title}</AssistFeaturesMoreCardTitle>
+                  <AssistFeaturesMoreCardDescription>{content.moreFeature2Description.moreFeature2Description}</AssistFeaturesMoreCardDescription>
                 </AssistFeaturesMoreCard>
                 <AssistFeaturesMoreCard>
-                  <AssistFeaturesMoreCardTitle>Agents Administration</AssistFeaturesMoreCardTitle>
-                  <AssistFeaturesMoreCardDescription>Easy and configurable agents management settings built with medium and large customer service teams in mind.</AssistFeaturesMoreCardDescription>
+                  <AssistFeaturesMoreCardTitle>{content.moreFeature3Title}</AssistFeaturesMoreCardTitle>
+                  <AssistFeaturesMoreCardDescription>{content.moreFeature3Description.moreFeature3Description}</AssistFeaturesMoreCardDescription>
                 </AssistFeaturesMoreCard>
               </AssistFeaturesMoreCards>
             </AssistFeaturesMoreSection>
-            <Footer location={this.props.location}/>
+            <Footer location={this.props.location} />
           </main>
         </React.Fragment>
       </LayoutWithThemeProvider>
@@ -408,60 +408,94 @@ class Assist extends React.Component {
 export default Assist
 
 export const pageQuery = graphql`
-  query AssistQuery {
-                    allContentfulHomepage {
-                edges {
-                    node {
-                bottomCtaTitle
-            bottomCtaImage {
-                    file {
-                url
-              }
-            }
+query AssistQuery {
+  allContentfulHomepage {
+    edges {
+      node {
+        bottomCtaTitle
+        bottomCtaImage {
+          file {
+            url
+          }
         }
       }
+    }
   }
-    allContentfulFeaturePageTemplate1 {
-                    edges {
-                node {
-                    id
-            title
-                tagline
-            quotes {
-                    ...on ContentfulQuote {
-                    content
-                authorFirstName
-                authorLastName
-                authorJobTitle
-              }
-            }
-            description {
-                    description
-                }
-                benefitsImage {
-                    file {
-                url
-              }
-            }
-            benefit1Title
-            benefit2Title
-            benefit3Title
-              benefit1Description {
-                    benefit1Description
-                }
-                benefit2Description {
-                    benefit2Description
-                }
-                benefit3Description {
-                    benefit3Description
-                }
-                }
-              }
-            }
-    site {
-                    siteMetadata {
-                title
-              }
-            }
+  allContentfulFeaturePageTemplate1 {
+    edges {
+      node {
+        id
+        title
+        tagline
+        quotes {
+          ... on ContentfulQuote {
+            content
+            authorFirstName
+            authorLastName
+            authorJobTitle
           }
+        }
+        description {
+          description
+        }
+        benefitsImage {
+          file {
+            url
+          }
+        }
+        benefit1Title
+        benefit2Title
+        benefit3Title
+        benefit1Description {
+          benefit1Description
+        }
+        benefit2Description {
+          benefit2Description
+        }
+        benefit3Description {
+          benefit3Description
+        }
+        feature1Title
+        feature1Description {
+          feature1Description
+        }
+        
+        feature2Title
+        feature2Description {
+          feature2Description
+        }
+        feature2SubTitle1
+        feature2SubTitle2
+        feature2SubTitle3
+        feature2SubDescription1 {
+          feature2SubDescription1
+        }
+        feature2SubDescription2 {
+          feature2SubDescription2
+        }
+        feature2SubDescription3 {
+          feature2SubDescription3
+        }
+        moreTitle
+        moreFeature1Title
+        moreFeature2Title
+        moreFeature3Title
+        moreFeature1Description {
+          moreFeature1Description
+        }
+        moreFeature2Description {
+          moreFeature2Description
+        }
+        moreFeature3Description {
+          moreFeature3Description
+        }
+      }
+    }
+  }
+  site {
+    siteMetadata {
+      title
+    }
+  }
+}
         `

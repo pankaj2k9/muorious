@@ -6,7 +6,7 @@ import Section from '../../atoms/Section/Section'
 import { H1, H2, H3, H4, TextBig, TextHighlighter } from '../../atoms/Texts'
 import { IndexHeroImg, IndexCustomerLogo, IndexSideImg } from '../../atoms/Images/Images.jsx';
 import { Col, Row, Grid } from 'react-styled-flexboxgrid';
-import Button from '../../atoms/Button'
+import RequestDemoButton from '../shared/RequestDemoButton';
 
 const Img = styled.img`
   width: 100%;
@@ -52,16 +52,12 @@ const HomeHero = (props) => {
               <Row>
                 <Col xs={false} sm>
                   <Row start="sm">
-                    <a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">
-                      <Button secondary>Request demo</Button>
-                    </a>
+                    <RequestDemoButton />
                   </Row>
                 </Col>
                 <Col xs sm={false}>
                   <Row center="xs">
-                    <a href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">
-                      <Button secondary>Request demo</Button>
-                    </a>
+                    <RequestDemoButton />
                   </Row>
                 </Col>
               </Row>

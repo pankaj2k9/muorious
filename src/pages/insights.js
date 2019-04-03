@@ -1,38 +1,25 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import get from 'lodash/get'
 import { graphql } from 'gatsby'
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
+import FlexWrapper from '../components/shared/FlexWrapper'
 import Breakpoint from '../components/layout/Breakpoint'
-
+import { H1, H3DIFF, TextXSmall, TextBig, TextHighlighter } from '../atoms/Texts'
 import InsightsHeroImg from '../atoms/Images/InsightsHeroImg.svg'
 import InsightsBenefitsImg from '../atoms/Images/InsightsBenefitsImg.png'
-import InsightsHeroShape from '../atoms/Images/InsightsHeroShape.png'
-
+import Row from '../atoms/Row'
+import Col from '../atoms/Col'
+import { Container, WideContainer } from '../atoms/Container'   
+import HeroSection from '../components/shared/HeroSection'
 import QualityAssuranceIllu from '../atoms/Images/QualityAssuranceImg.svg'
 import CommunicationAnalysisIllu from '../atoms/Images/CommunicationAnalysisImg.svg'
 import TemplateAnalysisIllu from '../atoms/Images/TemplateAnalysisImg.svg'
 import AgentPerformanceIllu from '../atoms/Images/AgentPerformanceImg.svg'
 import Testimonials from '../components/Testimonials'
-
-const InsightsHeroSection = styled.section`
-    min-height: 1100px;
-    height: auto;
-    margin: 0 auto;
-    width: 100%;
-    background-image: url(${InsightsHeroShape});
-    background-size: 50%;
-    background-position: top left;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    @media(max-width: 992px){
-        min-height: 0;
-    }
-`
 
 const InsightsHeroTitle = styled.h1`
     max-width: 723px;
@@ -228,41 +215,48 @@ const InsightsFeaturesMoreCardDescription = styled.p`
 
 class Insights extends React.Component {
     render() {
+        const content = this.props.data.allContentfulFeaturePageTemplate2.edges[0].node
+        const siteTitle = `${content.title} - ${get(this, 'props.data.site.siteMetadata.title')}`
+
         let quotesData = []
         try {
             quotesData = this.props.data.allContentfulFeaturePageTemplate2.edges[0].node.quotes
         } catch (e) {
             console.warn(e)
         }
-
+        console.warn(content)
         return (
             <LayoutWithThemeProvider>
                 <React.Fragment>
                     <Helmet>
-                        <title>Miuros Insights</title>
+                        <title>{siteTitle}</title>
                     </Helmet>
                     <main>
-                        <Nav location={this.props.location}/>
-                        <InsightsHeroSection>
-                            <InsightsHeroTitle>Deliver better customer service from new actionable <span>Insights</span></InsightsHeroTitle>
-                            <InsightsHeroDescription>Insights is an analytical solution for international customer service teams that helps managers identify areas for improvement, and empower agents to self-assess their performance.</InsightsHeroDescription>
-                            <InsightsHeroImgSection>
-                                <img src={InsightsHeroImg}></img>
-                            </InsightsHeroImgSection>
-                        </InsightsHeroSection>
+                        <Nav location={this.props.location} />
+                        <HeroSection insightsHero>
+                            <Container>
+                                <Row>
+                                    <Col center>
+                                        <H1 center bold>{content.tagline}</H1>
+                                        <InsightsHeroDescription>{content.description.description}</InsightsHeroDescription>
+                                        <FlexWrapper><HeroSection.Img src={InsightsHeroImg} /></FlexWrapper>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </HeroSection>
                         <InsightsBenefitsSection>
                             <InsightsBenefitsContent>
                                 <div>
-                                    <InsightsBenefitsContentTitle>Make data-driven decisions</InsightsBenefitsContentTitle>
-                                    <InsightsBenefitsContentDescription>Benefit from a sophisticated but intuitive A.I. powered analytical solution to make faster, data-driven decisions. Insights is your personal data scientist, your dependancy on other departments for data analysis is finally be over.</InsightsBenefitsContentDescription>
+                                    <InsightsBenefitsContentTitle>{content.benefit1Title}</InsightsBenefitsContentTitle>
+                                    <InsightsBenefitsContentDescription>{content.benefit1Description.benefit1Description}</InsightsBenefitsContentDescription>
                                 </div>
                                 <div>
-                                    <InsightsBenefitsContentTitle>Save hours every week</InsightsBenefitsContentTitle>
-                                    <InsightsBenefitsContentDescription>Consume actionable information brought to your attention automatically by Insights. Discover in minutes, instead of hours, new insights revealed by our AI and derive actions to improve your operations and people.</InsightsBenefitsContentDescription>
+                                    <InsightsBenefitsContentTitle>{content.benefit2Title}</InsightsBenefitsContentTitle>
+                                    <InsightsBenefitsContentDescription>{content.benefit2Description.benefit2Description}</InsightsBenefitsContentDescription>
                                 </div>
                                 <div>
-                                    <InsightsBenefitsContentTitle>Empower your agents</InsightsBenefitsContentTitle>
-                                    <InsightsBenefitsContentDescription>Let your agents self-assess their performance with the Miuros Smart Benchmark, a new and fair way to measure performance.</InsightsBenefitsContentDescription>
+                                    <InsightsBenefitsContentTitle>{content.benefit3Title}</InsightsBenefitsContentTitle>
+                                    <InsightsBenefitsContentDescription>{content.benefit3Description.benefit3Description}</InsightsBenefitsContentDescription>
                                 </div>
                             </InsightsBenefitsContent>
                             <Breakpoint medium up>
@@ -364,7 +358,7 @@ We also gives you visibility and metrics over private and non-official canned re
                                 </InsightsFeaturesMoreCard>
                             </InsightsFeaturesMoreCards2>
                         </InsightsFeaturesMore>
-                        <Footer location={this.props.location}/>
+                        <Footer location={this.props.location} />
                     </main>
                 </React.Fragment>
             </LayoutWithThemeProvider >
@@ -375,21 +369,42 @@ We also gives you visibility and metrics over private and non-official canned re
 export default Insights
 
 export const pageQuery = graphql`
-  query InsightsQuery {
+query InsightsQuery {
     allContentfulFeaturePageTemplate2 {
-        edges {
-          node {
-            quotes {
-                ...  on ContentfulQuote {
-                content
-                authorFirstName
-                authorLastName
-                authorJobTitle
-              }
+      edges {
+        node {
+          title
+          tagline
+          quotes {
+            ... on ContentfulQuote {
+              content
+              authorFirstName
+              authorLastName
+              authorJobTitle
             }
           }
+          description {
+            description
+          }
+          benefit1Title
+          benefit2Title
+          benefit3Title
+          benefit1Description {
+            benefit1Description
+          }
+          benefit2Description {
+            benefit2Description
+          }
+          benefit3Description {
+            benefit3Description
+          }
         }
+      }
     }
-    
+    site {
+      siteMetadata {
+        title
+      }
+    }
   }
-`
+        `

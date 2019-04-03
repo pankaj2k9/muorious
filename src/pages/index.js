@@ -53,7 +53,6 @@ class RootIndex extends React.Component {
     const quotesData = this.props.data.allContentfulQuote.edges.map(
       element => ({...element.node})
     );
-    console.log('index', quotesData)
     return (
       <LayoutWithThemeProvider>
         <React.Fragment>

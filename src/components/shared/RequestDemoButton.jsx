@@ -24,7 +24,7 @@ const ModalContent = styled.div`
     transform: translate(-50%, -50%);
     background-color: #ffffff;
     padding: 20px;
-    max-width: 480px;
+    max-width: 700px;
     z-index: 5;
 `
 

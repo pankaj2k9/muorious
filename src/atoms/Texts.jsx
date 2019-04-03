@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import css from "styled-components"
-import { getColors, mediaQueries} from "../utils/styling";
+import { getColors, mediaQueries } from "../utils/styling";
 
 
 const rightColor = ({ theme, color }) => {
@@ -9,7 +9,7 @@ const rightColor = ({ theme, color }) => {
 
 const H1 = styled("h1")`
   font-size: 48px;
-  font-weight: 400;
+  font-weight: ${({ bold }) => bold ? '6' : '4'}00;
   color: ${props => rightColor(props)};
   line-height: 64px;
   ${props => props.center &&

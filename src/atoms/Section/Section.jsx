@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import IndexHeroBg from './IndexHeroBg.png'
+import InsightsHeroShape from '../Images/InsightsHeroShape.png'
 import MobileHeroBg from '../../components/layout/MenuBackground.png'
 import TestimonialsPink from './Testimonials/TestimonialsPink.png'
 import TestimonialsGreen from './Testimonials/TestimonialsGreen.png'
@@ -40,33 +41,28 @@ const Section = styled("section")`
             } */}
         `
     }
-    ${ props => props.assistHero && css`
-        padding-top: 100px;
-        height: 100vh; 
+
+    /* TODO: Move these hero-specific styles */
+    ${ ({ assistHero }) => assistHero && css`
         background-image: url(${AssistHeroBg}); 
         background-size: cover;
-        p {
-            width: 80%;
-            margin: 20px auto 0;
-        }
-        h2 {
-            width: 80%;
-            margin: 0 auto;
-
-        }
-        @media (max-width: 800px) {
-            padding-top: 140px;
-            h1 {
-                font-size: 26px;
-                line-height: 1.4;
-            }
-            p {
-                font-size: 14px;
-                line-height: 23px;
-            }
-        }
         `
     }
+    ${({ insightsHero }) => css`
+        background-image: url(${InsightsHeroShape});
+        background-size: 50%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 100px; /* removes bottom overlapping with next section */
+        @media(max-width: 992px){
+            min-height: 0;
+            margin-bottom: 0;
+        }
+    `}
+
     ${ props => props.customerLogos && `padding: 40px 0; background-color: ${getColors(props.theme).grey3}`}
     ${ props => props.intro && css`
         padding: 30px 0;

@@ -48,7 +48,7 @@ const Section = styled("section")`
         background-size: cover;
         `
     }
-    ${({ insightsHero }) => css`
+    ${({ insightsHero }) => insightsHero && css`
         background-image: url(${InsightsHeroShape});
         background-size: 50%;
         background-position: top left;

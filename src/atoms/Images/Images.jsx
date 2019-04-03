@@ -1,5 +1,17 @@
 import styled from 'styled-components'
 
+const IndexHeroImg = styled("img").attrs(props => ({	
+    src: props.src	
+}))`	
+    display: block;	
+    position: absolute;	
+    right: 0;	
+    bottom: 0;	
+    max-width: 44%;	
+    bottom: -24px;	
+    z-index: 1;	
+`
+
 const AssistSideImg = styled("img").attrs(props => ({
     src: props.src
 }))`

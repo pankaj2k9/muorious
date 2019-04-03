@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Nav from '../atoms/Nav'
 import Logo from '../atoms/Logo/Logo'
 import { List, ListItem } from '../atoms/List'
-import RequestDemoButton from '../components/shared/RequestDemoBtn'
+import RequestDemoButton from '../components/shared/RequestDemoButton'
 import StyledLink from '../atoms/Link'
 import Scrollchor from 'react-scrollchor';
 import { Grid, Row, Col } from 'react-styled-flexboxgrid';

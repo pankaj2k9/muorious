@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import styled from 'styled-components'
 import Button from '../../atoms/Button'
-import FlexWrapper from '../../components/shared/FlexWrapper'
-import Space from '../../components/shared/Space'
+import FlexWrapper from './FlexWrapper'
+import Space from './Space'
+import vars from '../../utils/vars'
 
 const ModalBackdrop = styled.div`
     position: fixed;
@@ -27,7 +29,11 @@ const ModalContent = styled.div`
 `
 
 const Field = styled.div`
-    width: calc(50% - 20px);
+    width: calc(50% - 10px);
+    position: relative;
+    @media(max-width: 992px){
+        width: 100%;
+    }
     label {
         display: block;
         font-family: Modern Era;
@@ -46,14 +52,38 @@ const Field = styled.div`
         line-height: 24px;
         padding: 5px;
         color: #333;
+        -webkit-appearance: none;
+        background-color: transparent;
         &:focus, &:active {
             outline: none;
             border-color: #333;
         }
     }
 `
+const FormTitle = styled.h2`
+    font-family: Modern Era;
+    font-size: 30px;
+    line-height: 1.4;
+    text-align: center;
+    color: #1B5E57;
+    margin: 15px 0;
+    @media (max-width: 992px){
+        font-size: 22px;
+    }
+`
 
-export default class RequestDemoBtn extends Component {
+const SelectArrow = styled.span`
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 4.5px 0 4.5px;
+    border-color: #000000 transparent transparent transparent;
+    right: 10px;
+    bottom: 14px;
+`
+
+export default class RequestDemoButton extends Component {
     state = {
         modalOpen: false,
         values: {
@@ -65,11 +95,18 @@ export default class RequestDemoBtn extends Component {
     }
 
     openModal = () => {
+        document.body.style.overflowY = 'hidden'
         this.setState({ modalOpen: true })
     }
 
     closeModal = () => {
+        document.body.style.overflowY = ''
         this.setState({ modalOpen: false })
+    }
+
+    componentWillUnmount() {
+        // Prevent body not scrolling when changing from desktop to mobile or vice versa which causes modal to unrender
+        document.body.style.overflowY = ''
     }
 
     updateField = (e, field) => {
@@ -83,7 +120,9 @@ export default class RequestDemoBtn extends Component {
 
     submitData = (e) => {
         e.preventDefault();
-        console.warn(this.state.values)
+        window.gtag('event', 'New demo request', this.state.values);
+        axios.post(`https://forms.hubspot.com/uploads/form/v2/${vars.hubspot.portal_id}/${vars.hubspot.form_id}`, this.state.values, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+        this.closeModal()
     }
 
     render() {
@@ -94,22 +133,22 @@ export default class RequestDemoBtn extends Component {
                     modalOpen && (
                         <>
                             <ModalContent>
-                                <h2>Learn more about Miuros</h2>
+                                <FormTitle>Learn more about Miuros</FormTitle>
                                 <form onSubmit={this.submitData}>
-                                    <FlexWrapper align="center" justify="space-between">
+                                    <FlexWrapper wrap align="center" justify="space-between">
                                         <Field>
                                             <label htmlFor="first_name">First Name</label>
-                                            <input type="text" id="first_name" name="first_name" required onChange={(e) => this.updateField(e, 'first_name')} />
+                                            <input placeholder="Enter your first name" type="text" id="first_name" name="first_name" required onChange={(e) => this.updateField(e, 'first_name')} />
                                         </Field>
                                         <Field>
                                             <label htmlFor="last_name">First Name</label>
-                                            <input type="text" id="last_name" name="last_name" required onChange={(e) => this.updateField(e, 'last_name')} />
+                                            <input placeholder="Enter your last name" type="text" id="last_name" name="last_name" required onChange={(e) => this.updateField(e, 'last_name')} />
                                         </Field>
                                     </FlexWrapper>
-                                    <FlexWrapper align="center" justify="space-between">
+                                    <FlexWrapper wrap align="center" justify="space-between">
                                         <Field>
                                             <label htmlFor="email">Email</label>
-                                            <input type="email" id="email" name="email" required onChange={(e) => this.updateField(e, 'email')} />
+                                            <input type="email" placeholder="Enter your email" id="email" name="email" required onChange={(e) => this.updateField(e, 'email')} />
                                         </Field>
                                         <Field>
                                             <label htmlFor="team_size">Customer service team size</label>
@@ -118,9 +157,10 @@ export default class RequestDemoBtn extends Component {
                                                 <option value="5 to 10 people">5 to 10 people</option>
                                                 <option value="10+ people">10+ people</option>
                                             </select>
+                                            <SelectArrow />
                                         </Field>
                                     </FlexWrapper>
-                                    <Space height="40px" />
+                                    <Space height="20px" />
                                     <Button secondary type="submit">Request demo</Button>
                                 </form>
                             </ModalContent>

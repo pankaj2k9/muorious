@@ -16,9 +16,10 @@ import Col from '../atoms/Col'
 import { Container } from '../atoms/Container'
 import { IndexHeroImg, IndexCustomerLogo, IndexSideImg } from '../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
-import FlexWrapper from '../components/shared/FlexWrapper'
 import Space from '../components/shared/Space'
 import Testimonials from '../components/Testimonials'
+import FlexWrapper from '../components/shared/FlexWrapper'
+import RequestDemoButton from '../components/shared/RequestDemoButton'
 import Scrollchor from 'react-scrollchor';
 import HomeHero from '../components/home/HomeHero';
 import HomeFeatureIntro from '../components/home/HomeFeatureIntro';
@@ -32,19 +33,19 @@ const RequestDemoButtonFooterWrapper = styled('a')`
 `
 
 class RootIndex extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.scrollAnchorRef = React.createRef();
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const { location } = this.props;
     const self = this;
     setTimeout(() => {
-      if(location.hash.length > 0) {
+      if (location.hash.length > 0) {
         self.scrollAnchorRef.current.simulateClick()
       }
-    },20)
+    }, 20)
   }
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -59,7 +60,7 @@ class RootIndex extends React.Component {
           <Helmet>
             <title>{siteTitle}</title>
           </Helmet>
-          <Scrollchor ref={this.scrollAnchorRef} style={{display: "none"}} animate={{offset: -80}} to={this.props.location.hash} />
+          <Scrollchor ref={this.scrollAnchorRef} style={{ display: "none" }} animate={{ offset: -80 }} to={this.props.location.hash} />
           <main>
             <Nav transparency location={this.props.location}/>
             <HomeHero content={content}/>
@@ -170,7 +171,7 @@ class RootIndex extends React.Component {
                 </Row>
               </Container>
             </Section>
-            
+
             <Section intro>
               <Container>
                 <Breakpoint medium up>
@@ -199,7 +200,7 @@ class RootIndex extends React.Component {
                 </Breakpoint>
               </Container>
             </Section>
-            
+
             <Section intro grey id="integrations">
               <Container>
                 <Breakpoint medium up>
@@ -261,9 +262,9 @@ class RootIndex extends React.Component {
                 <Row>
                   <Col center>
                     <H1 color="white" center>{content.bottomCtaTitle}</H1>
-                    <RequestDemoButtonFooterWrapper href="https://share.hsforms.com/1HM6O2ZMSQrOP96qfQrHCRA1nwt0">
-                      <Button secondary>Request demo</Button>
-                    </RequestDemoButtonFooterWrapper>
+                    <FlexWrapper>
+                      <RequestDemoButton />
+                    </FlexWrapper>
                   </Col>
                 </Row>
               </Container>

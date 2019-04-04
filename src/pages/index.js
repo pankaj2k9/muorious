@@ -278,10 +278,7 @@ class RootIndex extends React.Component {
                     <Col equal center>
                       <H2>{content.integrationFastTitle}</H2>
                       <TextBig color="grey4">
-                        {
-                          content.integrationDescription
-                            .integrationFastDescription
-                        }
+                        {content.integrationFastDescription.integrationFastDescription}
                       </TextBig>
                     </Col>
                     <Col equal center>

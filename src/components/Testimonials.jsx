@@ -47,7 +47,7 @@ const TestimonialText = styled.p`
   font-family: Modern Era;
   font-style: italic;
   font-size: 24px;
-  line-height: 40px;
+  line-height: 1.65;
   font-weight: 300;
   &:before {
     content: '“';
@@ -57,7 +57,8 @@ const TestimonialText = styled.p`
   }
   @media (max-width: 992px) {
     padding: 30px;
-    fsize: 16px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 `
 

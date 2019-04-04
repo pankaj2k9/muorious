@@ -42,9 +42,13 @@ const H3 = styled("h3")`
 const H3DIFF = styled("h4")`
   font-size: 36px;
   font-weight: 400;
+  line-height: 1.5;
   color: ${props => rightColor(props)};
   ${props => props.center &&
     "text-align: center;"
+  }
+  @media(max-width: 992px){
+    font-size: 24px;
   }
 `
 

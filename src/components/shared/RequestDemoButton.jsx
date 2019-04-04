@@ -189,15 +189,17 @@ export default class RequestDemoButton extends Component {
                       required
                       onChange={e => this.updateField(e, 'team_size')}
                     >
-                      <option value="1 to 5 people">1 to 5 people</option>
-                      <option value="5 to 10 people">5 to 10 people</option>
-                      <option value="10+ people">10+ people</option>
+                      <option value="Less than 20 agents">Less than 20 agents</option>
+                      <option value="Between 20 and 49 agents">Between 20 and 49 agents</option>
+                      <option value="Between 50 and 99 agents">Between 50 and 99 agents</option>
+                      <option value="Between 100 and 199 agents">Between 100 and 199 agents</option>
+                      <option value="More than 199 agents">More than 199 agents</option>
                     </select>
                     <SelectArrow />
                   </Field>
                 </FlexWrapper>
                 <Space height="20px" />
-                <Button secondary type="submit">
+                <Button secondary type="submit" fluid>
                   Request demo
                 </Button>
               </form>

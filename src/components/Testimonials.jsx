@@ -1,9 +1,7 @@
 import React from 'react'
 import Section from '../atoms/Section/Section'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
-
-// const order = { 1: 2, 2: 3, 3: 4, 4: 5, 5: 1 }
+import { get } from 'lodash'
 
 const data = {}
 
@@ -47,7 +45,7 @@ const TestimonialText = styled.p`
   font-family: Modern Era;
   font-style: italic;
   font-size: 24px;
-  line-height: 40px;
+  line-height: 1.65;
   font-weight: 300;
   &:before {
     content: '“';
@@ -57,7 +55,8 @@ const TestimonialText = styled.p`
   }
   @media (max-width: 992px) {
     padding: 30px;
-    fsize: 16px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 `
 
@@ -145,6 +144,13 @@ const AuthorJob = styled.p`
   line-height: 32px;
   font-weight: 300;
 `
+const CompanyLogo = styled.img`
+  max-width: 80%;
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-bottom: 10px;
+`
 
 const Testimonial = ({
   content,
@@ -154,24 +160,32 @@ const Testimonial = ({
   authorCompany,
   circles,
   color = 'green',
-}) => (
-  <TestimonialOuter>
-    <TestimonialContent color={color}>
-      <TestimonialText>{content}</TestimonialText>
-      <CirclesNode>{circles}</CirclesNode>
-      <TestimonialAutor color={color}>
-        <AuthorName>
-          {authorFirstName} {authorLastName}
-        </AuthorName>
-        {authorCompany ? (
-          <AuthorJob>
-            {authorJobTitle} at {authorCompany.customerName}
-          </AuthorJob>
-        ) : null}
-      </TestimonialAutor>
-    </TestimonialContent>
-  </TestimonialOuter>
-)
+}) => {
+  const customerLogo = get('authorCompany.customerLogo.file.url')
+  return (
+    <TestimonialOuter>
+      <TestimonialContent color={color}>
+        <TestimonialText>{content}</TestimonialText>
+        <CirclesNode>{circles}</CirclesNode>
+        <TestimonialAutor color={color}>
+          {authorCompany && authorCompany.customerLogo ? (
+            <a href={authorCompany.customerUrl} target="_blank">
+              <CompanyLogo src={customerLogo} />
+            </a>
+          ) : null}
+          <AuthorName>
+            {authorFirstName} {authorLastName}
+          </AuthorName>
+          {authorCompany ? (
+            <AuthorJob>
+              {authorJobTitle} at {authorCompany.customerName}
+            </AuthorJob>
+          ) : null}
+        </TestimonialAutor>
+      </TestimonialContent>
+    </TestimonialOuter>
+  )
+}
 
 const __INTERVAL_MS__ = 5000
 

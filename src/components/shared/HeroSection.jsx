@@ -24,10 +24,13 @@ const HeroSection = styled(Section)`
     h1 {
       font-size: 26px;
       line-height: 1.4;
+      width: 100%;
     }
     p {
       font-size: 14px;
       line-height: 23px;
+      width: 100%;
+      margin: 20px auto 20px;
     }
   }
 `

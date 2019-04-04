@@ -4,7 +4,7 @@ import { mediaQueries } from '../utils/styling'
 
 const sizes = ['xs', 'sm', 'md', 'lg']
 
-const Visible = styled('div')`
+const Hidden = styled('div')`
   ${({ theme, ...otherProps }) => {
     const sizesProps = Object.keys(otherProps).filter(
       k => sizes.indexOf(k) >= 0
@@ -18,4 +18,4 @@ const Visible = styled('div')`
   }};
 `
 
-export default Visible
+export default Hidden

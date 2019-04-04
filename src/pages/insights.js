@@ -7,6 +7,7 @@ import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
 import FlexWrapper from '../components/shared/FlexWrapper'
+import RequestDemoButton from '../components/shared/RequestDemoButton'
 import Breakpoint from '../components/layout/Breakpoint'
 import {
   H1,
@@ -26,7 +27,8 @@ import CommunicationAnalysisIllu from '../atoms/Images/CommunicationAnalysisImg.
 import TemplateAnalysisIllu from '../atoms/Images/TemplateAnalysisImg.svg'
 import AgentPerformanceIllu from '../atoms/Images/AgentPerformanceImg.svg'
 import Testimonials from '../components/Testimonials'
-import PageTransitionWrapper from '../components/PageTransitionWrapper';
+import PageTransitionWrapper from '../components/PageTransitionWrapper'
+import Feature from '../components/shared/feature'
 
 const InsightsHeroTitle = styled.h1`
   max-width: 723px;
@@ -101,6 +103,7 @@ const InsightsBenefitsContentDescription = styled.p`
 
 const InsightsBenefitsImgSection = styled.div`
   width: 484px;
+  display: flex;
 `
 
 const InsightsFeaturesSection = styled.section`
@@ -113,54 +116,6 @@ const InsightsFeaturesSection = styled.section`
     display: block;
     margin: 10px auto;
   }
-`
-
-const InsightsQualityAssurance = styled.div`
-  display: flex;
-`
-
-const InsightsFeaturesTitle = styled.h3`
-  font-weight: 600;
-  font-size: 38px;
-  line-height: 48px;
-  color: #000000;
-  margin-right: 100px;
-  margin-left: 100px;
-  @media (max-width: 992px) {
-    margin-right: 0;
-    margin-left: 0;
-    padding: 15px;
-  }
-`
-
-const InsightsFeaturesDescription = styled.p`
-  max-width: 470px;
-  width: 100%;
-  font-size: 18px;
-  line-height: 32px;
-  color: #000000;
-  margin-right: 100px;
-  margin-left: 100px;
-  @media (max-width: 992px) {
-    margin-right: 0;
-    margin-left: 0;
-    padding: 15px;
-  }
-`
-
-const InsightCommunicationAnalysis = styled.div`
-  display: flex;
-  margin-top: 120px;
-`
-
-const InsightsTemplateAnalysis = styled.div`
-  display: flex;
-  margin-top: 120px;
-`
-
-const InsightsAgentPerformance = styled.div`
-  display: flex;
-  margin-top: 120px;
 `
 
 const InsightsFeaturesMore = styled.section`
@@ -247,244 +202,126 @@ class Insights extends React.Component {
           <main>
             <Nav location={this.props.location} />
             <PageTransitionWrapper>
-            <HeroSection insightsHero>
-              <Container>
-                <Row>
-                  <Col center>
-                    <H1 center bold>
-                      {content.tagline}
-                    </H1>
-                    <InsightsHeroDescription>
-                      {content.description.description}
-                    </InsightsHeroDescription>
-                    <FlexWrapper>
-                      <HeroSection.Img src={InsightsHeroImg} />
-                    </FlexWrapper>
-                  </Col>
-                </Row>
-              </Container>
-            </HeroSection>
-            <InsightsBenefitsSection>
-              <InsightsBenefitsContent>
-                <div>
-                  <InsightsBenefitsContentTitle>
-                    {content.benefit1Title}
-                  </InsightsBenefitsContentTitle>
-                  <InsightsBenefitsContentDescription>
-                    {content.benefit1Description.benefit1Description}
-                  </InsightsBenefitsContentDescription>
-                </div>
-                <div>
-                  <InsightsBenefitsContentTitle>
-                    {content.benefit2Title}
-                  </InsightsBenefitsContentTitle>
-                  <InsightsBenefitsContentDescription>
-                    {content.benefit2Description.benefit2Description}
-                  </InsightsBenefitsContentDescription>
-                </div>
-                <div>
-                  <InsightsBenefitsContentTitle>
-                    {content.benefit3Title}
-                  </InsightsBenefitsContentTitle>
-                  <InsightsBenefitsContentDescription>
-                    {content.benefit3Description.benefit3Description}
-                  </InsightsBenefitsContentDescription>
-                </div>
-              </InsightsBenefitsContent>
-              <Breakpoint medium up>
-                <InsightsBenefitsImgSection>
-                  <img src={InsightsBenefitsImg} />
-                </InsightsBenefitsImgSection>
-              </Breakpoint>
-            </InsightsBenefitsSection>
-            <Testimonials color="green" data={quotesData} />
-            <Breakpoint medium up>
+              <HeroSection insightsHero>
+                <Container>
+                  <Row>
+                    <Col center>
+                      <H1 center bold>
+                        {content.tagline}
+                      </H1>
+                      <InsightsHeroDescription>
+                        {content.description.description}
+                      </InsightsHeroDescription>
+                      <Breakpoint medium down>
+                        <FlexWrapper><RequestDemoButton /></FlexWrapper>
+                      </Breakpoint>
+                      <FlexWrapper>
+                        <HeroSection.Img src={InsightsHeroImg} />
+                      </FlexWrapper>
+                    </Col>
+                  </Row>
+                </Container>
+              </HeroSection>
+              <InsightsBenefitsSection>
+                <InsightsBenefitsContent>
+                  <div>
+                    <InsightsBenefitsContentTitle>
+                      {content.benefit1Title}
+                    </InsightsBenefitsContentTitle>
+                    <InsightsBenefitsContentDescription>
+                      {content.benefit1Description.benefit1Description}
+                    </InsightsBenefitsContentDescription>
+                  </div>
+                  <div>
+                    <InsightsBenefitsContentTitle>
+                      {content.benefit2Title}
+                    </InsightsBenefitsContentTitle>
+                    <InsightsBenefitsContentDescription>
+                      {content.benefit2Description.benefit2Description}
+                    </InsightsBenefitsContentDescription>
+                  </div>
+                  <div>
+                    <InsightsBenefitsContentTitle>
+                      {content.benefit3Title}
+                    </InsightsBenefitsContentTitle>
+                    <InsightsBenefitsContentDescription>
+                      {content.benefit3Description.benefit3Description}
+                    </InsightsBenefitsContentDescription>
+                  </div>
+                </InsightsBenefitsContent>
+                <Breakpoint medium up>
+                  <InsightsBenefitsImgSection>
+                    <img src={InsightsBenefitsImg} />
+                  </InsightsBenefitsImgSection>
+                </Breakpoint>
+              </InsightsBenefitsSection>
+              <Testimonials color="green" data={quotesData} />
               <InsightsFeaturesSection>
-                <InsightsQualityAssurance>
-                  <div>
-                    <InsightsFeaturesTitle>
-                      Quality Assurance
-                    </InsightsFeaturesTitle>
-                    <InsightsFeaturesDescription>
-                      Explore, navigate, slice and dice your data to validate
-                      assumptions, measure performance with a few clicks or
-                      compare each element with the average.
-                    </InsightsFeaturesDescription>
-                  </div>
-                  <img src={QualityAssuranceIllu} />
-                </InsightsQualityAssurance>
-                <InsightCommunicationAnalysis>
-                  <img src={CommunicationAnalysisIllu} />
-                  <div>
-                    <InsightsFeaturesTitle>
-                      Communication Analysis
-                    </InsightsFeaturesTitle>
-                    <InsightsFeaturesDescription>
-                      Break down each of your key metrics depending on the usage
-                      of canned responses. Understand how they are used and how
-                      they impact your Customer Satisfaction and productivity.
-                      Monitor adherence to communication guidelines and identify
-                      optimization to be made.
-                    </InsightsFeaturesDescription>
-                  </div>
-                </InsightCommunicationAnalysis>
-                <InsightsTemplateAnalysis>
-                  <div>
-                    <InsightsFeaturesTitle>
-                      Template Analysis
-                    </InsightsFeaturesTitle>
-                    <InsightsFeaturesDescription>
-                      Build a healthy library of canned responses, figure out
-                      which ones have high re-opening rates, negative impact on
-                      your Customer Satisfaction, assess how often they’re being
-                      customized or even completely changed. We also gives you
-                      visibility and metrics over private and non-official
-                      canned responses that your agents created for themselves.
-                    </InsightsFeaturesDescription>
-                  </div>
-                  <img src={TemplateAnalysisIllu} />
-                </InsightsTemplateAnalysis>
-                <InsightsAgentPerformance>
-                  <img src={AgentPerformanceIllu} />
-                  <div>
-                    <InsightsFeaturesTitle>
-                      Agent Performance
-                    </InsightsFeaturesTitle>
-                    <InsightsFeaturesDescription>
-                      Empower your staff to self-assess their performance, in a
-                      fair way, while saving the management team lots of
-                      analytical time. The Agent Performance dashboard will help
-                      your agents interpret their results and how their trends
-                      compare to others, giving them access with one click to
-                      the comments customers left about their work.
-                    </InsightsFeaturesDescription>
-                  </div>
-                </InsightsAgentPerformance>
+                <Feature imagePosition="right" image={QualityAssuranceIllu}>
+                  <Feature.Title>{content.feature1Title}</Feature.Title>
+                  <Feature.Description>
+                    {content.feature1Description.feature1Description}
+                  </Feature.Description>
+                </Feature>
+
+                <Feature
+                  imagePosition="left"
+                  image={CommunicationAnalysisIllu}
+                >
+                  <Feature.Title>{content.feature2Title}</Feature.Title>
+                  <Feature.Description>
+                    {content.feature2Description.feature2Description}
+                  </Feature.Description>
+                </Feature>
+
+                <Feature imagePosition="right" image={TemplateAnalysisIllu}>
+                  <Feature.Title>{content.feature3Title}</Feature.Title>
+                  <Feature.Description>
+                    {content.feature3Description.feature3Description}
+                  </Feature.Description>
+                </Feature>
+
+                <Feature imagePosition="left" image={AgentPerformanceIllu}>
+                  <Feature.Title>{content.feature4Title}</Feature.Title>
+                  <Feature.Description>
+                    {content.feature4Description.feature4Description}
+                  </Feature.Description>
+                </Feature>
               </InsightsFeaturesSection>
-            </Breakpoint>
-            <Breakpoint medium down>
-              <InsightsFeaturesSection>
-                <img src={QualityAssuranceIllu} />
 
-                <div>
-                  <InsightsFeaturesTitle>
-                    Quality Assurance
-                  </InsightsFeaturesTitle>
-                  <InsightsFeaturesDescription>
-                    Explore, navigate, slice and dice your data to validate
-                    assumptions, measure performance with a few clicks or
-                    compare each element with the average.
-                  </InsightsFeaturesDescription>
-                </div>
-                <img src={CommunicationAnalysisIllu} />
-
-                <div>
-                  <InsightsFeaturesTitle>
-                    Communication Analysis
-                  </InsightsFeaturesTitle>
-                  <InsightsFeaturesDescription>
-                    Break down each of your key metrics depending on the usage
-                    of canned responses. Understand how they are used and how
-                    they impact your Customer Satisfaction and productivity.
-                    Monitor adherence to communication guidelines and identify
-                    optimization to be made.
-                  </InsightsFeaturesDescription>
-                </div>
-                <img src={TemplateAnalysisIllu} />
-
-                <div>
-                  <InsightsFeaturesTitle>
-                    Template Analysis
-                  </InsightsFeaturesTitle>
-                  <InsightsFeaturesDescription>
-                    Build a healthy library of canned responses, figure out
-                    which ones have high re-opening rates, negative impact on
-                    your Customer Satisfaction, assess how often they’re being
-                    customized or even completely changed. We also gives you
-                    visibility and metrics over private and non-official canned
-                    responses that your agents created for themselves.
-                  </InsightsFeaturesDescription>
-                </div>
-                <img src={AgentPerformanceIllu} />
-                <div>
-                  <InsightsFeaturesTitle>
-                    Agent Performance
-                  </InsightsFeaturesTitle>
-                  <InsightsFeaturesDescription>
-                    Empower your staff to self-assess their performance, in a
-                    fair way, while saving the management team lots of
-                    analytical time. The Agent Performance dashboard will help
-                    your agents interpret their results and how their trends
-                    compare to others, giving them access with one click to the
-                    comments customers left about their work.
-                  </InsightsFeaturesDescription>
-                </div>
-              </InsightsFeaturesSection>
-            </Breakpoint>
-            <InsightsFeaturesMore>
-              <InsightsFeaturesMoreTitle>
-                More from Insights
-              </InsightsFeaturesMoreTitle>
-              <InsightsFeaturesMoreCards1>
+              <InsightsFeaturesMore>
+                <InsightsFeaturesMoreTitle>{content.moreTitle}</InsightsFeaturesMoreTitle>
+                <InsightsFeaturesMoreCards1>
+                  <InsightsFeaturesMoreCard>
+                    <InsightsFeaturesMoreCardTitle>{content.moreFeature1Title}</InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>{content.moreFeature1Description.moreFeature1Description}</InsightsFeaturesMoreCardDescription>
+                  </InsightsFeaturesMoreCard>
+                  <InsightsFeaturesMoreCard>
+                    <InsightsFeaturesMoreCardTitle>{content.moreFeature2Title}</InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>{content.moreFeature2Description.moreFeature2Description}</InsightsFeaturesMoreCardDescription>
+                  </InsightsFeaturesMoreCard>
+                  <InsightsFeaturesMoreCard>
+                    <InsightsFeaturesMoreCardTitle>{content.moreFeature3Title}</InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>{content.moreFeature3Description.moreFeature3Description}</InsightsFeaturesMoreCardDescription>
+                  </InsightsFeaturesMoreCard>
+                  
+                </InsightsFeaturesMoreCards1>
+                <InsightsFeaturesMoreCards2>
                 <InsightsFeaturesMoreCard>
-                  <InsightsFeaturesMoreCardTitle>
-                    Artificial Intelligence
-                  </InsightsFeaturesMoreCardTitle>
-                  <InsightsFeaturesMoreCardDescription>
-                    Our unique canned responses analysis relies on Artificial
-                    Intelligence to derive new insights.
-                  </InsightsFeaturesMoreCardDescription>
-                </InsightsFeaturesMoreCard>
-                <InsightsFeaturesMoreCard>
-                  <InsightsFeaturesMoreCardTitle>
-                    Alerts
-                  </InsightsFeaturesMoreCardTitle>
-                  <InsightsFeaturesMoreCardDescription>
-                    Let Insights send you an alert whenever a specific metric
-                    deviates from your expectations.
-                  </InsightsFeaturesMoreCardDescription>
-                </InsightsFeaturesMoreCard>
-                <InsightsFeaturesMoreCard>
-                  <InsightsFeaturesMoreCardTitle>
-                    Period over period analysis
-                  </InsightsFeaturesMoreCardTitle>
-                  <InsightsFeaturesMoreCardDescription>
-                    Insights automatically compares results period over period
-                    to understand trends.
-                  </InsightsFeaturesMoreCardDescription>
-                </InsightsFeaturesMoreCard>
-              </InsightsFeaturesMoreCards1>
-              <InsightsFeaturesMoreCards2>
-                <InsightsFeaturesMoreCard>
-                  <InsightsFeaturesMoreCardTitle>
-                    Unlimited access
-                  </InsightsFeaturesMoreCardTitle>
-                  <InsightsFeaturesMoreCardDescription>
-                    Grant access to anyone in your company to Insights, no
-                    limit.
-                  </InsightsFeaturesMoreCardDescription>
-                </InsightsFeaturesMoreCard>
-                <InsightsFeaturesMoreCard>
-                  <InsightsFeaturesMoreCardTitle>
-                    Sharing
-                  </InsightsFeaturesMoreCardTitle>
-                  <InsightsFeaturesMoreCardDescription>
-                    Found an interesting insight from your data exploration with
-                    Miuros? Share your findings with an URL
-                  </InsightsFeaturesMoreCardDescription>
-                </InsightsFeaturesMoreCard>
-                <InsightsFeaturesMoreCard>
-                  <InsightsFeaturesMoreCardTitle>
-                    Automated Insights
-                  </InsightsFeaturesMoreCardTitle>
-                  <InsightsFeaturesMoreCardDescription>
-                    Automated data exploration bringing to your attention
-                    unprecedented valuable insights.
-                  </InsightsFeaturesMoreCardDescription>
-                </InsightsFeaturesMoreCard>
-              </InsightsFeaturesMoreCards2>
-            </InsightsFeaturesMore>
-            <Footer location={this.props.location} />
+                    <InsightsFeaturesMoreCardTitle>{content.moreFeature4Title}</InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>{content.moreFeature4Description.moreFeature4Description}</InsightsFeaturesMoreCardDescription>
+                  </InsightsFeaturesMoreCard>
+                  <InsightsFeaturesMoreCard>
+                    <InsightsFeaturesMoreCardTitle>{content.moreFeature5Title}</InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>{content.moreFeature5Description.moreFeature5Description}</InsightsFeaturesMoreCardDescription>
+                  </InsightsFeaturesMoreCard>
+                  <InsightsFeaturesMoreCard>
+                    <InsightsFeaturesMoreCardTitle>{content.moreFeature6Title}</InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>{content.moreFeature6Description.moreFeature6Description}</InsightsFeaturesMoreCardDescription>
+                  </InsightsFeaturesMoreCard>
+                </InsightsFeaturesMoreCards2>
+              </InsightsFeaturesMore>
+              <Footer location={this.props.location} />
             </PageTransitionWrapper>
           </main>
         </React.Fragment>
@@ -507,12 +344,40 @@ export const pageQuery = graphql`
               content
               authorFirstName
               authorLastName
-              authorJobTitle
+              authorJobTitle,
+              authorCompany {
+                customerName,
+                customerUrl,
+                customerLogo {
+                  file {
+                    url
+                  }
+                }
+              }
             }
           }
           description {
             description
           }
+          feature1Title
+          feature1Description {
+            feature1Description
+          }
+
+          feature2Title
+          feature2Description {
+            feature2Description
+          }
+          
+          feature3Title
+          feature3Description {
+            feature3Description
+          }
+          feature4Title
+          feature4Description {
+            feature4Description
+          }
+
           benefit1Title
           benefit2Title
           benefit3Title
@@ -524,6 +389,32 @@ export const pageQuery = graphql`
           }
           benefit3Description {
             benefit3Description
+          }
+
+          moreTitle
+          moreFeature1Title
+          moreFeature2Title
+          moreFeature3Title
+          moreFeature4Title
+          moreFeature5Title
+          moreFeature6Title
+          moreFeature1Description {
+            moreFeature1Description
+          }
+          moreFeature2Description {
+            moreFeature2Description
+          }
+          moreFeature3Description {
+            moreFeature3Description
+          }
+          moreFeature4Description {
+            moreFeature4Description
+          }
+          moreFeature5Description {
+            moreFeature5Description
+          }
+          moreFeature6Description {
+            moreFeature6Description
           }
         }
       }

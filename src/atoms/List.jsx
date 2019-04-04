@@ -9,7 +9,7 @@ const cssForNavFlex = ({ theme, flex }) => {
     return css`
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
       width: 70%;
     `

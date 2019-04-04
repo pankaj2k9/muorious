@@ -13,11 +13,17 @@ const CustomerLogoContainer = styled('div')`
   align-items: center;
 `
 
+const SliderContainer = styled('div')`
+  max-width: 1440px;
+  margin-right:auto;
+  margin-left:auto;
+`
+
 const HomeCustomerLogos = ({ customerLogos }) => {
   const settings = {
-    // autoplay: true,
+    autoplay: true,
     adaptiveHeight: true,
-    slidesToShow: 10,
+    slidesToShow: 6,
     variableWidth: true,
     infinite: true,
     appendDots: () => null,
@@ -27,6 +33,7 @@ const HomeCustomerLogos = ({ customerLogos }) => {
     customPaging: () => '',
   }
   return (
+    <SliderContainer>
     <Slider {...settings}>
       {customerLogos.map(
         (logo, index) =>
@@ -39,6 +46,7 @@ const HomeCustomerLogos = ({ customerLogos }) => {
           )
       )}
     </Slider>
+    </SliderContainer>
   )
 }
 

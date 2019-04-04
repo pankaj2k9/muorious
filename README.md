@@ -12,9 +12,14 @@ Install Gatsby
 
 ## Contentful
 
-Add 'contentful.json'
-{"spaceId":"...", "accessToken":"..." }
+Add `.contentful.json`
 
+```
+{
+  "spaceId":"...",
+  "accessToken":"..."
+}
+```
 To run dev environment
 `yarn run dev` 
 

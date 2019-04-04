@@ -30,6 +30,7 @@ const injectFontsStyle = createGlobalStyle`
 
   body {
     font-family: Modern Era;
+    font-size: 16px;
   }
 `
 

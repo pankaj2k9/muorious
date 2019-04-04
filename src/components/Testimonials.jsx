@@ -1,9 +1,7 @@
 import React from 'react'
 import Section from '../atoms/Section/Section'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
-
-// const order = { 1: 2, 2: 3, 3: 4, 4: 5, 5: 1 }
+import { get } from 'lodash'
 
 const data = {}
 
@@ -162,29 +160,32 @@ const Testimonial = ({
   authorCompany,
   circles,
   color = 'green',
-}) => (
-  <TestimonialOuter>
-    <TestimonialContent color={color}>
-      <TestimonialText>{content}</TestimonialText>
-      <CirclesNode>{circles}</CirclesNode>
-      <TestimonialAutor color={color}>
-        {authorCompany.customerLogo && (
-          <a href={authorCompany.customerUrl} target="_blank">
-            <CompanyLogo src={authorCompany.customerLogo.file.url} />
-          </a>
-        )}
-        <AuthorName>
-          {authorFirstName} {authorLastName}
-        </AuthorName>
-        {authorCompany ? (
-          <AuthorJob>
-            {authorJobTitle} at {authorCompany.customerName}
-          </AuthorJob>
-        ) : null}
-      </TestimonialAutor>
-    </TestimonialContent>
-  </TestimonialOuter>
-)
+}) => {
+  const customerLogo = get('authorCompany.customerLogo.file.url')
+  return (
+    <TestimonialOuter>
+      <TestimonialContent color={color}>
+        <TestimonialText>{content}</TestimonialText>
+        <CirclesNode>{circles}</CirclesNode>
+        <TestimonialAutor color={color}>
+          {authorCompany && authorCompany.customerLogo ? (
+            <a href={authorCompany.customerUrl} target="_blank">
+              <CompanyLogo src={customerLogo} />
+            </a>
+          ) : null}
+          <AuthorName>
+            {authorFirstName} {authorLastName}
+          </AuthorName>
+          {authorCompany ? (
+            <AuthorJob>
+              {authorJobTitle} at {authorCompany.customerName}
+            </AuthorJob>
+          ) : null}
+        </TestimonialAutor>
+      </TestimonialContent>
+    </TestimonialOuter>
+  )
+}
 
 const __INTERVAL_MS__ = 5000
 

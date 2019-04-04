@@ -19,6 +19,15 @@ const Img = styled.img`
   `};
 `
 
+const ImgContainer = styled('div')`
+  position: relative;
+  display: flex;
+`
+
+const MobileTagLine = styled(H4)`
+  margin-bottom: 48px;
+`
+
 const HomeHero = props => {
   const { content } = props
   return (
@@ -30,14 +39,14 @@ const HomeHero = props => {
               <Row>
                 <Col xs={false} sm>
                   <Row center="xs">
-                    <H1 color="white">{content.tagline}</H1>
+                    <H2 color="white">{content.tagline}</H2>
                   </Row>
                 </Col>
                 <Col xs sm={false}>
                   <Row center="xs">
-                    <H2 color="white" center>
+                    <MobileTagLine color="white" center>
                       {content.tagline}
-                    </H2>
+                    </MobileTagLine>
                   </Row>
                 </Col>
               </Row>

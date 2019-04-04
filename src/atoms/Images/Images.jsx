@@ -7,9 +7,9 @@ const IndexHeroImg = styled('img').attrs(props => ({
   display: block;
   position: absolute;
   right: 0;
-  ${mediaQueries.lg`
+  @media (min-width: 1440px) {
     right: calc(100vw - 1440px);
-    `
+    max-width: 36%;
   }
   bottom: 0;
   max-width: 44%;

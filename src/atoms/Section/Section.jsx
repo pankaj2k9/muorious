@@ -6,7 +6,7 @@ import TestimonialsPink from './Testimonials/TestimonialsPink.png'
 import TestimonialsGreen from './Testimonials/TestimonialsGreen.png'
 import TestimonialsYellow from './Testimonials/TestimonialsYellow.png'
 import AssistHeroBg from './AssistHeroBg.png'
-import { getColors } from '../../utils/styling'
+import { getColors, mediaQueries } from '../../utils/styling'
 
 const bgs = {
   pink: TestimonialsPink,
@@ -22,6 +22,9 @@ const Section = styled('section')`
       css`
             padding-top: 96px;
             padding-bottom: 96px;
+            ${mediaQueries.lg`
+              padding-top: 180px;
+            `};
             ${'' /* max-height: 696px; */}
             ${'' /* height: 70vh; */}
             background-image: url(${IndexHeroBg});

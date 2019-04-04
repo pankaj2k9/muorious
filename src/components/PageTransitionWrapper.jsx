@@ -24,14 +24,14 @@ class PageTransitionWrapper extends React.Component {
     super(props);
     this.timeout = null;
     this.state = {
-      visible: false
+      visible: true // Put to false to enable animations. For now its seems in production it causes some issues
     }
   }
   componentDidMount(){
     const timing = this.props.timing ? this.props.timing : 100;
     this.timeout = setTimeout(() => {
       this.setState(() => { return {visible: true}})
-    }, timing)
+    }, 100)
   }
   componentWillUnmount(){
     clearTimeout(this.timeout);

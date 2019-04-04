@@ -8,11 +8,14 @@ import { IndexCustomerLogo } from '../../atoms/Images/Images.jsx'
 
 const CustomerLogoContainer = styled('div')`
   margin: 20px;
+  height: 50px;
+  display: flex !important;
+  align-items: center;
 `
 
 const HomeCustomerLogos = ({ customerLogos }) => {
   const settings = {
-    autoplay: true,
+    // autoplay: true,
     adaptiveHeight: true,
     slidesToShow: 10,
     variableWidth: true,

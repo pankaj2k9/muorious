@@ -263,6 +263,15 @@ export const pageQuery = graphql`
               authorFirstName
               authorLastName
               authorJobTitle
+              authorCompany {
+                customerName,
+                customerUrl,
+                customerLogo {
+                  file {
+                    url
+                  }
+                }
+              }
             }
           }
           description {

@@ -344,7 +344,16 @@ export const pageQuery = graphql`
               content
               authorFirstName
               authorLastName
-              authorJobTitle
+              authorJobTitle,
+              authorCompany {
+                customerName,
+                customerUrl,
+                customerLogo {
+                  file {
+                    url
+                  }
+                }
+              }
             }
           }
           description {

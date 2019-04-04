@@ -146,6 +146,13 @@ const AuthorJob = styled.p`
   line-height: 32px;
   font-weight: 300;
 `
+const CompanyLogo = styled.img`
+  max-width: 80%;
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-bottom: 10px;
+`
 
 const Testimonial = ({
   content,
@@ -161,6 +168,11 @@ const Testimonial = ({
       <TestimonialText>{content}</TestimonialText>
       <CirclesNode>{circles}</CirclesNode>
       <TestimonialAutor color={color}>
+        {authorCompany.customerLogo && (
+          <a href={authorCompany.customerUrl} target="_blank">
+            <CompanyLogo src={authorCompany.customerLogo.file.url} />
+          </a>
+        )}
         <AuthorName>
           {authorFirstName} {authorLastName}
         </AuthorName>

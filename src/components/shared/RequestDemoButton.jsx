@@ -11,7 +11,7 @@ const ModalBackdrop = styled.div`
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 0;
+  z-index: 100;
   top: 0;
   left: 0;
 `
@@ -25,7 +25,7 @@ const ModalContent = styled.div`
   background-color: #ffffff;
   padding: 20px;
   max-width: 700px;
-  z-index: 5;
+  z-index: 101;
 `
 
 const Field = styled.div`

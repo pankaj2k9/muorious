@@ -22,13 +22,14 @@ const SliderContainer = styled('div')`
 const HomeCustomerLogos = ({ customerLogos }) => {
   const settings = {
     autoplay: true,
+    slidesToScroll: 6,
     adaptiveHeight: true,
     slidesToShow: 6,
     variableWidth: true,
     infinite: true,
     appendDots: () => null,
     arrows: false,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 4000,
     speed: 1000,
     customPaging: () => '',
   }

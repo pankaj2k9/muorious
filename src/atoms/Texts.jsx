@@ -9,7 +9,7 @@ const rightColor = ({ theme, color }) => {
 
 const H1 = styled("h1")`
   font-size: 42px;
-  font-weight: ${({ bold }) => bold ? '4' : '2'}00;
+  font-weight: ${({ bold }) => bold ? '6' : '4'}00;
   color: ${props => rightColor(props)};
   line-height: 64px;
   ${props => props.center &&
@@ -24,7 +24,7 @@ const H1 = styled("h1")`
 const H2 = styled("h2")`
   font-size: 42px;
   color: ${props => rightColor(props)};
-  font-weight: 200;
+  font-weight: 400;
   ${props => props.center &&
     "text-align: center;"
   }
@@ -41,7 +41,7 @@ const H3 = styled("h3")`
 
 const H3DIFF = styled("h4")`
   font-size: 36px;
-  font-weight: 200;
+  font-weight: 400;
   color: ${props => rightColor(props)};
   ${props => props.center &&
     "text-align: center;"
@@ -51,7 +51,7 @@ const H3DIFF = styled("h4")`
 const H4 = styled("h4")`
   font-size: 22px;
   line-height: 32px;
-  font-weight: 200;
+  font-weight: 400;
   color: ${props => rightColor(props)};
   ${props => props.center &&
     "text-align: center;"

@@ -28,6 +28,10 @@ import Scrollchor from 'react-scrollchor'
 import HomeHero from '../components/home/HomeHero'
 import HomeFeatureIntro from '../components/home/HomeFeatureIntro'
 import HomeCustomerLogos from '../components/home/HomeCustomerLogos'
+import PageTransitionWrapper from '../components/PageTransitionWrapper';
+
+
+
 const Img = styled.img`
   width: 100%;
 `
@@ -72,6 +76,7 @@ class RootIndex extends React.Component {
           />
           <main>
             <Nav transparency location={this.props.location} />
+            <PageTransitionWrapper>
             <HomeHero content={content} />
             <Section customerLogos>
               <HomeCustomerLogos customerLogos={content.customerLogos} />
@@ -314,6 +319,7 @@ class RootIndex extends React.Component {
               </Container>
             </Section>
             <Footer location={this.props.location} />
+            </PageTransitionWrapper>
           </main>
         </React.Fragment>
       </LayoutWithThemeProvider>

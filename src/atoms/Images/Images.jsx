@@ -52,6 +52,6 @@ export {
   IndexHeroImg,
   IndexCustomerLogo,
   IndexSideImg,
-  AssistHeroImg,
+  // AssistHeroImg,
   AssistSideImg,
 }

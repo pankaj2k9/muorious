@@ -25,6 +25,7 @@ import AssistHeroImage from '../atoms/Images/AssistHeroImg.png'
 import { AssistSideImg } from '../atoms/Images/Images.jsx'
 import Note from '../atoms/Note'
 import Testimonials from '../components/Testimonials'
+import PageTransitionWrapper from '../components/PageTransitionWrapper';
 
 import AutomaticCategorizationImg from '../atoms/Images/AutomaticCategorizationImg.png'
 import TemplateRecommandationImg from '../atoms/Images/TemplateRecommandationImg.svg'
@@ -288,6 +289,7 @@ class Assist extends React.Component {
           </Helmet>
           <main>
             <Nav isGreen location={this.props.location} />
+            <PageTransitionWrapper>
             <HeroSection assistHero>
               <Container>
                 <Row>
@@ -501,6 +503,7 @@ class Assist extends React.Component {
               </AssistFeaturesMoreCards>
             </AssistFeaturesMoreSection>
             <Footer location={this.props.location} />
+            </PageTransitionWrapper>
           </main>
         </React.Fragment>
       </LayoutWithThemeProvider>

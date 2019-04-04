@@ -26,6 +26,7 @@ import CommunicationAnalysisIllu from '../atoms/Images/CommunicationAnalysisImg.
 import TemplateAnalysisIllu from '../atoms/Images/TemplateAnalysisImg.svg'
 import AgentPerformanceIllu from '../atoms/Images/AgentPerformanceImg.svg'
 import Testimonials from '../components/Testimonials'
+import PageTransitionWrapper from '../components/PageTransitionWrapper';
 
 const InsightsHeroTitle = styled.h1`
   max-width: 723px;
@@ -245,6 +246,7 @@ class Insights extends React.Component {
           </Helmet>
           <main>
             <Nav location={this.props.location} />
+            <PageTransitionWrapper>
             <HeroSection insightsHero>
               <Container>
                 <Row>
@@ -483,6 +485,7 @@ class Insights extends React.Component {
               </InsightsFeaturesMoreCards2>
             </InsightsFeaturesMore>
             <Footer location={this.props.location} />
+            </PageTransitionWrapper>
           </main>
         </React.Fragment>
       </LayoutWithThemeProvider>

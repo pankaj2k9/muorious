@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
 import styled from 'styled-components'
 import Logo from '../atoms/Logo/Logo'
 import LinkedinLogo from '../atoms/Logo/Linkedin-Logo.png'
@@ -62,9 +61,6 @@ const FooterFeatures = styled.div`
     color: white;
   }
 `
-const FooterFeaturesTitle = styled.div`
-  font-weight: 600;
-`
 
 const FooterFeaturesDetails = styled.div`
   padding-left: 10px;
@@ -73,14 +69,6 @@ const FooterFeaturesDetails = styled.div`
   a {
     color: white;
   }
-`
-
-const FooterIntegrationsTitle = styled.div`
-  font-weight: 600;
-`
-
-const FooterInformationsTitle = styled.div`
-  font-weight: 600;
 `
 
 const FooterCompany = styled.div`
@@ -97,21 +85,17 @@ const FooterContactInfo = styled.div`
   margin-right: 120px;
   line-height: 32px;
 `
-
-const FooterContactTitle = styled.div`
-  font-weight: 600;
-`
-
 const SupportedBy = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-const FooterSupporteByTitle = styled.div`
+const Bold = styled.b`
   font-weight: 600;
 `
+
 const FooterSupportedByLogos = styled.div`
-  margin: 0 auto;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,30 +146,30 @@ class Footer extends React.Component {
                 </FooterMiurosSocialMedia>
               </FooterMiurosAsset>
               <FooterFeatures>
-                <FooterFeaturesTitle>Features</FooterFeaturesTitle>
+                <Bold>Features</Bold>
                 <FooterFeaturesDetails>
                   <Link to="/assist">Assist</Link>
                   <Link to="/insights">Insights</Link>
                   <Link to="/#experience">Experience</Link>
                 </FooterFeaturesDetails>
-                <FooterIntegrationsTitle>
+                <Bold>
                   {renderIntegrationLink(this.props.location)}
-                </FooterIntegrationsTitle>
+                </Bold>
               </FooterFeatures>
               <FooterCompany>
-                <FooterInformationsTitle>Company</FooterInformationsTitle>
+                <Bold>Company</Bold>
                 {/* <Link to="/about">About</Link> */}
-                <a href="https://angel.co/miuros/jobs">Careers</a>
-                <Link to="/privacy">Privacy</Link>
+                <a href="https://angel.co/miuros/jobs"><Bold>Careers</Bold></a>
+                <Link to="/privacy"><Bold>Privacy</Bold></Link>
               </FooterCompany>
               <FooterContactInfo>
-                <FooterContactTitle>Miuros SAS</FooterContactTitle>
+                <Bold>Miuros SAS</Bold>
                 <div>92 Cours Lafayette</div>
                 <div>69489 Lyon CEDEX 3</div>
                 <div>France</div>
               </FooterContactInfo>
               <SupportedBy>
-                <FooterSupporteByTitle>Supported by</FooterSupporteByTitle>
+                <Bold>Supported by</Bold>
                 <FooterSupportedByLogos>
                   <img src={ZendeskLogo} width="60px" />
                   <img src={TechstarsLogo} width="48px" />
@@ -215,34 +199,34 @@ class Footer extends React.Component {
               </FooterColumn>
               <FooterColumn>
                 <FooterFeatures>
-                  <FooterFeaturesTitle>
+                  <Bold>
                     <Link to="/assist">Assist</Link>
-                  </FooterFeaturesTitle>
-                  <FooterFeaturesTitle>
+                  </Bold>
+                  <Bold>
                     <Link to="/insights">Insights</Link>
-                  </FooterFeaturesTitle>
-                  <FooterFeaturesTitle>
+                  </Bold>
+                  <Bold>
                     <Link to="/#experience">Experience</Link>
-                  </FooterFeaturesTitle>
-                  <FooterIntegrationsTitle>
+                  </Bold>
+                  <Bold>
                     <Link to="/#integrations">Integrations</Link>
-                  </FooterIntegrationsTitle>
+                  </Bold>
                 </FooterFeatures>
                 <FooterCompany>
-                  {/* <FooterInformationsTitle>
+                  {/* <Bold>
                     <Link to="/about">About</Link>
-                  </FooterInformationsTitle> */}
-                  <FooterInformationsTitle>
-                    <a href="https://angel.co/miuros/jobs">Careers</a>
-                  </FooterInformationsTitle>
-                  <FooterInformationsTitle>
-                    <Link to="/privacy">Privacy</Link>
-                  </FooterInformationsTitle>
+                  </Bold> */}
+                  <Bold>
+                    <a href="https://angel.co/miuros/jobs"><Bold>Careers</Bold></a>
+                  </Bold>
+                  <Bold>
+                    <Link to="/privacy"><Bold>Privacy</Bold></Link>
+                  </Bold>
                 </FooterCompany>
               </FooterColumn>
               <FooterColumn>
                 <FooterContactInfo>
-                  <FooterContactTitle>Miuros SAS</FooterContactTitle>
+                  <Bold>Miuros SAS</Bold>
                   <div>92 Cours Lafayette</div>
                   <div>69489 Lyon CEDEX 3</div>
                   <div>France</div>
@@ -250,7 +234,7 @@ class Footer extends React.Component {
               </FooterColumn>
               <FooterColumn>
                 <SupportedBy>
-                  <FooterSupporteByTitle>Supported by</FooterSupporteByTitle>
+                  <Bold>Supported by</Bold>
                   <FooterSupportedByLogos>
                     <img src={ZendeskLogo} width="60px" />
                     <img src={TechstarsLogo} width="48px" />

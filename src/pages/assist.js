@@ -25,7 +25,7 @@ import { Container, WideContainer } from '../atoms/Container'
 import AssistHeroImage from '../atoms/Images/AssistHeroImg.png'
 import Testimonials from '../components/Testimonials'
 import PageTransitionWrapper from '../components/PageTransitionWrapper'
-import Feature from '../components/shared/feature'
+import Feature from '../components/shared/Feature'
 import AutomaticCategorizationImg from '../atoms/Images/AutomaticCategorizationImg.png'
 import TemplateRecommandationImg from '../atoms/Images/TemplateRecommandationImg.svg'
 

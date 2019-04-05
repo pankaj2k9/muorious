@@ -28,7 +28,7 @@ import TemplateAnalysisIllu from '../atoms/Images/TemplateAnalysisImg.svg'
 import AgentPerformanceIllu from '../atoms/Images/AgentPerformanceImg.svg'
 import Testimonials from '../components/Testimonials'
 import PageTransitionWrapper from '../components/PageTransitionWrapper'
-import Feature from '../components/shared/feature'
+import Feature from '../components/shared/Feature'
 
 const InsightsHeroTitle = styled.h1`
   max-width: 723px;

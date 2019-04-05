@@ -37,11 +37,11 @@ const ImageBlock = ({ image }) => (
   )
   
 
-Feature.Title = styled.h2`
+Feature.Title = styled.h3`
   font-family: Modern Era;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 1.4;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.3;
   color: #000000;
   margin: 20px 0 30px;
   @media (max-width: 992px) {

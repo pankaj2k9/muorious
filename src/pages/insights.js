@@ -69,7 +69,7 @@ const InsightsHeroImgSection = styled.div`
 `
 
 const InsightsBenefitsSection = styled.section`
-  max-width: 1440px;
+  max-width: 1110px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -89,13 +89,14 @@ const InsightsBenefitsContent = styled.div`
 
 const InsightsBenefitsContentTitle = styled.h3`
   font-size: 36px;
-  line-height: 24px;
+  font-weight: 400;
+  line-height: 1.3;
   margin-bottom: 20px;
   color: #1b5e57;
 `
 
 const InsightsBenefitsContentDescription = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   line-height: 32px;
   padding-bottom: 50px;
   color: #000000;

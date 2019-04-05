@@ -117,10 +117,10 @@ class RootIndex extends React.Component {
                 <Row>
                   <Col>
                     <Breakpoint medium up>
-                      <H1 center>{content.featuresTitle}</H1>
+                      <H2 center>{content.featuresTitle}</H2>
                     </Breakpoint>
                     <Breakpoint medium down>
-                      <H1 small>{content.featuresTitle}</H1>
+                      <H2 small>{content.featuresTitle}</H2>
                     </Breakpoint>
                   </Col>
                 </Row>
@@ -139,7 +139,7 @@ class RootIndex extends React.Component {
                   <Breakpoint medium up>
                     <>
                       <Col equal center>
-                        <H2>{content.feature1Title}</H2>
+                        <H3>{content.feature1Title}</H3>
                         <TextBig color="grey4">
                           {content.feature1Description.feature1Description}
                         </TextBig>
@@ -156,7 +156,7 @@ class RootIndex extends React.Component {
                     <>
                       <Col>
                         <Img src={content.feature1Image.file.url} />
-                        <H4>{content.feature1Title}</H4>
+                        <H3>{content.feature1Title}</H3>
                         <TextBig color="grey4">
                           {content.feature1Description.feature1Description}
                         </TextBig>
@@ -180,7 +180,7 @@ class RootIndex extends React.Component {
                         <IndexSideImg src={content.feature2Image.file.url} />
                       </Col>
                       <Col equal center>
-                        <H2>{content.feature2Title}</H2>
+                        <H3>{content.feature2Title}</H3>
                         <TextBig color="grey4">
                           {content.feature2Description.feature2Description}
                         </TextBig>
@@ -194,7 +194,7 @@ class RootIndex extends React.Component {
                     <>
                       <Col>
                         <Img src={content.feature2Image.file.url} />
-                        <H4>{content.feature2Title}</H4>
+                        <H3>{content.feature2Title}</H3>
                         <TextBig color="grey4">
                           {content.feature2Description.feature2Description}
                         </TextBig>
@@ -213,10 +213,10 @@ class RootIndex extends React.Component {
                 <Breakpoint medium up>
                   <Row>
                     <Col equal center>
-                      <H2>
+                      <H3>
                         {content.feature3Title}
                         <Note>Coming soon</Note>
-                      </H2>
+                      </H3>
                       <TextBig color="grey4">
                         {content.feature3Description.feature3Description}
                       </TextBig>
@@ -230,10 +230,10 @@ class RootIndex extends React.Component {
                   <Row autoHeight>
                     <Col>
                       <Img src={content.feature3Image.file.url} />
-                      <H4>
+                      <H3>
                         {content.feature3Title}
                         <Note>Coming soon</Note>
-                      </H4>
+                      </H3>
                       <TextBig color="grey4">
                         {content.feature3Description.feature3Description}
                       </TextBig>
@@ -251,7 +251,7 @@ class RootIndex extends React.Component {
                       <IndexSideImg src={content.integrationImage.file.url} />
                     </Col>
                     <Col equal center>
-                      <H2>{content.integrationTitle}</H2>
+                      <H3>{content.integrationTitle}</H3>
                       <TextBig color="grey4">
                         {content.integrationDescription.integrationDescription}
                       </TextBig>
@@ -262,7 +262,7 @@ class RootIndex extends React.Component {
                   <Row>
                     <Col>
                       <Img src={content.integrationImage.file.url} />
-                      <H4>{content.integrationTitle}</H4>
+                      <H3>{content.integrationTitle}</H3>
                       <TextBig color="grey4">
                         {content.integrationDescription.integrationDescription}
                       </TextBig>
@@ -276,7 +276,7 @@ class RootIndex extends React.Component {
                 <Breakpoint medium up>
                   <Row>
                     <Col equal center>
-                      <H2>{content.integrationFastTitle}</H2>
+                      <H3>{content.integrationFastTitle}</H3>
                       <TextBig color="grey4">
                         {content.integrationFastDescription.integrationFastDescription}
                       </TextBig>
@@ -292,7 +292,7 @@ class RootIndex extends React.Component {
                   <Row>
                     <Col>
                       <Img src={content.integrationImage.file.url} />
-                      <H4>{content.integrationTitle}</H4>
+                      <H3>{content.integrationTitle}</H3>
                       <TextBig color="grey4">
                         {content.integrationDescription.integrationDescription}
                       </TextBig>
@@ -305,9 +305,9 @@ class RootIndex extends React.Component {
               <Container>
                 <Row>
                   <Col center>
-                    <H1 color="white" center>
+                    <H2 color="white" center>
                       {content.bottomCtaTitle}
-                    </H1>
+                    </H2>
                     <FlexWrapper>
                       <RequestDemoButton />
                     </FlexWrapper>

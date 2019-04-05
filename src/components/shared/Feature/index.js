@@ -16,22 +16,22 @@ const Feature = ({ children, image, imagePosition }) => (
     <Container>
       <FlexWrapper wrap>
         <Breakpoint medium up>
-          {imagePosition === 'right' && <ImageBlock image={image} />}
+          {imagePosition === 'right' && <ImageBlock space="right" image={image} />}
         </Breakpoint>
         <Breakpoint medium down>
           <ImageBlock image={image} />
         </Breakpoint>
-        <Feature.Column>{children}</Feature.Column>
+        <Feature.Column space={{right: 'left', left: 'right'}[imagePosition]}>{children}</Feature.Column>
         <Breakpoint medium up>
-          {imagePosition === 'left' && <ImageBlock image={image} />}
+          {imagePosition === 'left' && <ImageBlock space="left" image={image} />}
         </Breakpoint>
       </FlexWrapper>
     </Container>
   </Outer>
 )
 
-const ImageBlock = ({ image }) => (
-    <Feature.Column>
+const ImageBlock = ({ image, space }) => (
+    <Feature.Column space={space}>
       <Feature.Image src={image} />
     </Feature.Column>
   )
@@ -57,7 +57,6 @@ Feature.Description = styled.p`
 `
 
 Feature.Image = styled.img`
-    max-width: 80%;
     width: 100%;
     @media (max-width: 992px) {
         max-width: 95vw;
@@ -66,10 +65,12 @@ Feature.Image = styled.img`
 
 Feature.Column = styled.div`
   width: 50%;
+  padding: ${({space}) => `0 ${space=='right' ? '80px' : '0'} 0 ${space=='left' ? '80px' : '0'}`};
   @media (max-width: 992px) {
     min-width: 100%;
     margin: 15px 0;
     width: 100%;
+    padding: 0;
     img {
       max-width: 90vw;
     }

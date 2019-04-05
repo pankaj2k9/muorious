@@ -5,7 +5,7 @@ const Container = styled('div')`
   margin-left: auto;
 
   max-width: 1130px;
-
+  width: 100%;
   padding-right: 10px;
   padding-left: 10px;
   height: 100%;

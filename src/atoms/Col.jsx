@@ -42,6 +42,21 @@ const Col = styled('div')`
     ${props => styleForEqualCols(props)}
     justify-content: ${({ center, justifyContent }) =>
       justifyContent ? justifyContent : center ? 'center' : 'space-between'};
+    ${({ benefitImg }) =>
+      benefitImg && 'position: absolute; height: 100%; right: 50%;'}  
+    ${({ insightsBenefits }) =>
+      insightsBenefits &&
+      css`
+        justify-content: center;
+        width: calc(50% - 80px);
+        min-height: 900px;
+        @media (max-width: 992px) {
+          width: 100%;
+          min-height: auto;
+        }
+      `}  
+    ${({ insightsBenefitsImg }) =>
+      insightsBenefitsImg && 'position: absolute; height: 100%; left: 50%;'}  
     ${props =>
       props.benefit &&
       css`

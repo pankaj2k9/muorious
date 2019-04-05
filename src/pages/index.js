@@ -29,7 +29,7 @@ import HomeHero from '../components/home/HomeHero'
 import HomeFeatureIntro from '../components/home/HomeFeatureIntro'
 import HomeCustomerLogos from '../components/home/HomeCustomerLogos'
 import PageTransitionWrapper from '../components/PageTransitionWrapper';
-
+import CTABlock from '../components/shared/CTABlock'
 
 
 const Img = styled.img`
@@ -301,20 +301,7 @@ class RootIndex extends React.Component {
                 </Breakpoint>
               </Container>
             </Section>
-            <Section src={content.bottomCtaImage.file.url} cta>
-              <Container>
-                <Row>
-                  <Col center>
-                    <H2 color="white" center>
-                      {content.bottomCtaTitle}
-                    </H2>
-                    <FlexWrapper>
-                      <RequestDemoButton />
-                    </FlexWrapper>
-                  </Col>
-                </Row>
-              </Container>
-            </Section>
+            <CTABlock image={content.bottomCtaImage.file.url} title={content.bottomCtaTitle} />
             <Footer location={this.props.location} />
             </PageTransitionWrapper>
           </main>

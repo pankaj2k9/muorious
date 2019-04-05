@@ -5,9 +5,13 @@ export default styled.div`
   width: 100%;
   align-items: ${({ align }) => align || 'center'};
   justify-content: ${({ justify }) => justify || 'center'};
+  ${({column}) => 
+    column && css`
+      flex-direction: column;
+    `
+  }
   ${({ wrap }) =>
-    wrap &&
-    css`
+    wrap && css`
       flex-wrap: wrap;
     `}
 `

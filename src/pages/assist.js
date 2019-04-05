@@ -11,6 +11,7 @@ import Breakpoint from '../components/layout/Breakpoint'
 import RequestDemoButton from '../components/shared/RequestDemoButton'
 import FlexWrapper from '../components/shared/FlexWrapper'
 import Section from '../atoms/Section/Section'
+import { H2 } from '../atoms/Texts'
 import HeroSection from '../components/shared/HeroSection'
 import {
   H1,
@@ -28,6 +29,7 @@ import PageTransitionWrapper from '../components/PageTransitionWrapper'
 import Feature from '../components/shared/Feature'
 import AutomaticCategorizationImg from '../atoms/Images/AutomaticCategorizationImg.png'
 import TemplateRecommandationImg from '../atoms/Images/TemplateRecommandationImg.svg'
+import CTABlock from '../components/shared/CTABlock'
 
 const AssistFeaturesSection = styled.section`
   padding: 80px 0 40px;
@@ -132,14 +134,14 @@ class Assist extends React.Component {
                 <Container>
                   <Row>
                     <Col center>
-                      <H1 center>
-                        {content.tagline}
-                      </H1>
+                      <H1 center>{content.tagline}</H1>
                       <TextBig color="grey4" center>
                         {content.description.description}
                       </TextBig>
                       <Breakpoint medium down>
-                        <FlexWrapper><RequestDemoButton /></FlexWrapper>
+                        <FlexWrapper>
+                          <RequestDemoButton />
+                        </FlexWrapper>
                       </Breakpoint>
                       <HeroSection.Img src={AssistHeroImage} />
                     </Col>
@@ -147,35 +149,40 @@ class Assist extends React.Component {
                 </Container>
               </HeroSection>
               <Section benefits>
-                <WideContainer>
-                  <Breakpoint medium up>
-                    <Col
-                      benefitImg
-                      benefit
-                      bgi={content.benefitsImage.file.url}
-                    />
-                  </Breakpoint>
-                  <Col benefit>
-                    <div>
-                      <H3DIFF color="green">{content.benefit1Title}</H3DIFF>
-                      <TextXSmall color="gray1">
-                        {content.benefit1Description.benefit1Description}
-                      </TextXSmall>
-                    </div>
-                    <div>
-                      <H3DIFF color="green">{content.benefit2Title}</H3DIFF>
-                      <TextXSmall color="gray1">
-                        {content.benefit2Description.benefit2Description}
-                      </TextXSmall>
-                    </div>
-                    <div>
-                      <H3DIFF color="green">{content.benefit3Title}</H3DIFF>
-                      <TextXSmall color="gray1">
-                        {content.benefit3Description.benefit3Description}
-                      </TextXSmall>
-                    </div>
-                  </Col>
-                </WideContainer>
+                <Container>
+                  <FlexWrapper
+                    style={{ position: 'relative' }}
+                    justify="flex-end"
+                  >
+                    <Breakpoint medium up>
+                      <Col
+                        benefitImg
+                        benefit
+                        bgi={content.benefitsImage.file.url}
+                      />
+                    </Breakpoint>
+                    <Col benefit>
+                      <div>
+                        <H3DIFF color="green">{content.benefit1Title}</H3DIFF>
+                        <TextXSmall color="gray1">
+                          {content.benefit1Description.benefit1Description}
+                        </TextXSmall>
+                      </div>
+                      <div>
+                        <H3DIFF color="green">{content.benefit2Title}</H3DIFF>
+                        <TextXSmall color="gray1">
+                          {content.benefit2Description.benefit2Description}
+                        </TextXSmall>
+                      </div>
+                      <div>
+                        <H3DIFF color="green">{content.benefit3Title}</H3DIFF>
+                        <TextXSmall color="gray1">
+                          {content.benefit3Description.benefit3Description}
+                        </TextXSmall>
+                      </div>
+                    </Col>
+                  </FlexWrapper>
+                </Container>
               </Section>
               <Testimonials color="yellow" data={quotesData} />
               <AssistFeaturesSection>
@@ -226,6 +233,7 @@ class Assist extends React.Component {
                   </AssistFeaturesMoreCard>
                 </AssistFeaturesMoreCards>
               </AssistFeaturesMoreSection>
+              <CTABlock image={content.bottomCtaImage.file.url} title={content.bottomCtaTitle} />
               <Footer location={this.props.location} />
             </PageTransitionWrapper>
           </main>
@@ -264,8 +272,8 @@ export const pageQuery = graphql`
               authorLastName
               authorJobTitle
               authorCompany {
-                customerName,
-                customerUrl,
+                customerName
+                customerUrl
                 customerLogo {
                   file {
                     url
@@ -315,6 +323,12 @@ export const pageQuery = graphql`
           }
           moreFeature3Description {
             moreFeature3Description
+          }
+          bottomCtaTitle
+          bottomCtaImage {
+            file {
+              url
+            }
           }
         }
       }

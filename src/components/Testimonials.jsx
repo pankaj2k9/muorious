@@ -11,7 +11,7 @@ const CirclesOuter = styled.div`
   justify-content: center;
   margin: 15px 0;
   transform: translateY(-40px);
-  @media(max-width: 992px){
+  @media (max-width: 992px) {
     transform: none;
   }
 `
@@ -43,7 +43,7 @@ const TestimonialOuter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media(max-width: 992px){
+  @media (max-width: 992px) {
     padding: 50px 0 0;
   }
 `
@@ -51,8 +51,8 @@ const TestimonialOuter = styled.div`
 const TestimonialText = styled.p`
   font-family: Modern Era;
   font-style: italic;
-  font-size: 24px;
-  line-height: 1.65;
+  font-size: 22px;
+  line-height: 40px;
   font-weight: 300;
   &:before {
     content: '“';
@@ -146,10 +146,11 @@ const AuthorJob = styled.p`
 `
 const CompanyLogo = styled.img`
   max-width: 80%;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 50px;
   float: left;
   margin-bottom: 10px;
+  filter: brightness(0) invert(1);
 `
 
 const Testimonial = ({
@@ -160,16 +161,14 @@ const Testimonial = ({
   authorCompany,
   color = 'green',
 }) => {
-  const customerLogo = get('authorCompany.customerLogo.file.url')
+  const customerLogo = get(authorCompany, 'customerLogo.file.url')
   return (
     <TestimonialOuter>
       <TestimonialContent color={color}>
         <TestimonialText>{content}</TestimonialText>
         <TestimonialAutor color={color}>
           {authorCompany && authorCompany.customerLogo ? (
-            <a href={authorCompany.customerUrl} target="_blank">
-              <CompanyLogo src={customerLogo} />
-            </a>
+            <CompanyLogo src={customerLogo} />
           ) : null}
           <AuthorName>
             {authorFirstName} {authorLastName}

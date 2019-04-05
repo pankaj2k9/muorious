@@ -8,9 +8,11 @@ import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
 import FlexWrapper from '../components/shared/FlexWrapper'
 import RequestDemoButton from '../components/shared/RequestDemoButton'
+import CTABlock from '../components/shared/CTABlock'
 import Breakpoint from '../components/layout/Breakpoint'
 import {
   H1,
+  H2,
   H3DIFF,
   TextXSmall,
   TextBig,
@@ -29,6 +31,7 @@ import AgentPerformanceIllu from '../atoms/Images/AgentPerformanceImg.svg'
 import Testimonials from '../components/Testimonials'
 import PageTransitionWrapper from '../components/PageTransitionWrapper'
 import Feature from '../components/shared/Feature'
+import Section from '../atoms/Section/Section'
 
 const InsightsHeroTitle = styled.h1`
   max-width: 723px;
@@ -112,11 +115,6 @@ const InsightsFeaturesSection = styled.section`
   width: 100%;
   padding-top: 120px;
   margin: 0 auto;
-  img {
-    width: 90vw;
-    display: block;
-    margin: 10px auto;
-  }
 `
 
 const InsightsFeaturesMore = styled.section`
@@ -214,7 +212,9 @@ class Insights extends React.Component {
                         {content.description.description}
                       </InsightsHeroDescription>
                       <Breakpoint medium down>
-                        <FlexWrapper><RequestDemoButton /></FlexWrapper>
+                        <FlexWrapper>
+                          <RequestDemoButton />
+                        </FlexWrapper>
                       </Breakpoint>
                       <FlexWrapper>
                         <HeroSection.Img src={InsightsHeroImg} />
@@ -224,37 +224,44 @@ class Insights extends React.Component {
                 </Container>
               </HeroSection>
               <InsightsBenefitsSection>
-                <InsightsBenefitsContent>
-                  <div>
-                    <InsightsBenefitsContentTitle>
-                      {content.benefit1Title}
-                    </InsightsBenefitsContentTitle>
-                    <InsightsBenefitsContentDescription>
-                      {content.benefit1Description.benefit1Description}
-                    </InsightsBenefitsContentDescription>
-                  </div>
-                  <div>
-                    <InsightsBenefitsContentTitle>
-                      {content.benefit2Title}
-                    </InsightsBenefitsContentTitle>
-                    <InsightsBenefitsContentDescription>
-                      {content.benefit2Description.benefit2Description}
-                    </InsightsBenefitsContentDescription>
-                  </div>
-                  <div>
-                    <InsightsBenefitsContentTitle>
-                      {content.benefit3Title}
-                    </InsightsBenefitsContentTitle>
-                    <InsightsBenefitsContentDescription>
-                      {content.benefit3Description.benefit3Description}
-                    </InsightsBenefitsContentDescription>
-                  </div>
-                </InsightsBenefitsContent>
-                <Breakpoint medium up>
-                  <InsightsBenefitsImgSection>
-                    <img src={InsightsBenefitsImg} />
-                  </InsightsBenefitsImgSection>
-                </Breakpoint>
+                <Container>
+                  <FlexWrapper
+                    style={{ position: 'relative' }}
+                    justify="flex-start"
+                  >
+                    <Col insightsBenefits>
+                      <div>
+                        <InsightsBenefitsContentTitle>
+                          {content.benefit1Title}
+                        </InsightsBenefitsContentTitle>
+                        <InsightsBenefitsContentDescription>
+                          {content.benefit1Description.benefit1Description}
+                        </InsightsBenefitsContentDescription>
+                      </div>
+                      <div>
+                        <InsightsBenefitsContentTitle>
+                          {content.benefit2Title}
+                        </InsightsBenefitsContentTitle>
+                        <InsightsBenefitsContentDescription>
+                          {content.benefit2Description.benefit2Description}
+                        </InsightsBenefitsContentDescription>
+                      </div>
+                      <div>
+                        <InsightsBenefitsContentTitle>
+                          {content.benefit3Title}
+                        </InsightsBenefitsContentTitle>
+                        <InsightsBenefitsContentDescription>
+                          {content.benefit3Description.benefit3Description}
+                        </InsightsBenefitsContentDescription>
+                      </div>
+                    </Col>
+                    <Breakpoint medium up>
+                      <Col insightsBenefitsImg>
+                        <img src={InsightsBenefitsImg} />
+                      </Col>
+                    </Breakpoint>
+                  </FlexWrapper>
+                </Container>
               </InsightsBenefitsSection>
               <Testimonials color="green" data={quotesData} />
               <InsightsFeaturesSection>
@@ -265,10 +272,7 @@ class Insights extends React.Component {
                   </Feature.Description>
                 </Feature>
 
-                <Feature
-                  imagePosition="left"
-                  image={CommunicationAnalysisIllu}
-                >
+                <Feature imagePosition="left" image={CommunicationAnalysisIllu}>
                   <Feature.Title>{content.feature2Title}</Feature.Title>
                   <Feature.Description>
                     {content.feature2Description.feature2Description}
@@ -291,37 +295,63 @@ class Insights extends React.Component {
               </InsightsFeaturesSection>
 
               <InsightsFeaturesMore>
-                <InsightsFeaturesMoreTitle>{content.moreTitle}</InsightsFeaturesMoreTitle>
+                <InsightsFeaturesMoreTitle>
+                  {content.moreTitle}
+                </InsightsFeaturesMoreTitle>
                 <InsightsFeaturesMoreCards1>
                   <InsightsFeaturesMoreCard>
-                    <InsightsFeaturesMoreCardTitle>{content.moreFeature1Title}</InsightsFeaturesMoreCardTitle>
-                    <InsightsFeaturesMoreCardDescription>{content.moreFeature1Description.moreFeature1Description}</InsightsFeaturesMoreCardDescription>
+                    <InsightsFeaturesMoreCardTitle>
+                      {content.moreFeature1Title}
+                    </InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>
+                      {content.moreFeature1Description.moreFeature1Description}
+                    </InsightsFeaturesMoreCardDescription>
                   </InsightsFeaturesMoreCard>
                   <InsightsFeaturesMoreCard>
-                    <InsightsFeaturesMoreCardTitle>{content.moreFeature2Title}</InsightsFeaturesMoreCardTitle>
-                    <InsightsFeaturesMoreCardDescription>{content.moreFeature2Description.moreFeature2Description}</InsightsFeaturesMoreCardDescription>
+                    <InsightsFeaturesMoreCardTitle>
+                      {content.moreFeature2Title}
+                    </InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>
+                      {content.moreFeature2Description.moreFeature2Description}
+                    </InsightsFeaturesMoreCardDescription>
                   </InsightsFeaturesMoreCard>
                   <InsightsFeaturesMoreCard>
-                    <InsightsFeaturesMoreCardTitle>{content.moreFeature3Title}</InsightsFeaturesMoreCardTitle>
-                    <InsightsFeaturesMoreCardDescription>{content.moreFeature3Description.moreFeature3Description}</InsightsFeaturesMoreCardDescription>
+                    <InsightsFeaturesMoreCardTitle>
+                      {content.moreFeature3Title}
+                    </InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>
+                      {content.moreFeature3Description.moreFeature3Description}
+                    </InsightsFeaturesMoreCardDescription>
                   </InsightsFeaturesMoreCard>
-                  
                 </InsightsFeaturesMoreCards1>
                 <InsightsFeaturesMoreCards2>
-                <InsightsFeaturesMoreCard>
-                    <InsightsFeaturesMoreCardTitle>{content.moreFeature4Title}</InsightsFeaturesMoreCardTitle>
-                    <InsightsFeaturesMoreCardDescription>{content.moreFeature4Description.moreFeature4Description}</InsightsFeaturesMoreCardDescription>
+                  <InsightsFeaturesMoreCard>
+                    <InsightsFeaturesMoreCardTitle>
+                      {content.moreFeature4Title}
+                    </InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>
+                      {content.moreFeature4Description.moreFeature4Description}
+                    </InsightsFeaturesMoreCardDescription>
                   </InsightsFeaturesMoreCard>
                   <InsightsFeaturesMoreCard>
-                    <InsightsFeaturesMoreCardTitle>{content.moreFeature5Title}</InsightsFeaturesMoreCardTitle>
-                    <InsightsFeaturesMoreCardDescription>{content.moreFeature5Description.moreFeature5Description}</InsightsFeaturesMoreCardDescription>
+                    <InsightsFeaturesMoreCardTitle>
+                      {content.moreFeature5Title}
+                    </InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>
+                      {content.moreFeature5Description.moreFeature5Description}
+                    </InsightsFeaturesMoreCardDescription>
                   </InsightsFeaturesMoreCard>
                   <InsightsFeaturesMoreCard>
-                    <InsightsFeaturesMoreCardTitle>{content.moreFeature6Title}</InsightsFeaturesMoreCardTitle>
-                    <InsightsFeaturesMoreCardDescription>{content.moreFeature6Description.moreFeature6Description}</InsightsFeaturesMoreCardDescription>
+                    <InsightsFeaturesMoreCardTitle>
+                      {content.moreFeature6Title}
+                    </InsightsFeaturesMoreCardTitle>
+                    <InsightsFeaturesMoreCardDescription>
+                      {content.moreFeature6Description.moreFeature6Description}
+                    </InsightsFeaturesMoreCardDescription>
                   </InsightsFeaturesMoreCard>
                 </InsightsFeaturesMoreCards2>
               </InsightsFeaturesMore>
+              <CTABlock image={content.bottomCtaImage.file.url} title={content.bottomCtaTitle} />
               <Footer location={this.props.location} />
             </PageTransitionWrapper>
           </main>
@@ -345,10 +375,10 @@ export const pageQuery = graphql`
               content
               authorFirstName
               authorLastName
-              authorJobTitle,
+              authorJobTitle
               authorCompany {
-                customerName,
-                customerUrl,
+                customerName
+                customerUrl
                 customerLogo {
                   file {
                     url
@@ -369,7 +399,7 @@ export const pageQuery = graphql`
           feature2Description {
             feature2Description
           }
-          
+
           feature3Title
           feature3Description {
             feature3Description
@@ -416,6 +446,12 @@ export const pageQuery = graphql`
           }
           moreFeature6Description {
             moreFeature6Description
+          }
+          bottomCtaTitle
+          bottomCtaImage {
+            file {
+              url
+            }
           }
         }
       }

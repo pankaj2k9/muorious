@@ -134,6 +134,7 @@ const Section = styled('section')`
     ${props =>
       props.cta &&
       css`
+        & > div {height: 100%};
         background-image: url(${props.src});
         background-size: cover;
         background-position: center;

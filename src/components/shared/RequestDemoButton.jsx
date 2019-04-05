@@ -17,7 +17,7 @@ const ModalBackdrop = styled.div`
 `
 
 const ModalContent = styled.div`
-  position: fixed;
+  position: absolute;
   width: calc(100vw - 30px);
   top: 50%;
   left: 50%;

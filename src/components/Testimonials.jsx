@@ -2,7 +2,7 @@ import React from 'react'
 import Section from '../atoms/Section/Section'
 import styled from 'styled-components'
 import { get } from 'lodash'
-
+import Slider from 'react-slick'
 const data = {}
 
 const CirclesOuter = styled.div`
@@ -10,6 +10,10 @@ const CirclesOuter = styled.div`
   align-content: center;
   justify-content: center;
   margin: 15px 0;
+  transform: translateY(-40px);
+  @media(max-width: 992px){
+    transform: none;
+  }
 `
 
 const Circle = styled.div`
@@ -39,6 +43,9 @@ const TestimonialOuter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media(max-width: 992px){
+    padding: 50px 0 0;
+  }
 `
 
 const TestimonialText = styled.p`
@@ -125,13 +132,6 @@ const TestimonialAutor = styled.div`
   }
 `
 
-const CirclesNode = styled.div`
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-`
-
 const AuthorName = styled.p`
   font-family: Modern Era;
   font-size: 16px;
@@ -158,7 +158,6 @@ const Testimonial = ({
   authorLastName,
   authorJobTitle,
   authorCompany,
-  circles,
   color = 'green',
 }) => {
   const customerLogo = get('authorCompany.customerLogo.file.url')
@@ -166,7 +165,6 @@ const Testimonial = ({
     <TestimonialOuter>
       <TestimonialContent color={color}>
         <TestimonialText>{content}</TestimonialText>
-        <CirclesNode>{circles}</CirclesNode>
         <TestimonialAutor color={color}>
           {authorCompany && authorCompany.customerLogo ? (
             <a href={authorCompany.customerUrl} target="_blank">
@@ -176,18 +174,12 @@ const Testimonial = ({
           <AuthorName>
             {authorFirstName} {authorLastName}
           </AuthorName>
-          {authorCompany ? (
-            <AuthorJob>
-              {authorJobTitle} at {authorCompany.customerName}
-            </AuthorJob>
-          ) : null}
+          {authorCompany ? <AuthorJob>{authorJobTitle}</AuthorJob> : null}
         </TestimonialAutor>
       </TestimonialContent>
     </TestimonialOuter>
   )
 }
-
-const __INTERVAL_MS__ = 5000
 
 class Testimonials extends React.Component {
   constructor(props) {
@@ -206,38 +198,45 @@ class Testimonials extends React.Component {
       {}
     )
     this.setState({ data, count, order })
-    this._interval = setInterval(this.switch, __INTERVAL_MS__)
   }
 
-  componentWillUnmount() {
-    clearInterval(this._interval)
-  }
-
-  switch = () => {
-    this.setState({ active: this.state.order[this.state.active] })
-  }
-
-  selectSlide = key => {
-    clearInterval(this._interval)
-    this.setState({ active: key }, () =>
-      setInterval(this.switch, __INTERVAL_MS__)
-    )
+  choose = i => {
+    if (this.slider) {
+      this.slider.slickGoTo(i)
+      this.setState({ active: i })
+    }
   }
 
   render() {
     const { active, order, data } = this.state
     const { color } = this.props
-    const circles = (
-      <Circles
-        onClick={this.selectSlide}
-        iterable={Object.keys(order)}
-        active={active}
-      />
-    )
-    if (data && data[active]) {
+    if (data) {
+      const settings = {
+        dots: false,
+        infinite: true,
+        adaptiveHeight: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        speed: 1000,
+        afterChange: current => this.setState({ active: current }),
+      }
       return (
         <Section testimonials color={color}>
-          <Testimonial color={color} {...data[active]} circles={circles} />
+          <div className="container">
+            <Slider ref={el => (this.slider = el)} {...settings}>
+              {data.map((i, idx) => (
+                <Testimonial key={idx} color={color} {...i} />
+              ))}
+            </Slider>
+            <Circles
+              onClick={this.choose}
+              iterable={Object.keys(order)}
+              active={active}
+            />
+          </div>
         </Section>
       )
     } else {

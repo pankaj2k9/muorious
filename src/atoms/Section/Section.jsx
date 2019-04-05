@@ -93,11 +93,9 @@ const Section = styled('section')`
     ${({ testimonials }) =>
       testimonials &&
       css`
-        min-height: 472px;
-        display: flex;
+        min-height: 420px;
+        padding: 40px 0;
         background-size: cover;
-        justify-content: center;
-        align-items: center;
         background-size: 100%;
         background-position: center;
         @media (max-width: 992px) {

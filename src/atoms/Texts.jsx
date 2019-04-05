@@ -22,7 +22,7 @@ const H1 = styled("h1")`
 `
 
 const H2 = styled("h2")`
-  font-size: 42px;
+  font-size: 38px;
   color: ${props => rightColor(props)};
   font-weight: 400;
   ${props => props.center &&
@@ -31,7 +31,7 @@ const H2 = styled("h2")`
 `
 
 const H3 = styled("h3")`
-  font-size: 32px;
+  font-size: 36px;
   color: ${props => rightColor(props)};
   ${props => props.center &&
     "text-align: center;"

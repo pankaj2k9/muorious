@@ -25,7 +25,7 @@ const FooterSection = styled.section`
 
 const FooterContent = styled.div`
   display: flex;
-  max-width: 1067px;
+  max-width: 1152px;
   width: 100%;
   margin: 0 auto;
   justify-content: space-between;
@@ -68,6 +68,8 @@ const FooterFeaturesDetails = styled.div`
   flex-direction: column;
   a {
     color: white;
+    font-weight: 300;
+    line-height: 2.2;
   }
 `
 
@@ -88,14 +90,23 @@ const FooterContactInfo = styled.div`
 const SupportedBy = styled.div`
   display: flex;
   flex-direction: column;
+  b {
+    line-height: 32px;
+  }
 `
 
 const Bold = styled.b`
   font-weight: 600;
+  display: block;
 `
 
+
+const Italic = styled.i`
+  font-weight: 400;
+  display: block;
+`
 const FooterSupportedByLogos = styled.div`
-  margin: 10px auto;
+  margin: -5px auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,7 +120,7 @@ const FooterColumn = styled.div`
   min-width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin: 10px 0;
   flex-basis: 100%;
 `
@@ -163,11 +174,11 @@ class Footer extends React.Component {
                 <Link to="/privacy"><Bold>Privacy</Bold></Link>
               </FooterCompany>
               <FooterContactInfo>
-                <Bold>Miuros SAS</Bold>
-                <div>92 Cours Lafayette</div>
-                <div>69489 Lyon CEDEX 3</div>
-                <div>France</div>
-              </FooterContactInfo>
+                  <Italic>Miuros SAS</Italic>
+                  <Italic>92 Cours Lafayette</Italic>
+                  <Italic>69489 Lyon CEDEX 3</Italic>
+                  <Italic>France</Italic>
+                </FooterContactInfo>
               <SupportedBy>
                 <Bold>Supported by</Bold>
                 <FooterSupportedByLogos>
@@ -202,20 +213,17 @@ class Footer extends React.Component {
                   <Bold>
                     <Link to="/assist">Assist</Link>
                   </Bold>
-                  <Bold>
+                  <div>
                     <Link to="/insights">Insights</Link>
-                  </Bold>
-                  <Bold>
+                  </div>
+                  <div>
                     <Link to="/#experience">Experience</Link>
-                  </Bold>
+                  </div>
                   <Bold>
                     <Link to="/#integrations">Integrations</Link>
                   </Bold>
                 </FooterFeatures>
                 <FooterCompany>
-                  {/* <Bold>
-                    <Link to="/about">About</Link>
-                  </Bold> */}
                   <Bold>
                     <a href="https://angel.co/miuros/jobs"><Bold>Careers</Bold></a>
                   </Bold>

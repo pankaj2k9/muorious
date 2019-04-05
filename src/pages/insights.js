@@ -205,8 +205,8 @@ class Insights extends React.Component {
                 <Container>
                   <Row>
                     <Col center>
-                      <H1 center bold>
-                        {content.tagline}
+                        <H1 style={{fontWeight: 400}} center>
+                        <span style={{maxWidth: '760px', display: 'inline-block'}}>{content.tagline}</span>
                       </H1>
                       <InsightsHeroDescription>
                         {content.description.description}

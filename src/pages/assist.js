@@ -134,7 +134,9 @@ class Assist extends React.Component {
                 <Container>
                   <Row>
                     <Col center>
-                      <H1 center>{content.tagline}</H1>
+                      <H1 style={{fontWeight: 400}} center>
+                      <span style={{maxWidth: '760px', display: 'inline-block'}}>{content.tagline}</span>
+                      </H1>
                       <TextBig color="grey4" center>
                         {content.description.description}
                       </TextBig>

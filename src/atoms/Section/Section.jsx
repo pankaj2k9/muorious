@@ -78,7 +78,7 @@ const Section = styled('section')`
       props.intro &&
       css`
         padding: 30px 0;
-        height: 512px;
+        min-height: 450px;
         p {
           margin-top: 20px;
         }

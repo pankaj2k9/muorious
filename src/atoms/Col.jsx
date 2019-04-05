@@ -49,14 +49,22 @@ const Col = styled('div')`
       css`
         justify-content: center;
         width: calc(50% - 80px);
-        min-height: 900px;
+        min-height: 840px;
         @media (max-width: 992px) {
           width: 100%;
           min-height: auto;
         }
       `}  
     ${({ insightsBenefitsImg }) =>
-      insightsBenefitsImg && 'position: absolute; height: 100%; left: 50%;'}  
+      insightsBenefitsImg &&
+      css`
+        position: absolute;
+        height: 100%;
+        left: 50%;
+        img {
+          width: calc(100% + 20px);
+        }
+      `}  
     ${props =>
       props.benefit &&
       css`

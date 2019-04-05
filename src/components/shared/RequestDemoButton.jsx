@@ -11,13 +11,13 @@ const ModalBackdrop = styled.div`
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 100;
+  z-index: 1000;
   top: 0;
   left: 0;
 `
 
 const ModalContent = styled.div`
-  position: absolute;
+  position: fixed;
   width: calc(100vw - 30px);
   top: 50%;
   left: 50%;
@@ -25,7 +25,7 @@ const ModalContent = styled.div`
   background-color: #ffffff;
   padding: 20px;
   max-width: 700px;
-  z-index: 101;
+  z-index: 1001;
 `
 
 const Field = styled.div`

@@ -8,7 +8,7 @@ import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
 import FlexWrapper from '../components/shared/FlexWrapper'
 import RequestDemoButton from '../components/shared/RequestDemoButton'
-import CTABlock from '../components/shared/CTABlock'
+import CTABlock from '../components/shared/CtaBlock'
 import Breakpoint from '../components/layout/Breakpoint'
 import {
   H1,

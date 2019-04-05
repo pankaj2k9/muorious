@@ -29,7 +29,7 @@ import PageTransitionWrapper from '../components/PageTransitionWrapper'
 import Feature from '../components/shared/Feature'
 import AutomaticCategorizationImg from '../atoms/Images/AutomaticCategorizationImg.png'
 import TemplateRecommandationImg from '../atoms/Images/TemplateRecommandationImg.svg'
-import CTABlock from '../components/shared/CTABlock'
+import CTABlock from '../components/shared/CtaBlock'
 
 const AssistFeaturesSection = styled.section`
   padding: 80px 0 40px;

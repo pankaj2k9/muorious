@@ -2,14 +2,21 @@ let contentfulConfig
 
 try {
   // Load the Contentful config from the .contentful.json
-  contentfulConfig = require('./.contentful.json')
+  if (process.env.USE_ENV) {
+    contentfulConfig = {
+      spaceId: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    }
+  } else {
+    contentfulConfig = require('./.contentful.json')
+  }
 } catch (_) {}
-
 
 // Overwrite the Contentful config with environment variables if they exist
 contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID || contentfulConfig.spaceId,
-  accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN || contentfulConfig.accessToken,
+  accessToken:
+    process.env.CONTENTFUL_DELIVERY_TOKEN || contentfulConfig.accessToken,
 }
 
 const { spaceId, accessToken } = contentfulConfig
@@ -37,7 +44,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-       displayName: true //When true useful for debug
+        displayName: true, //When true useful for debug
       },
     },
   ],

@@ -29,7 +29,7 @@ import HomeHero from '../components/home/HomeHero'
 import HomeFeatureIntro from '../components/home/HomeFeatureIntro'
 import HomeCustomerLogos from '../components/home/HomeCustomerLogos'
 import PageTransitionWrapper from '../components/PageTransitionWrapper';
-import CTABlock from '../components/shared/CTABlock'
+import CTABlock from '../components/shared/CtaBlock'
 
 
 const Img = styled.img`

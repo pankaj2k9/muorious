@@ -412,6 +412,12 @@ export const pageQuery = graphql`
           authorJobTitle
           authorCompany {
             customerName
+            customerUrl
+                customerLogo {
+                  file {
+                    url
+                  }
+                }
           }
         }
       }

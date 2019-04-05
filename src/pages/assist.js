@@ -132,7 +132,7 @@ class Assist extends React.Component {
             <PageTransitionWrapper>
               <HeroSection assistHero>
                 <Container>
-                  <Row>
+                  <Row style={{justifyContent: 'center'}}>
                     <Col center>
                       <H1 style={{fontWeight: 400}} center>
                       <span style={{maxWidth: '760px', display: 'inline-block'}}>{content.tagline}</span>

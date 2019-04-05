@@ -126,9 +126,8 @@ const InsightsFeaturesMore = styled.section`
 const InsightsFeaturesMoreTitle = styled.h3`
   margin: 0 auto;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 32px;
-  line-height: 48px;
   text-align: center;
   color: #000000;
   padding-bottom: 20px;

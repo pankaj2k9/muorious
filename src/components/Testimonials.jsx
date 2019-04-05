@@ -140,8 +140,8 @@ const AuthorName = styled.p`
 `
 const AuthorJob = styled.p`
   font-family: Modern Era;
-  font-size: 16px;
-  line-height: 32px;
+  font-size: 14px;
+  line-height: 1.5;
   font-weight: 300;
 `
 const CompanyLogo = styled.img`

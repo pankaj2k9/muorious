@@ -27,7 +27,7 @@ import AssistHeroImage from '../atoms/Images/AssistHeroImg.png'
 import Testimonials from '../components/Testimonials'
 import PageTransitionWrapper from '../components/PageTransitionWrapper'
 import Feature from '../components/shared/Feature'
-import AutomaticCategorizationImg from '../atoms/Images/AutomaticCategorizationImg.png'
+import AutomaticCategorizationImg from '../atoms/Images/AutomaticCategorizationIllu.svg'
 import TemplateRecommandationImg from '../atoms/Images/TemplateRecommandationImg.svg'
 import CTABlock from '../components/shared/CtaBlock'
 

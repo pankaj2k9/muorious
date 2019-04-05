@@ -41,8 +41,8 @@ const InsightsHeroTitle = styled.h1`
   color: #0d0d0d;
   font-style: normal;
   font-weight: 600;
-  font-size: 48px;
-  line-height: 1.6;
+  font-size: 42px;
+  line-height: 1.3;
   text-align: center;
   margin: 0 auto;
   @media (max-width: 992px) {
@@ -56,8 +56,8 @@ const InsightsHeroDescription = styled.p`
   font-family: Modern Era;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 1.3;
   text-align: center;
   margin: 0 auto;
   color: #4d4d4d;
@@ -168,7 +168,7 @@ const InsightsFeaturesMoreCardTitle = styled.h4`
 
 const InsightsFeaturesMoreCardDescription = styled.p`
   font-family: Modern Era, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   color: #828282;
   padding: 0 20px;

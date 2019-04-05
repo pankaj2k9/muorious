@@ -41,8 +41,8 @@ const H3 = styled("h3")`
   font-weight: 400;
 `
 
-const H3DIFF = styled("h4")`
-  font-size: 30px;
+const H3DIFF = styled("h3")`
+  font-size: 36px;
   font-weight: 400;
   line-height: 1.3;
   color: ${props => rightColor(props)};

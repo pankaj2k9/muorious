@@ -51,10 +51,10 @@ const AssistFeaturesMoreSection = styled.section`
 
 const AssistFeaturesMoreTitle = styled.h3`
   margin: 0 auto;
+  font-weight: 400;
   font-style: normal;
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 48px;
+  font-size: 36px;
+  line-height: 1.3;
   text-align: center;
   color: #000000;
   padding-bottom: 20px;
@@ -88,8 +88,8 @@ const AssistFeaturesMoreCard = styled.div`
 `
 
 const AssistFeaturesMoreCardTitle = styled.h4`
+  font-weight: 400;
   font-size: 24px;
-  line-height: 32px;
   color: #000000;
   font-family: Modern Era, sans-serif;
   padding: 20px 20px;
@@ -97,7 +97,7 @@ const AssistFeaturesMoreCardTitle = styled.h4`
 
 const AssistFeaturesMoreCardDescription = styled.p`
   font-family: Modern Era, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 32px;
   color: #828282;
   padding: 0 20px;
@@ -132,7 +132,7 @@ class Assist extends React.Component {
                 <Container>
                   <Row>
                     <Col center>
-                      <H1 bold center>
+                      <H1 center>
                         {content.tagline}
                       </H1>
                       <TextBig color="grey4" center>

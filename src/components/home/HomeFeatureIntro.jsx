@@ -25,7 +25,7 @@ const HomeFeatureIntro = props => {
             <img src={imgUrl} />
           </Col>
           <Col xs={12} sm>
-            <H1>{title}</H1>
+            <H2>{title}</H2>
             <TextBig color="grey4">{description}</TextBig>
             {button && (
               <Link to={buttonLink}>

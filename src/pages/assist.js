@@ -199,7 +199,7 @@ class Assist extends React.Component {
                       {content.feature1Description.feature1Description}
                       <div>
                         <Space height="20px" />
-                        <Button secondary>Download our whitepaper</Button>
+                        <a href="https://miuros.com/categorization-whitepaper/" target="_blank"><Button secondary>Download our whitepaper</Button></a>
                       </div>
                     </>
                   </Feature.Description>

@@ -71,8 +71,8 @@ const Col = styled('div')`
         width: 50%;
         div {
           margin: auto;
-          width: 58%;
-          padding: 30px 0;
+          width: 100%;
+          padding: 30px 0 30px 70px;
         }
         @media (max-width: 992px) {
           width: 100%;

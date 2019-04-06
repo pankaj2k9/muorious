@@ -78,7 +78,7 @@ const Col = styled('div')`
           width: 100%;
           div {
             width: 100%;
-            padding: 20px;
+            padding: 20px 0;
           }
         }
       `}

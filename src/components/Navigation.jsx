@@ -50,7 +50,6 @@ const dropdownItems = [
     content: (
       <ListItem.DropdownItem
         title="Experience"
-        link="/#experience"
         comingSoon
         description="Build a better overall Experience for your customers"
         color="#FF3A66"

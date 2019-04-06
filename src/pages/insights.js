@@ -202,24 +202,24 @@ class Insights extends React.Component {
             <PageTransitionWrapper>
               <HeroSection insightsHero>
                 <Container>
-                <Row style={{justifyContent: 'center'}}>
-                    <Col center>
-                        <H1 style={{fontWeight: 400}} center>
-                        <span style={{maxWidth: '760px', display: 'inline-block'}}>{content.tagline}</span>
-                      </H1>
-                      <InsightsHeroDescription>
-                        {content.description.description}
-                      </InsightsHeroDescription>
-                      <Breakpoint medium down>
-                        <FlexWrapper>
-                          <RequestDemoButton />
-                        </FlexWrapper>
-                      </Breakpoint>
-                      <FlexWrapper>
-                        <HeroSection.Img src={InsightsHeroImg} />
-                      </FlexWrapper>
-                    </Col>
-                  </Row>
+                  <H1 style={{ fontWeight: 400 }} center>
+                    <span
+                      style={{ maxWidth: '760px', display: 'inline-block' }}
+                    >
+                      {content.tagline}
+                    </span>
+                  </H1>
+                  <InsightsHeroDescription>
+                    {content.description.description}
+                  </InsightsHeroDescription>
+                  <Breakpoint medium down>
+                    <FlexWrapper>
+                      <RequestDemoButton />
+                    </FlexWrapper>
+                  </Breakpoint>
+                  <FlexWrapper>
+                    <HeroSection.Img src={InsightsHeroImg} />
+                  </FlexWrapper>
                 </Container>
               </HeroSection>
               <InsightsBenefitsSection>
@@ -230,25 +230,25 @@ class Insights extends React.Component {
                   >
                     <Col insightsBenefits>
                       <div>
-                        <InsightsBenefitsContentTitle>
+                      <H3DIFF color="green">
                           {content.benefit1Title}
-                        </InsightsBenefitsContentTitle>
+                        </H3DIFF>
                         <InsightsBenefitsContentDescription>
                           {content.benefit1Description.benefit1Description}
                         </InsightsBenefitsContentDescription>
                       </div>
                       <div>
-                        <InsightsBenefitsContentTitle>
+                      <H3DIFF color="green">
                           {content.benefit2Title}
-                        </InsightsBenefitsContentTitle>
+                        </H3DIFF>
                         <InsightsBenefitsContentDescription>
                           {content.benefit2Description.benefit2Description}
                         </InsightsBenefitsContentDescription>
                       </div>
                       <div>
-                        <InsightsBenefitsContentTitle>
+                      <H3DIFF color="green">
                           {content.benefit3Title}
-                        </InsightsBenefitsContentTitle>
+                        </H3DIFF>
                         <InsightsBenefitsContentDescription>
                           {content.benefit3Description.benefit3Description}
                         </InsightsBenefitsContentDescription>
@@ -350,7 +350,10 @@ class Insights extends React.Component {
                   </InsightsFeaturesMoreCard>
                 </InsightsFeaturesMoreCards2>
               </InsightsFeaturesMore>
-              <CTABlock image={content.bottomCtaImage.file.url} title={content.bottomCtaTitle} />
+              <CTABlock
+                image={content.bottomCtaImage.file.url}
+                title={content.bottomCtaTitle}
+              />
               <Footer location={this.props.location} />
             </PageTransitionWrapper>
           </main>

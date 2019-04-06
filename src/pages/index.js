@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Breakpoint from '../components/layout/Breakpoint'
+import ColoredText from '../components/shared/ColoredText'
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
@@ -28,9 +29,8 @@ import Scrollchor from 'react-scrollchor'
 import HomeHero from '../components/home/HomeHero'
 import HomeFeatureIntro from '../components/home/HomeFeatureIntro'
 import HomeCustomerLogos from '../components/home/HomeCustomerLogos'
-import PageTransitionWrapper from '../components/PageTransitionWrapper';
+import PageTransitionWrapper from '../components/PageTransitionWrapper'
 import CTABlock from '../components/shared/CtaBlock'
-
 
 const Img = styled.img`
   width: 100%;
@@ -77,232 +77,255 @@ class RootIndex extends React.Component {
           <main>
             <Nav transparency location={this.props.location} />
             <PageTransitionWrapper>
-            <HomeHero content={content} />
-            <Section customerLogos>
-              <HomeCustomerLogos customerLogos={content.customerLogos} />
-            </Section>
-            <Section intro>
-              <Container>
-                <Row>
-                  <Breakpoint medium up>
-                    <>
-                      <Col equal>
-                        <IndexSideImg src={content.valueImage.file.url} />
-                      </Col>
-                      <Col equal>
-                        <H2>{content.valueTitle}</H2>
-                        <TextBig color="grey4">
-                          {content.valueDescription.valueDescription}
-                        </TextBig>
-                      </Col>
-                    </>
-                  </Breakpoint>
-                  <Breakpoint medium down>
-                    <>
-                      <Col>
-                        <IndexSideImg src={content.valueImage.file.url} />
-                        <H4>{content.valueTitle}</H4>
-                        <TextBig color="grey4">
-                          {content.valueDescription.valueDescription}
-                        </TextBig>
-                      </Col>
-                    </>
-                  </Breakpoint>
-                </Row>
-              </Container>
-            </Section>
-            <Testimonials color="pink" data={quotesData} />
-            <Section features>
-              <Container>
-                <Row>
-                  <Col>
+              <HomeHero content={content} />
+              <Section customerLogos>
+                <HomeCustomerLogos customerLogos={content.customerLogos} />
+              </Section>
+              <Section intro>
+                <Container>
+                  <Row>
                     <Breakpoint medium up>
-                      <H2 center>{content.featuresTitle}</H2>
+                      <>
+                        <Col equal>
+                          <IndexSideImg src={content.valueImage.file.url} />
+                        </Col>
+                        <Col equal>
+                          <H2>{content.valueTitle}</H2>
+                          <TextBig color="grey4">
+                            <ColoredText
+                              config={{
+                                Assist: '#FFC509',
+                                Insights: '#174F49',
+                                Experience: '#FF3A66',
+                              }}
+                              additionalStyles="font-weight: 600"
+                              text={content.valueDescription.valueDescription}
+                            />
+                          </TextBig>
+                        </Col>
+                      </>
                     </Breakpoint>
                     <Breakpoint medium down>
-                      <H2 small>{content.featuresTitle}</H2>
+                      <>
+                        <Col>
+                          <IndexSideImg src={content.valueImage.file.url} />
+                          <H4>{content.valueTitle}</H4>
+                          <TextBig color="grey4">
+                            {content.valueDescription.valueDescription}
+                          </TextBig>
+                        </Col>
+                      </>
                     </Breakpoint>
-                  </Col>
-                </Row>
-              </Container>
-            </Section>
-            {/* TODO: Not ready yet */}
-            {/* <HomeFeatureIntro 
+                  </Row>
+                </Container>
+              </Section>
+              <Testimonials color="pink" data={quotesData} />
+              <Section features>
+                <Container>
+                  <Row>
+                    <Col>
+                      <Breakpoint medium up>
+                        <H2 center>{content.featuresTitle}</H2>
+                      </Breakpoint>
+                      <Breakpoint medium down>
+                        <H2 small>{content.featuresTitle}</H2>
+                      </Breakpoint>
+                    </Col>
+                  </Row>
+                </Container>
+              </Section>
+              {/* TODO: Not ready yet */}
+              {/* <HomeFeatureIntro 
               description={content.feature1Description.feature1Description}
               title={content.feature1Title}
               imgUrl={content.feature1Image.file.url}
               button={{link: "/assist", title: 'Learn about Assist'}}
             /> */}
-            <Section intro>
-              <Container>
-                <Row>
-                  <Breakpoint medium up>
-                    <>
-                      <Col equal center>
-                        <H3>{content.feature1Title}</H3>
-                        <TextBig color="grey4">
-                          {content.feature1Description.feature1Description}
-                        </TextBig>
-                        <Link to="/assist">
-                          <Button primary>Learn about Assist</Button>
-                        </Link>
-                      </Col>
-                      <Col equal center>
-                        <IndexSideImg src={content.feature1Image.file.url} />
-                      </Col>
-                    </>
-                  </Breakpoint>
-                  <Breakpoint medium down>
-                    <>
-                      <Col>
-                        <Img src={content.feature1Image.file.url} />
-                        <H3>{content.feature1Title}</H3>
-                        <TextBig color="grey4">
-                          {content.feature1Description.feature1Description}
-                        </TextBig>
-                        <FlexWrapper>
+              <Section intro>
+                <Container>
+                  <Row>
+                    <Breakpoint medium up>
+                      <>
+                        <Col equal center>
+                          <H3>{content.feature1Title}</H3>
+                          <TextBig color="grey4">
+                            {content.feature1Description.feature1Description}
+                          </TextBig>
                           <Link to="/assist">
-                            <Button light>Learn about Assist</Button>
+                            <Button primary>Learn about Assist</Button>
                           </Link>
-                        </FlexWrapper>
-                      </Col>
-                    </>
-                  </Breakpoint>
-                </Row>
-              </Container>
-            </Section>
-            <Section intro>
-              <Container>
-                <Row autoHeight>
+                        </Col>
+                        <Col equal center>
+                          <IndexSideImg src={content.feature1Image.file.url} />
+                        </Col>
+                      </>
+                    </Breakpoint>
+                    <Breakpoint medium down>
+                      <>
+                        <Col>
+                          <Img src={content.feature1Image.file.url} />
+                          <H3>{content.feature1Title}</H3>
+                          <TextBig color="grey4">
+                            {content.feature1Description.feature1Description}
+                          </TextBig>
+                          <FlexWrapper>
+                            <Link to="/assist">
+                              <Button light>Learn about Assist</Button>
+                            </Link>
+                          </FlexWrapper>
+                        </Col>
+                      </>
+                    </Breakpoint>
+                  </Row>
+                </Container>
+              </Section>
+              <Section intro>
+                <Container>
+                  <Row autoHeight>
+                    <Breakpoint medium up>
+                      <>
+                        <Col equal center>
+                          <IndexSideImg src={content.feature2Image.file.url} />
+                        </Col>
+                        <Col equal center>
+                          <H3>{content.feature2Title}</H3>
+                          <TextBig color="grey4">
+                            {content.feature2Description.feature2Description}
+                          </TextBig>
+                          <Link to="/insights">
+                            <Button primary>Learn about Insights</Button>
+                          </Link>
+                        </Col>
+                      </>
+                    </Breakpoint>
+                    <Breakpoint medium down>
+                      <>
+                        <Col>
+                          <Img src={content.feature2Image.file.url} />
+                          <H3>{content.feature2Title}</H3>
+                          <TextBig color="grey4">
+                            {content.feature2Description.feature2Description}
+                          </TextBig>
+                          <FlexWrapper>
+                            <Button light>Learn about Insights</Button>
+                          </FlexWrapper>
+                        </Col>
+                      </>
+                    </Breakpoint>
+                  </Row>
+                </Container>
+              </Section>
+
+              <Section intro>
+                <Container>
                   <Breakpoint medium up>
-                    <>
+                    <Row>
                       <Col equal center>
-                        <IndexSideImg src={content.feature2Image.file.url} />
-                      </Col>
-                      <Col equal center>
-                        <H3>{content.feature2Title}</H3>
+                        <H3>
+                          {content.feature3Title}
+                          <Note>Coming soon</Note>
+                        </H3>
                         <TextBig color="grey4">
-                          {content.feature2Description.feature2Description}
+                          {content.feature3Description.feature3Description}
                         </TextBig>
-                        <Link to="/insights">
-                          <Button primary>Learn about Insights</Button>
-                        </Link>
                       </Col>
-                    </>
+                      <Col equal center>
+                        <IndexSideImg src={content.feature3Image.file.url} />
+                      </Col>
+                    </Row>
                   </Breakpoint>
                   <Breakpoint medium down>
-                    <>
+                    <Row autoHeight>
                       <Col>
-                        <Img src={content.feature2Image.file.url} />
-                        <H3>{content.feature2Title}</H3>
+                        <Img src={content.feature3Image.file.url} />
+                        <H3>
+                          {content.feature3Title}
+                          <Note>Coming soon</Note>
+                        </H3>
                         <TextBig color="grey4">
-                          {content.feature2Description.feature2Description}
+                          {content.feature3Description.feature3Description}
                         </TextBig>
-                        <FlexWrapper>
-                          <Button light>Learn about Insights</Button>
-                        </FlexWrapper>
                       </Col>
-                    </>
+                    </Row>
                   </Breakpoint>
-                </Row>
-              </Container>
-            </Section>
+                </Container>
+              </Section>
 
-            <Section intro>
-              <Container>
-                <Breakpoint medium up>
-                  <Row>
-                    <Col equal center>
-                      <H3>
-                        {content.feature3Title}
-                        <Note>Coming soon</Note>
-                      </H3>
-                      <TextBig color="grey4">
-                        {content.feature3Description.feature3Description}
-                      </TextBig>
-                    </Col>
-                    <Col equal center>
-                      <IndexSideImg src={content.feature3Image.file.url} />
-                    </Col>
-                  </Row>
-                </Breakpoint>
-                <Breakpoint medium down>
-                  <Row autoHeight>
-                    <Col>
-                      <Img src={content.feature3Image.file.url} />
-                      <H3>
-                        {content.feature3Title}
-                        <Note>Coming soon</Note>
-                      </H3>
-                      <TextBig color="grey4">
-                        {content.feature3Description.feature3Description}
-                      </TextBig>
-                    </Col>
-                  </Row>
-                </Breakpoint>
-              </Container>
-            </Section>
-
-            <Section intro grey id="integrations">
-              <Container>
-                <Breakpoint medium up>
-                  <Row>
-                    <Col equal center>
-                      <IndexSideImg src={content.integrationImage.file.url} />
-                    </Col>
-                    <Col equal center>
-                      <H3>{content.integrationTitle}</H3>
-                      <TextBig color="grey4">
-                        {content.integrationDescription.integrationDescription}
-                      </TextBig>
-                    </Col>
-                  </Row>
-                </Breakpoint>
-                <Breakpoint medium down>
-                  <Row>
-                    <Col>
-                      <Img src={content.integrationImage.file.url} />
-                      <H3>{content.integrationTitle}</H3>
-                      <TextBig color="grey4">
-                        {content.integrationDescription.integrationDescription}
-                      </TextBig>
-                    </Col>
-                  </Row>
-                </Breakpoint>
-              </Container>
-            </Section>
-            <Section intro grey>
-              <Container>
-                <Breakpoint medium up>
-                  <Row>
-                    <Col equal center>
-                      <H3>{content.integrationFastTitle}</H3>
-                      <TextBig color="grey4">
-                        {content.integrationFastDescription.integrationFastDescription}
-                      </TextBig>
-                    </Col>
-                    <Col equal center>
-                      <IndexSideImg
-                        src={content.integrationFastImage.file.url}
-                      />
-                    </Col>
-                  </Row>
-                </Breakpoint>
-                <Breakpoint medium down>
-                  <Row>
-                    <Col>
-                      <Img src={content.integrationImage.file.url} />
-                      <H3>{content.integrationTitle}</H3>
-                      <TextBig color="grey4">
-                        {content.integrationDescription.integrationDescription}
-                      </TextBig>
-                    </Col>
-                  </Row>
-                </Breakpoint>
-              </Container>
-            </Section>
-            <CTABlock image={content.bottomCtaImage.file.url} title={content.bottomCtaTitle} />
-            <Footer location={this.props.location} />
+              <Section intro grey id="integrations">
+                <Container>
+                  <Breakpoint medium up>
+                    <Row>
+                      <Col equal center>
+                        <IndexSideImg src={content.integrationImage.file.url} />
+                      </Col>
+                      <Col equal center>
+                        <H3>{content.integrationTitle}</H3>
+                        <TextBig color="grey4">
+                          {
+                            content.integrationDescription
+                              .integrationDescription
+                          }
+                        </TextBig>
+                      </Col>
+                    </Row>
+                  </Breakpoint>
+                  <Breakpoint medium down>
+                    <Row>
+                      <Col>
+                        <Img src={content.integrationImage.file.url} />
+                        <H3>{content.integrationTitle}</H3>
+                        <TextBig color="grey4">
+                          {
+                            content.integrationDescription
+                              .integrationDescription
+                          }
+                        </TextBig>
+                      </Col>
+                    </Row>
+                  </Breakpoint>
+                </Container>
+              </Section>
+              <Section intro grey>
+                <Container>
+                  <Breakpoint medium up>
+                    <Row>
+                      <Col equal center>
+                        <H3>{content.integrationFastTitle}</H3>
+                        <TextBig color="grey4">
+                          {
+                            content.integrationFastDescription
+                              .integrationFastDescription
+                          }
+                        </TextBig>
+                      </Col>
+                      <Col equal center>
+                        <IndexSideImg
+                          src={content.integrationFastImage.file.url}
+                        />
+                      </Col>
+                    </Row>
+                  </Breakpoint>
+                  <Breakpoint medium down>
+                    <Row>
+                      <Col>
+                        <Img src={content.integrationImage.file.url} />
+                        <H3>{content.integrationTitle}</H3>
+                        <TextBig color="grey4">
+                          {
+                            content.integrationDescription
+                              .integrationDescription
+                          }
+                        </TextBig>
+                      </Col>
+                    </Row>
+                  </Breakpoint>
+                </Container>
+              </Section>
+              <CTABlock
+                image={content.bottomCtaImage.file.url}
+                title={content.bottomCtaTitle}
+              />
+              <Footer location={this.props.location} />
             </PageTransitionWrapper>
           </main>
         </React.Fragment>
@@ -413,11 +436,11 @@ export const pageQuery = graphql`
           authorCompany {
             customerName
             customerUrl
-                customerLogo {
-                  file {
-                    url
-                  }
-                }
+            customerLogo {
+              file {
+                url
+              }
+            }
           }
         }
       }

@@ -24,9 +24,8 @@ export default class BreakpointProvider extends Component {
 
   onResize = () => {
     const width = window.innerWidth
-    let currentBreakpoint = breakpoints.find(
-      i => i.start <= width && i.limit > width
-    ).key
+    const result = breakpoints.find(i => (i.start <= width && i.limit > width))
+    let currentBreakpoint =   result ? result.key : this.state.currentBreakpoint
     this.setState({ value: { currentBreakpoint, currentWidth: width } })
   }
 

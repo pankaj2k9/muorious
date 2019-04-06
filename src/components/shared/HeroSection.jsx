@@ -6,7 +6,7 @@ const HeroSection = styled(Section)`
   height: 100vh;
   min-height: ${({ insightsHero }) => (insightsHero ? '1080px' : '900px')};
   display: flex;
-  padding-top: 70px;
+  padding-top: 150px;
   align-items: flex-start;
   justify-content: flex-start;
   background-repeat: no-repeat;

@@ -7,13 +7,15 @@
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
   },
   "dependencies": {
+    "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
+    "@contentful/rich-text-react-renderer": "^13.2.0",
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby-image": "^2.0.13",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.6",
     "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-source-contentful": "^2.0.2",
+    "gatsby-source-contentful": "^2.0.33",
     "gatsby-transformer-remark": "^2.1.6",
     "gatsby-transformer-sharp": "^2.0.6",
     "lodash": "^4.17.11",

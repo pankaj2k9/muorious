@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import axios from 'axios'
 import styled from 'styled-components'
 import Button from '../../atoms/Button'
@@ -133,12 +134,21 @@ export default class RequestDemoButton extends Component {
     this.closeModal()
   }
 
+  renderAction = () => {
+    const { handler } = this.props
+    return (
+      handler 
+      ? <span onClick={this.openModal}>{handler}</span>
+      : <Button secondary onClick={this.openModal}>Request demo</Button>
+    )
+  }
+
   render() {
     const { modalOpen } = this.state
     return (
       <>
         {modalOpen && (
-          <>
+          ReactDOM.createPortal(<>
             <ModalContent>
               <FormTitle>Learn more about Miuros</FormTitle>
               <form onSubmit={this.submitData}>
@@ -205,11 +215,9 @@ export default class RequestDemoButton extends Component {
               </form>
             </ModalContent>
             <ModalBackdrop onClick={this.closeModal} />
-          </>
+          </>, document.querySelector('body'))
         )}
-        <Button secondary onClick={this.openModal}>
-          Request demo
-        </Button>
+        {this.renderAction()}
       </>
     )
   }

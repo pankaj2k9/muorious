@@ -17,7 +17,7 @@ const FooterSection = styled.section`
   color: white;
   display: flex;
   width: 100%;
-  padding-top: 70px;
+  padding: 50px 0;
   @media (max-width: 992px) {
     padding: 40px 20px;
   }

@@ -106,6 +106,10 @@ const AssistFeaturesMoreCardDescription = styled.p`
   padding: 0 20px;
 `
 class Assist extends React.Component {
+  componentDidMount(){
+    window ? window.ga('send', 'pageview', {  page: window.location.pathname }) : () => {}
+  }
+
   render() {
     const content = this.props.data.allContentfulFeaturePageTemplate1.edges[0]
       .node

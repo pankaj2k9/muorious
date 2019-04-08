@@ -174,6 +174,10 @@ const InsightsFeaturesMoreCardDescription = styled.p`
 `
 
 class Insights extends React.Component {
+  componentDidMount(){
+    window ? window.ga('send', 'pageview', {  page: window.location.pathname }) : () => {}
+  }
+
   render() {
     const content = this.props.data.allContentfulFeaturePageTemplate2.edges[0]
       .node

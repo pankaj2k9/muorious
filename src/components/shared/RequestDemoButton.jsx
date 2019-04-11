@@ -89,6 +89,7 @@ const SelectArrow = styled.span`
 export default class RequestDemoButton extends Component {
   state = {
     modalOpen: false,
+    postForm: false,
     values: {
       first_name: null,
       last_name: null,
@@ -131,92 +132,112 @@ export default class RequestDemoButton extends Component {
       this.state.values,
       { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
     )
-    this.closeModal()
+    this.setState({ postForm: true })
   }
 
   renderAction = () => {
     const { handler } = this.props
-    return (
-      handler 
-      ? <span onClick={this.openModal}>{handler}</span>
-      : <Button secondary onClick={this.openModal}>Request demo</Button>
+    return handler ? (
+      <span onClick={this.openModal}>{handler}</span>
+    ) : (
+      <Button secondary onClick={this.openModal}>
+        Request demo
+      </Button>
     )
   }
 
   render() {
-    const { modalOpen } = this.state
+    const { modalOpen, postForm } = this.state
     return (
       <>
-        {modalOpen && (
-          ReactDOM.createPortal(<>
-            <ModalContent>
-              <FormTitle>Learn more about Miuros</FormTitle>
-              <form onSubmit={this.submitData}>
-                <FlexWrapper wrap align="center" justify="space-between">
-                  <Field>
-                    <label htmlFor="first_name">First Name</label>
-                    <input
-                      placeholder="Enter your first name"
-                      type="text"
-                      id="first_name"
-                      name="first_name"
-                      required
-                      onChange={e => this.updateField(e, 'first_name')}
-                    />
-                  </Field>
-                  <Field>
-                    <label htmlFor="last_name">First Name</label>
-                    <input
-                      placeholder="Enter your last name"
-                      type="text"
-                      id="last_name"
-                      name="last_name"
-                      required
-                      onChange={e => this.updateField(e, 'last_name')}
-                    />
-                  </Field>
-                </FlexWrapper>
-                <FlexWrapper wrap align="center" justify="space-between">
-                  <Field>
-                    <label htmlFor="email">Email</label>
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      id="email"
-                      name="email"
-                      required
-                      onChange={e => this.updateField(e, 'email')}
-                    />
-                  </Field>
-                  <Field>
-                    <label htmlFor="team_size">
-                      Customer service team size
-                    </label>
-                    <select
-                      type="email"
-                      id="team_size"
-                      name="team_size"
-                      required
-                      onChange={e => this.updateField(e, 'team_size')}
-                    >
-                      <option value="Less than 20 agents">Less than 20 agents</option>
-                      <option value="Between 20 and 49 agents">Between 20 and 49 agents</option>
-                      <option value="Between 50 and 99 agents">Between 50 and 99 agents</option>
-                      <option value="Between 100 and 199 agents">Between 100 and 199 agents</option>
-                      <option value="More than 199 agents">More than 199 agents</option>
-                    </select>
-                    <SelectArrow />
-                  </Field>
-                </FlexWrapper>
-                <Space height="20px" />
-                <Button secondary type="submit" fluid>
-                  Request demo
-                </Button>
-              </form>
-            </ModalContent>
-            <ModalBackdrop onClick={this.closeModal} />
-          </>, document.querySelector('body'))
-        )}
+        {modalOpen &&
+          ReactDOM.createPortal(
+            <>
+              <ModalContent>
+                {postForm ? (
+                  <FormTitle>Thank you for your request</FormTitle>
+                ) : (
+                  <>
+                    <FormTitle>Learn more about Miuros</FormTitle>
+                    <form onSubmit={this.submitData}>
+                      <FlexWrapper wrap align="center" justify="space-between">
+                        <Field>
+                          <label htmlFor="first_name">First Name</label>
+                          <input
+                            placeholder="Enter your first name"
+                            type="text"
+                            id="first_name"
+                            name="first_name"
+                            required
+                            onChange={e => this.updateField(e, 'first_name')}
+                          />
+                        </Field>
+                        <Field>
+                          <label htmlFor="last_name">First Name</label>
+                          <input
+                            placeholder="Enter your last name"
+                            type="text"
+                            id="last_name"
+                            name="last_name"
+                            required
+                            onChange={e => this.updateField(e, 'last_name')}
+                          />
+                        </Field>
+                      </FlexWrapper>
+                      <FlexWrapper wrap align="center" justify="space-between">
+                        <Field>
+                          <label htmlFor="email">Email</label>
+                          <input
+                            type="email"
+                            placeholder="Enter your email"
+                            id="email"
+                            name="email"
+                            required
+                            onChange={e => this.updateField(e, 'email')}
+                          />
+                        </Field>
+                        <Field>
+                          <label htmlFor="team_size">
+                            Customer service team size
+                          </label>
+                          <select
+                            type="email"
+                            id="team_size"
+                            name="team_size"
+                            required
+                            onChange={e => this.updateField(e, 'team_size')}
+                          >
+                            <option value="Less than 20 agents">
+                              Less than 20 agents
+                            </option>
+                            <option value="Between 20 and 49 agents">
+                              Between 20 and 49 agents
+                            </option>
+                            <option value="Between 50 and 99 agents">
+                              Between 50 and 99 agents
+                            </option>
+                            <option value="Between 100 and 199 agents">
+                              Between 100 and 199 agents
+                            </option>
+                            <option value="More than 199 agents">
+                              More than 199 agents
+                            </option>
+                          </select>
+                          <SelectArrow />
+                        </Field>
+                      </FlexWrapper>
+                      <Space height="20px" />
+                      <Button secondary type="submit" fluid>
+                        Request demo
+                      </Button>
+                    </form>
+                  </>
+                )}
+              </ModalContent>
+              <ModalBackdrop onClick={this.closeModal} />
+            </>,
+            document.querySelector('body')
+          )}
         {this.renderAction()}
       </>
     )

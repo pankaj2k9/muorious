@@ -29,7 +29,7 @@ const dropdownItems = [
       <ListItem.DropdownItem
         title="Assist"
         link="/assist"
-        description="Assist increase your agents efficiency & lower first reply times"
+        description="Increase your agents efficiency & lower first reply times"
         color="#FFC509"
         icon={`url('${assistLinkImage}')`}
       />

@@ -77,8 +77,7 @@ const Section = styled('section')`
     ${props =>
       props.intro &&
       css`
-        padding: 30px 0;
-        min-height: 450px;
+        padding: 60px 0;
         p {
           margin-top: 20px;
         }
@@ -152,6 +151,7 @@ const Section = styled('section')`
           width: 430px;
           line-height: 32px;
           padding: 15px 0;
+          font-size: 16px;
         }
         h4 {
           font-weight: 400;

@@ -14,7 +14,7 @@ const handleBackgroundColor = ({ theme, dark, light, transparent }) => {
 const Nav = styled('nav')`
   position: ${({ position }) => (position ? position : 'fixed')};
   width: 100%;
-  z-index: 10;
+  z-index: 100;
   background-color: ${handleBackgroundColor};
   & > div {
     height: 72px;

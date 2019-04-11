@@ -10,6 +10,7 @@ const Note = styled('span')`
   font-size: 14px;
   background-color: ${props => getColors(props.theme).pink2}19;
   transform: translate(19px, -7px);
+  cursor: pointer;
 `
 
 export default Note

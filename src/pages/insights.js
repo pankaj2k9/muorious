@@ -175,7 +175,7 @@ const InsightsFeaturesMoreCardDescription = styled.p`
 
 class Insights extends React.Component {
   componentDidMount(){
-    window.gaTrack('pageview', {  page: window.location.pathname })
+    window && window.gaTrack && window.gaTrack('pageview', {  page: window.location.pathname })
   }
 
   render() {

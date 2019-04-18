@@ -7,7 +7,7 @@ import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
 import CTABlock from '../components/shared/CtaBlock'
-import AboutHeroShape from '../atoms/images/AboutHeroShape.svg'
+import AboutHeroShape from '../atoms/Images/AboutHeroShape.svg'
 import FlexWrapper from '../components/shared/FlexWrapper'
 
 const Main = styled.main``
@@ -15,54 +15,6 @@ const Main = styled.main``
 const Img = styled.img`
   width: 100%;
 `
-
-const aboutEntries = [
-  {
-    year: 2016,
-    data: [
-      {
-        text: 'Benoit, Ricardo & Daniele decide to start a company',
-        position: 'left',
-      },
-      { text: 'Miuros was founded', position: 'right' },
-      { text: 'Signed our first customer', position: 'left' },
-    ],
-  },
-  {
-    year: 2017,
-    data: [
-      {
-        text: '1st employee, bringing a 4th nationality to the team',
-        position: 'right',
-      },
-      {
-        text:
-          'Miuros is awared the "Young Innovator Award" by CVC Capital Partner',
-        position: 'left',
-      },
-      { text: 'A round of Angel investment', position: 'right' },
-      { text: 'Miuros joined Techstars', position: 'left' },
-    ],
-  },
-  {
-    year: 2018,
-    data: [
-      { text: 'Zendesk Incubator program', position: 'right' },
-      { text: 'Seed round closed', position: 'left' },
-    ],
-  },
-  {
-    year: 2019,
-    data: [
-      {
-        text:
-          'Our 10th employee joined us bringing in an 8th nationality to the team',
-        position: 'right',
-      },
-    ],
-  },
-]
-
 const AboutOuter = styled.div`
   padding: 40px 60px;
   position: relative;
@@ -260,28 +212,6 @@ const TimelineSection = styled.section`
 const FoundersSection = styled.section`
   padding: 60px 0;
 `
-
-const foundersArray = [
-  {
-    portrait: '',
-    description: 'Benoit is our visionnaire and Customer Support expert. Over the past few years, he’s been working in Customer Support for companies of all sizes (Sunospis, Oracle, Ableton, Helpling) in global B2B or B2C contexts, successfully helping them to develop and scale',
-    position: 'CEO and co-founder',
-    name: 'Benoit Gagnon',
-    link: 'linkedin',
-  }, {
-    portrait: '',
-    description: 'Benoit is our visionnaire and Customer Support expert. Over the past few years, he’s been working in Customer Support for companies of all sizes (Sunospis, Oracle, Ableton, Helpling) in global B2B or B2C contexts, successfully helping them to develop and scale',
-    position: 'CEO and co-founder',
-    name: 'Benoit Gagnon',
-    link: 'linkedin',
-  }, {
-    portrait: '',
-    description: 'Benoit is our visionnaire and Customer Support expert. Over the past few years, he’s been working in Customer Support for companies of all sizes (Sunospis, Oracle, Ableton, Helpling) in global B2B or B2C contexts, successfully helping them to develop and scale',
-    position: 'CEO and co-founder',
-    name: 'Benoit Gagnon',
-    link: 'linkedin',
-  },
-]
 
 const FounderCard = styled.div`
   position: relative;

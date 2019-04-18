@@ -107,7 +107,7 @@ const AssistFeaturesMoreCardDescription = styled.p`
 `
 class Assist extends React.Component {
   componentDidMount(){
-    window.gaTrack('pageview', {  page: window.location.pathname })
+    window && window.gaTrack && window.gaTrack('pageview', {  page: window.location.pathname })
   }
 
   render() {

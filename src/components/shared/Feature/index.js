@@ -35,7 +35,6 @@ const ImageBlock = ({ image, space }) => (
       <Feature.Image src={image} />
     </Feature.Column>
   )
-  
 
 Feature.Title = styled.h3`
   font-family: Modern Era;

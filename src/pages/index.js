@@ -54,9 +54,7 @@ class RootIndex extends React.Component {
         self.scrollAnchorRef.current.simulateClick()
       }
     }, 20)
-    window
-      ? window.ga('send', 'pageview', { page: window.location.pathname })
-      : () => {}
+    window.gaTrack('pageview', { page: window.location.pathname })
   }
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')

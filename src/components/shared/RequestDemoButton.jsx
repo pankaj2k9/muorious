@@ -86,15 +86,22 @@ const SelectArrow = styled.span`
   bottom: 14px;
 `
 
+const FieldError = styled.p`
+    line-height: 1.4;
+    font-size: 14px;
+    margin: 10px 0;
+    color: maroon;
+`
+
 export default class RequestDemoButton extends Component {
   state = {
     modalOpen: false,
     postForm: false,
     values: {
-      first_name: null,
-      last_name: null,
+      firstname: null,
+      lastname: null,
       email: null,
-      team_size: null,
+      support_team_size: 'Less than 20 agents',
     },
   }
 
@@ -126,13 +133,21 @@ export default class RequestDemoButton extends Component {
     e.preventDefault()
     window.gtag('event', 'New demo request', this.state.values)
     axios.post(
-      `https://forms.hubspot.com/uploads/form/v2/${vars.hubspot.portal_id}/${
+      `https://api.hsforms.com/submissions/v3/integration/submit/${vars.hubspot.portal_id}/${
         vars.hubspot.form_id
-      }`,
-      this.state.values,
-      { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
-    )
-    this.setState({ postForm: true })
+        }`,
+      { fields: Object.entries(this.state.values).reduce((arr, [key, value]) => [...arr, { name: key, value }], []) },
+      { headers: { 'Content-Type': 'application/json' } },
+    ).then(() => {
+      this.setState({ postForm: true })
+    })
+      .catch(e => {
+        const { errors } = e.response.data
+        if (errors.includes(i => i.errorType == 'BLOCKED_EMAIL')) {
+          this.setState({ blockedEmail: true })
+        }
+      })
+
   }
 
   renderAction = () => {
@@ -151,93 +166,94 @@ export default class RequestDemoButton extends Component {
     return (
       <>
         {modalOpen &&
-          ReactDOM.createPortal(
-            <>
-              <ModalContent>
-                {postForm ? (
-                  <FormTitle>Thank you for your request</FormTitle>
-                ) : (
-                  <>
-                    <FormTitle>Learn more about Miuros</FormTitle>
-                    <form onSubmit={this.submitData}>
-                      <FlexWrapper wrap align="center" justify="space-between">
-                        <Field>
-                          <label htmlFor="first_name">First Name</label>
-                          <input
-                            placeholder="Enter your first name"
-                            type="text"
-                            id="first_name"
-                            name="first_name"
-                            required
-                            onChange={e => this.updateField(e, 'first_name')}
-                          />
-                        </Field>
-                        <Field>
-                          <label htmlFor="last_name">First Name</label>
-                          <input
-                            placeholder="Enter your last name"
-                            type="text"
-                            id="last_name"
-                            name="last_name"
-                            required
-                            onChange={e => this.updateField(e, 'last_name')}
-                          />
-                        </Field>
-                      </FlexWrapper>
-                      <FlexWrapper wrap align="center" justify="space-between">
-                        <Field>
-                          <label htmlFor="email">Email</label>
-                          <input
-                            type="email"
-                            placeholder="Enter your email"
-                            id="email"
-                            name="email"
-                            required
-                            onChange={e => this.updateField(e, 'email')}
-                          />
-                        </Field>
-                        <Field>
-                          <label htmlFor="team_size">
-                            Customer service team size
-                          </label>
-                          <select
-                            type="email"
-                            id="team_size"
-                            name="team_size"
-                            required
-                            onChange={e => this.updateField(e, 'team_size')}
-                          >
-                            <option value="Less than 20 agents">
-                              Less than 20 agents
-                            </option>
-                            <option value="Between 20 and 49 agents">
-                              Between 20 and 49 agents
-                            </option>
-                            <option value="Between 50 and 99 agents">
-                              Between 50 and 99 agents
-                            </option>
-                            <option value="Between 100 and 199 agents">
-                              Between 100 and 199 agents
-                            </option>
-                            <option value="More than 199 agents">
-                              More than 199 agents
-                            </option>
-                          </select>
-                          <SelectArrow />
-                        </Field>
-                      </FlexWrapper>
-                      <Space height="20px" />
-                      <Button secondary type="submit" fluid>
-                        Request demo
-                      </Button>
-                    </form>
-                  </>
-                )}
-              </ModalContent>
-              <ModalBackdrop onClick={this.closeModal} />
-            </>,
-            document.querySelector('body')
-          )}
+        ReactDOM.createPortal(
+          <>
+            <ModalContent>
+              {postForm ? (
+                <FormTitle>Thanks for submitting the form. We will get back to you shortly</FormTitle>
+              ) : (
+                <>
+                  <FormTitle>Learn more about Miuros</FormTitle>
+                  <form onSubmit={this.submitData}>
+                    <FlexWrapper wrap align="flex-start" justify="space-between">
+                      <Field>
+                        <label htmlFor="firstname">First Name</label>
+                        <input
+                          placeholder="Enter your first name"
+                          type="text"
+                          id="firstname"
+                          name="firstname"
+                          required
+                          onChange={e => this.updateField(e, 'firstname')}
+                        />
+                      </Field>
+                      <Field>
+                        <label htmlFor="lastname">Last Name</label>
+                        <input
+                          placeholder="Enter your last name"
+                          type="text"
+                          id="lastname"
+                          name="lastname"
+                          required
+                          onChange={e => this.updateField(e, 'lastname')}
+                        />
+                      </Field>
+                    </FlexWrapper>
+                    <FlexWrapper wrap align="flex-start" justify="space-between">
+                      <Field>
+                        <label htmlFor="email">Email</label>
+                        <input
+                          type="email"
+                          placeholder="Enter your email"
+                          id="email"
+                          name="email"
+                          required
+                          onChange={e => this.updateField(e, 'email')}
+                        />
+                        <FieldError>Submission from this email address are not allowed</FieldError>
+                      </Field>
+                      <Field>
+                        <label htmlFor="team_size">
+                          Customer service team size
+                        </label>
+                        <select
+                          type="email"
+                          id="team_size"
+                          name="team_size"
+                          required
+                          onChange={e => this.updateField(e, 'support_team_size')}
+                        >
+                          <option value="Less than 20 agents">
+                            Less than 20 agents
+                          </option>
+                          <option value="Between 20 and 49 agents">
+                            Between 20 and 49 agents
+                          </option>
+                          <option value="Between 50 and 99 agents">
+                            Between 50 and 99 agents
+                          </option>
+                          <option value="Between 100 and 199 agents">
+                            Between 100 and 199 agents
+                          </option>
+                          <option value="More than 199 agents">
+                            More than 199 agents
+                          </option>
+                        </select>
+                        <SelectArrow/>
+                      </Field>
+                    </FlexWrapper>
+                    <Space height="20px"/>
+                    <Button secondary type="submit" fluid>
+                      Request demo
+                    </Button>
+                  </form>
+                </>
+              )}
+            </ModalContent>
+            <ModalBackdrop onClick={this.closeModal}/>
+          </>,
+          document.querySelector('body'),
+        )}
         {this.renderAction()}
       </>
     )

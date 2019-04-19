@@ -105,9 +105,10 @@ const AssistFeaturesMoreCardDescription = styled.p`
   color: #828282;
   padding: 0 20px;
 `
+
 class Assist extends React.Component {
-  componentDidMount(){
-    window && window.gaTrack && window.gaTrack('pageview', {  page: window.location.pathname })
+  componentDidMount() {
+    window && window.gaTrack && window.gaTrack('pageview', { page: window.location.pathname })
   }
 
   render() {
@@ -115,7 +116,7 @@ class Assist extends React.Component {
       .node
     const siteTitle = `${content.title} - ${get(
       this,
-      'props.data.site.siteMetadata.title'
+      'props.data.site.siteMetadata.title',
     )}`
 
     let quotesData = []
@@ -133,7 +134,7 @@ class Assist extends React.Component {
             <title>{siteTitle}</title>
           </Helmet>
           <main>
-            <Nav isGreen location={this.props.location} />
+            <Nav isGreen location={this.props.location}/>
             <PageTransitionWrapper>
               <HeroSection assistHero>
                 <Container>
@@ -149,10 +150,10 @@ class Assist extends React.Component {
                   </TextBig>
                   <Breakpoint medium down>
                     <FlexWrapper>
-                      <RequestDemoButton />
+                      <RequestDemoButton/>
                     </FlexWrapper>
                   </Breakpoint>
-                  <HeroSection.Img src={AssistHeroImage} />
+                  <HeroSection.Img src={AssistHeroImage}/>
                 </Container>
               </HeroSection>
               <Section benefits>
@@ -191,7 +192,7 @@ class Assist extends React.Component {
                   </FlexWrapper>
                 </Container>
               </Section>
-              <Testimonials color="yellow" data={quotesData} />
+              <Testimonials color="yellow" data={quotesData}/>
               <AssistFeaturesSection>
                 <Feature
                   imagePosition="left"
@@ -202,8 +203,9 @@ class Assist extends React.Component {
                     <>
                       {content.feature1Description.feature1Description}
                       <div>
-                        <Space height="20px" />
-                        <a href="https://miuros.com/categorization-whitepaper/" target="_blank"><Button secondary>Download our whitepaper</Button></a>
+                        <Space height="20px"/>
+                        <a href="https://miuros.com/categorization-whitepaper/" target="_blank"><Button secondary>Download
+                          our whitepaper</Button></a>
                       </div>
                     </>
                   </Feature.Description>
@@ -214,7 +216,7 @@ class Assist extends React.Component {
                 >
                   <Feature.Title>{content.feature2Title}</Feature.Title>
                   <Feature.Description>
-                    {content.feature2Description.feature2Description}
+                    <p dangerouslySetInnerHTML={{ __html: content.feature2Description.feature2Description.replace(/\s\s\s/, '</br></br>') }}/>
                   </Feature.Description>
                 </Feature>
               </AssistFeaturesSection>
@@ -253,7 +255,7 @@ class Assist extends React.Component {
                 image={content.bottomCtaImage.file.url}
                 title={content.bottomCtaTitle}
               />
-              <Footer location={this.props.location} />
+              <Footer location={this.props.location}/>
             </PageTransitionWrapper>
           </main>
         </React.Fragment>

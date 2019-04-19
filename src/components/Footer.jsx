@@ -168,8 +168,7 @@ class Footer extends React.Component {
                 </Bold>
               </FooterFeatures>
               <FooterCompany>
-                <Bold>Company</Bold>
-                {/* <Link to="/about">About</Link> */}
+                 <Link to="/about"><Bold>About</Bold></Link>
                 <a href="https://angel.co/miuros/jobs"><Bold>Careers</Bold></a>
                 <Link to="/privacy"><Bold>Privacy</Bold></Link>
               </FooterCompany>
@@ -224,6 +223,7 @@ class Footer extends React.Component {
                   </Bold>
                 </FooterFeatures>
                 <FooterCompany>
+                  <Link to="/about"><Bold>About</Bold></Link>
                   <Bold>
                     <a href="https://angel.co/miuros/jobs"><Bold>Careers</Bold></a>
                   </Bold>

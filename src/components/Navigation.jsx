@@ -29,7 +29,7 @@ const dropdownItems = [
       <ListItem.DropdownItem
         title="Assist"
         link="/assist"
-        description="Increase your agents efficiency & lower first reply times"
+        description="Miuros Assist increases agent's efficiency & lowers 1st reply times"
         color="#FFC509"
         icon={`url('${assistLinkImage}')`}
       />
@@ -156,7 +156,7 @@ class Navigation extends React.Component {
                           {renderIntegrationLink(props.location)}
                         </ListItem>
                         <ListItem nav>
-                          {/* <Link to="/about">About</Link> */}
+                           <Link to="/about">About</Link>
                         </ListItem>
                       </List>
                     </Col>

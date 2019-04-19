@@ -149,7 +149,7 @@ const HeroSection = styled.section`
   justify-content: center;
   background-color: #174f49;
   background-image: url(${AboutHeroShape});
-  background-size: 40% auto;
+  background-size: auto 100%;
   background-position: top left;
   background-repeat: no-repeat;
   @media(max-width: 768px) {
@@ -221,11 +221,11 @@ const FounderCard = styled.div`
   width: 33.3333%;
   color: #fff;
   font-size: 16px;
-  line-height: 32px;
+  line-height: 26px;
   &:after {
     content: '';
     display: block;
-    padding-bottom: 115%;
+    padding-bottom: 120%;
  }
   &:hover {
   .description {
@@ -256,15 +256,19 @@ const FounderCard = styled.div`
   .description {
     opacity: 0;
   }
-  @media(max-width: 768px){
-    width: 100%;
-    
+  @media(max-width: 1000px){
+    flex-grow: 1;
     &:after {
       display: none;
     }
     & > div {
       position: static;
+      padding-bottom: 100px;
     }
+  }
+  @media(max-width: 768px){
+    width: 100%;
+    
   }
 `
 
@@ -287,6 +291,24 @@ const FounderPosition = styled.p`
   font-weight: 300;
 `
 const FounderDescription = styled.p``
+
+const FounderLinkedinLink = styled.a`
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-position: center;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOoSURBVHgB7Z2BUdtAEEW/mBTgDhAVABVEqSBJBcgVxFQQqCC4gkAHoYIoFcSpAHUAHSi71hlksAfrVtYOx38zh7GRrJl9kk53t3dk6NA0zURevkkppeQgQ7KQUkmZZ1lWrz7MVr9I8M/k5UrKBGSf1FIuRcK1vlkKkODrWX8FMialSLjJJPi5vPkLnvlj8yDl6EB+fAeD74HGfKZXgJ79JyAe1CqgAXHjAMQVCnCGApyhAGcowBkKcOYDhqOScou2r+MhfFZI0T6mHGQjQ7QDKrSdS9W2DeQQJdoWdw6yhlXAjQS+3GXD0Of0G5SwhkVAJcH/1GcHdvy9xFIJT9GTMBBxCfJIrIDr7qhO333xVEm/e2IF3CISEfdg2T81YgXUsLEAWRIr4B42eAsKeLWE+RQUiBXQ6/FzAx9BlsQK+AwbHAINxAr4EhpVvQkpMDnIEktLeCGPlKd9dmBL+CWWSvhEAvpz1407fUEMfgfrU1Apgb177XYUbjt65ucgawyZllJhfTwgl3KMNtGXZ/0WmBfkDIcknaEAZyjAmSEH5d8i9bP3OUbmPQnQJ7NfUv6gHU6tN20UpmlpV0mBts+qwD5p4ikQgex3scN3l4hgy3fdh2NGPQprG0fKdbMnUq8D5lKO5Gy/CCNxvdErJWR+HKG9ggYlZQFTCdwsNvDPCSK+YuCkglQFTFezEIdGryYMKCFFAef7Cv6KIKHCAKQmQNNlxppuq3lR5ttbagLOMRLhMXYOI0kJGKrC7YH5amNXhIEgvIIBCrBjyvKjADumxlnyfUGhC6JA279zGD7WW8eqT8hUb2hlLMfQ74jq6khagARGZ+XMsDk4+rkGbz7Ao2uNyFynZAVIYDUDo3hls1zKD9kWRgn/ECkgyTognPlFj11UgiVbr0YkyQlo2hSZC/SnRDw1IknxCpghjjPEE12RpyggNvN6YrgNUUAHy7189KztpAQYK1Jl9Ay+1K4AawApwMiby0GlgHUOMTLsjHOGApyhAGcowBkKcIYCnKEAZyjAGQpwhgKcoQBnKMAZCnCGApyhAGcowBkKcIYCnKEAZyjAGQpwhgKcscwP0FUTEcEuqR+6QEaB/hzDxmTs43LNOGd4C3KGApyhAGcowBkKcIYCnKEAZ1RADeLFQgXcgHixyMJiFnfgEvNjo1NbTw/CaiGjLfVFHtF/AVwvK+GwyqBKqEH2jZ7w09XiIFn3L2GdBZ3qr7PNR5+0nDgLtKtrXXXXKPoPiabUnHv/PaQAAAAASUVORK5CYII=')
+`
+
+
+const FoundersOuter = styled.div`
+  display: flex;
+ 
+`
 
 const AboutPage = props => {
   const {
@@ -328,10 +350,10 @@ const AboutPage = props => {
             </HeroText>
           </HeroSection>
           <FoundersSection>
-            <Container>
+            <Container style={{ maxWidth: '980px' }}>
               <SectionTitle>Meet our founders</SectionTitle>
 
-              <FlexWrapper wrap>
+              <FoundersOuter>
                 {aboutContent.founders.map((item, idx) => (
                   <FounderCard key={idx} bg={item.portrait.file.url}>
                     <div>
@@ -342,10 +364,12 @@ const AboutPage = props => {
                         <FounderPosition>{item.position}</FounderPosition>
                         <FounderName>{item.name}</FounderName>
                       </FounderMeta>
+                      {item.linkedinUrl &&
+                      <FounderLinkedinLink target="_blank" href={item.linkedinUrl}></FounderLinkedinLink>}
                     </div>
                   </FounderCard>
                 ))}
-              </FlexWrapper>
+              </FoundersOuter>
             </Container>
           </FoundersSection>
           <TimelineSection>
@@ -382,7 +406,7 @@ export const pageQuery = graphql`
                 description
               }
               position
-              #              linkedinUrl
+              linkedinUrl
               portrait {
                 file {
                   url

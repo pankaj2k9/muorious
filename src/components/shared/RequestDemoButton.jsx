@@ -143,7 +143,7 @@ export default class RequestDemoButton extends Component {
     })
       .catch(e => {
         const { errors } = e.response.data
-        if (errors.includes(i => i.errorType == 'BLOCKED_EMAIL')) {
+        if (!!(errors.find(i => i.errorType == 'BLOCKED_EMAIL'))) {
           this.setState({ blockedEmail: true })
         }
       })
@@ -162,7 +162,7 @@ export default class RequestDemoButton extends Component {
   }
 
   render() {
-    const { modalOpen, postForm } = this.state
+    const { modalOpen, postForm, blockedEmail } = this.state
     return (
       <>
         {modalOpen &&
@@ -210,7 +210,7 @@ export default class RequestDemoButton extends Component {
                           required
                           onChange={e => this.updateField(e, 'email')}
                         />
-                        <FieldError>Submission from this email address are not allowed</FieldError>
+                        {blockedEmail ? <FieldError>Submission from this email address are not allowed</FieldError> : null}
                       </Field>
                       <Field>
                         <label htmlFor="team_size">

@@ -60,9 +60,7 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
 
     const content = this.props.data.allContentfulHomepage.edges[0].node
-    const quotesData = this.props.data.allContentfulQuote.edges.map(
-      element => ({ ...element.node })
-    )
+    const quotesData = content.customerQuotes
     return (
       <LayoutWithThemeProvider>
         <React.Fragment>
@@ -402,6 +400,24 @@ export const pageQuery = graphql`
               url
             }
           }
+          customerQuotes {
+            ... on ContentfulQuote {
+              content
+              authorFirstName
+              authorLastName
+              authorJobTitle
+              authorCompany {
+                customerName
+                customerUrl
+                customerLogo {
+                  file {
+                    url
+                  }
+                }
+              }
+            }
+          }
+          
           customerLogos {
             customerUrl
             customerLogo {

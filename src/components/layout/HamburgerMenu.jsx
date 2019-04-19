@@ -159,6 +159,7 @@ const ComingSoon = styled.span`
   color: #ff3a66;
   padding: 0 6px;
   background-color: #2e4d4c;
+  cursor: pointer;
   &:after {
     content: 'Coming soon';
   }
@@ -187,7 +188,7 @@ const dropdownItems = [
     content: (
       <>
         <p>
-          Experiences <ComingSoon />
+          Experiences <RequestDemoButton handler={<ComingSoon />} />
         </p>
       </>
     ),

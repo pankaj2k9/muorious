@@ -48,6 +48,7 @@ const IndexSideImg = styled('img').attrs(props => ({
   display: block;
   max-width: 75%;
   margin: auto;
+  transform: translateY(10px);
 `
 export {
   IndexHeroImg,

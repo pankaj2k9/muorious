@@ -216,7 +216,7 @@ class Assist extends React.Component {
                 >
                   <Feature.Title>{content.feature2Title}</Feature.Title>
                   <Feature.Description>
-                    <p dangerouslySetInnerHTML={{ __html: content.feature2Description.feature2Description.replace(/\s\s\s/, '</br></br>') }}/>
+                    <p dangerouslySetInnerHTML={{ __html: content.feature2Description.feature2Description.replace(/\s\s/g, '</br>') }}/>
                   </Feature.Description>
                 </Feature>
               </AssistFeaturesSection>

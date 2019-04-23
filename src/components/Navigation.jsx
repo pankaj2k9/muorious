@@ -11,6 +11,7 @@ import { Grid, Row, Col } from 'react-styled-flexboxgrid'
 import { mediaQueries } from '../utils/styling'
 import HamburgerMenu from './layout/HamburgerMenu'
 import assistLinkImage from '../atoms/Images/assistDropdownLink.svg'
+import { StaticQuery, graphql } from 'gatsby'
 
 const NavPlaceholder = styled.div`
   height: 96px;
@@ -116,6 +117,7 @@ class Navigation extends React.Component {
       }
     }
   }
+
   componentDidMount() {
     const { transparency } = this.props
     if (transparency) {
@@ -144,19 +146,63 @@ class Navigation extends React.Component {
                   <Row between="xs" middle="xs">
                     <Col xs={1}>
                       <Link to="/">
-                        <Logo />
+                        <Logo/>
                       </Link>
                     </Col>
                     <Col xs={10}>
                       <List flex>
-                        <ListItem.Dropdown nav items={dropdownItems}>
-                          <a>Features</a>
-                        </ListItem.Dropdown>
+                        <StaticQuery
+                          query={graphql`
+                            query NavQuery {
+                                allContentfulFeatures {
+                                  edges {
+                                    node {
+                                      featureRecords {
+                                        ... on ContentfulFeature {
+                                          name
+                                          description
+                                          link
+                                          color
+                                          comingSoon
+                                          icon {
+                                            file {
+                                              url
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                            }
+                          `}
+                          render={data => {
+                            const dropdownItems = data.allContentfulFeatures.edges[0].node.featureRecords.map((i, idx) => ({
+                              content: (
+                                <Scrollchor key={idx} to={i.link.replace('/', '')} animate={{ offset: -80 }}>
+                                  <ListItem.DropdownItem
+                                    title={i.name}
+                                    link={i.link}
+                                    comingSoon={i.comingSoon}
+                                    description={i.description}
+                                    color={i.color}
+                                    icon={`url(${i.icon.file.url})`}
+                                  />
+                                </Scrollchor>
+                              )
+                            }))
+                            return (
+                              <ListItem.Dropdown nav items={dropdownItems}>
+                                <a>Features</a>
+                              </ListItem.Dropdown>
+                            )
+                          }}
+                        />
                         <ListItem nav>
                           {renderIntegrationLink(props.location)}
                         </ListItem>
                         <ListItem nav>
-                           <Link to="/about">About</Link>
+                          <Link to="/about">About</Link>
                         </ListItem>
                       </List>
                     </Col>
@@ -170,7 +216,7 @@ class Navigation extends React.Component {
                       </StyledLink>
                     </Col>
                     <Col xs={7}>
-                      <RequestDemoButton />
+                      <RequestDemoButton/>
                     </Col>
                   </Row>
                 </Col>
@@ -181,12 +227,12 @@ class Navigation extends React.Component {
                 <Row middle="xs" between="xs">
                   <Col xs={2}>
                     <Link to="/">
-                      <Logo />
+                      <Logo/>
                     </Link>
                   </Col>
                   <Col xs={1}>
                     <Row end="xs">
-                      <HamburgerMenu />
+                      <HamburgerMenu/>
                     </Row>
                   </Col>
                 </Row>
@@ -199,4 +245,5 @@ class Navigation extends React.Component {
     )
   }
 }
+
 export default Navigation

@@ -147,7 +147,6 @@ export default class RequestDemoButton extends Component {
           this.setState({ blockedEmail: true })
         }
       })
-
   }
 
   renderAction = () => {

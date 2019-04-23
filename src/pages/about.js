@@ -222,6 +222,9 @@ const FounderCard = styled.div`
   color: #fff;
   font-size: 16px;
   line-height: 26px;
+  &:last-of-type {
+    background-position: top right;
+  }
   &:after {
     content: '';
     display: block;
@@ -262,13 +265,12 @@ const FounderCard = styled.div`
       display: none;
     }
     & > div {
-      position: static;
-      padding-bottom: 100px;
+      position: relative;
+      padding-bottom: 140px;
     }
   }
   @media(max-width: 768px){
     width: 100%;
-    
   }
 `
 
@@ -279,7 +281,6 @@ const FounderMeta = styled.div`
   width: calc(100% - 40px);
   
   @media(max-width: 768px){
-      position: static;
       margin-top: 20px;
   }
 `
@@ -307,7 +308,9 @@ const FounderLinkedinLink = styled.a`
 
 const FoundersOuter = styled.div`
   display: flex;
- 
+  @media(max-width: 980px) {
+    flex-wrap: wrap;
+  }
 `
 
 const AboutPage = props => {

@@ -350,7 +350,7 @@ class WhitepaperPage extends React.Component {
                           config={{
                             'Privacy Policy': '#fff',
                           }}
-                          link="/privacy-policy"
+                          link="/privacy"
                           additionalStyles="font-weight: 600"
                           text={whitePaperContent.consentDisclaimer}
                         />

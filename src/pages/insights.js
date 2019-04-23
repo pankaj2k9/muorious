@@ -194,7 +194,7 @@ class Insights extends React.Component {
     } catch (e) {
       console.warn(e)
     }
-    console.warn(content)
+
     return (
       <LayoutWithThemeProvider>
         <React.Fragment>

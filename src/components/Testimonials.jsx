@@ -43,6 +43,7 @@ const TestimonialOuter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateZ(0);
   @media (max-width: 992px) {
     padding: 50px 0 0;
   }
@@ -54,6 +55,7 @@ const TestimonialText = styled.p`
   font-size: 22px;
   line-height: 40px;
   font-weight: 300;
+  transform: translateZ(0);
   &:before {
     content: '“';
   }

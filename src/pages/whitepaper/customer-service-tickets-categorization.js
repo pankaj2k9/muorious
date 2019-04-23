@@ -181,6 +181,7 @@ class WhitepaperPage extends React.Component {
 
   constructor(props) {
     super(props)
+
     this.scrollAnchorRef = React.createRef()
   }
 
@@ -197,6 +198,7 @@ class WhitepaperPage extends React.Component {
 
 
   updateField = (e, field) => {
+    console.log('updateField', e, field)
     this.setState({
       values: {
         ...this.state.values,
@@ -205,9 +207,13 @@ class WhitepaperPage extends React.Component {
     })
   }
 
-  submitData = e => {
+  submitData = (e) => {
     e.preventDefault()
+
+    console.log('submitData', e)
+
     window.gtag('event', 'New demo request', this.state.values)
+
     axios.post(
       `https://api.hsforms.com/submissions/v3/integration/submit/${vars.hubspot.portal_id}/${
         vars.hubspot.form_id

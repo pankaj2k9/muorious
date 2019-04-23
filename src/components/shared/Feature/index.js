@@ -48,7 +48,7 @@ Feature.Title = styled.h3`
     margin: 0 0 15px;
   }
 `
-Feature.Description = styled.p`
+Feature.Description = styled.div`
   font-family: Modern Era;
   font-size: 16px;
   line-height: 1.5;

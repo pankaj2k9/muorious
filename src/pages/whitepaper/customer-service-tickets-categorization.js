@@ -17,7 +17,7 @@ import Button from '../../atoms/Button'
 import axios from 'axios'
 import vars from '../../utils/vars'
 import ColoredText from '../../components/shared/ColoredText'
-
+import * as FileSaver from 'save-as-js';
 
 const FormSection = styled.section`
   min-height: 100vh;
@@ -214,6 +214,9 @@ class WhitepaperPage extends React.Component {
 
     window.gtag('event', 'New demo request', this.state.values)
 
+    let fileName = this.props.data.allContentfulWhitepaperPage.edges[0].node.document.file.fileName;
+    let fileUrl = this.props.data.allContentfulWhitepaperPage.edges[0].node.document.file.url;
+
     axios.post(
       `https://api.hsforms.com/submissions/v3/integration/submit/${vars.hubspot.portal_id}/${
         vars.hubspot.form_id
@@ -221,7 +224,11 @@ class WhitepaperPage extends React.Component {
       { fields: Object.entries(this.state.values).reduce((arr, [key, value]) => [...arr, { name: key, value }], []) },
       { headers: { 'Content-Type': 'application/json' } },
     ).then(() => {
-      window.open(this.props.data.allContentfulWhitepaperPage.edges[0].node.documen.file.url)
+      fetch(fileUrl).then((res) => {
+        res.blob().then((b) => {
+          FileSaver.saveAs(b, fileName);
+        });
+      })
       this.setState({ postForm: true })
     })
       .catch(e => {
@@ -237,6 +244,7 @@ class WhitepaperPage extends React.Component {
 
     const content = this.props.data.allContentfulHomepage.edges[0].node
     const whitePaperContent = this.props.data.allContentfulWhitepaperPage.edges[0].node
+
     const { postForm, blockedEmail } = this.state
     return (
       <LayoutWithThemeProvider>
@@ -254,102 +262,108 @@ class WhitepaperPage extends React.Component {
           <main style={{ overflow: 'hidden' }}>
             <Nav transparency location={this.props.location}/>
             <FormSection>
-
               <Inner>
                 <Col>
-                  <Title>{whitePaperContent.title}</Title>
-                  <Description>
-                    <ColoredText
-                      config={{
-                        'best practices': '#fff',
-                        'Artificial Intelligence': '#fff',
-                        'support and drastically enhance': '#fff',
-                      }}
-                      additionalStyles="font-weight: 600"
-                      text={whitePaperContent.description.description}
-                    />
-                  </Description>
-                  <form onSubmit={this.submitData}>
-                    <Field>
-                      <input
-                        placeholder="Enter your first name"
-                        type="text"
-                        id="firstname"
-                        name="firstname"
-                        required
-                        onChange={e => this.updateField(e, 'firstname')}
-                      />
-                    </Field>
-                    <Field>
-                      <input
-                        placeholder="Enter your last name"
-                        type="text"
-                        id="lastname"
-                        name="lastname"
-                        required
-                        onChange={e => this.updateField(e, 'lastname')}
-                      />
-                    </Field>
-                    <Field>
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        id="email"
-                        name="email"
-                        required
-                        onChange={e => this.updateField(e, 'email')}
-                      />
-                      {blockedEmail ?
-                        <FieldError>Submission from this email address are not allowed</FieldError> : null}
-                    </Field>
-                    <Field>
-                      <select
-                        type="email"
-                        id="team_size"
-                        name="team_size"
-                        required
-                        onChange={e => this.updateField(e, 'support_team_size')}
-                      >
-                        <option value="Less than 20 agents">
-                          Less than 20 agents
-                        </option>
-                        <option value="Between 20 and 49 agents">
-                          Between 20 and 49 agents
-                        </option>
-                        <option value="Between 50 and 99 agents">
-                          Between 50 and 99 agents
-                        </option>
-                        <option value="Between 100 and 199 agents">
-                          Between 100 and 199 agents
-                        </option>
-                        <option value="More than 199 agents">
-                          More than 199 agents
-                        </option>
-                      </select>
-                      <SelectArrow/>
-                    </Field>
-                    <P><Checkbox type="checkbox" id="consent"/><label
-                      style={{ userSelect: 'none', cursor: 'pointer' }}
-                      htmlFor="consent">{whitePaperContent.subscriptionConsentDisclaimer}</label></P>
-                    <Button style={{ maxWidth: '360px' }} secondary type="submit" fluid>
-                      Download whitepaper
-                    </Button>
-                    <P>
+                  {postForm ? (
+                    <Title style={{textAlign: 'center'}}>Thanks for submitting the form.</Title>
+                  ) : (
+                    <>
+                    <Title>{whitePaperContent.title}</Title>
+                    <Description>
                       <ColoredText
                         config={{
-                          'Privacy Policy': '#fff',
+                          'best practices': '#fff',
+                          'Artificial Intelligence': '#fff',
+                          'support and drastically enhance': '#fff',
                         }}
-                        link="/privacy-policy"
                         additionalStyles="font-weight: 600"
-                        text={whitePaperContent.consentDisclaimer}
+                        text={whitePaperContent.description.description}
                       />
-                    </P>
-                  </form>
+                    </Description>
+                    <form onSubmit={e => this.submitData(e)}>
+                      <Field>
+                        <input
+                          placeholder="Enter your first name"
+                          type="text"
+                          id="firstname"
+                          name="firstname"
+                          required
+                          onChange={e => this.updateField(e, 'firstname')}
+                        />
+                      </Field>
+                      <Field>
+                        <input
+                          placeholder="Enter your last name"
+                          type="text"
+                          id="lastname"
+                          name="lastname"
+                          required
+                          onChange={e => this.updateField(e, 'lastname')}
+                        />
+                      </Field>
+                      <Field>
+                        <input
+                          type="email"
+                          placeholder="Enter your email"
+                          id="email"
+                          name="email"
+                          required
+                          onChange={e => this.updateField(e, 'email')}
+                        />
+                        {blockedEmail ?
+                          <FieldError>Submission from this email address are not allowed</FieldError> : null}
+                      </Field>
+                      <Field>
+                        <select
+                          type="email"
+                          id="team_size"
+                          name="team_size"
+                          required
+                          onChange={e => this.updateField(e, 'support_team_size')}
+                        >
+                          <option value="Less than 20 agents">
+                            Less than 20 agents
+                          </option>
+                          <option value="Between 20 and 49 agents">
+                            Between 20 and 49 agents
+                          </option>
+                          <option value="Between 50 and 99 agents">
+                            Between 50 and 99 agents
+                          </option>
+                          <option value="Between 100 and 199 agents">
+                            Between 100 and 199 agents
+                          </option>
+                          <option value="More than 199 agents">
+                            More than 199 agents
+                          </option>
+                        </select>
+                        <SelectArrow/>
+                      </Field>
+                      <P><Checkbox type="checkbox" id="consent"/><label
+                        style={{ userSelect: 'none', cursor: 'pointer' }}
+                        htmlFor="consent">{whitePaperContent.subscriptionConsentDisclaimer}</label></P>
+                      <Button style={{ maxWidth: '360px' }} secondary type="submit" fluid>
+                        Download whitepaper
+                      </Button>
+                      <P>
+                        <ColoredText
+                          config={{
+                            'Privacy Policy': '#fff',
+                          }}
+                          link="/privacy-policy"
+                          additionalStyles="font-weight: 600"
+                          text={whitePaperContent.consentDisclaimer}
+                        />
+                      </P>
+                    </form>
+                    </>
+                  )}
                 </Col>
                 <Col>
                   <Illustration src={whitePaperContent.illustration.file.url} alt="Miuros whitepaper"/>
                 </Col>
               </Inner>
+
             </FormSection>
             <PageTransitionWrapper>
               <Section customerLogos>
@@ -403,6 +417,7 @@ export const pageQuery = graphql`
 
           document {
             file {
+              fileName
               url
             }
           }

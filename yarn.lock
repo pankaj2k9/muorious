@@ -10342,6 +10342,11 @@ sanitize-html@^1.18.2:
     srcset "^1.0.0"
     xtend "^4.0.0"
 
+save-as-js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/save-as-js/-/save-as-js-1.0.0.tgz#88c7f0b6084a7d8a8c77a3b545ef408d0b256c52"
+  integrity sha512-cBs4Z3r5A5E6go2A1dwtV/sMWHa5oHN0KpaX0CHLcj5e6Ssm/eJdDUKwuMNqt6MiF8FiM5W/UCV2UiGrOsP/eA==
+
 sax@>=0.6.0, sax@^1.2.4, sax@~1.2.1, sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"

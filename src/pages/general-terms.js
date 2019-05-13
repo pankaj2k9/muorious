@@ -122,7 +122,7 @@ export default PrivacyPage
 
 export const pageQuery = graphql`
   query {
-    allContentfulLegalInfo(filter: {contentful_id: {eq:"NgmvsRWeASdp7AZkX88lQ"}}) {
+    allContentfulLegalInfo(filter: {contentful_id: {eq:"6UhHn8cQ1x9n24cJVyEBjB"}}) {
       edges {
         node {
           title

@@ -11,22 +11,21 @@ const CustomerLogoContainer = styled('div')`
   height: 50px;
   display: flex !important;
   align-items: center;
-  width: 100%;
 `
 
 const SliderContainer = styled('div')`
   max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right:auto;
+  margin-left:auto;
 `
 
 const HomeCustomerLogos = ({ customerLogos }) => {
   const settings = {
     autoplay: true,
-    slidesToScroll: 4,
+    slidesToScroll: 6,
     adaptiveHeight: true,
-    slidesToShow: 4,
-    variableWidth: false,
+    slidesToShow: 6,
+    variableWidth: true,
     infinite: true,
     appendDots: () => null,
     arrows: false,
@@ -36,18 +35,18 @@ const HomeCustomerLogos = ({ customerLogos }) => {
   }
   return (
     <SliderContainer>
-      <Slider {...settings}>
-        {customerLogos.map(
-          (logo, index) =>
-            logo.customerLogo && (
-              <CustomerLogoContainer key={index}>
-                <a href={logo.customerUrl}>
-                  <IndexCustomerLogo src={logo.customerLogo.file.url} />
-                </a>
-              </CustomerLogoContainer>
-            )
-        )}
-      </Slider>
+    <Slider {...settings}>
+      {customerLogos.map(
+        (logo, index) =>
+          logo.customerLogo && (
+            <CustomerLogoContainer key={index}>
+              <a href={logo.customerUrl}>
+                <IndexCustomerLogo src={logo.customerLogo.file.url} />
+              </a>
+            </CustomerLogoContainer>
+          )
+      )}
+    </Slider>
     </SliderContainer>
   )
 }

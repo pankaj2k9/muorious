@@ -49,7 +49,7 @@ const AssistFeaturesMoreSection = styled.section`
   margin: 0 auto;
   padding-top: 80px;
   margin-bottom: 100px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era, sans-serif;
 `
 
 const AssistFeaturesMoreTitle = styled.h3`
@@ -61,7 +61,7 @@ const AssistFeaturesMoreTitle = styled.h3`
   text-align: center;
   color: #000000;
   padding-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era, sans-serif;
   @media (max-width: 992px) {
     margin: 0;
     width: 100vw;
@@ -94,12 +94,12 @@ const AssistFeaturesMoreCardTitle = styled.h4`
   font-weight: 400;
   font-size: 24px;
   color: #000000;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era, sans-serif;
   padding: 20px 20px;
 `
 
 const AssistFeaturesMoreCardDescription = styled.p`
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era, sans-serif;
   font-size: 16px;
   line-height: 32px;
   color: #828282;
@@ -108,9 +108,7 @@ const AssistFeaturesMoreCardDescription = styled.p`
 
 class Assist extends React.Component {
   componentDidMount() {
-    window &&
-      window.gaTrack &&
-      window.gaTrack('pageview', { page: window.location.pathname })
+    window && window.gaTrack && window.gaTrack('pageview', { page: window.location.pathname })
   }
 
   render() {
@@ -118,7 +116,7 @@ class Assist extends React.Component {
       .node
     const siteTitle = `${content.title} - ${get(
       this,
-      'props.data.site.siteMetadata.title'
+      'props.data.site.siteMetadata.title',
     )}`
 
     let quotesData = []
@@ -136,7 +134,7 @@ class Assist extends React.Component {
             <title>{siteTitle}</title>
           </Helmet>
           <main>
-            <Nav isGreen location={this.props.location} />
+            <Nav isGreen location={this.props.location}/>
             <PageTransitionWrapper>
               <HeroSection assistHero>
                 <Container>
@@ -152,10 +150,10 @@ class Assist extends React.Component {
                   </TextBig>
                   <Breakpoint medium down>
                     <FlexWrapper>
-                      <RequestDemoButton />
+                      <RequestDemoButton/>
                     </FlexWrapper>
                   </Breakpoint>
-                  <HeroSection.Img src={AssistHeroImage} />
+                  <HeroSection.Img src={AssistHeroImage}/>
                 </Container>
               </HeroSection>
               <Section benefits>
@@ -194,7 +192,7 @@ class Assist extends React.Component {
                   </FlexWrapper>
                 </Container>
               </Section>
-              <Testimonials color="yellow" data={quotesData} />
+              <Testimonials color="yellow" data={quotesData}/>
               <AssistFeaturesSection>
                 <Feature
                   imagePosition="left"
@@ -205,11 +203,8 @@ class Assist extends React.Component {
                     <>
                       {content.feature1Description.feature1Description}
                       <div>
-                        <Space height="20px" />
-                        <Link
-                          to="/whitepaper/customer-service-tickets-categorization"
-                          target="_blank"
-                        >
+                        <Space height="20px"/>
+                        <Link to="/whitepaper/customer-service-tickets-categorization" target="_blank">
                           <Button secondary>Download our whitepaper</Button>
                         </Link>
                       </div>
@@ -222,14 +217,7 @@ class Assist extends React.Component {
                 >
                   <Feature.Title>{content.feature2Title}</Feature.Title>
                   <Feature.Description>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: content.feature2Description.feature2Description.replace(
-                          /\s\s/g,
-                          '</br>'
-                        ),
-                      }}
-                    />
+                    <p dangerouslySetInnerHTML={{ __html: content.feature2Description.feature2Description.replace(/\s\s/g, '</br>') }}/>
                   </Feature.Description>
                 </Feature>
               </AssistFeaturesSection>
@@ -268,7 +256,7 @@ class Assist extends React.Component {
                 image={content.bottomCtaImage.file.url}
                 title={content.bottomCtaTitle}
               />
-              <Footer location={this.props.location} />
+              <Footer location={this.props.location}/>
             </PageTransitionWrapper>
           </main>
         </React.Fragment>

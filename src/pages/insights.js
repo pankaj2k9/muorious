@@ -53,7 +53,7 @@ const InsightsHeroTitle = styled.h1`
 const InsightsHeroDescription = styled.p`
   max-width: 877px;
   width: 100%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -161,12 +161,12 @@ const InsightsFeaturesMoreCardTitle = styled.h4`
   font-size: 22чpx;
   line-height: 32px;
   color: #000000;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era, sans-serif;
   padding: 20px 20px;
 `
 
 const InsightsFeaturesMoreCardDescription = styled.p`
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #828282;
@@ -174,10 +174,8 @@ const InsightsFeaturesMoreCardDescription = styled.p`
 `
 
 class Insights extends React.Component {
-  componentDidMount() {
-    window &&
-      window.gaTrack &&
-      window.gaTrack('pageview', { page: window.location.pathname })
+  componentDidMount(){
+    window && window.gaTrack && window.gaTrack('pageview', {  page: window.location.pathname })
   }
 
   render() {
@@ -236,19 +234,25 @@ class Insights extends React.Component {
                   >
                     <Col insightsBenefits>
                       <div>
-                        <H3DIFF color="green">{content.benefit1Title}</H3DIFF>
+                      <H3DIFF color="green">
+                          {content.benefit1Title}
+                        </H3DIFF>
                         <InsightsBenefitsContentDescription>
                           {content.benefit1Description.benefit1Description}
                         </InsightsBenefitsContentDescription>
                       </div>
                       <div>
-                        <H3DIFF color="green">{content.benefit2Title}</H3DIFF>
+                      <H3DIFF color="green">
+                          {content.benefit2Title}
+                        </H3DIFF>
                         <InsightsBenefitsContentDescription>
                           {content.benefit2Description.benefit2Description}
                         </InsightsBenefitsContentDescription>
                       </div>
                       <div>
-                        <H3DIFF color="green">{content.benefit3Title}</H3DIFF>
+                      <H3DIFF color="green">
+                          {content.benefit3Title}
+                        </H3DIFF>
                         <InsightsBenefitsContentDescription>
                           {content.benefit3Description.benefit3Description}
                         </InsightsBenefitsContentDescription>

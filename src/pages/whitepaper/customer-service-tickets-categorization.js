@@ -17,18 +17,18 @@ import Button from '../../atoms/Button'
 import axios from 'axios'
 import vars from '../../utils/vars'
 import ColoredText from '../../components/shared/ColoredText'
-import * as FileSaver from 'save-as-js'
+import * as FileSaver from 'save-as-js';
 
 const FormSection = styled.section`
   min-height: 100vh;
-  background-color: #174f49;
+  background-color: #174F49;
   padding-top: 140px;
   background-image: url(${WhitepaperIllustration});
   background-size: cover;
-  @media (max-width: 960px) {
+  @media(max-width: 960px){
     padding-top: 100px;
   }
-  @media (max-width: 768px) {
+  @media(max-width: 768px){
     background-image: none;
   }
 `
@@ -41,8 +41,8 @@ const Inner = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 60px;
-  @media (max-width: 960px) {
-    padding-bottom: 0;
+  @media(max-width: 960px){
+  padding-bottom: 0;
     flex-direction: column-reverse;
     flex-wrap: wrap;
   }
@@ -51,7 +51,7 @@ const Col = styled.div`
   width: 45%;
   padding: 0 15px;
 
-  @media (max-width: 960px) {
+  @media(max-width: 960px){
     width: 100%;
   }
 `
@@ -64,40 +64,41 @@ const Illustration = styled.img`
 `
 
 const Title = styled.h2`
-  font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
-  line-height: 50px;
-  color: #ffffff;
-  margin-bottom: 40px;
-  @media (max-width: 960px) {
-    font-size: 24px;
-    line-height: 32px;
-    margin-bottom: 25px;
-  }
+font-family: Modern Era;
+font-size: 38px;
+line-height: 50px;
+color: #FFFFFF;
+margin-bottom: 40px;
+@media(max-width: 960px){
+font-size: 24px;
+line-height: 32px;
+margin-bottom: 25px;
+}
 `
 
 const Description = styled.p`
-  font-size: 18px;
-  line-height: 32px;
-  color: #fff;
-  margin-bottom: 40px;
-  @media (max-width: 960px) {
-    font-size: 14px;
-    line-height: 32px;
-    margin-bottom: 25px;
-  }
+font-size: 18px;
+line-height: 32px;
+color: #fff;
+margin-bottom: 40px;
+@media(max-width: 960px){
+font-size: 14px;
+line-height: 32px;
+margin-bottom: 25px;
+}
 `
+
 
 const Field = styled.div`
   width: 100%;
   max-width: 360px;
   position: relative;
-  &:not(:last-of-type) {
+  &:not(:last-of-type){
     margin-bottom: 15px;
   }
   label {
     display: block;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Modern Era;
     font-size: 12px;
     line-height: 24px;
 
@@ -115,7 +116,7 @@ const Field = styled.div`
     padding: 5px;
     color: #333;
     -webkit-appearance: none;
-    background: #ffffff;
+    background: #FFFFFF;
     &:focus,
     &:active {
       outline: none;
@@ -136,18 +137,18 @@ const SelectArrow = styled.span`
 `
 
 const FieldError = styled.p`
-  line-height: 1.4;
-  font-size: 14px;
-  margin: 10px 0;
-  color: maroon;
+    line-height: 1.4;
+    font-size: 14px;
+    margin: 10px 0;
+    color: maroon;
 `
 
 const P = styled.p`
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era;
   font-size: 9px;
   line-height: 24px;
   margin: 7px 0;
-  color: #ffffff;
+  color: #FFFFFF;
 `
 const Checkbox = styled.input`
   display: none;
@@ -158,12 +159,12 @@ const Checkbox = styled.input`
       width: 10px;
       height: 10px;
       margin-right: 5px;
-      border: 1px solid #ededed;
+      border: 1px solid #EDEDED;
       transform: translateY(2px);
     }
   }
   &:checked + label:before {
-    background-color: #ffc509;
+    background-color: #FFC509;
   }
 `
 
@@ -192,10 +193,9 @@ class WhitepaperPage extends React.Component {
         self.scrollAnchorRef.current.simulateClick()
       }
     }, 20)
-    window &&
-      window.gaTrack &&
-      window.gaTrack('pageview', { page: window.location.pathname })
+    window && window.gaTrack && window.gaTrack('pageview', { page: window.location.pathname })
   }
+
 
   updateField = (e, field) => {
     console.log('updateField', e, field)
@@ -207,42 +207,33 @@ class WhitepaperPage extends React.Component {
     })
   }
 
-  submitData = e => {
+  submitData = (e) => {
     e.preventDefault()
 
     console.log('submitData', e)
 
     window.gtag('event', 'New demo request', this.state.values)
 
-    let fileName = this.props.data.allContentfulWhitepaperPage.edges[0].node
-      .document.file.fileName
-    let fileUrl = this.props.data.allContentfulWhitepaperPage.edges[0].node
-      .document.file.url
+    let fileName = this.props.data.allContentfulWhitepaperPage.edges[0].node.document.file.fileName;
+    let fileUrl = this.props.data.allContentfulWhitepaperPage.edges[0].node.document.file.url;
 
-    axios
-      .post(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${
-          vars.hubspot.portal_id
-        }/${vars.hubspot.form_id}`,
-        {
-          fields: Object.entries(this.state.values).reduce(
-            (arr, [key, value]) => [...arr, { name: key, value }],
-            []
-          ),
-        },
-        { headers: { 'Content-Type': 'application/json' } }
-      )
-      .then(() => {
-        fetch(fileUrl).then(res => {
-          res.blob().then(b => {
-            FileSaver.saveAs(b, fileName)
-          })
-        })
-        this.setState({ postForm: true })
+    axios.post(
+      `https://api.hsforms.com/submissions/v3/integration/submit/${vars.hubspot.portal_id}/${
+        vars.hubspot.form_id
+        }`,
+      { fields: Object.entries(this.state.values).reduce((arr, [key, value]) => [...arr, { name: key, value }], []) },
+      { headers: { 'Content-Type': 'application/json' } },
+    ).then(() => {
+      fetch(fileUrl).then((res) => {
+        res.blob().then((b) => {
+          FileSaver.saveAs(b, fileName);
+        });
       })
+      this.setState({ postForm: true })
+    })
       .catch(e => {
         const { errors } = e.response.data
-        if (!!errors.find(i => i.errorType == 'BLOCKED_EMAIL')) {
+        if (!!(errors.find(i => i.errorType == 'BLOCKED_EMAIL'))) {
           this.setState({ blockedEmail: true })
         }
       })
@@ -252,8 +243,7 @@ class WhitepaperPage extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
 
     const content = this.props.data.allContentfulHomepage.edges[0].node
-    const whitePaperContent = this.props.data.allContentfulWhitepaperPage
-      .edges[0].node
+    const whitePaperContent = this.props.data.allContentfulWhitepaperPage.edges[0].node
 
     const { postForm, blockedEmail } = this.state
     return (
@@ -270,137 +260,117 @@ class WhitepaperPage extends React.Component {
             to={this.props.location.hash}
           />
           <main style={{ overflow: 'hidden' }}>
-            <Nav transparency location={this.props.location} />
+            <Nav transparency location={this.props.location}/>
             <FormSection>
               <Inner>
                 <Col>
                   {postForm ? (
-                    <Title style={{ textAlign: 'center' }}>
-                      Thanks for submitting the form.
-                    </Title>
+                    <Title style={{textAlign: 'center'}}>Thanks for submitting the form.</Title>
                   ) : (
                     <>
-                      <Title>{whitePaperContent.title}</Title>
-                      <Description>
+                    <Title>{whitePaperContent.title}</Title>
+                    <Description>
+                      <ColoredText
+                        config={{
+                          'best practices': '#fff',
+                          'Artificial Intelligence': '#fff',
+                          'support and drastically enhance': '#fff',
+                        }}
+                        additionalStyles="font-weight: 600"
+                        text={whitePaperContent.description.description}
+                      />
+                    </Description>
+                    <form onSubmit={e => this.submitData(e)}>
+                      <Field>
+                        <input
+                          placeholder="Enter your first name"
+                          type="text"
+                          id="firstname"
+                          name="firstname"
+                          required
+                          onChange={e => this.updateField(e, 'firstname')}
+                        />
+                      </Field>
+                      <Field>
+                        <input
+                          placeholder="Enter your last name"
+                          type="text"
+                          id="lastname"
+                          name="lastname"
+                          required
+                          onChange={e => this.updateField(e, 'lastname')}
+                        />
+                      </Field>
+                      <Field>
+                        <input
+                          type="email"
+                          placeholder="Enter your email"
+                          id="email"
+                          name="email"
+                          required
+                          onChange={e => this.updateField(e, 'email')}
+                        />
+                        {blockedEmail ?
+                          <FieldError>Submission from this email address are not allowed</FieldError> : null}
+                      </Field>
+                      <Field>
+                        <select
+                          type="email"
+                          id="team_size"
+                          name="team_size"
+                          required
+                          onChange={e => this.updateField(e, 'support_team_size')}
+                        >
+                          <option value="Less than 20 agents">
+                            Less than 20 agents
+                          </option>
+                          <option value="Between 20 and 49 agents">
+                            Between 20 and 49 agents
+                          </option>
+                          <option value="Between 50 and 99 agents">
+                            Between 50 and 99 agents
+                          </option>
+                          <option value="Between 100 and 199 agents">
+                            Between 100 and 199 agents
+                          </option>
+                          <option value="More than 199 agents">
+                            More than 199 agents
+                          </option>
+                        </select>
+                        <SelectArrow/>
+                      </Field>
+                      <P><Checkbox type="checkbox" id="consent"/><label
+                        style={{ userSelect: 'none', cursor: 'pointer' }}
+                        htmlFor="consent">{whitePaperContent.subscriptionConsentDisclaimer}</label></P>
+                      <Button style={{ maxWidth: '360px' }} secondary type="submit" fluid>
+                        Download whitepaper
+                      </Button>
+                      <P>
                         <ColoredText
                           config={{
-                            'best practices': '#fff',
-                            'Artificial Intelligence': '#fff',
-                            'support and drastically enhance': '#fff',
+                            'Privacy Policy': '#fff',
                           }}
+                          link="/privacy"
                           additionalStyles="font-weight: 600"
-                          text={whitePaperContent.description.description}
+                          text={whitePaperContent.consentDisclaimer}
                         />
-                      </Description>
-                      <form onSubmit={e => this.submitData(e)}>
-                        <Field>
-                          <input
-                            placeholder="Enter your first name"
-                            type="text"
-                            id="firstname"
-                            name="firstname"
-                            required
-                            onChange={e => this.updateField(e, 'firstname')}
-                          />
-                        </Field>
-                        <Field>
-                          <input
-                            placeholder="Enter your last name"
-                            type="text"
-                            id="lastname"
-                            name="lastname"
-                            required
-                            onChange={e => this.updateField(e, 'lastname')}
-                          />
-                        </Field>
-                        <Field>
-                          <input
-                            type="email"
-                            placeholder="Enter your email"
-                            id="email"
-                            name="email"
-                            required
-                            onChange={e => this.updateField(e, 'email')}
-                          />
-                          {blockedEmail ? (
-                            <FieldError>
-                              Submission from this email address are not allowed
-                            </FieldError>
-                          ) : null}
-                        </Field>
-                        <Field>
-                          <select
-                            type="email"
-                            id="team_size"
-                            name="team_size"
-                            required
-                            onChange={e =>
-                              this.updateField(e, 'support_team_size')
-                            }
-                          >
-                            <option value="Less than 20 agents">
-                              Less than 20 agents
-                            </option>
-                            <option value="Between 20 and 49 agents">
-                              Between 20 and 49 agents
-                            </option>
-                            <option value="Between 50 and 99 agents">
-                              Between 50 and 99 agents
-                            </option>
-                            <option value="Between 100 and 199 agents">
-                              Between 100 and 199 agents
-                            </option>
-                            <option value="More than 199 agents">
-                              More than 199 agents
-                            </option>
-                          </select>
-                          <SelectArrow />
-                        </Field>
-                        <P>
-                          <Checkbox type="checkbox" id="consent" />
-                          <label
-                            style={{ userSelect: 'none', cursor: 'pointer' }}
-                            htmlFor="consent"
-                          >
-                            {whitePaperContent.subscriptionConsentDisclaimer}
-                          </label>
-                        </P>
-                        <Button
-                          style={{ maxWidth: '360px' }}
-                          secondary
-                          type="submit"
-                          fluid
-                        >
-                          Download whitepaper
-                        </Button>
-                        <P>
-                          <ColoredText
-                            config={{
-                              'Privacy Policy': '#fff',
-                            }}
-                            link="/privacy"
-                            additionalStyles="font-weight: 600"
-                            text={whitePaperContent.consentDisclaimer}
-                          />
-                        </P>
-                      </form>
+                      </P>
+                    </form>
                     </>
                   )}
                 </Col>
                 <Col>
-                  <Illustration
-                    src={whitePaperContent.illustration.file.url}
-                    alt="Miuros whitepaper"
-                  />
+                  <Illustration src={whitePaperContent.illustration.file.url} alt="Miuros whitepaper"/>
                 </Col>
               </Inner>
+
             </FormSection>
             <PageTransitionWrapper>
               <Section customerLogos>
-                <HomeCustomerLogos customerLogos={content.customerLogos} />
+                <HomeCustomerLogos customerLogos={content.customerLogos}/>
               </Section>
 
-              <Footer location={this.props.location} />
+              <Footer location={this.props.location}/>
             </PageTransitionWrapper>
           </main>
         </React.Fragment>

@@ -18,7 +18,7 @@ const Main = styled.main`
 `
 
 const PageTitle = styled.h2`
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era;
   font-size: 42px;
   line-height: 50px;
   text-align: center;
@@ -31,7 +31,7 @@ const PageTitle = styled.h2`
 `
 
 const P = styled.p`
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era;
   font-size: 16px;
   line-height: 24px;
   color: #606060;
@@ -45,7 +45,7 @@ const P = styled.p`
 `
 
 const TextTitle1 = styled.h3`
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era;
   font-size: 36px;
   line-height: 48px;
   font-weight: 400;
@@ -59,7 +59,7 @@ const TextTitle1 = styled.h3`
 `
 
 const TextTitle2 = styled.h4`
-  font-family: 'Montserrat', sans-serif;
+  font-family: Modern Era;
   font-size: 28px;
   line-height: 48px;
   font-weight: 400;
@@ -81,7 +81,7 @@ const options = {
     [BLOCKS.HEADING_5]: (node, children) => <TextTitle2>{children}</TextTitle2>,
     [BLOCKS.HEADING_6]: (node, children) => <TextTitle2>{children}</TextTitle2>,
     [BLOCKS.PARAGRAPH]: (node, children) => <P>{children}</P>,
-  },
+  }
 }
 
 import Footer from '../components/Footer'
@@ -94,10 +94,7 @@ const PrivacyPage = props => {
       },
     },
   } = props
-  const pageTitle = get(
-    props,
-    'data.allContentfulLegalInfo.edges[0].node.title'
-  )
+  const pageTitle = get(props, 'data.allContentfulLegalInfo.edges[0].node.title')
   const json = get(
     props,
     'data.allContentfulLegalInfo.edges[0].node.privacyInfo.json'
@@ -125,9 +122,7 @@ export default PrivacyPage
 
 export const pageQuery = graphql`
   query {
-    allContentfulLegalInfo(
-      filter: { contentful_id: { eq: "NgmvsRWeASdp7AZkX88lQ" } }
-    ) {
+    allContentfulLegalInfo(filter: {contentful_id: {eq:"NgmvsRWeASdp7AZkX88lQ"}}) {
       edges {
         node {
           title

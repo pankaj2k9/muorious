@@ -217,7 +217,7 @@ class Navigation extends React.Component {
                 <Col sm={4} lg={4}>
                   <Row middle="xs" end="xs">
                     <Col xs={2}>
-                      <StyledLink as="a" href="/login">
+                      <StyledLink as="a" href="/dashboard">
                         Login
                       </StyledLink>
                     </Col>

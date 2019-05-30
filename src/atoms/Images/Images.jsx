@@ -33,7 +33,7 @@ const IndexCustomerLogo = styled('img').attrs(props => ({
 }))`
   margin: 0;
   height: 34px;
-  width: auto;
+  width: 200px;
   opacity: 0.4;
   max-width: 100%;
   transition: transform 0.3s;

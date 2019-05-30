@@ -240,7 +240,7 @@ class HamburgerMenu extends Component {
                 <Link to="/about">About</Link>
               </MobileMenuItem>
               <MobileMenuItem>
-                <Link to="/login">Login</Link>
+                <Link to="/dashboard">Login</Link>
               </MobileMenuItem>
             </MobileMenuItems>
             <MobileMenuBottom>

@@ -152,7 +152,7 @@ const CompanyLogo = styled.img`
   height: 50px;
   float: left;
   margin-bottom: 10px;
-  filter: brightness(0) invert(1);
+  filter: brightness(0.5) invert(1);
 `
 
 const Testimonial = ({

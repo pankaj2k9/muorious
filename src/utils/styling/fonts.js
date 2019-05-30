@@ -28,9 +28,11 @@ const injectFontsStyle = createGlobalStyle`
     src: url("${modernEraLight}") format('truetype');
   }
 
+  @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
   body {
-    font-family: Modern Era;
-    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size:16px;
   }
 `
 

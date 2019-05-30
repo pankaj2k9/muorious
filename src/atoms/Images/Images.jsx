@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { mediaQueries } from '../../utils/styling';
+import { mediaQueries } from '../../utils/styling'
 
 const IndexHeroImg = styled('img').attrs(props => ({
   src: props.src,
@@ -13,10 +13,12 @@ const IndexHeroImg = styled('img').attrs(props => ({
     max-width: 565px;
   }
   bottom: 0;
-  max-width: 44%;
-  bottom: -24px;
   z-index: 1;
-
+  display: block;
+  position: absolute;
+  top: 70px;
+  max-width: 100%;
+  height: calc(100% - 70px);
 `
 
 const AssistSideImg = styled('img').attrs(props => ({

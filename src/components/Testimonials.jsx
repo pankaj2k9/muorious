@@ -152,7 +152,7 @@ const CompanyLogo = styled.img`
   height: 50px;
   float: left;
   margin-bottom: 10px;
-  filter: brightness(0.1) invert(1);
+  filter: brightness(0) invert(1);
 `
 
 const Testimonial = ({
@@ -161,8 +161,10 @@ const Testimonial = ({
   authorLastName,
   authorJobTitle,
   authorCompany,
+  indx,
   color = 'green',
 }) => {
+  console.log(indx)
   const customerLogo = get(authorCompany, 'customerLogo.file.url')
   return (
     <TestimonialOuter>
@@ -229,7 +231,7 @@ class Testimonials extends React.Component {
           <div className="container">
             <Slider ref={el => (this.slider = el)} {...settings}>
               {data.map((i, idx) => (
-                <Testimonial key={idx} color={color} {...i} />
+                <Testimonial key={idx} color={color} indx={i} {...i} />
               ))}
             </Slider>
             <Circles

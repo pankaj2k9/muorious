@@ -154,6 +154,14 @@ const CompanyLogo = styled.img`
   margin-bottom: 10px;
   filter: brightness(0) invert(1);
 `
+const CompanyLogoGray = styled.img`
+  max-width: 80%;
+  width: auto;
+  height: 50px;
+  float: left;
+  margin-bottom: 10px;
+  filter: grayscale(100%);
+`
 
 const Testimonial = ({
   content,
@@ -164,15 +172,19 @@ const Testimonial = ({
   indx,
   color = 'green',
 }) => {
-  console.log(indx)
   const customerLogo = get(authorCompany, 'customerLogo.file.url')
+  console.log(indx.authorCompany.customerName)
   return (
     <TestimonialOuter>
       <TestimonialContent color={color}>
         <TestimonialText>{content}</TestimonialText>
         <TestimonialAutor color={color}>
           {authorCompany && authorCompany.customerLogo ? (
-            <CompanyLogo src={customerLogo} />
+            authorCompany.customerName === 'Heetch' ? (
+              <CompanyLogoGray src={customerLogo} />
+            ) : (
+              <CompanyLogo src={customerLogo} />
+            )
           ) : null}
           <AuthorName>
             {authorFirstName} {authorLastName}

@@ -13,6 +13,7 @@ const CirclesOuter = styled.div`
   transform: translateY(-40px);
   @media (max-width: 992px) {
     transform: none;
+    margin: 30px 0 0px;
   }
 `
 
@@ -66,6 +67,7 @@ const TestimonialText = styled.p`
     padding: 30px;
     font-size: 16px;
     line-height: 1.5;
+    text-align: center;
   }
 `
 
@@ -160,7 +162,7 @@ const CompanyLogoGray = styled.img`
   height: 50px;
   float: left;
   margin-bottom: 10px;
-  filter: grayscale(100%);
+  filter: sepia(150%) hue-rotate(360deg) saturate(0.5);
 `
 
 const Testimonial = ({

@@ -9,7 +9,7 @@ import ColoredText from '../components/shared/ColoredText'
 import LayoutWithThemeProvider from '../layouts/LayoutWithThemeProvider'
 import Nav from '../components/Navigation'
 import Footer from '../components/Footer'
-import Button from '../atoms/Button'
+import Button, { MobileButton } from '../atoms/Button'
 import Section from '../atoms/Section/Section'
 import { H1, H2, H3, H4, TextBig, TextHighlighter } from '../atoms/Texts'
 import Row from '../atoms/Row'
@@ -34,6 +34,9 @@ import CTABlock from '../components/shared/CtaBlock'
 
 const Img = styled.img`
   width: 100%;
+  @media (max-width: 992px) {
+    margin-bottom: 30px;
+  }
 `
 
 const RequestDemoButtonFooterWrapper = styled('a')`
@@ -54,7 +57,9 @@ class RootIndex extends React.Component {
         self.scrollAnchorRef.current.simulateClick()
       }
     }, 20)
-    window && window.gaTrack && window.gaTrack('pageview', { page: window.location.pathname })
+    window &&
+      window.gaTrack &&
+      window.gaTrack('pageview', { page: window.location.pathname })
   }
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -129,7 +134,9 @@ class RootIndex extends React.Component {
                         </H2>
                       </Breakpoint>
                       <Breakpoint medium down>
-                        <H2 small>{content.featuresTitle}</H2>
+                        <H2 small center>
+                          {content.featuresTitle}
+                        </H2>
                       </Breakpoint>
                     </Col>
                   </Row>
@@ -148,15 +155,18 @@ class RootIndex extends React.Component {
                     <Breakpoint medium up>
                       <>
                         <Col equal center>
-                          <H3> <ColoredText
-                            config={{
-                              Assist: '#FFC509',
-                              Insights: '#174F49',
-                              Experience: '#FF3A66',
-                            }}
-                            additionalStyles="font-weight: 600"
-                            text={content.feature1Title}
-                          /></H3>
+                          <H3>
+                            {' '}
+                            <ColoredText
+                              config={{
+                                Assist: '#FFC509',
+                                Insights: '#174F49',
+                                Experience: '#FF3A66',
+                              }}
+                              additionalStyles="font-weight: 600"
+                              text={content.feature1Title}
+                            />
+                          </H3>
                           <TextBig color="grey4">
                             {content.feature1Description.feature1Description}
                           </TextBig>
@@ -173,21 +183,25 @@ class RootIndex extends React.Component {
                       <>
                         <Col>
                           <Img src={content.feature1Image.file.url} />
-                          <H3> <ColoredText
-                            config={{
-                              Assist: '#FFC509',
-                              Insights: '#174F49',
-                              Experience: '#FF3A66',
-                            }}
-                            additionalStyles="font-weight: 600"
-                            text={content.feature1Title}
-                          /></H3>
+                          <H3>
+                            <ColoredText
+                              config={{
+                                Assist: '#FFC509',
+                                Insights: '#174F49',
+                                Experience: '#FF3A66',
+                              }}
+                              additionalStyles="font-weight: 600"
+                              text={content.feature1Title}
+                            />
+                          </H3>
                           <TextBig color="grey4">
                             {content.feature1Description.feature1Description}
                           </TextBig>
                           <FlexWrapper>
-                            <Link to="/assist">
-                              <Button light>Learn about Assist</Button>
+                            <Link to="/assist" className="mobilelink">
+                              <MobileButton light>
+                                Learn about Assist
+                              </MobileButton>
                             </Link>
                           </FlexWrapper>
                         </Col>
@@ -205,15 +219,17 @@ class RootIndex extends React.Component {
                           <IndexSideImg src={content.feature2Image.file.url} />
                         </Col>
                         <Col equal center>
-                          <H3> <ColoredText
-                            config={{
-                              Assist: '#FFC509',
-                              Insights: '#174F49',
-                              Experience: '#FF3A66',
-                            }}
-                            additionalStyles="font-weight: 600"
-                            text={content.feature2Title}
-                          /></H3>
+                          <H3>
+                            <ColoredText
+                              config={{
+                                Assist: '#FFC509',
+                                Insights: '#174F49',
+                                Experience: '#FF3A66',
+                              }}
+                              additionalStyles="font-weight: 600"
+                              text={content.feature2Title}
+                            />
+                          </H3>
                           <TextBig color="grey4">
                             {content.feature2Description.feature2Description}
                           </TextBig>
@@ -227,20 +243,26 @@ class RootIndex extends React.Component {
                       <>
                         <Col>
                           <Img src={content.feature2Image.file.url} />
-                          <H3> <ColoredText
-                            config={{
-                              Assist: '#FFC509',
-                              Insights: '#174F49',
-                              Experience: '#FF3A66',
-                            }}
-                            additionalStyles="font-weight: 600"
-                            text={content.feature2Title}
-                          /></H3>
+                          <H3>
+                            <ColoredText
+                              config={{
+                                Assist: '#FFC509',
+                                Insights: '#174F49',
+                                Experience: '#FF3A66',
+                              }}
+                              additionalStyles="font-weight: 600"
+                              text={content.feature2Title}
+                            />
+                          </H3>
                           <TextBig color="grey4">
                             {content.feature2Description.feature2Description}
                           </TextBig>
                           <FlexWrapper>
-                            <Button light>Learn about Insights</Button>
+                            <Link className="mobilelink" to="/insights">
+                              <MobileButton light>
+                                Learn about Insights
+                              </MobileButton>
+                            </Link>
                           </FlexWrapper>
                         </Col>
                       </>
@@ -265,7 +287,9 @@ class RootIndex extends React.Component {
                             text={content.feature3Title}
                           />
 
-                          <RequestDemoButton handler={<Note>Coming soon</Note>}/>
+                          <RequestDemoButton
+                            handler={<Note>Coming soon</Note>}
+                          />
                         </H3>
                         <TextBig color="grey4">
                           {content.feature3Description.feature3Description}
@@ -290,7 +314,9 @@ class RootIndex extends React.Component {
                             additionalStyles="font-weight: 600"
                             text={content.feature3Title}
                           />
-                          <RequestDemoButton handler={<Note>Coming soon</Note>}/>
+                          <RequestDemoButton
+                            handler={<Note>Coming soon</Note>}
+                          />
                         </H3>
                         <TextBig color="grey4">
                           {content.feature3Description.feature3Description}
@@ -366,6 +392,16 @@ class RootIndex extends React.Component {
                               .integrationDescription
                           }
                         </TextBig>
+                        <IndexSideImg
+                          src={content.integrationFastImage.file.url}
+                        />
+                         <H3>{content.integrationFastTitle}</H3>
+                        <TextBig color="grey4">
+                          {
+                            content.integrationFastDescription
+                              .integrationFastDescription
+                          }
+                        </TextBig>
                       </Col>
                     </Row>
                   </Breakpoint>
@@ -417,7 +453,7 @@ export const pageQuery = graphql`
               }
             }
           }
-          
+
           customerLogos {
             customerUrl
             customerLogo {

@@ -26,6 +26,10 @@ const ImgContainer = styled('div')`
 
 const MobileTagLine = styled(H4)`
   margin-bottom: 48px;
+  margin-top: -50px;
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    font-size: 40px;
+  }
 `
 
 const HomeHero = props => {

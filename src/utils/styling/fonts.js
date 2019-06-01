@@ -34,6 +34,12 @@ const injectFontsStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     font-size:16px;
   }
+  @media (max-width: 992px) {
+    .mobilelink{
+        width:100%;
+    }
+  }
+  
 `
 
 export default injectFontsStyle

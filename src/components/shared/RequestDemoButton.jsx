@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 import styled from 'styled-components'
-import Button from '../../atoms/Button'
+import Button, { MobileButton, TopButton } from '../../atoms/Button'
 import FlexWrapper from './FlexWrapper'
 import Space from './Space'
 import vars from '../../utils/vars'
+import Breakpoint from '../layout/Breakpoint'
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -87,10 +88,10 @@ const SelectArrow = styled.span`
 `
 
 const FieldError = styled.p`
-    line-height: 1.4;
-    font-size: 14px;
-    margin: 10px 0;
-    color: maroon;
+  line-height: 1.4;
+  font-size: 14px;
+  margin: 10px 0;
+  color: maroon;
 `
 
 export default class RequestDemoButton extends Component {
@@ -132,18 +133,25 @@ export default class RequestDemoButton extends Component {
   submitData = e => {
     e.preventDefault()
     window.gtag('event', 'New demo request', this.state.values)
-    axios.post(
-      `https://api.hsforms.com/submissions/v3/integration/submit/${vars.hubspot.portal_id}/${
-        vars.hubspot.form_id
-        }`,
-      { fields: Object.entries(this.state.values).reduce((arr, [key, value]) => [...arr, { name: key, value }], []) },
-      { headers: { 'Content-Type': 'application/json' } },
-    ).then(() => {
-      this.setState({ postForm: true })
-    })
+    axios
+      .post(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${
+          vars.hubspot.portal_id
+        }/${vars.hubspot.form_id}`,
+        {
+          fields: Object.entries(this.state.values).reduce(
+            (arr, [key, value]) => [...arr, { name: key, value }],
+            []
+          ),
+        },
+        { headers: { 'Content-Type': 'application/json' } }
+      )
+      .then(() => {
+        this.setState({ postForm: true })
+      })
       .catch(e => {
         const { errors } = e.response.data
-        if (!!(errors.find(i => i.errorType == 'BLOCKED_EMAIL'))) {
+        if (!!errors.find(i => i.errorType == 'BLOCKED_EMAIL')) {
           this.setState({ blockedEmail: true })
         }
       })
@@ -154,9 +162,18 @@ export default class RequestDemoButton extends Component {
     return handler ? (
       <span onClick={this.openModal}>{handler}</span>
     ) : (
-      <Button secondary onClick={this.openModal}>
-        Request demo
-      </Button>
+      <>
+        <Breakpoint medium up>
+          <Button secondary onClick={this.openModal}>
+            Request demo
+          </Button>
+        </Breakpoint>
+        <Breakpoint medium down>
+          <TopButton secondary onClick={this.openModal}>
+            Request demo
+          </TopButton>
+        </Breakpoint>
+      </>
     )
   }
 
@@ -165,94 +182,111 @@ export default class RequestDemoButton extends Component {
     return (
       <>
         {modalOpen &&
-        ReactDOM.createPortal(
-          <>
-            <ModalContent>
-              {postForm ? (
-                <FormTitle>Thanks for submitting the form. We will get back to you shortly</FormTitle>
-              ) : (
-                <>
-                  <FormTitle>Learn more about Miuros</FormTitle>
-                  <form onSubmit={this.submitData}>
-                    <FlexWrapper wrap align="flex-start" justify="space-between">
-                      <Field>
-                        <label htmlFor="firstname">First Name</label>
-                        <input
-                          placeholder="Enter your first name"
-                          type="text"
-                          id="firstname"
-                          name="firstname"
-                          required
-                          onChange={e => this.updateField(e, 'firstname')}
-                        />
-                      </Field>
-                      <Field>
-                        <label htmlFor="lastname">Last Name</label>
-                        <input
-                          placeholder="Enter your last name"
-                          type="text"
-                          id="lastname"
-                          name="lastname"
-                          required
-                          onChange={e => this.updateField(e, 'lastname')}
-                        />
-                      </Field>
-                    </FlexWrapper>
-                    <FlexWrapper wrap align="flex-start" justify="space-between">
-                      <Field>
-                        <label htmlFor="email">Email</label>
-                        <input
-                          type="email"
-                          placeholder="Enter your email"
-                          id="email"
-                          name="email"
-                          required
-                          onChange={e => this.updateField(e, 'email')}
-                        />
-                        {blockedEmail ? <FieldError>Submission from this email address are not allowed</FieldError> : null}
-                      </Field>
-                      <Field>
-                        <label htmlFor="team_size">
-                          Customer service team size
-                        </label>
-                        <select
-                          type="email"
-                          id="team_size"
-                          name="team_size"
-                          required
-                          onChange={e => this.updateField(e, 'support_team_size')}
-                        >
-                          <option value="Less than 20 agents">
-                            Less than 20 agents
-                          </option>
-                          <option value="Between 20 and 49 agents">
-                            Between 20 and 49 agents
-                          </option>
-                          <option value="Between 50 and 99 agents">
-                            Between 50 and 99 agents
-                          </option>
-                          <option value="Between 100 and 199 agents">
-                            Between 100 and 199 agents
-                          </option>
-                          <option value="More than 199 agents">
-                            More than 199 agents
-                          </option>
-                        </select>
-                        <SelectArrow/>
-                      </Field>
-                    </FlexWrapper>
-                    <Space height="20px"/>
-                    <Button secondary type="submit" fluid>
-                      Request demo
-                    </Button>
-                  </form>
-                </>
-              )}
-            </ModalContent>
-            <ModalBackdrop onClick={this.closeModal}/>
-          </>,
-          document.querySelector('body'),
-        )}
+          ReactDOM.createPortal(
+            <>
+              <ModalContent>
+                {postForm ? (
+                  <FormTitle>
+                    Thanks for submitting the form. We will get back to you
+                    shortly
+                  </FormTitle>
+                ) : (
+                  <>
+                    <FormTitle>Learn more about Miuros</FormTitle>
+                    <form onSubmit={this.submitData}>
+                      <FlexWrapper
+                        wrap
+                        align="flex-start"
+                        justify="space-between"
+                      >
+                        <Field>
+                          <label htmlFor="firstname">First Name</label>
+                          <input
+                            placeholder="Enter your first name"
+                            type="text"
+                            id="firstname"
+                            name="firstname"
+                            required
+                            onChange={e => this.updateField(e, 'firstname')}
+                          />
+                        </Field>
+                        <Field>
+                          <label htmlFor="lastname">Last Name</label>
+                          <input
+                            placeholder="Enter your last name"
+                            type="text"
+                            id="lastname"
+                            name="lastname"
+                            required
+                            onChange={e => this.updateField(e, 'lastname')}
+                          />
+                        </Field>
+                      </FlexWrapper>
+                      <FlexWrapper
+                        wrap
+                        align="flex-start"
+                        justify="space-between"
+                      >
+                        <Field>
+                          <label htmlFor="email">Email</label>
+                          <input
+                            type="email"
+                            placeholder="Enter your email"
+                            id="email"
+                            name="email"
+                            required
+                            onChange={e => this.updateField(e, 'email')}
+                          />
+                          {blockedEmail ? (
+                            <FieldError>
+                              Submission from this email address are not allowed
+                            </FieldError>
+                          ) : null}
+                        </Field>
+                        <Field>
+                          <label htmlFor="team_size">
+                            Customer service team size
+                          </label>
+                          <select
+                            type="email"
+                            id="team_size"
+                            name="team_size"
+                            required
+                            onChange={e =>
+                              this.updateField(e, 'support_team_size')
+                            }
+                          >
+                            <option value="Less than 20 agents">
+                              Less than 20 agents
+                            </option>
+                            <option value="Between 20 and 49 agents">
+                              Between 20 and 49 agents
+                            </option>
+                            <option value="Between 50 and 99 agents">
+                              Between 50 and 99 agents
+                            </option>
+                            <option value="Between 100 and 199 agents">
+                              Between 100 and 199 agents
+                            </option>
+                            <option value="More than 199 agents">
+                              More than 199 agents
+                            </option>
+                          </select>
+                          <SelectArrow />
+                        </Field>
+                      </FlexWrapper>
+                      <Space height="20px" />
+                      <Button secondary type="submit" fluid>
+                        Request demo
+                      </Button>
+                    </form>
+                  </>
+                )}
+              </ModalContent>
+              <ModalBackdrop onClick={this.closeModal} />
+            </>,
+            document.querySelector('body')
+          )}
         {this.renderAction()}
       </>
     )

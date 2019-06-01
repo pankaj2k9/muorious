@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { mediaQueries } from '../../utils/styling'
+import { mediaQueries, maxMediaQueries } from '../../utils/styling'
 
 const IndexHeroImg = styled('img').attrs(props => ({
   src: props.src,
@@ -9,8 +9,8 @@ const IndexHeroImg = styled('img').attrs(props => ({
   right: 0;
   @media (min-width: 1440px) {
     left: calc(50% + 50px);
-    top: 80px;
-    max-width: 565px;
+    top: 70px;
+    max-width: 100%;
   }
   bottom: 0;
   z-index: 1;
@@ -43,6 +43,9 @@ const IndexCustomerLogo = styled('img').attrs(props => ({
     opacity: 1;
     filter: grayscale(0%);
   }
+  ${maxMediaQueries.sm`
+     max-width: 86px;
+  `};
 `
 const IndexSideImg = styled('img').attrs(props => ({
   src: props.src,
@@ -51,6 +54,10 @@ const IndexSideImg = styled('img').attrs(props => ({
   max-width: 75%;
   margin: auto;
   transform: translateY(10px);
+  ${maxMediaQueries.sm`
+     max-width: 100%;
+     margin-bottom:30px;
+  `};
 `
 export {
   IndexHeroImg,

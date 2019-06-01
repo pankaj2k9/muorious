@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import FlexWrapper from './FlexWrapper'
 import RequestDemoButton from './RequestDemoButton'
 import Section from '../../atoms/Section/Section'
+import { maxMediaQueries } from '../../utils/styling'
 
 const Title = styled.p`
   font-family: Modern Era;
@@ -10,6 +11,11 @@ const Title = styled.p`
   line-height: 64px;
   text-align: center;
   color: #f9f9f9;
+  ${maxMediaQueries.sm`
+     padding:0px 20px;
+     font-size: 32px;
+     line-height: 40px;
+`};
 `
 
 const CTABlock = ({ image, title }) => (

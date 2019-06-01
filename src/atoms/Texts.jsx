@@ -51,6 +51,7 @@ const H3DIFF = styled('h3')`
   color: ${props => rightColor(props)};
   ${props => props.center && 'text-align: center;'} @media(max-width: 992px) {
     font-size: 24px;
+    margin: 20px 0px;
   }
 `
 

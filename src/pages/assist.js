@@ -31,6 +31,7 @@ import Feature from '../components/shared/Feature'
 import AutomaticCategorizationImg from '../atoms/Images/AutomaticCategorizationIllu.svg'
 import TemplateRecommandationImg from '../atoms/Images/TemplateRecommandationImg.svg'
 import CTABlock from '../components/shared/CtaBlock'
+import Hidden from '../atoms/Hidden'
 
 const AssistFeaturesSection = styled.section`
   padding: 80px 0 40px;
@@ -140,22 +141,44 @@ class Assist extends React.Component {
             <PageTransitionWrapper>
               <HeroSection assistHero>
                 <Container>
-                  <H1 style={{ fontWeight: 400 }} center>
-                    <span
-                      style={{ maxWidth: '760px', display: 'inline-block' }}
+                  <Breakpoint medium up>
+                    <H1 style={{ fontWeight: 400 }} center>
+                      <span
+                        style={{ maxWidth: '760px', display: 'inline-block' }}
+                      >
+                        {content.tagline}
+                      </span>
+                    </H1>
+                    <TextBig color="grey4" center>
+                      {content.description.description}
+                    </TextBig>
+                  </Breakpoint>
+                  <Breakpoint medium down>
+                    <H1
+                      style={{ fontWeight: 400, margin: '30px 0px 41px' }}
+                      center
                     >
-                      {content.tagline}
-                    </span>
-                  </H1>
-                  <TextBig color="grey4" center>
-                    {content.description.description}
-                  </TextBig>
+                      <span
+                        style={{ maxWidth: '760px', display: 'inline-block' }}
+                      >
+                        {content.tagline}
+                      </span>
+                    </H1>
+                    <TextBig
+                      style={{ margin: '0px 0px 41px' }}
+                      color="grey4"
+                      center
+                    >
+                      {content.description.description}
+                    </TextBig>
+                  </Breakpoint>
+
                   <Breakpoint medium down>
                     <FlexWrapper>
-                      <RequestDemoButton />
+                      <RequestDemoButton assistRequestBtn />
                     </FlexWrapper>
                   </Breakpoint>
-                  <HeroSection.Img src={AssistHeroImage} />
+                  <HeroSection.Img assistHero src={AssistHeroImage} />
                 </Container>
               </HeroSection>
               <Section benefits>
@@ -194,7 +217,11 @@ class Assist extends React.Component {
                   </FlexWrapper>
                 </Container>
               </Section>
-              <Testimonials color="yellow" data={quotesData} />
+              <Testimonials
+                assisttestmonials
+                color="yellow"
+                data={quotesData}
+              />
               <AssistFeaturesSection>
                 <Feature
                   imagePosition="left"

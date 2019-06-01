@@ -61,6 +61,9 @@ const InsightsHeroDescription = styled.p`
   text-align: center;
   margin: 0 auto;
   color: #4d4d4d;
+  @media (max-width: 992px) {
+    margin: 0 auto 41px !important;
+  }
 `
 
 const InsightsHeroImgSection = styled.div`
@@ -76,6 +79,9 @@ const InsightsBenefitsSection = styled.section`
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  @media (max-width: 992px) {
+    margin: 100px auto 60px !important;
+  }
 `
 
 const InsightsBenefitsContent = styled.div`
@@ -131,6 +137,9 @@ const InsightsFeaturesMoreTitle = styled.h3`
   text-align: center;
   color: #000000;
   padding-bottom: 20px;
+  @media (max-width: 992px) {
+    margin: 0 20px;
+  }
 `
 
 const InsightsFeaturesMoreCards1 = styled.div`
@@ -208,23 +217,38 @@ class Insights extends React.Component {
             <PageTransitionWrapper>
               <HeroSection insightsHero>
                 <Container>
-                  <H1 style={{ fontWeight: 400 }} center>
-                    <span
-                      style={{ maxWidth: '760px', display: 'inline-block' }}
-                    >
-                      {content.tagline}
-                    </span>
-                  </H1>
-                  <InsightsHeroDescription>
-                    {content.description.description}
-                  </InsightsHeroDescription>
+                  <Breakpoint medium up>
+                    <H1 style={{ fontWeight: 400 }} center>
+                      <span
+                        style={{ maxWidth: '760px', display: 'inline-block' }}
+                      >
+                        {content.tagline}
+                      </span>
+                    </H1>
+                    <InsightsHeroDescription>
+                      {content.description.description}
+                    </InsightsHeroDescription>
+                  </Breakpoint>
                   <Breakpoint medium down>
+                    <H1
+                      style={{ fontWeight: 400, margin: '30px 0px 41px' }}
+                      center
+                    >
+                      <span
+                        style={{ maxWidth: '760px', display: 'inline-block' }}
+                      >
+                        {content.tagline}
+                      </span>
+                    </H1>
+                    <InsightsHeroDescription>
+                      {content.description.description}
+                    </InsightsHeroDescription>
                     <FlexWrapper>
-                      <RequestDemoButton />
+                      <RequestDemoButton assistRequestBtn />
                     </FlexWrapper>
                   </Breakpoint>
                   <FlexWrapper>
-                    <HeroSection.Img src={InsightsHeroImg} />
+                    <HeroSection.Img insightHero src={InsightsHeroImg} />
                   </FlexWrapper>
                 </Container>
               </HeroSection>
@@ -262,7 +286,11 @@ class Insights extends React.Component {
                   </FlexWrapper>
                 </Container>
               </InsightsBenefitsSection>
-              <Testimonials color="green" data={quotesData} />
+              <Testimonials
+                insightsTestimnoial
+                color="green"
+                data={quotesData}
+              />
               <InsightsFeaturesSection>
                 <Feature imagePosition="right" image={QualityAssuranceIllu}>
                   <Feature.Title>{content.feature1Title}</Feature.Title>

@@ -164,12 +164,20 @@ export default class RequestDemoButton extends Component {
     ) : (
       <>
         <Breakpoint medium up>
-          <Button secondary onClick={this.openModal}>
+          <Button
+            secondary
+            assistRequestBtn={this.props.assistRequestBtn}
+            onClick={this.openModal}
+          >
             Request demo
           </Button>
         </Breakpoint>
         <Breakpoint medium down>
-          <TopButton secondary onClick={this.openModal}>
+          <TopButton
+            assistRequestBtn={this.props.assistRequestBtn}
+            secondary
+            onClick={this.openModal}
+          >
             Request demo
           </TopButton>
         </Breakpoint>

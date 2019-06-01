@@ -52,7 +52,6 @@ const Col = styled('div')`
         min-height: 840px;
         @media (max-width: 992px) {
           width: 100%;
-          min-height: auto;
         }
       `}  
     ${({ insightsBenefitsImg }) =>

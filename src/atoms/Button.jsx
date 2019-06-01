@@ -71,9 +71,10 @@ const Button = styled('button')`
 `
 const TopButton = styled('button')`
   cursor: pointer;
-  padding: 12px;
+  padding: ${({ assistRequestBtn }) =>
+    assistRequestBtn ? '12px 30px' : '12px'};
   font-size: 14px;
-  width: 100%;
+  width:  ${({ assistRequestBtn }) => (assistRequestBtn ? 'auto' : '100%')};
   height: 50px;
   ${({ fluid }) =>
     fluid
@@ -83,7 +84,7 @@ const TopButton = styled('button')`
       : null}
   border: none;
   outline: none;
-  font-family: Modern Era;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
 
   ${props => cssForPrimary(props)}
@@ -112,7 +113,7 @@ const MobileButton = styled('button')`
   ${props => cssForSecondary(props)}
   ${props => cssForLight(props)}
   ${maxMediaQueries.sm`
-     width: 100%;
+     width:  100%;
      background: #1B5E57;
      mix-blend-mode: normal;
      border: 1px solid #000000;

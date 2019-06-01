@@ -89,19 +89,35 @@ const Section = styled('section')`
           padding: 30px 0;
         }
       `}
-    ${({ testimonials }) =>
-      testimonials &&
-      css`
-        min-height: 420px;
-        padding: 40px 0;
-        background-size: cover;
-        background-size: 100%;
-        background-position: center;
-        @media (max-width: 992px) {
-          padding: 80px 0;
-        }
-      `}
+    
 
+      ${({ testimonials }) =>
+        testimonials &&
+        css`
+          min-height: 420px;
+          padding: 40px 0;
+          background-size: cover;
+          background-size: 100%;
+          background-position: center;
+          @media (max-width: 992px) {
+            padding: 80px 0;
+          }
+        `}
+        ${({ assisttestmonials }) =>
+          assisttestmonials &&
+          css`
+            @media (max-width: 992px) {
+              margin: 60px 0;
+            }
+          `}
+      ${({ insightsTestimnoial }) =>
+        insightsTestimnoial &&
+        css`
+          @media (max-width: 992px) {
+            padding: 80px 20px;
+          }
+        `}
+      
     ${({ color }) =>
       color &&
       css`
@@ -133,7 +149,9 @@ const Section = styled('section')`
     ${props =>
       props.cta &&
       css`
-        & > div {height: 100%};
+        & > div {
+          height: 100%;
+        }
         background-image: url(${props.src});
         background-size: cover;
         background-position: center;

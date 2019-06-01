@@ -241,7 +241,12 @@ class Testimonials extends React.Component {
         afterChange: current => this.setState({ active: current }),
       }
       return (
-        <Section testimonials color={color}>
+        <Section
+          testimonials
+          insightsTestimnoial={this.props.insightsTestimnoial}
+          assisttestmonials={this.props.assisttestmonials}
+          color={color}
+        >
           <div className="container">
             <Slider ref={el => (this.slider = el)} {...settings}>
               {data.map((i, idx) => (

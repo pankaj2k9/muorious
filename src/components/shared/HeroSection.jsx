@@ -37,8 +37,16 @@ const HeroSection = styled(Section)`
 
 HeroSection.Img = styled.img`
   display: block;
-  margin: 40px auto 0;
+  margin: '40px auto 0';
   max-width: 90%;
+  @media (max-width: 992px) {
+    margin: ${({ assistHero, insightHero }) =>
+      assistHero
+        ? '60px auto 0'
+        : insightHero
+          ? '60px auto 60px'
+          : '40px auto 0'};
+  }
 `
 
 export default HeroSection

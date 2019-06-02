@@ -15,6 +15,16 @@ const Row = styled('div')`
         : css`
             height: 100%;
           `};
+  ${props =>
+    props.center &&
+    css`
+      width: 100%;
+      justify-content:center;
+      @media (max-width: 992px) {
+
+        }
+      }
+    `};
 `
 
 export default Row

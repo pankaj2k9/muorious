@@ -124,6 +124,16 @@ class RootIndex extends React.Component {
                 </Container>
               </Section>
               <Testimonials color="pink" data={quotesData} />
+              <Section intro>
+                <Container>
+                  <Row center>
+                    <a href="tel:+1123-456-7890">
+                      <Button primary>Call For Action</Button>
+                    </a>
+                  </Row>
+                </Container>
+              </Section>
+
               <Section features>
                 <Container>
                   <Row>
@@ -395,7 +405,7 @@ class RootIndex extends React.Component {
                         <IndexSideImg
                           src={content.integrationFastImage.file.url}
                         />
-                         <H3>{content.integrationFastTitle}</H3>
+                        <H3>{content.integrationFastTitle}</H3>
                         <TextBig color="grey4">
                           {
                             content.integrationFastDescription

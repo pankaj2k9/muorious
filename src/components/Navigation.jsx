@@ -208,6 +208,9 @@ class Navigation extends React.Component {
                           {renderIntegrationLink(props.location)}
                         </ListItem>
                         <ListItem nav>
+                          <Link to="/use-cases">Use Cases</Link>
+                        </ListItem>
+                        <ListItem nav>
                           <Link to="/about">About</Link>
                         </ListItem>
                       </List>

@@ -40,6 +40,7 @@ const FooterMiurosAsset = styled.div`
     min-width: 100%;
     width: 100%;
     div hr {
+      width: 80%;
       max-width: 80%;
     }
     div,
@@ -48,6 +49,9 @@ const FooterMiurosAsset = styled.div`
       display: flex;
       justify-content: center;
       margin: 20px 0px;
+    }
+    .copyRight {
+      font-size: 13px;
     }
   }
 `
@@ -66,10 +70,14 @@ const FooterTwitterLogo = styled.img`
 `
 
 const FooterFeatures = styled.div`
-  margin-right: 120px;
+  margin-right: 110px;
   line-height: 32px;
   a {
     color: white;
+    margin-left: 10px;
+  }
+  b a {
+    margin-left: 0px;
   }
 `
 
@@ -92,8 +100,12 @@ const FooterCompany = styled.div`
   a {
     color: white;
   }
+  img {
+    max-width: 27px;
+    margin-bottom: 10px;
+  }
   @media (max-width: 992px) {
-    margin-right: 20px;
+    margin-right: 65px;
   }
 `
 
@@ -284,7 +296,9 @@ class Footer extends React.Component {
                   <Link to="/">
                     <Logo />
                   </Link>
-                  <div>2019 Miurous All rights reserved</div>
+                  <div className="copyRight">
+                    2019 Miurous All rights reserved
+                  </div>
                 </FooterMiurosAsset>
               </FooterColumn>
             </FooterContent>

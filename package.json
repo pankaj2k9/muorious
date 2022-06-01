@@ -30,7 +30,7 @@
     "react-socks": "^1.0.1",
     "react-styled-flexboxgrid": "^3.1.0",
     "save-as-js": "^1.0.0",
-    "sharp": "^0.21.0",
+    "sharp": "^0.30.5",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.2.0"
   },
